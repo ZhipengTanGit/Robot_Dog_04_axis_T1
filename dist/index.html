@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F3EF">
+  <meta name="description" content="真实机器人装配模型的配色、打印、3D装配指导、爆炸图与四轴动作编排工作台。">
+  <title>四足 · 配色工作台 | 装配与编舞</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M7 3v6h10V4M7 21v-8h10v8"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m-5 5 5-5 5 5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="m16 3 4 4-4 4M20 7H9a6 6 0 0 0-6 6m5 8-4-4 4-4M4 17h11a6 6 0 0 0 6-6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 3 9 5v9l-9 5-9-5V8l9-5Zm0 10v9M3 8l9 5 9-5M7.5 5.5l9 5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8V4Z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4v16M17 4v16"/></symbol>
+    <symbol id="i-step" viewBox="0 0 24 24"><path d="M4 7h8M8 3l4 4-4 4M20 17h-8m4-4-4 4 4 4"/></symbol>
+    <symbol id="i-explode" viewBox="0 0 24 24"><path d="m12 2 6 3-6 3-6-3 6-3Zm0 8 6 3-6 3-6-3 6-3Zm0 8 6 3-6 3-6-3 6-3ZM3 11v6m18-6v6"/></symbol>
+    <symbol id="i-motion" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+  </svg>
+
+  <header class="app-header">
+    <a class="brand" href="./" aria-label="四足配色工作台首页">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <strong>四足</strong><span class="brand-divider">/</span><span class="brand-wordmark">ROBOT WORKBENCH</span>
+    </a>
+    <div class="header-actions">
+      <details class="file-menu" id="fileMenu">
+        <summary class="button button-quiet"><span>方案文件</span><svg><use href="#i-chevron"/></svg></summary>
+        <div class="menu-popover">
+          <button type="button" id="exportJson"><svg><use href="#i-download"/></svg>导出 JSON 方案</button>
+          <button type="button" id="importJson"><svg><use href="#i-upload"/></svg>导入 JSON 方案</button>
+          <button type="button" id="export3mfMenu"><svg><use href="#i-cube"/></svg>导出已上色 3MF</button>
+        </div>
+      </details>
+      <button class="button button-outline" type="button" id="exportPng" disabled title="真实模型加载完成后可导出"><svg><use href="#i-download"/></svg><span>导出图片</span></button>
+      <button class="button button-primary" type="button" id="saveScheme"><svg><use href="#i-save"/></svg><span>保存方案</span></button>
+    </div>
+  </header>
+
+  <div class="workspace-bar">
+    <nav class="workspace-tabs" aria-label="工作页面">
+      <a href="#color" data-workspace="color" aria-current="page"><svg aria-hidden="true"><use href="#i-cube"/></svg><span>配色与打印</span></a>
+      <a href="#assembly" data-workspace="assembly"><svg aria-hidden="true"><use href="#i-step"/></svg><span>装配指导</span></a>
+      <a href="#explode" data-workspace="explode"><svg aria-hidden="true"><use href="#i-explode"/></svg><span>爆炸图</span></a>
+      <a href="#choreography" data-workspace="choreography"><svg aria-hidden="true"><use href="#i-motion"/></svg><span>动作编舞</span></a>
+      <a href="./hardware.html"><span>硬件测试</span></a>
+    </nav>
+    <div class="display-controls" aria-label="模型显示">
+      <label class="check-label"><input type="checkbox" id="internalsVisible" checked><span>显示内部件</span></label>
+      <label class="check-label"><input type="checkbox" id="shellTransparent"><span>透视外壳</span></label>
+    </div>
+  </div>
+
+  <main class="workspace">
+    <section class="model-workspace" aria-labelledby="workspaceTitle">
+      <div class="workspace-heading">
+        <div><p class="eyebrow">DESIGN WORKSPACE <span>01</span></p><h1 id="workspaceTitle">给四足一点新颜色<span class="title-dot">.</span></h1></div>
+        <div class="model-badge" id="modelBadge"><span class="status-dot"></span><span id="modelState">正在加载</span></div>
+      </div>
+
+      <div class="stage" id="stage" data-backdrop="light">
+        <div id="viewport" aria-label="机器人三维模型，可拖动旋转、滚轮缩放，或使用下方视角按钮" tabindex="0"></div>
+        <div class="stage-caption"><span class="micro-label">ASSEMBLY</span><strong id="modelName">四轴桌面机器狗</strong><span id="modelDetail">真实装配模型 · 分区配色</span></div>
+        <div class="selection-tag"><span id="selectionDot"></span><span id="selectionLabel">正在编辑 · 外壳</span></div>
+
+        <div class="loading-state" id="loadingState" role="status" aria-live="polite">
+          <div class="loading-orbit"><svg><use href="#i-cube"/></svg></div>
+          <strong id="loadingTitle">载入真实装配模型</strong>
+          <p id="loadingText">正在准备三维视窗，请稍等。</p>
+          <button class="button button-outline" type="button" id="retryLoad" hidden>重新载入</button>
+        </div>
+
+        <div class="stage-tools">
+          <div class="view-switch" role="group" aria-label="模型视角">
+            <button type="button" data-view="iso" aria-pressed="true" disabled>立体</button>
+            <button type="button" data-view="front" aria-pressed="false" disabled>正面</button>
+            <button type="button" data-view="side" aria-pressed="false" disabled>侧面</button>
+            <button type="button" data-view="top" aria-pressed="false" disabled>俯视</button>
+          </div>
+          <div class="navigation-actions">
+            <button class="icon-button" type="button" id="resetView" aria-label="重置模型视角" title="重置视角" disabled><svg><use href="#i-reset"/></svg></button>
+            <button class="icon-button" type="button" id="autoRotate" aria-label="开启自动旋转" aria-pressed="false" title="自动旋转" disabled><svg><use href="#i-rotate"/></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="stage-footer"><p id="stageInteraction"><span class="interaction-mark" aria-hidden="true">↔</span>拖动旋转<span class="hint-separator">/</span>滚轮缩放<span class="hint-separator">/</span>点击部件选色</p><span id="renderStatus">等待模型加载</span></footer>
+    </section>
+
+    <aside class="control-panel" id="colorPanel" data-workspace-panel="color" aria-label="配色控制台">
+      <div class="panel-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2>配色与质感</h2></div><span class="panel-index" id="panelRegionCount">A—12</span></div>
+
+      <section class="control-section color-section" aria-labelledby="colorTitle">
+        <div class="section-title"><h3 id="colorTitle"><span>01</span>编辑颜色</h3><span class="section-note" id="regionCount">12 个独立部位</span></div>
+        <div class="segmented mode-switch" role="group" aria-label="颜色编辑模式">
+          <button type="button" data-pick-mode="group" aria-pressed="true">按区域</button>
+          <button type="button" data-pick-mode="face" aria-pressed="false">单个面</button>
+        </div>
+        <div class="part-selector" id="partSelector" role="group" aria-label="选择配色部位"></div>
+        <div class="face-selection" id="faceSelection" hidden aria-live="polite"><strong id="faceSelectionTitle">尚未选择单面</strong><span id="faceSelectionDetail">点击模型上需要调整的外观面。</span></div>
+        <div class="color-editor">
+          <label class="color-picker-wrap" for="colorPicker" title="打开系统颜色选择器"><input type="color" id="colorPicker" value="#A59E99" aria-label="选择外壳主色"><span class="picker-icon" aria-hidden="true">+</span></label>
+          <div class="hex-field"><label for="hexInput">HEX 色值</label><input type="text" id="hexInput" value="#A59E99" maxlength="7" inputmode="text" spellcheck="false" autocomplete="off" aria-describedby="hexError" pattern="#[0-9a-fA-F]{6}"></div>
+          <button class="button button-apply" type="button" id="applyHex" aria-label="应用 HEX 色值"><svg><use href="#i-check"/></svg></button>
+        </div>
+        <p class="field-error" id="hexError" aria-live="polite"></p>
+        <div class="common-colors" id="commonColors" role="group" aria-label="常用颜色"></div>
+        <p class="small-note" id="colorHint">模型保留原有各面的灰色与红色。</p>
+        <div class="face-clear-actions" id="faceClearActions" hidden>
+          <button class="button button-outline" type="button" id="clearFaceOverride" disabled>清除当前面覆盖</button>
+          <button class="button button-outline" type="button" id="clearAllFaceOverrides" disabled>清除全部单面覆盖</button>
+        </div>
+        <button class="button button-outline original-colors" type="button" id="restoreOriginal"><svg aria-hidden="true"><use href="#i-reset"/></svg><span>还原模型配色</span></button>
+      </section>
+
+      <section class="control-section" aria-labelledby="presetTitle">
+        <div class="section-title"><h3 id="presetTitle"><span>02</span>灵感配色</h3><span class="section-note">一键搭配</span></div>
+        <div class="preset-grid" id="presetGrid"></div>
+      </section>
+
+      <section class="control-section finish-section" aria-labelledby="finishTitle">
+        <div class="section-title"><h3 id="finishTitle"><span>03</span>表面与环境</h3></div>
+        <div class="setting-row"><span class="setting-label" id="materialLabel">表面质感</span><div class="segmented" role="group" aria-labelledby="materialLabel"><button type="button" data-material="matte" aria-pressed="false">哑光</button><button type="button" data-material="satin" aria-pressed="true">缎面</button><button type="button" data-material="gloss" aria-pressed="false">亮面</button></div></div>
+        <div class="setting-row"><span class="setting-label" id="backdropLabel">视窗背景</span><div class="backdrop-options" role="group" aria-labelledby="backdropLabel"><button type="button" data-backdrop="light" aria-pressed="true"><i class="bg-light"></i>浅灰</button><button type="button" data-backdrop="warm" aria-pressed="false"><i class="bg-warm"></i>暖白</button><button type="button" data-backdrop="dark" aria-pressed="false"><i class="bg-dark"></i>深色</button></div></div>
+      </section>
+
+      <details class="saved-section" id="savedSection">
+        <summary><span>我的方案 <span id="savedCount">0 / 8</span></span><svg><use href="#i-chevron"/></svg></summary>
+        <p class="saved-explainer">保存在当前浏览器，也可以导出文件随身带走。</p>
+        <div class="saved-list" id="savedList"><p class="empty-state">还没有保存的方案。<br>调出喜欢的颜色，再点击「保存方案」。</p></div>
+      </details>
+      <div class="panel-footer"><span class="status-dot"></span><span>每一个配色，都从你的想法开始。</span></div>
+    </aside>
+
+    <aside class="control-panel guide-panel" id="assemblyPanel" data-workspace-panel="assembly" aria-label="3D装配指导" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">BUILD IT TOGETHER</p><h2>一步一步，装好四足</h2></div><span class="panel-index">B—01</span></div>
+      <p class="panel-intro">自行拖动、缩放后，切换步骤会保留视角。需要重新取景时，点击「自适应视角」。已装外壳半透明，便于查看内部安装。</p>
+      <div class="assembly-progress"><span id="assemblyProgressLabel">正在读取步骤</span><progress id="assemblyProgress" max="1" value="0" aria-label="装配进度"></progress></div>
+      <ol class="assembly-step-list" id="assemblySteps" aria-label="装配步骤"></ol>
+      <section class="step-detail" aria-labelledby="assemblyStepTitle" tabindex="0" aria-label="本步安装说明，可手动滚动">
+        <p class="eyebrow" id="assemblyStepNumber">当前步骤</p><h3 id="assemblyStepTitle">等待模型就绪</h3>
+        <p id="assemblyStepDescription"></p><div class="part-tags" id="assemblyParts" aria-label="本步零件"></div>
+        <p class="work-note" id="assemblyStepNote"></p>
+      </section>
+      <div class="assembly-controls"><div class="two-buttons"><button class="button button-outline" type="button" id="assemblyPrevious">上一步</button><button class="button button-primary" type="button" id="assemblyNext">下一步</button></div><div class="two-buttons"><button class="button button-outline" type="button" id="assemblyReplay"><svg aria-hidden="true"><use href="#i-play"/></svg>重播本步安装</button><button class="button button-outline" type="button" id="assemblyFit"><svg aria-hidden="true"><use href="#i-reset"/></svg>自适应视角</button></div></div>
+      <details class="workspace-details"><summary>模型来源与安装说明</summary><p id="assemblyModelNotes">安装动画用于辨认位置，不包含连接线。按实际零件确认固定方式。</p><p>舵机孔壁约有 0.05 mm 的原模型局部重叠；部分原 CAD 或补充参考件包络重叠，保留原定位，以实物核对。</p></details>
+    </aside>
+
+    <aside class="control-panel guide-panel" id="explodePanel" data-workspace-panel="explode" aria-label="装配爆炸图" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">LOOK INSIDE</p><h2>看清每一层结构</h2></div><span class="panel-index">C—01</span></div>
+      <p class="panel-intro">拉开零件，查看机壳、立柱、主板和内部件之间的装配关系。</p>
+      <section class="control-section explode-control"><div class="section-title"><h3>展开距离</h3><output id="explodeAmountValue" for="explodeAmount">55%</output></div><input class="wide-range" type="range" id="explodeAmount" min="0" max="100" value="55" aria-label="爆炸图展开程度"><div class="range-ends"><span>完整装配</span><span>完全展开</span></div><div class="two-buttons"><button class="button button-primary" type="button" id="explodeAnimate"><svg aria-hidden="true"><use href="#i-play"/></svg><span>播放展开</span></button><button class="button button-outline" type="button" id="explodeReset"><svg aria-hidden="true"><use href="#i-reset"/></svg>还原装配</button></div></section>
+      <section class="control-section"><div class="section-title"><h3>结构清单</h3><span class="section-note" id="inventoryCount"></span></div><ul class="inventory-list" id="modelInventory"></ul></section>
+      <p class="work-note">展开方向是为查看结构而设计的示意路径；不代表螺丝长度或实际拆卸行程。可用「透视外壳」观察内部遮挡。</p>
+      <button class="button button-outline full-width" type="button" id="explodeFit"><svg aria-hidden="true"><use href="#i-reset"/></svg>适配当前展开视图</button>
+    </aside>
+
+    <aside class="control-panel choreography-panel" id="choreographyPanel" data-workspace-panel="choreography" aria-label="四轴动作编舞" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">MAKE IT MOVE</p><h2>四腿动作编辑</h2></div><span class="panel-index">D—04</span></div>
+      <p class="panel-intro">拖动模型的腿，或调节下方角度。四腿统一：90°回中，增大向前、减小向后。</p>
+      <section class="pose-editor" aria-labelledby="poseTitle"><div class="section-title"><h3 id="poseTitle">当前姿态</h3><button class="text-button" type="button" id="poseNeutral">全部回中</button></div><div id="legControls" class="leg-controls"></div><p class="small-note pose-help">90°为中位 · 仅网页预览，真机行程需标定</p></section>
+      <section class="frame-editor" aria-labelledby="frameEditorTitle"><div class="frame-editor-heading"><h3 id="frameEditorTitle">关键帧</h3><span class="section-note" id="frameCount">0 / 60</span><label for="frameDuration">用时</label><div class="unit-input"><input type="number" id="frameDuration" min="0.2" max="30" step="0.1" value="1" aria-label="到达此姿态用时"><span>秒</span></div></div><div class="two-buttons frame-save-actions"><button class="button button-primary" type="button" id="addKeyframe">添加为新帧</button><button class="button button-outline" type="button" id="updateKeyframe" disabled>保存选中帧</button></div><div class="draft-feedback"><span id="draftStatus" role="status" aria-live="polite">调整姿态后添加关键帧</span><button class="text-button" type="button" id="discardPose" hidden>放弃修改</button></div><p class="field-error" id="choreographyError" role="status"></p></section>
+      <section class="keyframe-browser" aria-label="关键帧列表"><ol class="keyframe-list" id="keyframeList" aria-label="动作关键帧"></ol><p class="empty-state" id="keyframeEmpty">调好姿态后，点击上方「添加为新帧」。</p></section>
+      <section class="playback-section" aria-label="动作播放"><div class="playback-heading"><span id="playbackTime">0.0 / 0.0 秒</span><label class="check-label"><input type="checkbox" id="danceLoop"><span>循环</span></label></div><input class="wide-range" type="range" id="danceScrub" min="0" max="1000" value="0" aria-label="动作播放进度" disabled><div class="two-buttons"><button class="button button-primary" type="button" id="dancePlay" disabled><svg aria-hidden="true"><use href="#i-play"/></svg><span>播放动作</span></button><button class="button button-outline" type="button" id="danceStop" disabled>停止 / 回起点</button></div></section>
+      <details class="dance-files"><summary>动作文件与名称<svg aria-hidden="true"><use href="#i-chevron"/></svg></summary><div class="dance-files-content"><div class="dance-name-field"><label for="danceName">动作名称</label><input type="text" id="danceName" value="我的四足动作" maxlength="40" autocomplete="off"></div><div class="dance-file-actions"><button class="text-button" type="button" id="danceSave">保存到浏览器</button><button class="text-button" type="button" id="danceExport">导出角度文件（JSON）</button><button class="text-button" type="button" id="danceImport">导入动作 JSON</button></div><p class="small-note">角度文件含四脚角度与每帧秒数，可导入本页回放；固件导出后续接入。</p><button class="button button-outline full-width" type="button" id="danceExample">载入「四足打招呼」示例</button><p class="small-note" id="danceSaveStatus">动作文件与配色方案分别保存。</p></div></details>
+      <input type="file" id="danceFile" accept="application/json,.json" hidden>
+    </aside>
+  </main>
+
+  <dialog id="printDialog" aria-labelledby="printTitle">
+    <div class="dialog-heading"><h2 id="printTitle">导出已上色 3MF</h2><button class="icon-button" type="button" id="closePrintDialog" aria-label="关闭打印导出"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <p class="dialog-explainer">将当前配色转为 Bambu Studio 的零件和耗材颜色。只包含可打印结构件；主板、舵机、屏幕和补充的内部参考件不参与打印。</p>
+    <div class="print-summary" id="printSummary"><span>装配坐标 → 打印平面</span><strong>保留逐面配色</strong></div>
+    <p class="work-note">在 Bambu Studio 打开后，选择实际打印机与耗材、核对摆放和支撑，再切片。导出不会向打印机发送任务。</p>
+    <p class="field-error" id="printError" role="status"></p><div class="print-report" id="printReport" role="status" hidden></div>
+    <div class="dialog-actions"><button class="button button-outline" type="button" id="cancelPrint">关闭</button><button class="button button-primary" type="button" id="confirmExport3mf"><svg aria-hidden="true"><use href="#i-download"/></svg><span>生成并下载 3MF</span></button></div>
+  </dialog>
+
+  <dialog id="saveDialog" aria-labelledby="saveTitle">
+    <form id="saveForm">
+      <div class="dialog-heading"><h2 id="saveTitle">为这组颜色起个名字</h2><button class="icon-button" type="button" id="closeSaveDialog" aria-label="关闭保存对话框"><svg><use href="#i-close"/></svg></button></div>
+      <p>方案保存在这台设备的浏览器中。</p>
+      <label for="schemeName">方案名称</label><input id="schemeName" type="text" required maxlength="40" autocomplete="off" placeholder="例如：周末森林" aria-describedby="saveError">
+      <p class="field-error" id="saveError" aria-live="polite"></p>
+      <div class="dialog-actions"><button class="button button-outline" type="button" id="cancelSave">取消</button><button class="button button-primary" type="submit">保存方案</button></div>
+    </form>
+  </dialog>
+  <input type="file" id="jsonFile" accept="application/json,.json" hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><div class="no-script">此配色工作台需要启用 JavaScript 才能显示和编辑三维模型。</div></noscript>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

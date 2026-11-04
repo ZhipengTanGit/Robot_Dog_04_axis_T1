@@ -1,0 +1,15 @@
+{
+  "name": "robot-dog-color-studio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "机器人配色、装配、动作编舞、彩色3MF导出与硬件测试工作台",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "check": "node --check dist/app.js && node --check dist/viewer.js && node --check dist/assembly-motion.js && node --check dist/workspace.js && node --check dist/choreography.js && node --check dist/dance-format.js && node --check dist/color-selection.js && node --check dist/login.js && node --check dist/export-3mf.js && node --check dist/bambu-profile.js && node --check dist/serial-session.js && node --check dist/firmware-hash.js && node --check dist/hardware-flash.js && node --check dist/hardware-flash-stm32.js && node --check dist/hardware.js",
+    "verify:hardware": "node tools/verify-serial-session.mjs && node tools/verify-esp32-flasher.mjs && node tools/verify-stm32-flasher.mjs && node tools/verify-hardware-ui.mjs",
+    "verify:assembly": "node tools/verify-assembly-motion.mjs",
+    "verify:choreography": "node tools/verify-choreography-format.mjs && node tools/verify-choreography-controller.mjs",
+    "verify:regions": "node tools/verify-color-scheme.mjs && node tools/verify-region-export.mjs"
+  }
+}

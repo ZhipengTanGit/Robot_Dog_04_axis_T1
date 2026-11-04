@@ -1,0 +1,83 @@
+{
+  "repository": "https://github.com/devanlai/webstlink",
+  "commit": "4d00a1b65b562c31d3527c76eaeda1e070eb1970",
+  "license": "MIT",
+  "sourceDirectory": "src",
+  "files": [
+    {
+      "path": "lib/dbg.js",
+      "bytes": 3628,
+      "sha256": "ca62fc7396bb40e3d6fd69d16803419aaf70c7531c8dbc48c802375c23e39a18"
+    },
+    {
+      "path": "lib/package.js",
+      "bytes": 655,
+      "sha256": "f2fbc080cc489c07b2c48f0549abd463324d3a3235260687c8178de4370b72ec"
+    },
+    {
+      "path": "lib/semihosting.js",
+      "bytes": 620,
+      "sha256": "fed2cdd6a41be0ee5ab3c85502efd9091f248fdafe17248c11dbe931257976b0"
+    },
+    {
+      "path": "lib/stlinkex.js",
+      "bytes": 956,
+      "sha256": "012299acc22fc3efd10e35f40b4eeb160063730cd81f9e3ab004c25f60cb45bd"
+    },
+    {
+      "path": "lib/stlinkusb.js",
+      "bytes": 5677,
+      "sha256": "e58bd7052d246bc54b8d33d25947cb79d394f72126c3074028676260d88948be"
+    },
+    {
+      "path": "lib/stlinkv2.js",
+      "bytes": 12091,
+      "sha256": "54285614c091510db53dc75d94c5c63a67485cb0f0f0056d87bc97d787c7ef85"
+    },
+    {
+      "path": "lib/stm32.js",
+      "bytes": 8833,
+      "sha256": "4e3f524dfce1bbd8c9181dce77135565a51eb1f2415fef58de43d4e4b62c7aff"
+    },
+    {
+      "path": "lib/stm32devices.js",
+      "bytes": 40457,
+      "sha256": "ea43aa3e4eea24bb33268907456f91b124f3d2960dbf8f687560b84393599de0"
+    },
+    {
+      "path": "lib/stm32fp.js",
+      "bytes": 13183,
+      "sha256": "73f013f85ded226e0c1baadce795d087fc1af7b2b7d8b1462ea2b91fa377de13"
+    },
+    {
+      "path": "lib/stm32fs.js",
+      "bytes": 12108,
+      "sha256": "64e3a2c1a5823fe404338389848645e83599c13763de53c46849cd7ddbea2d50"
+    },
+    {
+      "path": "lib/util.js",
+      "bytes": 871,
+      "sha256": "899bb0033fd1be08524858ba07144a52dc22054f16ffdd268a552dddbe0097b9"
+    },
+    {
+      "path": "LICENSE.txt",
+      "bytes": 1200,
+      "sha256": "3172671403ce7ae90bc4845e2ceae90ab3885cb654da07a021d73ee0b88eb125"
+    },
+    {
+      "path": "mutex.js",
+      "bytes": 1329,
+      "sha256": "a4d2f5e57dd051e4d330dcf3cb43569ecf73784db422677238c1a3c487e21520"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 898,
+      "sha256": "d6c78244814dfc9cb53343dbe0d5e56b568d35cd3eb898ed08a34cfb7bfc44b3"
+    },
+    {
+      "path": "webstlink.js",
+      "bytes": 22080,
+      "sha256": "bf83e471304b45bf4e607669740db97a8afdc411e77d9ec75079d28e80757a49"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+/* Visible text and an outlined state identify the editing target beyond color. */
+#colorPanel .color-selection-card {
+  position: sticky;
+  top: -1px;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) 44px;
+  gap: 9px;
+  align-items: center;
+  padding: 11px 10px;
+  margin: 0 0 13px;
+  border: 1px solid #d3a48b;
+  border-left: 3px solid #c4633c;
+  border-radius: 8px;
+  background: #fff6ed;
+  box-shadow: 0 3px 10px #5d39290b;
+}
+.color-target-swatch {
+  width: 26px;
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid #0002;
+  box-shadow: inset 0 0 0 2px #ffffff52;
+}
+.color-target-copy { display: flex; flex-direction: column; min-width: 0; gap: 2px; }
+.color-target-heading { display: flex; align-items: center; gap: 6px; color: #795541; font-size: 10px; }
+.color-target-mode { padding: 0 4px; background: #ecdacc; color: #694530; border-radius: 3px; font-size: 9px; }
+.color-target-copy strong { font-size: 13px; line-height: 1.5; font-weight: 650; color: #523a2e; }
+.color-target-copy strong, .color-target-detail, .color-target-source { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.color-target-detail { font-size: 10px; line-height: 1.5; color: #715f50; }
+.color-target-source { font-size: 10px; line-height: 1.5; color: #6c5a4b; }
+.color-target-locate { min-width: 44px; min-height: 44px; padding: 4px; border: 1px solid #d3b49e; border-radius: 6px; background: #fffdf8; color: #754728; font-size: 11px; font-weight: 600; }
+.color-target-locate:hover:not(:disabled) { background: #f6e8da; border-color: #ae7655; }
+.color-target-locate:disabled { opacity: .45; }
+.color-selection-card[data-has-target=false] .color-target-swatch { border-style: dashed; background: repeating-linear-gradient(45deg, #f0eae2 0 4px, #fffaf4 4px 8px); }
+#colorPanel .region-grid .part-button {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  grid-template-rows: 17px 12px;
+  align-content: center;
+  justify-content: stretch;
+  justify-items: start;
+  column-gap: 6px;
+  row-gap: 0;
+  height: 48px;
+  min-height: 48px;
+  padding: 6px 7px;
+  border-color: #d5d9cc;
+}
+#colorPanel .part-button .part-color { grid-row: 1 / 3; align-self: center; width: 12px; height: 20px; border-radius: 3px; }
+#colorPanel .part-button .part-label { grid-column: 2; max-width: 100%; overflow: hidden; text-overflow: ellipsis; font-size: 10px; line-height: 17px; }
+#colorPanel .part-button .part-editing-state { grid-column: 2; font-size: 9px; line-height: 12px; font-weight: 600; color: #7b4228; }
+#colorPanel .part-button[aria-pressed=true] { border-color: #c1724d; background: #fcebdc; box-shadow: inset 0 0 0 1px #c1724d; color: #663b22; }
+#colorPanel .part-button[aria-pressed=true] svg { display: none; }
+#colorPanel .part-button:hover:not([aria-pressed=true]) { background: #f5f1e8; border-color: #c8b6a3; }
+#colorPanel .region-label { color: #59644e; }
+#colorPanel .small-note { color: #606d53; }
+.session-logout { padding-right: 10px; padding-left: 10px; font-size: 12px; }
+@media(max-width:780px) {
+  #colorPanel .color-selection-card { top: 0; }
+  #colorPanel .part-button .part-label { font-size: 12px; }
+  #colorPanel .part-button .part-editing-state { font-size: 10px; }
+  .color-target-detail, .color-target-source { font-size: 11px; }
+}
+@media(max-width:500px) {
+  #colorPanel .part-button .part-label { font-size: 11px; }
+  .color-target-copy strong { font-size: 13px; }
+  .session-logout { font-size: 11px; padding: 0 7px; }
+}

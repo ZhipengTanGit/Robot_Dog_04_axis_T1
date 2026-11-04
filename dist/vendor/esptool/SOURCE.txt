@@ -1,0 +1,6 @@
+Espressif esptool-js 0.7.0
+Apache-2.0
+Source: https://github.com/espressif/esptool-js
+Package: https://registry.npmjs.org/esptool-js/-/esptool-js-0.7.0.tgz
+Verified SHA-512 base64: 9wHuW/s9t4Vs6HKcr3pra3gbRVWwaN0eabMWodWH4KEJHEYZxgmWwZ3s0F4xcWVCZOc/L98bGZ4uWoZvR8KBKA==
+Bundle includes pako and atob-lite (MIT); bundled notices are retained.

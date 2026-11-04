@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ef">
+  <title>硬件测试 · 四足工作台</title>
+  <link rel="stylesheet" href="./hardware.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><strong>四足</strong><span class="brand-divider">/</span><span class="brand-wordmark">ROBOT WORKBENCH</span></a>
+    <a class="button quiet" href="./">返回工作台 <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <div class="page-heading"><div><p class="eyebrow">HARDWARE LAB <span>V0.24</span></p><h1>从连接开始，逐项测试<span>.</span></h1><p>下载测试固件，通过 USB 直接检查主板与外设。</p></div><span class="board-tag">4 轴桌面机器狗</span></div>
+
+    <section class="connection-card" aria-labelledby="connectionTitle">
+      <div class="connection-top"><div><p class="eyebrow">USB CONNECTION</p><h2 id="connectionTitle">连接主板</h2></div><span class="status-badge" id="connectionBadge" data-state="offline">未连接</span></div>
+      <div class="connection-actions"><button class="button primary" id="connectSerial" type="button">选择 USB 串口</button><button class="button outline" id="disconnectSerial" type="button" disabled>断开连接</button><span class="port-info" id="portInfo">CH340 数据口 · 921600 baud</span></div>
+      <p class="connection-message" id="connectionMessage" role="status">正在检查浏览器支持…</p>
+      <p class="help">使用桌面 Chrome 或 Edge。选择主板的 CH340 USB 设备；关闭占用同一串口的监测工具或串口助手。打开页面不会启动舵机或播放测试音。</p>
+    </section>
+
+    <nav class="section-nav" aria-label="测试项目"><a href="#firmwarePanel">测试固件</a><a href="#diagnostics">外设检测</a><a href="#soundPanel">音频测试</a><a href="#servoPanel">舵机测试</a><a href="#logsPanel">串口日志</a></nav>
+    <p class="notice" id="actionNotice" role="status" aria-live="polite" hidden></p>
+
+    <section class="panel" id="firmwarePanel" aria-labelledby="firmwareTitle">
+      <div class="panel-heading"><div><p class="eyebrow">01 / FIRMWARE</p><h2 id="firmwareTitle">测试固件</h2></div><div class="firmware-heading-actions"><span class="section-note" id="releaseLabel">读取版本清单…</span><a class="button quiet" href="./firmware/README.txt" download>下载烧录说明</a></div></div>
+      <p class="intro">ESP32 与 STM32 使用各自的固件和烧录接口。先断开上方串口测试，再选择对应设备烧录。</p>
+      <div class="firmware-grid" id="firmwareList"><p class="empty">正在读取可下载固件…</p></div>
+      <div class="flash-status" id="flashStatus" hidden><label for="flashProgress" id="flashLabel">烧录进度</label><progress id="flashProgress" max="100" value="0"></progress><pre id="flashLog" aria-label="烧录记录"></pre></div>
+    </section>
+
+    <section class="telemetry-strip" aria-label="主板状态概览"><div><span>电量区间</span><strong id="batterySoc">—</strong><small id="batteryAge">等待 STM32 数据</small></div><div><span>充电状态</span><strong id="batteryCharge">—</strong><small id="batteryCurrent">名义设定尚未取得</small></div><div><span>ESP32 运行时间</span><strong id="boardUptime">—</strong><small id="boardBoot">等待启动标识</small></div><div><span>音频芯片</span><strong id="codecState">—</strong><small id="codecDetail">等待 ES8388 状态</small></div></section>
+
+    <div class="diagnostic-grid" id="diagnostics">
+      <section class="panel" aria-labelledby="i2cTitle"><div class="panel-heading"><div><p class="eyebrow">02 / I²C</p><h2 id="i2cTitle">器件扫描</h2></div><button class="button outline" id="scanI2c" type="button" disabled>开始扫描</button></div><p class="help">扫描 ESP32 GPIO 8 / 19 总线。IP5310 与 AHT20 位于 STM32 总线，不在此扫描范围。</p><p class="result-line" id="i2cResult" role="status">连接主板后可开始扫描</p><div class="address-list" id="i2cAddresses"><span class="empty">尚无本次扫描结果</span></div><p class="help" id="i2cDetail">地址应答用于检查焊接与连接，不代表器件功能已经通过。</p></section>
+      <section class="panel" aria-labelledby="cameraTitle"><div class="panel-heading"><div><p class="eyebrow">03 / CAMERA</p><h2 id="cameraTitle">摄像头</h2></div><button class="button outline" id="checkCamera" type="button" disabled>检测摄像头</button></div><p class="result-line" id="cameraResult" role="status">等待 OV5640 状态</p><dl class="test-readings"><div><dt>控制与地址应答</dt><dd id="cameraBus">未检测</dd></div><div><dt>芯片与初始化</dt><dd id="cameraInit">未检测</dd></div><div><dt>真实 JPEG 帧</dt><dd id="cameraFrameResult">未检测</dd></div></dl><div class="camera-still"><img id="cameraImage" alt="主板摄像头的最近一次手动抓拍" hidden><p id="cameraPlaceholder">手动拍一帧，检查镜头与画面</p></div><div class="inline-actions"><button class="button outline" id="captureCamera" type="button" disabled>拍一帧</button><a class="button quiet" id="downloadFrame" download="robot-camera.jpg" hidden>保存图片</a><span class="section-note" id="cameraCaptureInfo">等待 USB 抓拍协议</span></div><p class="help">USB 抓拍期间暂停麦克风试听；图像只保留在浏览器内存中。</p><details class="details"><summary>摄像头诊断</summary><pre id="cameraDiagnostics">尚无诊断信息</pre></details></section>
+    </div>
+
+    <section class="panel" id="boardPeripherals" aria-labelledby="boardPeripheralsTitle"><div class="panel-heading"><div><p class="eyebrow">ON BOARD / STATUS</p><h2 id="boardPeripheralsTitle">其他板载外设</h2></div><span class="section-note">按键、环境、指示灯与屏幕</span></div><div class="board-grid">
+      <div class="subpanel"><h3>STM32 外设</h3><dl class="test-readings"><div><dt>AHT20 环境温湿度</dt><dd id="environmentValue">等待有效采样</dd></div><div><dt>机械按键 / 板载触摸</dt><dd id="inputValue">等待数据</dd></div><div><dt>按下次数</dt><dd id="inputCounts">—</dd></div></dl><p class="help" id="environmentDetail">AHT20 为环境温度，不能代替电池温度。</p><div class="led-controls"><div><span>LED 1 <strong id="ledState0">—</strong></span><button class="button outline" data-led-index="0" data-led-on="true" type="button" disabled>开</button><button class="button outline" data-led-index="0" data-led-on="false" type="button" disabled>关</button></div><div><span>LED 2 <strong id="ledState1">—</strong></span><button class="button outline" data-led-index="1" data-led-on="true" type="button" disabled>开</button><button class="button outline" data-led-index="1" data-led-on="false" type="button" disabled>关</button></div></div><p class="help">指示灯显示主板实际配置回读；是否亮起仍需现场观察。</p></div>
+      <div class="subpanel"><h3>屏幕、TE 与触摸</h3><p class="result-line" id="displayState">等待屏幕状态</p><p class="help" id="displayRefresh">显示驱动发送成功不能证明实屏已亮。</p><p class="result-line" id="displayTe">TE GPIO13 · 等待真实同步状态</p><p class="help" id="displayTeCounts">尚无 TE 计数</p><p class="result-line" id="screenTouch">等待屏幕触摸数据</p><p class="help" id="i2cLineState">等待 XL9555 与总线采样</p></div>
+    </div></section>
+
+    <section class="panel" id="soundPanel" aria-labelledby="soundTitle"><div class="panel-heading"><div><p class="eyebrow">04 / AUDIO</p><h2 id="soundTitle">听一听声音</h2></div><span class="section-note">板载输出与电脑试听分别测试</span></div><div class="audio-grid">
+      <div class="subpanel"><h3>扬声器</h3><p class="help">ES8388 与板上功放输出短测试音。</p><div class="field-grid"><label>频率 / Hz<input id="speakerHz" type="number" min="100" max="4000" step="100" value="1000"></label><label>时长 / ms<input id="speakerMs" type="number" min="20" max="1000" step="20" value="500"></label><label>幅度 / %<input id="speakerPercent" type="number" min="1" max="20" value="5"></label></div><div class="inline-actions"><button class="button primary" id="speakerPlay" type="button" disabled>播放测试音</button><button class="button outline" id="speakerStop" type="button" disabled>停止</button></div><p class="result-line" id="speakerResult" role="status">等待音频芯片初始化</p></div>
+      <div class="subpanel"><h3>蜂鸣器</h3><p class="help">STM32 输出固定频率的短响。</p><label class="single-field">时长 / ms<input id="buzzerMs" type="number" min="20" max="1000" step="20" value="200"></label><div class="inline-actions"><button class="button primary" id="buzzerPlay" type="button" disabled>短响测试</button><button class="button outline" id="buzzerStop" type="button" disabled>停止</button></div><p class="result-line" id="buzzerResult" role="status">等待 STM32 状态</p></div>
+      <div class="subpanel microphone"><h3>板载麦克风试听</h3><p class="help">对着主板麦克风说话，声音从电脑播放。不会使用电脑麦克风。</p><div class="inline-actions"><button class="button primary" id="audioStart" type="button" disabled>开始试听</button><button class="button outline" id="audioStop" type="button" disabled>停止</button><button class="button quiet" id="testComputerAudio" type="button">测试电脑声音</button></div><div class="microphone-controls"><label>电脑音量<input id="audioVolume" type="range" min="0" max="100" value="60"></label><label>试听增强<select id="audioEnhancement"><option value="0">0 dB</option><option value="12">12 dB</option><option value="24">24 dB</option><option value="36">36 dB</option></select></label></div><label class="meter-label" for="audioLevel">输入电平 <span id="audioLevelText">等待声音</span></label><progress class="audio-meter" id="audioLevel" max="100" value="0"></progress><p class="result-line" id="audioResult" role="status">16 kHz · 单声道 PCM；点击开始后才接收</p></div>
+    </div></section>
+
+    <section class="panel" id="servoPanel" aria-labelledby="servoTitle"><div class="panel-heading"><div><p class="eyebrow">05 / SERVO</p><h2 id="servoTitle">四路 PWM 舵机</h2></div><button class="button danger" id="servoStop" type="button" disabled>全部停止</button></div><p class="intro">拖动滑条立即更新该路目标。显示的是 PWM 脉宽配置；机械角度需按实际舵机与安装位置标定。</p><div class="servo-grid" id="servoControls"></div><div class="servo-test"><div><h3>10 秒动态测试</h3><p class="help">按选中通道执行往返动作，完成后关闭输出。</p></div><fieldset id="servoTestChannels"><legend>选择通道</legend><label><input type="checkbox" value="0" checked>右后</label><label><input type="checkbox" value="1">左后</label><label><input type="checkbox" value="2">右前</label><label><input type="checkbox" value="3">左前</label></fieldset><div class="inline-actions"><label>最小 / μs<input id="servoTestMin" type="number" min="500" max="2500" value="1300"></label><label>最大 / μs<input id="servoTestMax" type="number" min="500" max="2500" value="1700"></label><button class="button primary" id="servoTest" type="button" disabled>开始 10 秒测试</button></div></div><p class="result-line" id="servoResult" role="status">连接后等待新鲜的 STM32 状态；页面不自动回中。</p></section>
+
+    <section class="panel logs-panel" id="logsPanel" aria-labelledby="logsTitle"><div class="panel-heading"><div><p class="eyebrow">06 / SERIAL LOG</p><h2 id="logsTitle">最近串口日志</h2></div><span class="section-note">音频和图像数据不写入此处</span></div><pre id="serialLogs" tabindex="0" aria-label="最近串口日志">等待 USB 串口连接…</pre></section>
+    <footer class="page-footer"><span>ROBOT WORKBENCH / HARDWARE LAB</span><span>USB 断开后，本页不再保留控制租约。</span></footer>
+  </main>
+  <noscript><p class="notice">需要启用 JavaScript 才能连接 USB 设备。</p></noscript>
+  <script type="module" src="./hardware.js"></script>
+</body>
+</html>

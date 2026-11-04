@@ -1,0 +1,33 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Web.Script.Serialization;
+using SolidWorks.Interop.sldworks;
+
+// Read-only component tessellation. Never changes the CAD document or its view.
+public static class CadInternalExport {
+    sealed class Geo {public float[] P,N; public List<object> Faces;}
+    static Dictionary<string,object> D(params object[] pairs){var d=new Dictionary<string,object>();for(int i=0;i<pairs.Length;i+=2)d[(string)pairs[i]]=pairs[i+1];return d;}
+    static float[] A(object raw){if(raw==null)return new float[0];if(raw is float[])return (float[])raw;Array a=(Array)raw;float[] r=new float[a.Length];for(int i=0;i<a.Length;i++)r[i]=Convert.ToSingle(a.GetValue(i));return r;}
+    static string C(object raw){Array a=raw as Array;if(a==null||a.Length<3)return null;string c="#";for(int i=0;i<3;i++){double v=Convert.ToDouble(a.GetValue(i));if(v<0||v>1||Double.IsNaN(v))return null;c+=((int)Math.Round(v*255)).ToString("X2");}return c;}
+    static float[] T(float[] raw,double[] m,bool normal){float[] r=new float[raw.Length];for(int i=0;i<raw.Length;i+=3){double x=raw[i],y=raw[i+1],z=raw[i+2];double a=m[0]*x+m[3]*y+m[6]*z,b=m[1]*x+m[4]*y+m[7]*z,c=m[2]*x+m[5]*y+m[8]*z;if(normal){double k=Math.Sqrt(a*a+b*b+c*c);if(k>1e-12){a/=k;b/=k;c/=k;}}else{a=a*m[12]+m[9];b=b*m[12]+m[10];c=c*m[12]+m[11];}r[i]=(float)a;r[i+1]=(float)b;r[i+2]=(float)c;}return r;}
+    static double[] B(float[] p){double[] b={Double.PositiveInfinity,Double.PositiveInfinity,Double.PositiveInfinity,Double.NegativeInfinity,Double.NegativeInfinity,Double.NegativeInfinity};for(int i=0;i<p.Length;i++){int a=i%3;b[a]=Math.Min(b[a],p[i]);b[a+3]=Math.Max(b[a+3],p[i]);}return b;}
+    static double Error(double[] a,double[] b){double e=0;for(int i=0;i<6;i++)e+=Math.Abs(a[i]-b[i]);return e;}
+    static bool Visible(IComponent2 c){for(var n=c;n!=null;n=(IComponent2)n.GetParent())if(n.IsSuppressed()||n.IsHidden(false)||n.Visible==0)return false;return true;}
+    static void Write(BinaryWriter w,float[] p){byte[] b=new byte[p.Length*4];Buffer.BlockCopy(p,0,b,0,b.Length);w.Write(b);}
+    static void Align(float[] p,float[] n){for(int i=0;i<p.Length;i+=9){double a=p[i+3]-p[i],b=p[i+4]-p[i+1],c=p[i+5]-p[i+2],d=p[i+6]-p[i],e=p[i+7]-p[i+1],f=p[i+8]-p[i+2];double x=b*f-c*e,y=c*d-a*f,z=a*e-b*d;if(x*(n[i]+n[i+3]+n[i+6])+y*(n[i+1]+n[i+4]+n[i+7])+z*(n[i+2]+n[i+5]+n[i+8])<0)for(int j=0;j<3;j++){float v=p[i+3+j];p[i+3+j]=p[i+6+j];p[i+6+j]=v;v=n[i+3+j];n[i+3+j]=n[i+6+j];n[i+6+j]=v;}}}
+    static string Fallback(string name){if(name.Contains("CONN")||name.Contains("HDR")||name.Contains("FPC"))return "#C1B9A8";if(name.Contains("R0805")||name.Contains("C0805")||name.Contains("C0603"))return "#A09279";return "#353B3D";}
+    static Geo Read(IComponent2 c,string inherited){var ps=new List<float>();var ns=new List<float>();var faces=new List<object>();object info;foreach(object item in (object[])c.GetBodies3(-1,out info)){IBody2 body=(IBody2)item;if(!body.Visible)continue;string bc=C(body.MaterialPropertyValues2)??inherited;foreach(object fi in (object[])body.GetFaces()){IFace2 f=(IFace2)fi;float[] p=A(f.GetTessTriangles(true));if(p.Length==0)continue;float[] n=A(f.GetTessNorms());if(n.Length!=p.Length)throw new Exception("No face normals");string color=C(f.GetMaterialPropertyValues2(1,null))??bc;faces.Add(D("firstVertex",ps.Count/3,"count",p.Length/3,"color",color,"group","fixed","colorSource","CAD face/body/part"));ps.AddRange(p);ns.AddRange(n);}}return new Geo{P=ps.ToArray(),N=ns.ToArray(),Faces=faces};}
+    public static string Run(string path,string dir){
+        ISldWorks sw=(ISldWorks)Marshal.GetActiveObject("SldWorks.Application");IModelDoc2 doc=(IModelDoc2)sw.GetOpenDocumentByName(path);if(doc==null)throw new Exception("Assembly must already be open.");IModelDoc2 active=(IModelDoc2)sw.ActiveDoc;string before=active==null?"":active.GetPathName();bool dirty=doc.GetSaveFlag();IAssemblyDoc a=(IAssemblyDoc)doc;
+        var meshes=new List<object>();var cache=new Dictionary<string,Geo>();int triangles=0;Directory.CreateDirectory(dir);
+        using(var w=new BinaryWriter(File.Create(Path.Combine(dir,"internals.bin"))))foreach(object item in (object[])a.GetComponents(false)){
+            IComponent2 c=(IComponent2)item;string name=c.Name2,part=Path.GetFileName(c.GetPathName());if(!name.Contains("装配体_PCB主板")||!part.EndsWith(".SLDPRT",StringComparison.OrdinalIgnoreCase)||part.StartsWith("Board~")||!Visible(c))continue;
+            string component=C(c.GetMaterialPropertyValues2(1,null));string color=component??C(c.GetModelMaterialPropertyValues(c.ReferencedConfiguration))??Fallback(name);string key=c.GetPathName()+"|"+c.ReferencedConfiguration;Geo geo;if(!cache.TryGetValue(key,out geo)){Console.WriteLine("Read CAD package "+(cache.Count+1)+": "+part);geo=Read(c,color);cache[key]=geo;}if(geo.P.Length==0)continue;double[] m=(double[])((IMathTransform)c.Transform2).ArrayData;float[] p=T(geo.P,m,false),n=T(geo.N,m,true);Align(p,n);double[] box=(double[])c.GetBox(false,false);double[] b=B(p);long po=w.BaseStream.Position;Write(w,p);long no=w.BaseStream.Position;Write(w,n);triangles+=p.Length/9;var faces=new List<object>();int index=0;foreach(object f in geo.Faces){var sf=(Dictionary<string,object>)f;faces.Add(D("id","pcb-internal-"+meshes.Count+"-"+(index++),"firstVertex",sf["firstVertex"],"count",sf["count"],"color",component??sf["color"],"group","fixed","colorSource",sf["colorSource"]));}
+            meshes.Add(D("name",name,"part",part,"group","fixed","color",color,"positions",D("byteOffset",po,"count",p.Length/3),"normals",D("byteOffset",no,"count",n.Length/3),"bounds",D("min",new double[]{b[0],b[1],b[2]},"max",new double[]{b[3],b[4],b[5]}),"faces",faces,"coordinateCheck",D("transformApplied",true,"boxErrorMetres",Error(b,box))));
+            Console.WriteLine("PCB component "+meshes.Count+": "+p.Length/9+" triangles");
+        }
+        active=(IModelDoc2)sw.ActiveDoc;string after=active==null?"":active.GetPathName();if(before!=after||dirty!=doc.GetSaveFlag())throw new Exception("CAD state changed.");var j=new JavaScriptSerializer();j.MaxJsonLength=Int32.MaxValue;File.WriteAllText(Path.Combine(dir,"internals.json"),j.Serialize(D("meshes",meshes,"triangleCount",triangles,"byteLength",new FileInfo(Path.Combine(dir,"internals.bin")).Length,"dirtyBefore",dirty,"dirtyAfter",doc.GetSaveFlag(),"activeBefore",before,"activeAfter",after)),new System.Text.UTF8Encoding(false));return "Exported "+meshes.Count+" PCB components, "+triangles+" triangles; CAD state unchanged.";
+    }
+}

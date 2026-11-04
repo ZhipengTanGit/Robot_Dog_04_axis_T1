@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "board": "Robot Dog V0.24",
+  "release": "20261029-public-test-v1",
+  "firmwares": [
+    {
+      "id": "esp32-test",
+      "title": "ESP32 单项驱动测试",
+      "chip": "ESP32-S3",
+      "version": "public-usb-20261029",
+      "sdk": "ESP-IDF 5.4.4",
+      "download": {
+        "url": "firmware/esp32/ESP32-S3-USB-Drivers-IDF5.4.4-20261029-v1.zip",
+        "size": 1446058,
+        "sha256": "2570d7c3ebd8ca1483f94ce8f7deab1c9e756db3a4d7b51b8c8e81d657752d83"
+      },
+      "files": [
+        {
+          "url": "firmware/esp32/bootloader.bin",
+          "size": 20928,
+          "sha256": "c2051b6e3cba322f77454115eabf0ab81346fd243a940f2c60151d54b15e5161",
+          "offset": 0
+        },
+        {
+          "url": "firmware/esp32/partition-table.bin",
+          "size": 3072,
+          "sha256": "5295e8c42d6fb5f95e4e8a185932c6191d27cfc5078322475347e40e71af815a",
+          "offset": 32768
+        },
+        {
+          "url": "firmware/esp32/esp32-robot-dog-public-usb.bin",
+          "size": 1152112,
+          "sha256": "843ac8d0e8b071baefc1c52cca3a91920bbf53492dbe4f16a3ead0f092f42efc",
+          "offset": 65536
+        }
+      ],
+      "flash": {
+        "method": "webserial-esptool",
+        "flashMode": "dio",
+        "flashFreq": "80m",
+        "flashSize": "16MB"
+      },
+      "features": [
+        "USB串口桥",
+        "I²C扫描",
+        "OV5640检测与单帧抓拍",
+        "ES8388麦克风/扬声器",
+        "CO5300显示/TE状态"
+      ],
+      "notes": [
+        "仅适用V0.24 / ESP32-S3 N16R8（16MB Flash、8MB Octal PSRAM）。",
+        "使用主板CH340数据口；网页烧录按三个分段写入，不执行整片擦除。下载包含离线烧录说明。",
+        "无私有Wi-Fi或服务器配置，不自动联网；上电无舵机运动和测试音。烧录将替换当前程序。",
+        "USB抓拍为单帧诊断；蜂鸣器、舵机和电池状态需同时烧好STM32公共测试版。"
+      ],
+      "defaults": {
+        "autoNetwork": false,
+        "usbBaud": 921600,
+        "stmBaud": 115200
+      },
+      "verification": {
+        "built": true,
+        "hardwareTested": false,
+        "browserTests": "模拟USB协议/芯片校验/页面交互通过；实板烧录和外设联测待现场进行"
+      }
+    },
+    {
+      "id": "stm32-test",
+      "title": "STM32 单项驱动测试",
+      "chip": "STM32F103RBT6",
+      "version": "stm32f103rb-public-test-350ma-20261029-r2",
+      "download": {
+        "url": "firmware/stm32/stm32f103rb-public-test-350ma-20261029-r2.bin",
+        "size": 22196,
+        "sha256": "ed1c0b83704a5afed0d78c2fd99ad856abafdc3b694ad4cd98ca6f22da9a5669"
+      },
+      "files": [
+        {
+          "url": "firmware/stm32/stm32f103rb-public-test-350ma-20261029-r2.bin",
+          "size": 22196,
+          "sha256": "ed1c0b83704a5afed0d78c2fd99ad856abafdc3b694ad4cd98ca6f22da9a5669",
+          "offset": 134217728
+        }
+      ],
+      "hex": {
+        "url": "firmware/stm32/stm32f103rb-public-test-350ma-20261029-r2.hex",
+        "size": 62487,
+        "sha256": "19c0f65ee671985717254b638bc3967ab5ccbf74e9b3655a6906b436bd2ec957"
+      },
+      "flash": {
+        "method": "webusb-stlink",
+        "address": 134217728
+      },
+      "features": [
+        "IP5310电池状态",
+        "AHT20",
+        "按键/LED",
+        "蜂鸣器",
+        "四路PWM与10秒测试"
+      ],
+      "notes": [
+        "仅适用V0.24 / STM32F103RBT6（128KB Flash、20KB RAM）。",
+        "ST-LINK连接SWDIO、SWCLK、GND和目标参考电源；Windows访问失败时可下载BIN/HEX，用STM32CubeProgrammer烧录。BIN起始地址0x08000000。",
+        "默认及最高充电档350mA，保留硬件充电许可；关闭轻载自动关机。此数值是名义配置，不是实测电流。",
+        "上电PWM及蜂鸣器关闭；LIVE通信租约1500ms，动态测试10秒自动停止。"
+      ],
+      "defaults": {
+        "nominalChargeMa": 350,
+        "maxNominalChargeMa": 350,
+        "keep5v": true,
+        "temperatureControl": false,
+        "startupServoPwm": false,
+        "startupBuzzer": false
+      },
+      "sourceSha256": "75c1747b6d339b4cbe84a0c14ddda4986c74727967d01c0e4442b4dfb5407d39",
+      "verification": {
+        "built": true,
+        "hardwareTested": false,
+        "browserTests": "模拟USB协议/芯片校验/页面交互通过；实板烧录和外设联测待现场进行"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Espressif esptool-js",
+      "url": "https://github.com/espressif/esptool-js",
+      "version": "0.7.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "title": "WebSTLink",
+      "url": "https://github.com/devanlai/webstlink",
+      "version": "4d00a1b65b562c31d3527c76eaeda1e070eb1970",
+      "license": "MIT"
+    }
+  ]
+}
