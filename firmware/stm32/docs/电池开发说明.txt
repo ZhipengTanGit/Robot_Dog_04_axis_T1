@@ -1,0 +1,307 @@
+STM32 电池功能开发与联调说明
+日期：2026-10-23
+
+一、当前交付状态
+
+代码已接入 Project/main.uvprojx，目标 STM32F103RBT6，标准外设库，
+HSE 8 MHz / 系统 72 MHz / ARMCC 5。启动文件已由 hd 改为 md。
+
+按照最新请求：用户说明客服称单包允许1A，进一步授权整组1.85A试充。
+现有V1.28的VBUS档位1850mA对应0x0D，本次从1250mA提高到1850mA。
+这是用户授权的试验设定；尚无该批电池书面规格或实际电流/温度测量。
+两包理想均流时各925mA，接近用户口述单包1A；不能保证均流或每包低于1A。
+各自PCM独立，一包退出后另一包可能承担全部电流。当前没有支路检测，
+短时日志正常不构成1.85A长期充电、温升或单包工况验证。
+默认BATTERY_VBUS_CURRENT_SETUP_ENABLED=1，模式为VBUS_LIMIT：
+V0.24的USB接VBUS，仅按现有V1.28映射修改0x26[4:0]=0x0D，保留其它位。
+成功路径不改充电许可、截止电压、VIN环路、Boost、KEY或硬件NTC设置。
+每250ms读回，设置丢失后重新配置；通信/校验失败时尽力禁充并报告故障，
+本模式绝不主动开启充电，错误恢复也不自动重新使能。
+温度线仍未接入，温度显示NA；250mA低温档尚不自动启用。
+实装芯片支持I2C，但对应批次寄存器资料仍待补充，map_confirmed保持0。
+1850mA是寄存器名义设定，不是实测电流或保证1850mA物理上限。
+未启用的完整温控模式仍沿用650/250mA档位，本次仅提高VBUS电流模式。
+需要恢复纯只读监测时设置BATTERY_VBUS_CURRENT_SETUP_ENABLED=0，
+同时保持BATTERY_CONTROL_ENABLED=0；已写入的芯片电流字段不会因此自动还原。
+
+已实现：
+• 每250ms采集IP5310状态，电量区间、充电使能标志、充满标志、
+  轻载、NTC高/中/低温标志、Type-C连接标志、锁存按键标志。
+• I2C有限超时、ACK检查、重复起始、末字节NACK、9时钟总线恢复。
+• 只读寄存器事务失败后最多重试一次；中途休眠不重试，重新等待唤醒稳定。
+  写事务不自动重放，持续失败仍沿用原有尽力禁充策略。
+• 保存首次/最近I2C失败的原因、阶段、寄存器、读写方向、引脚电平和时间，
+  另保留上层每轮首个最终失败，避免后续尽力禁充的失败覆盖原始原因。
+• 休眠/唤醒、通信错误、无效数据、过期数据的明确状态。
+• 电量≤3%连续3次后给出停止运动请求；>25%连续5次解除。
+  ≤25%、充电标志、Type-C sink或NTC中温时给出限制运动请求。
+• 预留NTC采样、温控策略与受控寄存器配置；默认不启用温控充电。
+• 独立VBUS电流配置、写前快照、读回及周期复核，不占用温控模式。
+
+未接入运动代码，所以运动请求是供后续舵机模块读取的接口，当前没有
+声称已停车、限功率或物理断电。四路舵机在图中直接接+5V，无独立供电开关。
+
+二、硬件基线
+
+依据：../../电路设计/原理图核对/V0.24/
+Netlist_Schematic1_1_2026-10-19_105726-474.enet
+SHA256：4092034fc699b576a0ec4cd8b0d5d1969c32c611d2006a7775532eeb193cf9e2
+
+电池：2块802440P 700mAh、各带PCM、1S2P并联，标称3.7V/1400mAh。
+原项目约束：4.2V，常温总充电≤700mA，10–20℃≤280mA，10–45℃允许充电。
+2026-10-23用户先请求整组1A（选850mA），随后说明单包1A，授权1250mA再到1850mA试充。
+当前选择名义1850mA。原电压/温度条件未改，完整温控模式仍未启用。
+来源：V0.24的review-output/2026-10-19-V0.24-review/power.txt第6行；
+型号来源：review-output/2026-10-15-1328-V0.13-02/battery-parallel-review.txt。
+未沿用早期1000mAh无保护电芯的参数。
+
+PB10 / U3.29：STM_IIC_SCL
+PB11 / U3.30：STM_IIC_SDA
+PA15 / U3.50：STM_BAT_INT，IP5310 L3高电平表示工作。
+PB10/PB11软件开漏约100kHz，外部电平转换/上拉已在板上；AHT20共享总线。
+PA15配置浮空输入，并禁用JTAG、保留PA13/PA14上的SWD。
+KEY仅接实体按键，无MCU控制线；本程序不会模拟按键或双击关机。
+
+STM_BAT_TEMP未接任何MCU脚；PC0 / ADC10仅是预留候选，不代表已布线。
+MCU测温电路为100k/B3950 NTC到GND，100k上拉至3.3V，1k串联与100nF滤波。
+IP5310侧另有独立100k/B3950 NTC并82k，不能代替MCU探头或精确10–45℃温窗。
+当前没有MCU电池电压分压、实际电流采样、单包存在/电流检测。
+
+三、文件与接口
+
+Code/Battery_Config.h：容量、编译开关、引脚候选、采样/温度策略参数。
+Code/IP5310.c/.h：纯C芯片协议、原子快照、250/650/850/1250/1850mA配置与读回校验。
+Code/Battery_Policy.c/.h：NTC换算、充电温窗、回差与连续恢复样本策略。
+Code/Battery.c/.h：周期任务、故障状态、充电控制及运动请求。
+BSP/src/BSP_Battery.c：PB10/PB11软件I2C、PA15状态、可选ADC。
+BSP/src/BSP_SysTick.c：1ms连续时基、DWT微秒延时。
+BSP/src/BSP_UART_3.c：PC10/PC11串口及非阻塞接收环形缓冲。
+Code/main.c：初始化、Battery_Task()、每秒串口诊断。
+
+调用顺序：SysTick_Init() → Battery_Init()；主循环持续调用Battery_Task()。
+Battery_GetStatus(&status)取得快照；只在snapshot_valid=1时使用chip字段。
+temperature_valid=0时，不得使用保留的temperature_dc数值。
+g_battery_status供Keil Watch查看，应用建议用带过期检查的GetStatus接口。
+所有接口在主循环调用，不支持ISR并发。将来接AHT20时应共用同一总线调度。
+
+Battery_RequestCharging(0/1)只在CONTROL模式改变充电许可，下一次250ms任务落实，
+重复调用不会提前推进连续恢复样本；MONITOR/VBUS_LIMIT模式不通过此请求使能充电。
+MONITOR模式完全不写寄存器。VBUS_LIMIT模式只设置电流，故障时会尝试禁充。
+CONTROL模式仍须温度有效、连续恢复及配置读回通过后才允许使能。
+control_verified/charge_stop_verified只表示最近寄存器校验结果，
+VBUS_LIMIT的verified=1只证明0x26电流字段与目标匹配，不代表温控/电压已接管。
+charge_stop_verified=1表示充电许可位已读回0，不等于实测充电电流为零。
+applied_nominal_ma=0在监测模式下表示本程序未配置，不是实测0mA。
+charge_config_valid=1时可读取charge_config原始配置；写前首次配置保存在
+charge_config_before并输出BAT_CFG_BEFORE，便于核对只有电流字段改变。
+
+Battery_MotionRequest枚举：0=STOP_REQUEST，1=LIMIT_REQUEST，2=NORMAL。
+未知/无效/过期数据、临界电量、硬件NTC高温或低温均请求停止运动。
+温度线未接本身不会把监测模式强制转换成充电控制，也不虚构有效温度。
+
+四、串口与联调
+
+默认开启USART3部分重映射：PC10 TX、PC11 RX，115200、8N1。
+PC10连ESP32 GPIO5（RX），PC11连ESP32 GPIO4（TX）。
+PB10/PB11继续专用于电池I2C，不能把USART3改回默认映射。
+使用 E:/Project/ESP32_robot_dog 中的ESP32串口转发固件后，整条链路是：
+电脑USB ⇄ 板载CH340 ⇄ ESP32 UART0 ⇄ ESP32 UART1（TX4/RX5）⇄ STM32 USART3。
+两颗MCU都需要更新各自的固件，再用USB线连接电脑并打开CH340对应COM口。
+串口参数115200、8N1、无流控；可每秒看到一行BAT状态。
+本次STM32和ESP32不定义新应用命令，电脑发来的字节可到达STM32接收缓冲，
+但不会自动执行动作或回显。UART_3_Read()是以后命令处理的非阻塞入口。
+接收环可存255字节，满后丢弃新字节；UART_3_Get_Rx_Dropped()/Errors()
+可查看溢出或帧错误累计。当前没有消费者，所以持续发送超过缓冲会丢弃。
+
+如以后使用单独USB转串口工具，可在Battery_Config.h设置
+BATTERY_DIAGNOSTIC_UART=1，日志改回H1.1=PA9 TX、H1.2=PA10 RX。
+用3.3V电平转换器的RX接PA9并共地，H1.17–20为GND；此模式不经过ESP转发。
+BATTERY_UART_DIAGNOSTICS=0可关闭日志；默认USART3无需额外转串口模块。
+
+典型日志字段（示意，不是实板测量）：
+BAT ... link=READY awake=1 valid=1 faults=0x04 soc=(25,50]% ... temp=NA mode=MONITOR ...
+
+0x04表示温度线未接，是当前已知状态。
+电量只有[0,3]、(3,25]、(25,50]、(50,75]、[75,100]五个区间，
+边界按V1.28原文表示。高档不等于精确100%，本驱动不伪造mV、mA或精确百分比。
+chg_flag是芯片充电标志，不是实际电流；usb_sink是CC连接标志，不是独立VBUS测量。
+进一步核对V1.28原文，0x70[3]为charge_en/充电使能标志；
+charge=ENABLED_NOT_FULL仅表示许可打开且芯片充电开启标志置位、尚未报告充满，
+不能证明电池已有净充电电流。FULL_FLAG表示充电结束标志，DISABLED表示许可关闭。
+最新日志明确actual_mA=NA、vbat_mV=NA、soc_source=IP5310_BUCKET。
+现有资料没有公开实测电流/电压ADC寄存器，V0.24也没有对应MCU采样或独立电量计；
+不要从0x26的设定值生成“实测电流”，也不要将五档电量换成伪精确百分比。
+电量区间随时间上升可提供间接观察；短时间档位不变不能说明没有充电。
+按键标志为锁存标志，本驱动不清除它，不能当成每次按键的新事件。
+
+link=STANDBY：PA15为低，不访问芯片，等待实体按键/插电使其工作。
+link=BUS_ERROR：事务失败，检查供电、PA15、PB10/PB11、上拉/转换及实际ACK。
+新固件 fw=BUS_RECOVERY_1 将读事务中检测到的L3掉低归入休眠/重新唤醒流程；
+即使返回上层时L3已变高，也重新等待稳定时间，不沿用原awake=1状态。
+一次读失败后等待1ms，仅再尝试一次完整读事务；若重试成功，不因此自动停充。
+若最终仍失败，仍报告异常并尽力禁充。该机制不证明电源、焊接或上拉没有问题。
+UART新增bus_err（最终快照失败次数）、io_fail（底层失败尝试数）、io_retry、
+io_recovered。后三者包含偶发失败后恢复，不应把历史非零误解成当前持续故障。
+io_first/io_last为首次/最近底层失败，bus_cause为上层本轮首个最终失败的持久记录；
+格式：原因:阶段:寄存器十六进制:R或W:引脚位图:启动后毫秒。
+引脚位图bit0=SCL、bit1=SDA、bit2=AWAKE，高电平为1；在故障原点采集。
+原因NONE/ARG/ASLEEP/NACK/SCL_TIMEOUT/SDA_STUCK/STOP；阶段START/ADDR_W/REG/
+RESTART/ADDR_R/DATA_R/DATA_W/STOP/RECOVER。成功读取不清历史故障，重启清零。
+正常日志示例 io_fail=0 io_retry=0 io_recovered=0 io_first=NONE:IDLE:00:R:0:0。
+link=DATA_ERROR：事务返回全FF、非法电量码或矛盾NTC状态；核对批次寄存器。
+link=STALE：超过1500ms未有有效快照；不得继续使用上次电量参与运动决策。
+错误位：0x01总线，0x02数据，0x04温度未接，0x08探头/ADC无效，
+0x10硬件NTC温度标志，0x20充电控制/校验，0x40过期。可以组合。
+
+五、后续启用充电温控
+
+当前不需要改这些开关即可调试监测。补齐实际NTC接线与准确寄存器资料后：
+1. 在Battery_Config.h核对实际ADC端口/通道，设置BATTERY_TEMP_ADC_CONNECTED=1。
+2. 实测探头阻值、温度、开路/短路；代码采用8次采样、ADC12MHz/239.5周期，
+   每次轨边值立即判错，100k/B3950表换算；查表不是实际探头校准。
+3. 核对该批IP5310寄存器后设置BATTERY_REGISTER_MAP_CONFIRMED=1。
+4. 需要MCU接管时先设置BATTERY_VBUS_CURRENT_SETUP_ENABLED=0，
+   再设置BATTERY_CONTROL_ENABLED=1。两种写入模式不能同时启用；
+   完整温控模式未确认寄存器时编译直接报错。
+
+受控模式策略：温度未知或NTC异常即请求禁充；低于11℃或高于44℃立即请求禁充；
+恢复须处于12–43℃且连续5次有效。≤21℃立即降低至名义250mA；
+从低温档回到常温档须≥22℃连续5次；常温名义650mA。
+1℃保护余量和回差属于软件初值，最终须结合传感器误差和温度分布实测。
+这组保守阈值落在项目10–45℃范围内。
+
+配置采用先禁充 → 设置4.2V/零加压 → 接管VSET → 选择BAT恒流环 →
+配置两个输入路径的电流字段 → 全配置读回 → 最后使能；运行时每次采样复核配置。
+只改所需位，保留其他位。任一步失败尝试禁充，失败不能宣称已经停充。
+从休眠/掉线/超时恢复会重新等待有效温度，不沿用旧的充电许可。
+
+650/250mA是V1.28可表达的名义档位，不是保证准确700/280mA上限。
+低档误差、预充/终止（旧文档最小终止档300mA）、温控优先级及掉电默认值
+仍须对应批次资料和实测确认。两包独立PCM不保证均流，当前也无法知道一包退出。
+软件不能覆盖MCU未启动/故障/掉电时的充电行为，也没有硬件禁充线可兜底。
+NTC未接时不要通过伪造温度或直接设置控制开关来绕过这一限制。
+
+六、构建与验证
+
+2026-10-23 03:08–03:10 按用户要求升级整组1850mA并完成烧录校验。
+VBUS低5位编码0x0D；共用表新增VIN编码0x12，但实际VBUS模式没有写VIN。
+五组主机测试全部通过；Keil编译0错误/0警告，Code=11442、RO-data=634、
+RW-data=100、ZI-data=1772字节。ST-LINK烧录后回读验证成功。
+从复位起观察120.05秒、120次HTTP读取均成功且UART新鲜：首条t=16为正常STARTING，
+随后119条均READY、set_mA=1850 verified=1、chg_en=1、chg_flag=1、full=0、ntc=000。
+电量(50,75]%，全程bus_err/io_fail/io_retry/io_recovered均0；faults仅温度线未接0x04。
+前后记录配置仅26:08变为26:0D，其余寄存器相同。实际电流/电压/温度仍为NA。
+浏览器观察到一次短暂“更新延迟”，随后自动恢复“设备已连接”，并显示1850mA已读回。
+HTTP采样无失败，Wi-Fi断线、服务端发送/内部错误计数均0；没有据此宣称浏览器从无延迟。
+本次COM18仍未枚举，日志通过ESP32 HTTP转发读取；未更新ESP32固件。
+证据：Output/vbus1850-tests.log、vbus1850-build.log、stm32-flash-vbus1850.log、
+battery-before-vbus1850.json、battery-after-vbus1850.json、vbus1850-observation-summary.json、
+battery-vbus1850-web-logs.json/.txt；网页截图 E:/Project/ESP32_robot_dog/build_bridge/battery-dashboard-1850.png。
+本版HEX SHA256：032d93fa1149a1cc33e24eb8b50289886cd589d09cf78b6ed44973d678d22f3c。
+1250mA回退文件：Output/main-before-vbus1850-20261023-030700.hex；需实际烧录才能回退。
+只确认短时配置与通信、状态标志；没有测量实际电流或验证温升、均流及一包退出工况。
+
+2026-10-23 03:00–03:02 整组1250mA试充版本已完成烧录、回读校验和实机观察。
+用户明确授权1.25A试充；新增1250mA配置（VBUS=0x08，VIN=0x0C），当前仅写VBUS。
+五组主机测试全部通过，包含850→1250时低位清除、保留其它寄存器和充电许可，
+以及1250默认配置下故障禁充、禁止自动开启、休眠/唤醒和总线恢复等测试。
+Keil编译0错误/0警告，Code=11426、RO-data=634、RW-data=100、ZI-data=1772字节。
+通过ST-LINK烧录并回读验证成功；仅STM32固件更新，ESP32页面自动显示1250mA。
+HTTP连续观察120.08秒，共120次状态读取，全部HTTP 200且UART数据新鲜：
+link=READY、set_mA=1250、verified=1、chg_en=1、chg_flag=1、full=0、ntc=000；
+bus_err/io_fail/io_retry/io_recovered均为0，faults仅已知温度线未接0x04。
+SOC在该窗口为(50,75]%；本轮烧录前已经从此前(25,50]%升入该档。
+前后记录的充电配置仅26:07变为26:08，其余配置寄存器相同。
+Wi-Fi断线累计、HTTP发送错误和内部错误均为0；页面已确认显示1250mA和50–75%。
+本次电脑无枚举串口，COM18无法打开；原始STM32串口日志通过ESP32的HTTP接口读取，
+不能把此记录称为COM18直采成功。温度、电压、实际净充电电流仍为NA。
+短时通信与状态标志正常，不代表完成温升、支路电流或长期充电验证。
+证据：Output/vbus1250-tests.log、vbus1250-build.log、stm32-flash-vbus1250.log、
+battery-before-vbus1250.json、battery-after-vbus1250.json、vbus1250-observation-summary.json、
+battery-vbus1250-web-logs.json/.txt；完整名义档位见同目录IP5310充电电流档位.txt。
+网页截图：E:/Project/ESP32_robot_dog/build_bridge/battery-dashboard-1250.png。
+本版HEX SHA256：9f09bfc0c171095e1f5df945faf3d74836a9c31a56595f2ef114f7b76dd7d808。
+850mA回退文件：Output/main-before-vbus1250-20261023-025809.hex。
+回退须实际重新烧录该文件；仅关闭VBUS设置模式不会清除芯片已写入的1250mA字段。
+
+2026-10-23 02:48 按用户整组1A目标更新为名义850mA并烧录STM32，HEX回读校验通过。
+V1.28 0x26公式为50+100*b0+200*b1+500*b2+1200*b3+2300*b4 mA；
+0x07=850mA，0x08=1250mA，没有1000mA。本轮没有切换VIN环路或提高截止电压。
+五组主机测试通过，增加850mA掩码/保留其它寄存器测试，拒绝不可表达的1000mA
+和当时尚未开放的1250mA请求；
+Keil编译0错误/0警告。烧录后连续25次采样全READY、set_mA=850 verified=1、
+chg_en=1、chg_flag=1、full=0，bus_err=0、io_fail=0，已知温度未接faults=0x04。
+与写入前配置相比，仅26:05变为26:07，其余记录的配置寄存器保持一致。
+网页实机确认显示850mA；实测电流/电压仍NA，不能把配置读回称作电流实测。
+证据：Output/vbus850-tests.log、stm32-flash-vbus850.log、battery-before-vbus850.json、
+battery-after-vbus850.json；网页截图 E:/Project/ESP32_robot_dog/build_bridge/battery-dashboard-850.png。
+本版HEX SHA256：f91a74cc6c733e17c6a17987ed1223884226e77f872407ef7604624dfa3621f7。
+
+2026-10-23 02:28 BUS_RECOVERY_1 修复版本已烧录STM32，HEX回读校验通过。
+本轮开始时已恢复READY；烧录前15次采样未复现BUS_ERROR。旧日志把NACK、时钟
+超时、SDA卡低及中途休眠混合成BUS_ERROR，无法据此确定历史故障的物理根因。
+本次修复中途休眠分类/唤醒等待、只读一次有界重试和故障证据保留；写事务不重放。
+主机五组测试全部通过：协议、MONITOR、CONTROL、VBUS_LIMIT、BSP GPIO模拟；
+包含NACK后cleanup阶段休眠再回高仍禁止重试、原始错误不被清理/禁充操作覆盖。
+Keil重编译0错误/0警告，Code=11390、RO-data=634、RW-data=100、ZI-data=1772字节。
+实板随后40次HTTP采样全为READY，均set_mA=650 verified=1、chg_en=1、chg_flag=1、
+full=0、ntc=000；bus_err=0、io_fail=0、io_retry=0、io_recovered=0，faults仅0x04。
+这证明配置、状态读取及通信在此验证窗口正常，不等于实测电池净充电电流。
+本次保持650mA：旧设计输入上限700mA，而V1.28下一可用档0x06为750mA。
+用户表示将补充新电池最大充电电流规格，具体数值尚未提供，未擅自提高。
+证据：Output/bus-recovery-tests.log、battery-build.log、stm32-flash-bus-recovery.log、
+battery-before-diagnosis-20261023-021800.json、battery-after-bus-recovery-20261023-022806.json。
+本版HEX SHA256：5bda2d1c0fa3f46fb5e67d6e11329ce857829fce56105ca7cc91691d42bc1bd3。
+
+当前网页日志版本已编译（0错误/0警告）并烧录校验成功：新增chg_en、charge、
+soc_source、actual_mA=NA、vbat_mV=NA，电池控制逻辑与650mA设置不变。
+ESP32将完整日志缓存为网页数据，实板网页：http://192.168.1.38/。
+HTTP接口与浏览器实时刷新已验证，详见ESP32工程README和build_bridge证据。
+本版烧录记录：Output/stm32-flash-web-telemetry.log。
+
+2026-10-23 01:06 VBUS固定电流版本已烧录实板，HEX回读校验通过。
+本版Keil重编译0错误/0警告；驱动、纯监测、完整温控、VBUS限流四组主机测试通过。
+COM18随后采集15秒，共15条电池日志，全部显示：
+mode=VBUS_LIMIT set_mA=650 verified=1 stop_bit=0 chg_flag=1 faults=0x04。
+配置读回：00:F8,0A:A3,22:32,23:AF,24:D5,25:90,26:05。
+0x26低5位为0x05，对应V1.28名义650mA；仍未测量实际充电电流。
+温度未接的0x04保持，未出现其它已报告故障。没有启用自动250mA降流。
+烧录日志：Output/stm32-flash-vbus650.log。
+实测日志：E:/Project/ESP32_robot_dog/build_bridge/serial-COM18-vbus650-check-20261023-010614.txt
+及同名.json统计。COM18已关闭释放。
+本版HEX SHA256：8d59f497dcbf7a8a86ef5dcf9ccbd61eaeb5476ab69fa3e8cbc797bd99ff2286。
+
+Keil打开 Project/main.uvprojx，Rebuild即可生成 Output/Objects/main.hex。
+命令行：powershell -ExecutionPolicy Bypass -File tools/build.ps1
+可通过 -KeilPath 指定其他电脑的 UV4.exe。
+主机回归：powershell -ExecutionPolicy Bypass -File tests/run_tests.ps1
+需要gcc；本机使用C:/Strawberry/c/bin/gcc.exe。
+
+验证覆盖纯C寄存器驱动、监测状态机、温控控制分支与故障注入。
+电池初版验证结果：Keil完整重编译0错误/0警告；
+本次串口转发适配后的最新大小和结果见Output/battery-build.log，HEX已生成。
+tests/run_tests.ps1的驱动测试、默认监测测试和启用控制测试全部通过。
+ARMCC逐文件验证覆盖监测、控制+ADC、无串口三种配置，均无警告；
+未确认寄存器表时开启控制的构建按预期拒绝。
+日志：Output/battery-build.log、Output/host-tests.log、Output/validation/。
+2026-10-23前一版MONITOR实板验证（历史记录）：完整重编译0错误/0警告，通过ST-LINK烧录main.hex，
+回读校验通过并软件复位；目标为128KB Flash、Cortex-M3，检测供电3.30V。
+COM18以115200 8N1连续采集20.11秒，收到3940字节、20条电池日志，间隔1000ms。
+全部为link=READY、awake=1、valid=1、faults=0x04、temp=NA、mode=MONITOR，
+确认IP5310通信及STM32 USART3→ESP32→CH340→电脑日志链路工作。
+按当前V1.28映射，soc=(25,50]%、chg_flag=1、full=0、usb_sink=1、ntc=000；
+电量和充电标志的含义仍待本批次寄存器资料确认，不代表精确容量或实测充电电流。
+0x04为已知的温度线未接，没有其它已报告故障。本次未启用软件充电控制或连接负载测量。
+烧录记录：Output/stm32-flash.log；串口原文及统计：
+E:/Project/ESP32_robot_dog/build_bridge/serial-COM18-after-STM32.txt
+E:/Project/ESP32_robot_dog/build_bridge/serial-COM18-after-STM32-summary.json
+采集结束已关闭COM18。后续仍需测试充电器插拔、睡眠/唤醒、
+断线恢复及电量档位；用逻辑分析仪核SCL/SDA波形和升降沿。
+
+寄存器依据（厂商署名的旧版副本，待与本批次对齐）：
+../../电路设计/review-output/2026-10-03-0550/evidence/datasheet-text/
+IP5310_I2C_INJOINIC_Register_Manual_V1.28_ThirdPartyCopy.txt
+官方通用IP5310中文V1.36资料在同工程历史审核datasheets内；它证明I2C接口，
+不能单独证明FMC批次的所有寄存器配置或默认电流。
+
+目录里的“项目需求.txt”是原模板抢答器说明，未作为机器狗电池需求使用。

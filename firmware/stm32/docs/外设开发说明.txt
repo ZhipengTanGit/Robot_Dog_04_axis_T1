@@ -1,0 +1,165 @@
+STM32 V0.24 外设固件（2026-10-23）
+
+硬件基准
+本实现按 V0.24 的 Netlist_Schematic1_1_2026-10-19_105726-474.enet 核对。
+MCU 为 STM32F103RBT6，128 KB Flash / 20 KB RAM。项目需求.txt 中的
+STM32F103VET6、PC13 按键及 RGB 抢答器是原模板内容，不适用于当前板。
+
+保留的电池及通信行为
+- IP5310 的 1850 mA VBUS 名义电流试用配置不变；没有增加充电使能、充电
+  电压或温控寄存器修改。新增显式电流命令，可在RAM内改变目标，重启恢复
+  1850mA。原BAT字段保留，新增request_mA和current_req。
+- USART3 部分重映射：PC10 TX 接 ESP GPIO5 RX，PC11 RX 接 ESP GPIO4 TX；
+  115200 8N1。PB10/PB11 仍然为 I2C，不能改成默认 USART3 引脚。
+- PA15 为 IP5310 L3 唤醒状态，低电平时停止所有共享 I2C 事务，不主动唤醒。
+- STM_BAT_TEMP 未连 MCU，实测电池电压、电流也没有采样通路，仍为 NA。
+  AHT20 环境温度不能作为电池温度或替代电池温度保护。
+
+外设及引脚
+- U12 AHT20：PB10 SCL / PB11 SDA，共享电池 I2C，7 位地址 0x38。
+- STM_KEY_1：PA0，高电平按下；外部 10k 下拉和 100nF 电容。
+- U13 AI01C 触摸：PA1，低电平触摸；MD 悬空、外部 10k 上拉。
+- 两颗绿 LED：PB0 / PB1，低电平点亮。
+- BUZZER1 MLT-5020：PA8 TIM1_CH1，Q11 SI2302 低端开关；4kHz、50%占空比。
+- 舵机通道 0：PB6 TIM4_CH1，右后腿。
+- 舵机通道 1：PB7 TIM4_CH2，左后腿。
+- 舵机通道 2：PB8 TIM4_CH3，右前腿。
+- 舵机通道 3：PB9 TIM4_CH4，左前腿。
+  四个接口均 pin1 信号 / pin2 +5V / pin3 GND。
+- SW1 直接连接 IP5310 KEY；STM_RES1 为 NRST 复位键，均不是普通 GPIO 输入。
+- H1 只是扩展接口。本板没有已连接 STM 的 IMU 或测距传感器。
+
+运行方式
+主循环依次执行 Battery_Task 和 Peripherals_Task，共用 SysTick 毫秒时钟。
+I2C 在同一主循环串行使用，不在 ISR 中调用。AHT20 入口仅能访问地址 0x38，
+复用电池 I2C 时序、开漏、时钟超时和睡眠检查；AHT20 错误不会被计入电池
+bus_err/io_fail。IP5310 未 READY 或处于 STANDBY 时，AHT20 标记 STANDBY，
+避免总线活动扰动休眠电源芯片。总线恢复后，等待 100ms 再启动环境测量。
+
+AHT20 每 2 秒发起一次 AC 33 00，等待至少 80ms，读取 7 字节。
+检查 CRC8（初值 FF、多项式 31）、Busy、校准使能；Busy 最迟 200ms 超时。
+80ms 转换期间主循环继续运行。NACK/CRC/忙超时后隔 2 秒重试，不反复占用
+总线；失败保留历史值及时间，但 valid=0。超过 5 秒未更新也标记无效。
+未经校准的原始 ADC 数据不作为温湿度发布，不自动写未知校准寄存器。
+
+PA0 和 PA1 均使用 20ms 稳定状态消抖；触摸在启动前 300ms 忽略读数。
+记录按下和释放计数，不自动控制 LED、发声或舵机。
+AI01C 自身在持续触摸约 30 秒后可能取消输出，这是芯片行为。
+
+上电 LED 熄灭、蜂鸣器关闭、四路舵机无脉冲。舵机为 50Hz；仅接受
+1000..2000us 的显式命令。新宽度在下一帧边界生效；停止立即清零比较值。
+此范围是软件限制，不表示实装舵机的机械行程已校准，程序不会自动回中
+或扫动。电池 STOP、通信失效、无有效快照或其他电池故障立即关闭四路，
+故障恢复不会恢复先前输出，需要新的显式命令。
+已知 TEMP_UNCONNECTED 状态不单独禁止舵机，因为当前板没有该连接；实际
+温度传感器故障、NTC、BUS、DATA、CONTROL、STALE 故障仍禁止舵机。
+电池 LIMIT 模式允许上述有限单通道测试，没有加入步态运动。
+舵机电源没有独立软件开关；停止 PWM 不代表 +5V 已断电。
+
+ASCII 命令（通过 USART3 发送；每条以 LF、CRLF 或 CR 结束）
+PERIPH LED 0 1        LED0 点亮；编号 0/1，状态 0/1
+PERIPH LED 1 0        LED1 熄灭
+PERIPH BEEP 80        4kHz 蜂鸣 80ms；范围 0..1000ms，0 表示立即停止
+PERIPH SERVO 0 1500   右后通道输出 1500us；编号 0..3，脉宽 1000..2000us
+PERIPH STOP           立即关闭所有舵机脉冲和蜂鸣器，LED 保留
+PERIPH STATUS         立即输出一条 PERIPH 状态
+
+不支持任意寄存器读写、任意 GPIO 操作或未限定的运动命令。
+参数必须是十进制无符号数字；负数、超范围、多余参数、未知命令不执行。
+命令行上限为 79 个字符。超过长度或含非法控制字符时丢弃直到行尾。
+UART 丢字/接收错误后清空队列，再丢弃到后续行尾才重新同步，可能需要重发
+一条完整命令；不会把残缺命令继续当作有效命令执行。
+
+回应仅包含固定标记，不回显任意输入：
+PERIPH_ACK cmd=SERVO ok=1 reason=OK
+PERIPH_ACK cmd=SERVO ok=0 reason=BATTERY
+PERIPH_ACK cmd=INVALID ok=0 reason=SYNTAX
+LINE 代表过长/非法字符，RX_LOSS 代表接收丢字或硬件接收错误。
+
+充电电流调节命令（新增）
+BAT CURRENT <名义mA> <command_id>
+例：BAT CURRENT 650 web_20261023_1
+command_id只允许1..32位ASCII字母、数字、减号和下划线。
+名义电流必须符合IP5310 V1.28的32档精确编码，同时不能超过当前板
+BATTERY_BOARD_MAX_NOMINAL_MA=3000；最高可执行档为2950mA。
+3050..4350编码完整保留用于查看/映射，执行API返回BOARD_LIMIT，不写寄存器。
+完整列表、公式和能力限制见IP5310充电电流档位.txt。网页后端还应依据当前
+电池型号、并联配置和充电规格限制下发，换电池不会提高IP5310本身额定能力。
+0x26[4:0]是经VBUS口充电时的BAT端Charger电流设置，不是VBUS输入限流值。
+日志旧mode=VBUS_LIMIT保留兼容；actual_mA始终表示不可测，不能用设定值替代。
+
+请求API Battery_RequestNominalCurrent只排队，不进行I2C等待。
+必须处于READY、awake、有效快照及当前VBUS-current-only模式；下一次250ms
+轮询进行读/改低5位/回读，保留0x26高3位以及充电许可、电压、VIN、NTC字段。
+收到命令先回PENDING，只有配置回读匹配才回APPLIED：
+BAT_CURRENT_ACK id=web_20261023_1 target_mA=650 status=PENDING reason=QUEUED applied_mA=1850
+BAT_CURRENT_ACK id=web_20261023_1 target_mA=650 status=APPLIED reason=OK applied_mA=650
+applied_mA为寄存器确认的名义设置，仍不是实测电流。
+
+REJECTED原因：UNSUPPORTED（非精确档位）、BOARD_LIMIT（超过板级上限）、
+NOT_READY、MODE、BUSY、ID_CONFLICT、SYNTAX。
+FAILED原因：IO或VERIFY；不把接收成功当成应用成功。失败沿用既有尽力
+关闭充电许可策略，绝不自动重新打开充电。
+每次显式请求最多尝试一次写入；之后只有监测。若成功后芯片复位/档位漂移，
+不会自动重新写该RAM目标，需要新的显式请求。请求期间休眠/失联也取消请求。
+失败后未来读回可能确认实际已存储的名义值，但旧命令最终结果仍为FAILED；
+读取确认不会自动重发APPLIED或发起新的写入。
+最后一个处理ID和目标/结果保存在RAM：同ID同目标重发结果，不重写；同ID
+换目标返回ID_CONFLICT；有待处理请求时其他ID返回BUSY。缓存只有一项，
+重启清空；ESP必须只发送一次新鲜命令，不能无限重放旧队列。
+BAT新增request_mA=RAM目标，current_req=0闲置/1待处理/2已应用/3失败，
+后者是最近请求结果；当前硬件是否仍确认必须看verified和set_mA。
+
+每秒状态协议（空格分隔 key=value）
+PERIPH t=1180 aht_t_cC=2500 aht_rh_cPct=5000 aht_valid=1 aht_age_ms=0 aht_state=READY aht_errors=0 key=0 key_press=0 key_release=0 touch=0 touch_press=0 touch_release=0 led0=0 led1=0 buzzer=0 servo0_us=0 servo1_us=0 servo2_us=0 servo3_us=0 servo_mask=0 servo_allowed=1 cmd_ok=0 cmd_err=0 rx_drop=0
+
+- t：STM32 毫秒计数（32位，可回绕）。
+- aht_t_cC：环境温度摄氏度乘100，可为负值；无历史样本为 NA。
+- aht_rh_cPct：相对湿度%乘100；无历史样本为 NA。
+- aht_valid：只有 1 才可将历史数字作为当前有效读数。
+- aht_age_ms：距上次成功采样时间；从未成功为 4294967295。
+- aht_state：STARTING/STANDBY/MEASURING/READY/BUS_ERROR/CRC_ERROR/
+  BUSY_TIMEOUT/UNCALIBRATED；MEASURING 时上一次新鲜样本仍可 valid=1。
+- aht_errors：累计环境采集失败次数；不与电池故障次数混用。
+- key/touch：消抖后的状态，1为按下/触摸；press/release为累计边沿次数。
+- led0/led1/buzzer：软件请求状态；不是物理光/声音测量。
+- servo0_us..servo3_us：请求脉宽，0为无脉冲；不是实际角度或位置反馈。
+- servo_mask：bit0..bit3 对应通道是否请求输出。
+- servo_allowed：当前电池状态是否允许新的显式舵机命令。
+- cmd_ok/cmd_err：成功与拒绝命令数量。
+- rx_drop：USART3 接收缓冲区累计丢字数。
+
+主要源文件
+Code/AHT20.c/.h：AHT20 状态机、CRC、定点解码。
+Code/Peripherals.c/.h：消抖、状态、有限命令、故障停止与日志。
+BSP/src/BSP_Peripherals.c、BSP/inc/BSP_Peripherals.h：GPIO 和定时器 PWM。
+BSP/src/BSP_Battery.c：新增地址受限的 AHT20 共享总线事务入口。
+BSP/src/BSP_UART_3.c：新增原子接收缓冲清空函数。
+Code/main.c、Project/main.uvprojx：主循环和构建接入。
+
+验证
+tests/run_tests.ps1：8 套测试，包含原有 5 套电池回归，以及 AHT20、外设逻辑、
+外设 BSP 定时器模型。
+新增测试覆盖 CRC/正负温度/状态位/忙超时/时钟回绕、触摸启动/消抖、非法
+命令不动作、分包/超长行/UART丢字、蜂鸣器截止、电池故障停止且不自动恢复。
+真实 bit-bang BSP 的 GPIO 仿真增加 AHT20 7 字节读取 ACK/NACK、睡眠禁止通信、
+错误不污染电池计数及后续电池事务恢复测试。
+独立定时器模型验证 APB 时钟倍频、GPIO 极性、上电无脉冲、新脉宽帧边界生效，
+以及四通道停止时活动/预装载比较寄存器都为0，后续更新事件不会恢复旧脉冲。
+本次全部通过，日志 Output/peripheral-tests.log。
+tools/build.ps1：Keil ARMCC 5.06，0 Error(s)、0 Warning(s)。
+新增电流测试遍历32编码双向唯一映射，逐档核对其他寄存器保持不变；执行API
+检查板级3000mA上限、RAM目标不被启动常量覆盖、回读失败不报成功/不自动重写、
+休眠取消、模式限制、重复ID、冲突、非法ID及过长/丢字命令。
+最新测试日志：Output/current-command-tests.log；8套全部通过。
+Program Size：Code=17684 RO-data=908 RW-data=136 ZI-data=2048。
+固件：Output/Objects/main.hex。
+SHA256：C1BBEFEB7AE55A702BA42398B2173897969B45506350A8A9F0F8D833FD7AC02B。
+以上为软件测试和编译结果，未代替实板引脚波形/传感器读数/机械行程验证。
+
+主任务实板反馈（初始外设版；新增电流调节版待主任务统一烧录验收）
+- ST-LINK 烧录与回读成功。
+- AHT20 实测输出约26.94..27.03℃、46.88..46.93%RH，aht_errors=0。
+- 同期电池 bus_err=0，电池电流配置仍为1850mA。
+- LED0/1 开/关、STATUS、STOP 共6条串口命令 ACK ok=1。
+- 未执行舵机运动命令，日志四路脉宽均为0；机械动作与波形仍未实测。

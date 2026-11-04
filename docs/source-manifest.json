@@ -1,0 +1,3770 @@
+{
+  "snapshotDate": "2026-11-04",
+  "files": [
+    {
+      "path": "debug-terminal/server/.gitignore",
+      "source": "ESP32_robot_dog/server/.gitignore",
+      "size": 25,
+      "sha256": "2269b55e1081bb8e0dfa43e8dd952b589ed3f31fb7281395287a46f68f0d1f24"
+    },
+    {
+      "path": "debug-terminal/server/index.html",
+      "source": "ESP32_robot_dog/server/index.html",
+      "size": 208664,
+      "sha256": "297bc5dae2db53228e52d4364e81dea558481e008e29b5ead25f158be804d7e9"
+    },
+    {
+      "path": "debug-terminal/server/README.md",
+      "source": "ESP32_robot_dog/server/README.md",
+      "size": 18792,
+      "sha256": "869f8f763ff6336d2e68513e7f236a96e382fc2511fc24d32f94ff5cdff08ec3"
+    },
+    {
+      "path": "debug-terminal/server/robot-monitor.service",
+      "source": "ESP32_robot_dog/server/robot-monitor.service",
+      "size": 457,
+      "sha256": "742aa730f9883f40a6c8d4869d3cb17d7a2bf55a4bffabd81202af33fce13f5d"
+    },
+    {
+      "path": "debug-terminal/server/robot_server.py",
+      "source": "ESP32_robot_dog/server/robot_server.py",
+      "size": 110864,
+      "sha256": "5357334c43256f620eebd705b6b4421416aa0692a862364eb4c1d99f0c19e24b"
+    },
+    {
+      "path": "debug-terminal/server/serial_bridge.py",
+      "source": "ESP32_robot_dog/server/serial_bridge.py",
+      "size": 17674,
+      "sha256": "ecde01bb0ca14e0a4a488c20de5e42c9fcd1b3c05d00c96f52b9875ae69d4be8"
+    },
+    {
+      "path": "debug-terminal/server/sound_control.py",
+      "source": "ESP32_robot_dog/server/sound_control.py",
+      "size": 8764,
+      "sha256": "7216a1f8eed4214f672c3d69db6a7c3d636bf1ee98f5c49d9bd2b6f0a1a9096d"
+    },
+    {
+      "path": "debug-terminal/server/test_camera.js",
+      "source": "ESP32_robot_dog/server/test_camera.js",
+      "size": 26322,
+      "sha256": "1855be876bb761b2c0187095210e40717fab5b11fdb255dedb88dcb7728a5ece"
+    },
+    {
+      "path": "debug-terminal/server/test_dashboard.js",
+      "source": "ESP32_robot_dog/server/test_dashboard.js",
+      "size": 94672,
+      "sha256": "2117ef013be9a62aee2c370443e60cda406770ec2e6965f4efc5dc5a56c28ea1"
+    },
+    {
+      "path": "debug-terminal/server/test_serial.py",
+      "source": "ESP32_robot_dog/server/test_serial.py",
+      "size": 10636,
+      "sha256": "1fa07f9213b0025630d1d01d3166896f4deda574c71a5e61b955b3e3fa28774b"
+    },
+    {
+      "path": "debug-terminal/server/test_serial_control.py",
+      "source": "ESP32_robot_dog/server/test_serial_control.py",
+      "size": 13869,
+      "sha256": "476a3a5755a3bae2f8025f5d2b27570dba330f3121d2d1446fa30620d6e4489b"
+    },
+    {
+      "path": "debug-terminal/server/test_server.py",
+      "source": "ESP32_robot_dog/server/test_server.py",
+      "size": 29292,
+      "sha256": "b9e3e6fbd5d5217388a14950c96e75f3325476c2d8af4de60bf7824c95a79630"
+    },
+    {
+      "path": "debug-terminal/server/test_servo_live_wifi.py",
+      "source": "ESP32_robot_dog/server/test_servo_live_wifi.py",
+      "size": 21361,
+      "sha256": "7bc0acfc612da8778b17c727cf750ca7669df1120d49d450e0d75c6f4520393d"
+    },
+    {
+      "path": "debug-terminal/server/test_sound_control.py",
+      "source": "ESP32_robot_dog/server/test_sound_control.py",
+      "size": 8201,
+      "sha256": "8ca7272c618a70387a6949b487756781528425b75614d6f6c543b38d4f17258f"
+    },
+    {
+      "path": "debug-terminal/server/test_sound_ui.js",
+      "source": "ESP32_robot_dog/server/test_sound_ui.js",
+      "size": 8536,
+      "sha256": "b1d709cc3a06902f4167e789a84dc8f490bac3ab2c5a178dff1ff56d8d079126"
+    },
+    {
+      "path": "debug-terminal/server/test_wifi.py",
+      "source": "ESP32_robot_dog/server/test_wifi.py",
+      "size": 32093,
+      "sha256": "eb2722df3ba5dcb301aab2456c366de10f9b2ec62cf5fdf37e69c2d4aa885664"
+    },
+    {
+      "path": "debug-terminal/server/test_workspace.js",
+      "source": "ESP32_robot_dog/server/test_workspace.js",
+      "size": 2966,
+      "sha256": "bc4371a6ffb1b3ac538a4ac25f73937e4b43b35162062e5a6b476c01d0ed4708"
+    },
+    {
+      "path": "debug-terminal/server/wifi_camera.py",
+      "source": "ESP32_robot_dog/server/wifi_camera.py",
+      "size": 16246,
+      "sha256": "5c6bad7e90552e08c816f2264c38716cd7a23d701c98944bfd2489b9055d8a9f"
+    },
+    {
+      "path": "debug-terminal/server/wifi_control_bridge.py",
+      "source": "ESP32_robot_dog/server/wifi_control_bridge.py",
+      "size": 9182,
+      "sha256": "e5664c4a166fc757767cc0562ee73c5f755f3b4cf1c795f8292a9fc711a1f530"
+    },
+    {
+      "path": "debug-terminal/tools/launch_windows.py",
+      "source": "ESP32_robot_dog/tools/launch_windows.py",
+      "size": 7456,
+      "sha256": "3300cb5efcda82dda2ed03be4f8b37ae4fe691bb54a3e42373972998dfc88b2f"
+    },
+    {
+      "path": "debug-terminal/tools/portable_usb_launcher.py",
+      "source": "ESP32_robot_dog/tools/portable_usb_launcher.py",
+      "size": 16518,
+      "sha256": "98ae58eac15ab2bf91e000914e0880fd5bbd52944461c8fd19d1a66f29b92748"
+    },
+    {
+      "path": "debug-terminal/tools/build_portable_usb.py",
+      "source": "ESP32_robot_dog/tools/build_portable_usb.py",
+      "size": 5883,
+      "sha256": "7287f860cc0e12c845149915889d2f234a7b7051b4ce6b2d2872230ce1e34244"
+    },
+    {
+      "path": "debug-terminal/tools/test_portable_usb_launcher.py",
+      "source": "ESP32_robot_dog/tools/test_portable_usb_launcher.py",
+      "size": 8634,
+      "sha256": "1fd61d20767b3075ffc754b9486b6ceca507f3b5f91be538c343055a01c1e776"
+    },
+    {
+      "path": "debug-terminal/tools/test_windows_port_selection.py",
+      "source": "ESP32_robot_dog/tools/test_windows_port_selection.py",
+      "size": 2199,
+      "sha256": "dc25165a71a2eb2226a0b05ad02e6141b004960cb88e001a173a456dd4fb15a6"
+    },
+    {
+      "path": "debug-terminal/tools/install_windows_shortcuts.ps1",
+      "source": "ESP32_robot_dog/tools/install_windows_shortcuts.ps1",
+      "size": 1348,
+      "sha256": "c04b34e8c6dd04a90f5ee7fa6a75cbfda33951e4cc64e9a33902db4db725b6a0"
+    },
+    {
+      "path": "debug-terminal/tools/allow_monitor_lan.ps1",
+      "source": "ESP32_robot_dog/tools/allow_monitor_lan.ps1",
+      "size": 1127,
+      "sha256": "c9175fc31e21604539ef4d2702e3b1419f8a7d7b2663d9217af4b98273d90c51"
+    },
+    {
+      "path": "debug-terminal/tools/verify_usb.py",
+      "source": "ESP32_robot_dog/tools/verify_usb.py",
+      "size": 4887,
+      "sha256": "ad4bab85838b99e184a4497da81462cd0a0bc1a4144dfce5ee53aa105a51c156"
+    },
+    {
+      "path": "debug-terminal/tools/verify_live.py",
+      "source": "ESP32_robot_dog/tools/verify_live.py",
+      "size": 3091,
+      "sha256": "230054473bc38e0e19b9af5946d03d62740adfd7f3b9384e849508290cab1318"
+    },
+    {
+      "path": "debug-terminal/tools/udp_monitor.py",
+      "source": "ESP32_robot_dog/tools/udp_monitor.py",
+      "size": 2746,
+      "sha256": "387e9aca11278c90634c04e7fb8486e2e3bfc415ff882269927ef8fa4a9ec70d"
+    },
+    {
+      "path": "firmware/esp32/Bsp/AudioToneControl.h",
+      "source": "ESP32_robot_dog/Bsp/AudioToneControl.h",
+      "size": 2701,
+      "sha256": "a9432db9ecb539fbafb9102ccd90c47bd3598c6194a52e3f71fca0b29dd2afab"
+    },
+    {
+      "path": "firmware/esp32/Bsp/battery_dashboard.html",
+      "source": "ESP32_robot_dog/Bsp/battery_dashboard.html",
+      "size": 36824,
+      "sha256": "366b06f4fc0c8d22161e544a1f79eb46252c2212f499a4414d4ec0efea1c65d2"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Audio.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Audio.c",
+      "size": 33842,
+      "sha256": "8979bc891cdf1842f6fd75b923e39576cebb2f11ed5c2069f51e2ef58e24105d"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Audio.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Audio.h",
+      "size": 4207,
+      "sha256": "0ad3a682807e6b89820d1b5f986c13e01f5c4fae2c0b7e5e1c025c9b9ef4f815"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_AudioMonitor.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_AudioMonitor.c",
+      "size": 18723,
+      "sha256": "588910b59dc10a3d17f17a79c7452c120bc3ff2259e49886ec579735c207e61e"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_AudioMonitor.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_AudioMonitor.h",
+      "size": 3107,
+      "sha256": "10a06ed91c6b9ba0dd1fac82e11efb22c87ff555b62252ecbc6ae08a10f7ec3e"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_BoardBus.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_BoardBus.c",
+      "size": 16010,
+      "sha256": "49a21ce6bbb4960f7e6d13ee8883f0a20b774412d2eb73e512c2afdec98d892f"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_BoardBus.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_BoardBus.h",
+      "size": 3174,
+      "sha256": "328422f0a3589d338894a427c7449cbd2f8a40e4bbb51edc43b5881b4c5e1506"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Camera.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Camera.c",
+      "size": 43658,
+      "sha256": "4baf6170ada1273523fb956b853ce904fb851ee66eff3348cad0a89e451039be"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Camera.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Camera.h",
+      "size": 3919,
+      "sha256": "c38e28d8a0ff3b4c7483343b10006bc8dcf29d0ac6c86ca379d2a4c0a788f8d7"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_CameraSerial.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_CameraSerial.c",
+      "size": 6411,
+      "sha256": "1012bb8865118e04d228b54ff5995511a9e600f5c481149b487767364d7afdd1"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_CameraSerial.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_CameraSerial.h",
+      "size": 396,
+      "sha256": "a03c4af266044c7f10fd376d3f5d7707680e591b0dab64b5d3c14fb35e5720c8"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Display.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Display.c",
+      "size": 29900,
+      "sha256": "28ce6dfa3aa7341869faa0db0a1c05245c70dc65b25b132ad2b531e51d5c1865"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Display.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Display.h",
+      "size": 1308,
+      "sha256": "7f7fcf954c57094c6ef1eb08e218df11c00ccc6e012e961d9d332fd294311a67"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_I2cDiagnostics.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_I2cDiagnostics.c",
+      "size": 7321,
+      "sha256": "da455511dca7c1bd25886bcc6b24b24bc013f5ff05f40487c16037d03868628c"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_I2cDiagnostics.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_I2cDiagnostics.h",
+      "size": 1831,
+      "sha256": "e0b9796ccb2b243fc8496ccdbade5a85c89c5160abe92e8ac3839b281c48b08a"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_LED.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_LED.c",
+      "size": 1069,
+      "sha256": "46e9132354e929f6a293be4992d10054ae5ec9e8ac57e940714174de725d3936"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_LED.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_LED.h",
+      "size": 506,
+      "sha256": "f2674a65cecdb69f9c89253035207e8e1211b17afb5a31e07f61f6657a88fb0e"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Peripherals.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Peripherals.c",
+      "size": 18573,
+      "sha256": "62147ecadefcaa18021d450939fbefb437a52e3c02911b8b7d6adbd6d388421b"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Peripherals.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Peripherals.h",
+      "size": 531,
+      "sha256": "c19253bc12777921149a3d67f1f4508c7fe92433e528cc5b3d4200bf129eb86d"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_UartBridge.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_UartBridge.c",
+      "size": 19145,
+      "sha256": "0e6e3fcdf98181cddd17fe8cffa78a1c25a6afdbe682226703c4515f846a319b"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_UartBridge.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_UartBridge.h",
+      "size": 1903,
+      "sha256": "8910bafdfffc036754867c590760d9cde4833a705923b0e488547ee239b422aa"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_UdpTelemetry.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_UdpTelemetry.c",
+      "size": 39731,
+      "sha256": "facd9fa520e8c91300468ea23ff122a3add357061098c06c48dd1209e5dbbd7b"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_UdpTelemetry.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_UdpTelemetry.h",
+      "size": 2113,
+      "sha256": "718707bc3055df5dba8220db0ce3dc50cce5beb33d7efce50ac2926041efc0b9"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Wifi.c",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Wifi.c",
+      "size": 41031,
+      "sha256": "f069e3cb663cf06f3b4c666a50f3d1ce18fc75715b18204c819afdd0030d4982"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_Wifi.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_Wifi.h",
+      "size": 1272,
+      "sha256": "84d87211010de058976f0154e5889211ad6551053a97f4782ee5423611092e53"
+    },
+    {
+      "path": "firmware/esp32/Bsp/Bsp_WifiPolicy.h",
+      "source": "ESP32_robot_dog/Bsp/Bsp_WifiPolicy.h",
+      "size": 1005,
+      "sha256": "116bbf298a6a11847b4b5fa3bd159a7de30656e7acef1be40dc53869bad784ea"
+    },
+    {
+      "path": "firmware/esp32/Bsp/BuildConfig.h",
+      "source": "ESP32_robot_dog/Bsp/BuildConfig.h",
+      "size": 753,
+      "sha256": "f20714355af8720a9fdfdf6c3c920d1ad43719681da908a60bcc6722b1c0f33d"
+    },
+    {
+      "path": "firmware/esp32/Bsp/CameraCheckLogic.c",
+      "source": "ESP32_robot_dog/Bsp/CameraCheckLogic.c",
+      "size": 3719,
+      "sha256": "113a3c20d606fc9a320780c84ccd75d51b23a52fad4bd6b964fadeb6eb438b3e"
+    },
+    {
+      "path": "firmware/esp32/Bsp/CameraCheckLogic.h",
+      "source": "ESP32_robot_dog/Bsp/CameraCheckLogic.h",
+      "size": 517,
+      "sha256": "cd7a2cf5b59b9b8bb63787c701dcf1b9aa49b69ea7210d3b076dda58d463dd9d"
+    },
+    {
+      "path": "firmware/esp32/Bsp/CameraSerialLogic.c",
+      "source": "ESP32_robot_dog/Bsp/CameraSerialLogic.c",
+      "size": 4330,
+      "sha256": "21d8e495e0dc889a1a6a57be0a6df7e1551b34ded1ee14d515e72be0cdb84b3a"
+    },
+    {
+      "path": "firmware/esp32/Bsp/CameraSerialLogic.h",
+      "source": "ESP32_robot_dog/Bsp/CameraSerialLogic.h",
+      "size": 1038,
+      "sha256": "44b443e5fbbaf9c86ed7df1b050c37dade759333650afc66feffe71e6143ebb0"
+    },
+    {
+      "path": "firmware/esp32/Bsp/ChargeCommand.c",
+      "source": "ESP32_robot_dog/Bsp/ChargeCommand.c",
+      "size": 1694,
+      "sha256": "e7a08561e55fafe449000cb7157813e2ad4855c094493afe9528121d224b6eb2"
+    },
+    {
+      "path": "firmware/esp32/Bsp/ChargeCommand.h",
+      "source": "ESP32_robot_dog/Bsp/ChargeCommand.h",
+      "size": 428,
+      "sha256": "0ca7cbc1a4e9f46eed02a588215edbf83944ecfa5de8933ddb4d0a99b282687e"
+    },
+    {
+      "path": "firmware/esp32/Bsp/CMakeLists.txt",
+      "source": "ESP32_robot_dog/Bsp/CMakeLists.txt",
+      "size": 1046,
+      "sha256": "727a85e2b4d7dd69e1134bd8f2797fe9f8714708668ba240207ab73f5993b18e"
+    },
+    {
+      "path": "firmware/esp32/Bsp/DisplayRecoveryLogic.c",
+      "source": "ESP32_robot_dog/Bsp/DisplayRecoveryLogic.c",
+      "size": 480,
+      "sha256": "2d9914a645c3833089fb7b79e714fc38a76155b83af3a9a21b4c67754fa97f0d"
+    },
+    {
+      "path": "firmware/esp32/Bsp/DisplayRecoveryLogic.h",
+      "source": "ESP32_robot_dog/Bsp/DisplayRecoveryLogic.h",
+      "size": 345,
+      "sha256": "913c35e9e79a7b7c9857fe8fc773da771b47782da879545b1efbb4636eb7f896"
+    },
+    {
+      "path": "firmware/esp32/Bsp/DisplaySyncLogic.c",
+      "source": "ESP32_robot_dog/Bsp/DisplaySyncLogic.c",
+      "size": 2354,
+      "sha256": "217d00334b819930a003141aec3d5cfca0d0326513ed6aa005f6bf34088b8ed3"
+    },
+    {
+      "path": "firmware/esp32/Bsp/DisplaySyncLogic.h",
+      "source": "ESP32_robot_dog/Bsp/DisplaySyncLogic.h",
+      "size": 1417,
+      "sha256": "9c36c89ad18b1f51012836f71c66eb4a545f6cf41b0a3edfdd9bda2525f18a7f"
+    },
+    {
+      "path": "firmware/esp32/Bsp/idf_component.yml",
+      "source": "ESP32_robot_dog/Bsp/idf_component.yml",
+      "size": 136,
+      "sha256": "d07b5a0c7d6eaba60a0c19a17abd43257ae77dae53f5c2ff9bc60e23c46b42ec"
+    },
+    {
+      "path": "firmware/esp32/Bsp/NetworkConfig.example.h",
+      "source": "ESP32_robot_dog/Bsp/NetworkConfig.example.h",
+      "size": 344,
+      "sha256": "71982f629dd9ab2418085825fd6bd6a1fc89500055e84f1ebfdd5e86317bee54"
+    },
+    {
+      "path": "firmware/esp32/Bsp/PeripheralMath.c",
+      "source": "ESP32_robot_dog/Bsp/PeripheralMath.c",
+      "size": 1720,
+      "sha256": "a60e5827aec924c7952bf01f934e81cbeae11afb73ea140b7b9dec0f367a8ded"
+    },
+    {
+      "path": "firmware/esp32/Bsp/PeripheralMath.h",
+      "source": "ESP32_robot_dog/Bsp/PeripheralMath.h",
+      "size": 530,
+      "sha256": "afec2d4fb41def65bc9f024325c1a3b2200374d3accda7e0dc112cb0bb4e9250"
+    },
+    {
+      "path": "firmware/esp32/Bsp/SoundCommandLogic.c",
+      "source": "ESP32_robot_dog/Bsp/SoundCommandLogic.c",
+      "size": 1735,
+      "sha256": "89b577f46fc4caa995c151843316148aaa7d0b75cdd9bcf40943c7f8ceb87eff"
+    },
+    {
+      "path": "firmware/esp32/Bsp/SoundCommandLogic.h",
+      "source": "ESP32_robot_dog/Bsp/SoundCommandLogic.h",
+      "size": 430,
+      "sha256": "7928421af980adda2df68d2526f1f7ec667bf3abd07530b753a6dd76a5b1f8c4"
+    },
+    {
+      "path": "firmware/esp32/Bsp/TelemetryConfig.example.h",
+      "source": "ESP32_robot_dog/Bsp/TelemetryConfig.example.h",
+      "size": 428,
+      "sha256": "020bdb6faccbdaefa69a6aacdd96bfd42625a072a8d6d9f036ce9d1e60b1d327"
+    },
+    {
+      "path": "firmware/esp32/Bsp/TelemetryLine.c",
+      "source": "ESP32_robot_dog/Bsp/TelemetryLine.c",
+      "size": 1262,
+      "sha256": "f0b7fc3b4bbbb729ec9d6105d84ddca6a3de2eb703a9d72f26cf3fc604b0328e"
+    },
+    {
+      "path": "firmware/esp32/Bsp/TelemetryLine.h",
+      "source": "ESP32_robot_dog/Bsp/TelemetryLine.h",
+      "size": 743,
+      "sha256": "4f3e6b59277bcb9e1a8802d50c6a5b6cdd989f58ef21ea273e3b562c9fb22d75"
+    },
+    {
+      "path": "firmware/esp32/Bsp/UartBridgePolicy.c",
+      "source": "ESP32_robot_dog/Bsp/UartBridgePolicy.c",
+      "size": 11730,
+      "sha256": "a4d7d1639aef84e0560b5a7736387f00d478824ea0497b77be08db9b9c1f6cea"
+    },
+    {
+      "path": "firmware/esp32/Bsp/UartBridgePolicy.h",
+      "source": "ESP32_robot_dog/Bsp/UartBridgePolicy.h",
+      "size": 2936,
+      "sha256": "5fc8612dd52bdafd1b160b55a68d9575104137c1d9d770e8cc58dba9938baa94"
+    },
+    {
+      "path": "firmware/esp32/Bsp/WifiControlPolicy.c",
+      "source": "ESP32_robot_dog/Bsp/WifiControlPolicy.c",
+      "size": 1436,
+      "sha256": "e3b7ff5d4d47a7c6b9c767b7d00eedbd8ffedfa7fb60b1b493b874070a4a8679"
+    },
+    {
+      "path": "firmware/esp32/Bsp/WifiControlPolicy.h",
+      "source": "ESP32_robot_dog/Bsp/WifiControlPolicy.h",
+      "size": 312,
+      "sha256": "36c9980c715629f84794fea111649e15c95ad3f11cd3329c8a445b695b09fd0c"
+    },
+    {
+      "path": "firmware/esp32/Bsp/WifiSessionAuth.h",
+      "source": "ESP32_robot_dog/Bsp/WifiSessionAuth.h",
+      "size": 1464,
+      "sha256": "db3bb35ccba7a23c8fa33e233e0400c88e6c676870975b1216ebcaa53ccc4ee4"
+    },
+    {
+      "path": "firmware/esp32/main/CMakeLists.txt",
+      "source": "ESP32_robot_dog/main/CMakeLists.txt",
+      "size": 92,
+      "sha256": "23815b0f6f2f6b7b2093c811c9ff205553814800782ee6eafeb1b2ea72eaf95c"
+    },
+    {
+      "path": "firmware/esp32/main/main.c",
+      "source": "ESP32_robot_dog/main/main.c",
+      "size": 886,
+      "sha256": "4dec839faa8c7a44de206d4fa54c81fc7b0e8cf1b8f89bd48a6ae0cff1fdfe94"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/.codespellrc",
+      "source": "ESP32_robot_dog/components/esp32-camera/.codespellrc",
+      "size": 107,
+      "sha256": "a143134e124c923963cf74bf4905f19e4c7914528dcc00b9154d80296bf0d11e"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/.gitignore",
+      "source": "ESP32_robot_dog/components/esp32-camera/.gitignore",
+      "size": 103,
+      "sha256": "77b4cb0e2059ccaf54801826f349be4398efe2c76273058429a7f1074f66659d"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/.pre-commit-config.yaml",
+      "source": "ESP32_robot_dog/components/esp32-camera/.pre-commit-config.yaml",
+      "size": 153,
+      "sha256": "23ce80b35f8d5233edbd07fb80cc2011edfc6e6a696731dffb5d37fedbc6bfc4"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp32-camera/CMakeLists.txt",
+      "size": 2548,
+      "sha256": "e5539e26363116d760d45bad0251df4c77ee075efd192e4fcb3705963cab3d48"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/conversions/include/img_converters.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/conversions/include/img_converters.h",
+      "size": 6167,
+      "sha256": "4ea26373bf36c85f87966aa55157b8a8a82b9ce038ce1921cb64cf1e1f085986"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/conversions/jpge.cpp",
+      "source": "ESP32_robot_dog/components/esp32-camera/conversions/jpge.cpp",
+      "size": 29240,
+      "sha256": "7f0db9452325e66931a6f95dec9a91e0a3d34c6ddbc4d3cddd67eff2f3eff29c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/conversions/private_include/jpge.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/conversions/private_include/jpge.h",
+      "size": 5403,
+      "sha256": "faa5f2b820586f8e1ed10ade58ac8aa343406a84815da4622a6f0e7c631b8e1b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/conversions/private_include/yuv.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/conversions/private_include/yuv.h",
+      "size": 882,
+      "sha256": "e9b3a6f903c1afc17cb3ba02d98fc0b8dc222634d9ae104e9eed9f6f372e8b86"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/conversions/to_bmp.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/conversions/to_bmp.c",
+      "size": 10304,
+      "sha256": "a07538f0abee82eff5e7ae7beb3dc8360f374d3d0e2ef31a0e9754159bdd20cd"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/conversions/to_jpg.cpp",
+      "source": "ESP32_robot_dog/components/esp32-camera/conversions/to_jpg.cpp",
+      "size": 7216,
+      "sha256": "c54b36ac2c0573fdd24ac8e43b60a5c92ea61724b8723db8e2db1f1af502add0"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/conversions/yuv.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/conversions/yuv.c",
+      "size": 12720,
+      "sha256": "e512981939a14406fa02bea80cd3cf2b9bc4854999bd27f4a89c6ff29367c10b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/cam_hal.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/cam_hal.c",
+      "size": 34353,
+      "sha256": "0dc5779c975fa2660ad3075a9dc82584a7e3f573ba5e1ca7ecad35f77d5aa311"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/esp_camera.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/esp_camera.c",
+      "size": 16671,
+      "sha256": "8e466e70d8b9237161de6d53c055e3935265d830683ae7a6425c423c10173188"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/esp_camera_af.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/esp_camera_af.c",
+      "size": 5109,
+      "sha256": "bfc9ab2fd0476e9ca97b65c6a6f4b53fc14fbcdd47f1dc00c0f1ea20607d64af"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/include/esp_camera.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/include/esp_camera.h",
+      "size": 10392,
+      "sha256": "175147ae5d2ca3fdbfc8dd2a9819723f4fe23d759563587114efe38d9ac8238c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/include/esp_camera_af.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/include/esp_camera_af.h",
+      "size": 2598,
+      "sha256": "24e66df51ccd474dd217fa8b7411b1a447808c2be2b643db8cce539ddc09b0d9"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/include/sensor.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/include/sensor.h",
+      "size": 8950,
+      "sha256": "2b50ae9ac3a5bc6fa2394f50138c40dd1af05cac451932ddbef7461484251b19"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/private_include/cam_hal.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/private_include/cam_hal.h",
+      "size": 1645,
+      "sha256": "4ba90eb5716a665a23a9126b637595c67a957ea0c41888f4e17bd2c506b84ecd"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/private_include/sccb.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/private_include/sccb.h",
+      "size": 821,
+      "sha256": "07fea5963c4f0a8adcae324a30cc2864678547607a2b69071f5c50cfcf25cdb5"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/private_include/xclk.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/private_include/xclk.h",
+      "size": 229,
+      "sha256": "069255bd8c0fdd35258177dbc43b9861c9c1c74c937d2099c89de0cfef02da49"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/sccb-ng.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/sccb-ng.c",
+      "size": 10806,
+      "sha256": "1d00a6bca4ff7191882512550adfa2351cd5aaa809501d4b04cd8151d1568a4c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/sccb.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/sccb.c",
+      "size": 8670,
+      "sha256": "def6af2e2e6f1741b9d6c00303f10041721bc011c0061f43bb1af7e655c8207e"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/driver/sensor.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/driver/sensor.c",
+      "size": 3383,
+      "sha256": "924e336a335edfef5a8f7313e4daf686164ef3649ed7866717ffc963055ab8ae"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/examples/camera_example/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp32-camera/examples/camera_example/CMakeLists.txt",
+      "size": 259,
+      "sha256": "7715ea050489ac7a94b30d29327178a8d1c542dccc9ccb0e33368a957f4186f5"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/examples/camera_example/main/camera_pinout.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/examples/camera_example/main/camera_pinout.h",
+      "size": 2343,
+      "sha256": "0e86dd4b4e33249371d714f2ae179b4623d8583a70fef08ce712ab36d5a2a774"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/examples/camera_example/main/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp32-camera/examples/camera_example/main/CMakeLists.txt",
+      "size": 147,
+      "sha256": "f6f1d84e92acbd382b05f296431e0a0664312101c21277fc9669b21d7d4d102e"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/examples/camera_example/main/idf_component.yml",
+      "source": "ESP32_robot_dog/components/esp32-camera/examples/camera_example/main/idf_component.yml",
+      "size": 57,
+      "sha256": "30607f71dc6cb21ee6e2e62dce94f524214e4abe0554aee9d1d5823490175643"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/examples/camera_example/main/take_picture.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/examples/camera_example/main/take_picture.c",
+      "size": 4697,
+      "sha256": "4c6662ffd73a952e10cd79bdc2530396a8b3a44b0842b270c66fc36d9a83f9e0"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/examples/camera_example/sdkconfig.defaults",
+      "source": "ESP32_robot_dog/components/esp32-camera/examples/camera_example/sdkconfig.defaults",
+      "size": 436,
+      "sha256": "f089f31083c576da0588a841402acd7e8b430dd06393e99cc64abc33b3f3ec1b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/idf_component.yml",
+      "source": "ESP32_robot_dog/components/esp32-camera/idf_component.yml",
+      "size": 520,
+      "sha256": "cfef3e8f875507b89340af6dd8546f08eb21e63b136733be4f665b4b991f2916"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/Kconfig",
+      "source": "ESP32_robot_dog/components/esp32-camera/Kconfig",
+      "size": 10765,
+      "sha256": "ed236556c4098f1f43c04303346233439a34cae042db023d5d07ad238daf348c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/library.json",
+      "source": "ESP32_robot_dog/components/esp32-camera/library.json",
+      "size": 722,
+      "sha256": "51cacb64dcbab35c7444d62acaeb0147e66897d2348dc932b02e9f3e54149579"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/LICENSE",
+      "source": "ESP32_robot_dog/components/esp32-camera/LICENSE",
+      "size": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/README.md",
+      "source": "ESP32_robot_dog/components/esp32-camera/README.md",
+      "size": 15019,
+      "sha256": "230419d2772c80c4a9ecd5ea830222ac645046735d66eca017efc2f0dfb029b1"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/bf20a6.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/bf20a6.c",
+      "size": 11733,
+      "sha256": "d120e37c64c3cac3cad841332e5ffa20ad98d401a2ccf165b2edf52f108b94bb"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/bf3005.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/bf3005.c",
+      "size": 14533,
+      "sha256": "589451876c0e7b42011e5a08133d447b431cc5dc8e9b2343202de61543401274"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/gc0308.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/gc0308.c",
+      "size": 29694,
+      "sha256": "4aa38fc505cb772fabc2aa132d36048fc1e834a50b2e12dfb66a89de6769dbb8"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/gc032a.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/gc032a.c",
+      "size": 12025,
+      "sha256": "6da5da3a4749bae8aed840a2f08b959d7e280a7d2e52f366e15275c4e556e11c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/gc2145.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/gc2145.c",
+      "size": 15339,
+      "sha256": "9704f75b0452f279f92ca3a5bef060e79cf9be4d3e0124a4a8f21a2d88405764"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/hm0360.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/hm0360.c",
+      "size": 12459,
+      "sha256": "5407d3b031a1459e6b50fdae67cd0589289957ae3fc979725f4dd74edb098bbc"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/hm1055.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/hm1055.c",
+      "size": 20420,
+      "sha256": "ab6fa1a218a99b79bed66ce0d9241594bfb988b55f9c5b9003cf372f29b923a6"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/mega_ccm.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/mega_ccm.c",
+      "size": 11672,
+      "sha256": "c9d7c2ae1a372916c909430fcef93c22be1f470412c8206921a7c3d1b8919642"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/nt99141.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/nt99141.c",
+      "size": 26706,
+      "sha256": "2c0d7249544c406a94c8047eb0d459c9d47aef0990e1d82734c1e01b5956e460"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/ov2640.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/ov2640.c",
+      "size": 18077,
+      "sha256": "f07ae4bcc98349e1802367e15f1e70d41cc31e1b11ee581d4a14ba7e8ea3a47c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/ov3640.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/ov3640.c",
+      "size": 35341,
+      "sha256": "2b82007961bc5dd0abfee543cf7e7197b73be876fe41916d9a7098ce7ea76e3a"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/ov3660.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/ov3660.c",
+      "size": 31265,
+      "sha256": "ef756d1b6f99d008f8a55c81469057c95438a67dd65bc310bcf3b22389d4c031"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/ov5640.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/ov5640.c",
+      "size": 35387,
+      "sha256": "df60065649695167db86787d7904b584ec82f73f8c0a686743f93f8d2d5b35ac"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/ov5640_af.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/ov5640_af.c",
+      "size": 6261,
+      "sha256": "6cb68941b84cd04992825ceaa0c85a8b2206b77da261a82dd399af174bb3f7cb"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/ov7670.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/ov7670.c",
+      "size": 13483,
+      "sha256": "15b4e77f9c2004e8f146492679a332ae8e0ce1132d90eb3825f572c1209559e4"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/ov7725.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/ov7725.c",
+      "size": 16550,
+      "sha256": "4b12b955c0d41e84202a8501f68fce3f200da995b68537b46c16ef055d8d7fa4"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/bf20a6.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/bf20a6.h",
+      "size": 520,
+      "sha256": "3e7d30756866968387c42b251e093b5ee0252bd7e639bd406f6b330d6d68ae03"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/bf20a6_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/bf20a6_regs.h",
+      "size": 217,
+      "sha256": "5eefae9a4862cbacf9f30903b5ffedae91d635eaf72a91081230321966d95b1b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/bf20a6_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/bf20a6_settings.h",
+      "size": 2965,
+      "sha256": "1a00b6be53eb15955eb93b9b7a213d9ce588033c104b7ff9ea56f82f6172a0d9"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/bf3005.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/bf3005.h",
+      "size": 777,
+      "sha256": "93926db951e93e60062ceddb326c52b386e440cd33bfe9b5482b89ed2d930a5d"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/bf3005_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/bf3005_regs.h",
+      "size": 22590,
+      "sha256": "911732753614e8fc39c46be6ed603cac938502b5ab4d7f2e578c311b8fa4947b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc0308.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc0308.h",
+      "size": 535,
+      "sha256": "ed4148c76129030b2d13c9b4a32c882a39e3700cd0330eb3832c43246934a913"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc0308_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc0308_regs.h",
+      "size": 6036,
+      "sha256": "cac5cfba9d02016c614c06706430e3520c82311406058cc934b2d731d0d5d656"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc0308_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc0308_settings.h",
+      "size": 5243,
+      "sha256": "bcd8622c45365f8876e1777a1ea728edbe9883b378b5a8589c99a74dd808b201"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc032a.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc032a.h",
+      "size": 550,
+      "sha256": "0384c5a67eb74804e27f9c6064ba099dfa27a43bc1d7f40ad43753dd8ac76c33"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc032a_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc032a_regs.h",
+      "size": 2383,
+      "sha256": "f966c1806a656a7948183b74352b08ca76b9c7a304249b2121534def459db72b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc032a_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc032a_settings.h",
+      "size": 6917,
+      "sha256": "70930044c90d1fa5d03e10707194dc17430a44c68bc7d1237fba3a7d1cb88751"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc2145.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc2145.h",
+      "size": 520,
+      "sha256": "a199290567e609255d2e68ae944fcda9664f33e6e565175e597e6173969154ea"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc2145_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc2145_regs.h",
+      "size": 3016,
+      "sha256": "eed714bcb27aef8b286b454f602a2a3f051dfb5d17d9de81b2b6fb11355acf0d"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/gc2145_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/gc2145_settings.h",
+      "size": 18162,
+      "sha256": "d651757f843e6d142e4af6462025dcb475a82dbfa1111033981b575f947ea71f"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/hm0360.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/hm0360.h",
+      "size": 542,
+      "sha256": "10c82c4ccb5d06b30a1d7c33ba3bde0733fb21faff881329679e7ea2c4f31670"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/hm0360_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/hm0360_regs.h",
+      "size": 3483,
+      "sha256": "71f16fde85a08bc4a95c8d99fb2c36b469774f60ed627fc60e348112669da429"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/hm0360_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/hm0360_settings.h",
+      "size": 11985,
+      "sha256": "64ed0d970d281509d3d792d46fad5e999260573671711cbe128cb0b026b0696c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/hm1055.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/hm1055.h",
+      "size": 542,
+      "sha256": "baeb656a615941d0f8db9248a642ab01a9da924bd6f620f7ff36793d26456e5b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/hm1055_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/hm1055_regs.h",
+      "size": 2451,
+      "sha256": "5abf5ecb41f9d5db1722b20519d311edfcfeaab4effd6d6fa86674b65005e9da"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/hm1055_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/hm1055_settings.h",
+      "size": 16805,
+      "sha256": "e5dae277ac222beeea3e57d3701c3f2066e3b980b36fe64959d72354b325a9e9"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/mega_ccm.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/mega_ccm.h",
+      "size": 562,
+      "sha256": "dbad03fc2628b4d61570ef23e2fca9a7e3dac058f5ff1326e93d35edff1b61c3"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/mega_ccm_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/mega_ccm_regs.h",
+      "size": 1541,
+      "sha256": "d955ad47ada2865950cdf9c6a5b3a63cd3c078e7fe6b82864185d5d31ca34415"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/mega_ccm_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/mega_ccm_settings.h",
+      "size": 363,
+      "sha256": "b3468eda43e508fa7fae769adcd9d4dc41d6fe2c96a9e08716f05f7201ac0cf6"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/nt99141.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/nt99141.h",
+      "size": 753,
+      "sha256": "426f7462f573eb639ae8f629a3aa17e72fab109ffabd84a66917a724a18a69f7"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/nt99141_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/nt99141_regs.h",
+      "size": 10406,
+      "sha256": "3288eb7b01c5b9a8339261dea87f5755b66ab93aa96550789166d58fa6a38ce5"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/nt99141_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/nt99141_settings.h",
+      "size": 15771,
+      "sha256": "dd0e276ec52e765fb7c567600a6c7980515bb4b86637547d2c23a9332b83b4c4"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov2640.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov2640.h",
+      "size": 745,
+      "sha256": "5bd7f9c8651aa29729014c4ce2721d487dbcaf25b880d2eed7a86be54e168218"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov2640_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov2640_regs.h",
+      "size": 7043,
+      "sha256": "7ffc0cebb0f67aaac037b8111c5f247383a8e502ff2fd62fe4caf4383222d213"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov2640_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov2640_settings.h",
+      "size": 11495,
+      "sha256": "b0086d2fd8498f126bb0483ae0992b46a03c82503be1c0f5b778037930d9da66"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov3640.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov3640.h",
+      "size": 747,
+      "sha256": "93b1502db8219388f4db8051a2b6e6fe63778680467d20a45ccfa765fe9b1807"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov3640_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov3640_regs.h",
+      "size": 12242,
+      "sha256": "258205b31bc4bf3ef05c0732d3ffd8eddd6806088b3dcf7eab5581b438a58722"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov3640_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov3640_settings.h",
+      "size": 6555,
+      "sha256": "68d585129cd5fdd4b9659db4216e2ac44a292b77ca3d4adacff9bed76fae1909"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov3660.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov3660.h",
+      "size": 747,
+      "sha256": "a57014f71e8bd387f71db8ca3a209bfd345428793a1825eb549914dad14a2b4c"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov3660_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov3660_regs.h",
+      "size": 10396,
+      "sha256": "61c829146e6826ac2f7cfb61e4dd0e3d9200b6e3f92b83c4ad9d5693ce1bc002"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov3660_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov3660_settings.h",
+      "size": 7651,
+      "sha256": "213a14845af7be40fd17e56dde04e40e5d9572c3b7b8e2c70b182405a7500cf5"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov5640.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov5640.h",
+      "size": 1016,
+      "sha256": "542e607b073dfa048c8f77f48fbad1c939e8eee34093263792f3f6a15d7d8cb2"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov5640_af_firmware.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov5640_af_firmware.h",
+      "size": 25760,
+      "sha256": "0420422fd4175548fa8abf4da484dc56f4642e443d314fa8797bc20fe19690a4"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov5640_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov5640_regs.h",
+      "size": 10398,
+      "sha256": "c0c8a2b608300ff0d513b94a60b1587e408312b0051f770d22fb18569ae0f230"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov5640_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov5640_settings.h",
+      "size": 8281,
+      "sha256": "b08e385c932d340e2355b910a2aefb013de0914d48c38a5f227724959e6556c0"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov7670.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov7670.h",
+      "size": 733,
+      "sha256": "cc7a9aca7caaeca8b94ddde2cbb914c2bf20feaeb961870df4bc2bf8bfa07884"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov7670_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov7670_regs.h",
+      "size": 19816,
+      "sha256": "84ceeef0e3685f834735a068f42bd2c430c31c0972684e026344ad9e3d241460"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov7725.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov7725.h",
+      "size": 746,
+      "sha256": "fc13098908c2bb31578928534ec9423d6a1429db7f6315f8f19f56b697c2d41d"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/ov7725_regs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/ov7725_regs.h",
+      "size": 22249,
+      "sha256": "5d7d76ef98712f7cb1f5b400c4cb036d7a8257c89fe0a6aed5550f1baac76ee1"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/sc030iot.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/sc030iot.h",
+      "size": 566,
+      "sha256": "6bf699238ab192516b6b423d149a0b795ac4f779c642c9b55234bd9a794984b2"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/sc030iot_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/sc030iot_settings.h",
+      "size": 8760,
+      "sha256": "3aff38724368f58e21bd01bb2553a63f39510f637347e98bf5d9b77066e958f5"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/sc031gs.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/sc031gs.h",
+      "size": 560,
+      "sha256": "2f24160215324a112b6cfb1edd5fffe650a716a05cfd999ef7f657109549160b"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/sc031gs_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/sc031gs_settings.h",
+      "size": 7155,
+      "sha256": "836c7ea012f8196bc6ce9a61e5794223739df23df9ed14696208e443fe743b57"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/sc101iot.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/sc101iot.h",
+      "size": 566,
+      "sha256": "a9a5699f16f43d708a5afe4945fd6e4dd435673e9d13312b300c835cc4ab98b3"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/private_include/sc101iot_settings.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/private_include/sc101iot_settings.h",
+      "size": 5205,
+      "sha256": "fac782b5243dc58881abfa92bf1766a68f3141309ad3da1d0a386cbc9be02217"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/sc030iot.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/sc030iot.c",
+      "size": 10441,
+      "sha256": "8ae5f8bf47344831f53b3d96b40b1e5817aa2a1e0d89176a87eb610a6c0c94c5"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/sc031gs.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/sc031gs.c",
+      "size": 10861,
+      "sha256": "ce2669554bd3c4a782b0bea430ad8c7bb96ced3dd1265fa71195b203b12747aa"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/sensors/sc101iot.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/sensors/sc101iot.c",
+      "size": 10625,
+      "sha256": "14ac394db1303ae00900b5aed176c55ee627452a428de0268842458e7b34c39e"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/target/esp32/ll_cam.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/target/esp32/ll_cam.c",
+      "size": 18251,
+      "sha256": "65e76402b0adbb3812e1925fac84ada93b1d3dd380f74d4cf408484ed42e276f"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/target/esp32s2/ll_cam.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/target/esp32s2/ll_cam.c",
+      "size": 14164,
+      "sha256": "3c4d607046b1db8628fae5c993a13aa3aa0f02857813d63584d671b371ee0d17"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/target/esp32s2/private_include/tjpgd.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/target/esp32s2/private_include/tjpgd.h",
+      "size": 3401,
+      "sha256": "6a3a9f0d61e6b6e3b8be609b539b501d934221682970f2e970158f2894bae272"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/target/esp32s3/ll_cam.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/target/esp32s3/ll_cam.c",
+      "size": 23936,
+      "sha256": "b96e2b617a27b4e224d7b25f837c2b3843d447e12b9b4d9d76b995f6404ec821"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/target/private_include/ll_cam.h",
+      "source": "ESP32_robot_dog/components/esp32-camera/target/private_include/ll_cam.h",
+      "size": 4746,
+      "sha256": "8dc15e0c4d008bbb838c35e5daa4500d4f4f256db0f89127d63b9ff619a8d08f"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/target/xclk.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/target/xclk.c",
+      "size": 2232,
+      "sha256": "9d1a52bbd35c45b8b544494c952d8347246d77d248c50e2182f22a486d279f9d"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/test/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp32-camera/test/CMakeLists.txt",
+      "size": 343,
+      "sha256": "b8ffaf3c8db322ae0b4046473bf838ec4803eeb92ae0052ad12f8422f0240bb5"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/test/component.mk",
+      "source": "ESP32_robot_dog/components/esp32-camera/test/component.mk",
+      "size": 170,
+      "sha256": "e7e3e26a53a1eb2306e641d23bcfb2131ea3830497cf10a6609061456a5e0d75"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/test/pictures/test_inside.jpeg",
+      "source": "ESP32_robot_dog/components/esp32-camera/test/pictures/test_inside.jpeg",
+      "size": 18832,
+      "sha256": "5cd56bd5cfe3ce79e3aabbee56b64f7bd9c5ea6a73287eed6e67f76642008d5a"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/test/pictures/test_outside.jpeg",
+      "source": "ESP32_robot_dog/components/esp32-camera/test/pictures/test_outside.jpeg",
+      "size": 81744,
+      "sha256": "4ac41d48c874f1685a57710a913c4055fc4d24aa921b3d3b9d9e6398ac0bc229"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/test/pictures/testimg.jpeg",
+      "source": "ESP32_robot_dog/components/esp32-camera/test/pictures/testimg.jpeg",
+      "size": 5764,
+      "sha256": "92fa47ababd78244f17e2ac2146fb93b04c91d41bdfd56b97649b5962c4386c9"
+    },
+    {
+      "path": "firmware/esp32/components/esp32-camera/test/test_camera.c",
+      "source": "ESP32_robot_dog/components/esp32-camera/test/test_camera.c",
+      "size": 16779,
+      "sha256": "95b15cd5f5946481532c98846df12251f2e963ed5cf79675c3586b1c8683d442"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/.build-test-rules.yml",
+      "source": "ESP32_robot_dog/components/esp_jpeg/.build-test-rules.yml",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/CHANGELOG.md",
+      "source": "ESP32_robot_dog/components/esp_jpeg/CHANGELOG.md",
+      "size": 635,
+      "sha256": "9f11d5de6ef3d6ab2894be7e52c1085b0bc735c9c5a31848289abd952bdebf2a"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp_jpeg/CMakeLists.txt",
+      "size": 365,
+      "sha256": "374e1ed3c78d0623f434487bbcd6e05f3e9c01d5e543fa0eb00f6df6b75a7c77"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/CMakeLists.txt",
+      "size": 255,
+      "sha256": "2bbfea2779f443c3f3c44384e14b028192949d4252783f81b018b7b8a571ffcb"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/CMakeLists.txt",
+      "size": 244,
+      "sha256": "51a928fad21a526a67a04b01dcb20958684374c8665243bf1562f0fc7aca34f0"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/decode_image.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/decode_image.c",
+      "size": 2350,
+      "sha256": "8fed37fe39517ce4e2f674606e2b76ec75a26fe49fe6742b0c9f833aa7b09851"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/decode_image.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/decode_image.h",
+      "size": 813,
+      "sha256": "73096c1ab196d00e387c735d8dec6bd7cc29cdeb1c30103f5aa56ab15ffc4fb2"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/idf_component.yml",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/idf_component.yml",
+      "size": 285,
+      "sha256": "a25cb5aa9a9e08ae65eb7a25d4763df608d8e183da4077dcb796054d178a85b9"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/image.jpg",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/image.jpg",
+      "size": 43700,
+      "sha256": "c62aff0127108296cb05372369b1ed11b92e7af53f9f7d8c6b11c0f6762e74e4"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/Kconfig.projbuild",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/Kconfig.projbuild",
+      "size": 272,
+      "sha256": "0679e987a2e2538a25062dd496ba8f3be2c7eb6cb6d02784efc6c7de0aed43da"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/lcd_tjpgd_example_main.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/lcd_tjpgd_example_main.c",
+      "size": 3314,
+      "sha256": "9f82d7437fc0faa259d26682d0d2156cd0fdab339b6843b91d8093749cdd0414"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/pretty_effect.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/pretty_effect.c",
+      "size": 2084,
+      "sha256": "653e3c794c39998c885f198f357a4dbce3ce307054b2c1beaca03615cf1e0bbc"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/main/pretty_effect.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/main/pretty_effect.h",
+      "size": 775,
+      "sha256": "1c2b47d3b6c57541cc8072b8f97ac84c0cc0ad8d657663fafe64054c860f54fd"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/README.md",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/README.md",
+      "size": 2551,
+      "sha256": "0e36bcc5eaf0b57a851352ac789dc75d437dd655e6c49c73b368a0c0cb1114e3"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/examples/get_started/sdkconfig.defaults",
+      "source": "ESP32_robot_dog/components/esp_jpeg/examples/get_started/sdkconfig.defaults",
+      "size": 207,
+      "sha256": "9ded94a95a6008f8260f09136d214b6b6039386ecfcb5d9e9ac317ae93965ac1"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/idf_component.yml",
+      "source": "ESP32_robot_dog/components/esp_jpeg/idf_component.yml",
+      "size": 311,
+      "sha256": "e0aee999ac891551353178542fe48607cd370f3fb52b88ffe90eb08ad15b9be0"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/include/jpeg_decoder.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/include/jpeg_decoder.h",
+      "size": 3193,
+      "sha256": "e9e48c8644defe9037123797a72f4e3a029bdedd1eb487bb8542d3f04cab78eb"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/jpeg_decoder.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/jpeg_decoder.c",
+      "size": 9863,
+      "sha256": "ea97dd2bedb8cebbc5afed2bbcb9f2d9239340b51eab4fabf3a9bccd5a23d949"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/jpeg_default_huffman_table.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/jpeg_default_huffman_table.c",
+      "size": 3727,
+      "sha256": "121cd6bf0ad81ca2d56f7fddb1c5b54f187f56678054066f19691d25f89ac5c1"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/Kconfig",
+      "source": "ESP32_robot_dog/components/esp_jpeg/Kconfig",
+      "size": 2678,
+      "sha256": "af77dfa3a532aa161a99cebb200b9aab7b511313d0328bfbde97ee6ba51a2641"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/license.txt",
+      "source": "ESP32_robot_dog/components/esp_jpeg/license.txt",
+      "size": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/README.md",
+      "source": "ESP32_robot_dog/components/esp_jpeg/README.md",
+      "size": 4951,
+      "sha256": "13d64e0beb982db707c395f7fa4e24c91a84caac4f4d1237c06e9a985e095a94"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/CMakeLists.txt",
+      "size": 132,
+      "sha256": "e7ececa71771ec59e607d6bb3d26d8650238b3237f62fc3b94054b87ef60cf5a"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/CMakeLists.txt",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/CMakeLists.txt",
+      "size": 268,
+      "sha256": "560f601aded66742136e81ba46e18c2462754ea8a895512f1055972141013d57"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/idf_component.yml",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/idf_component.yml",
+      "size": 81,
+      "sha256": "88a6234707c7ee9c886852565cd83d2996d4b0433fa6a74f79ccab05fc7506c3"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/jpg_to_rgb888_hex.py",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/jpg_to_rgb888_hex.py",
+      "size": 1960,
+      "sha256": "2daa9ef0572cbf95b4ba551c8989774c309175c44b5eb49f310adb58d4770d97"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/logo.jpg",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/logo.jpg",
+      "size": 7561,
+      "sha256": "528977b08f4c70a21aa85c5818ab88f64a36c7032fd22ef4a21c082ad75998cd"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/test_logo_jpg.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/test_logo_jpg.h",
+      "size": 353,
+      "sha256": "67de0f8e2072eb54059c06b06bebaaed39af6439df54633291ab295d7e6dbb55"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/test_logo_rgb888.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/test_logo_rgb888.h",
+      "size": 38125,
+      "sha256": "0c658db3518304c8f785fefa7ad1c5c840346976242c81a9687ace7937313cdf"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/test_tjpgd_main.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/test_tjpgd_main.c",
+      "size": 555,
+      "sha256": "66d00e2eaaf03a11071a7f5e62df890478cc397f9161dea8b403097c804c790c"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/test_usb_camera_2_jpg.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/test_usb_camera_2_jpg.h",
+      "size": 572,
+      "sha256": "e8dac72fb7625d6c851e3b3350867dc1deb33073f45f49d0dd232dc281e5a4b2"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/test_usb_camera_2_rgb888.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/test_usb_camera_2_rgb888.h",
+      "size": 268846,
+      "sha256": "75dddfd81a5ae7f94f11d90b3a86f53de2a84b0e0d7a8d4588fb61661d7c2083"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/test_usb_camera_jpg.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/test_usb_camera_jpg.h",
+      "size": 592,
+      "sha256": "b63c08128fa27ad40d98789e32645cef219280d3cc86c0e9173a15b2dbdbb40c"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/test_usb_camera_rgb888.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/test_usb_camera_rgb888.h",
+      "size": 268849,
+      "sha256": "3892ea716903af6776d7aca70e213d81ab637a3b36b3c9a437401c4748cd5bae"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/tjpgd_test.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/tjpgd_test.c",
+      "size": 10046,
+      "sha256": "9d3f52d5c59b5b4f6a7d1f82a1a24a732a9481a4afa4cb281fbebbc77287f124"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/usb_camera.jpg",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/usb_camera.jpg",
+      "size": 2632,
+      "sha256": "f038468fd1e4fd141992516f65449df0cece19cca5fea3bdd02e3f7adc84eeaa"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/main/usb_camera_2.jpg",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/main/usb_camera_2.jpg",
+      "size": 1384,
+      "sha256": "b16b790ffbff04b2736c80048bd9b54c9c7226906b95d51245426f15cdea9e20"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/pytest_esp_jpeg.py",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/pytest_esp_jpeg.py",
+      "size": 106,
+      "sha256": "eb7d24d9fe6bc94eb647c57580f014a3f86feaff73824d30548e028734a20ede"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/sdkconfig.ci",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/sdkconfig.ci",
+      "size": 243,
+      "sha256": "17f9af1bfc5f5a269c1f8d284881ae532de790439f8d89bff8a49758cd28959d"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/test_apps/sdkconfig.defaults",
+      "source": "ESP32_robot_dog/components/esp_jpeg/test_apps/sdkconfig.defaults",
+      "size": 195,
+      "sha256": "1a504ae17c4ad9637e84f41d0e7f7c37b1a49aaaabe45c138baa2c7185cf6617"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/tjpgd/tjpgd.c",
+      "source": "ESP32_robot_dog/components/esp_jpeg/tjpgd/tjpgd.c",
+      "size": 58316,
+      "sha256": "1286f5e32e7a4750ee36fd57d2c442c99a74ffed0e81cb5d2fbf92fccf64a84d"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/tjpgd/tjpgd.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/tjpgd/tjpgd.h",
+      "size": 3910,
+      "sha256": "53d1156fd9fcc97d346e5ee8c16ae39c34d71c691dcad3c524424bb91519cd24"
+    },
+    {
+      "path": "firmware/esp32/components/esp_jpeg/tjpgd/tjpgdcnf.h",
+      "source": "ESP32_robot_dog/components/esp_jpeg/tjpgd/tjpgdcnf.h",
+      "size": 1245,
+      "sha256": "6a2134a4aae53bc361a7c4f1bfc8ef0107452191d6c4ae26bd1030ca441459ae"
+    },
+    {
+      "path": "firmware/esp32/tests/audio_driver_stubs/audio_driver_stubs.h",
+      "source": "ESP32_robot_dog/tests/audio_driver_stubs/audio_driver_stubs.h",
+      "size": 2997,
+      "sha256": "87ad6afb106f0269b680858b4d06c688cf530887b07aac86ef1b891629ce028f"
+    },
+    {
+      "path": "firmware/esp32/tests/audio_driver_stubs/esp_err.h",
+      "source": "ESP32_robot_dog/tests/audio_driver_stubs/esp_err.h",
+      "size": 310,
+      "sha256": "8c7d6c4962125724d962dc54e102d7a70c4df1b72714c3eaacc334be24c0d01f"
+    },
+    {
+      "path": "firmware/esp32/tests/audio_monitor_protocol.txt",
+      "source": "ESP32_robot_dog/tests/audio_monitor_protocol.txt",
+      "size": 5608,
+      "sha256": "abf1447b0c2fc27938958bd0b413f2a18a75f0f4c90c4ab43b4e228400c85638"
+    },
+    {
+      "path": "firmware/esp32/tests/audio_stubs/esp_err.h",
+      "source": "ESP32_robot_dog/tests/audio_stubs/esp_err.h",
+      "size": 185,
+      "sha256": "e495e1fb6aa0e21c5e8602b4f06bf749a13aa33f8498dd40542076ac184d5e17"
+    },
+    {
+      "path": "firmware/esp32/tests/camera_check_notes.txt",
+      "source": "ESP32_robot_dog/tests/camera_check_notes.txt",
+      "size": 2477,
+      "sha256": "cba4d8df8cdd9afb9cd00aa1b030a3232a7c1972b449bdeb9dbf0a1d5e2dd5d4"
+    },
+    {
+      "path": "firmware/esp32/tests/run_audio_recovery.ps1",
+      "source": "ESP32_robot_dog/tests/run_audio_recovery.ps1",
+      "size": 1538,
+      "sha256": "87b3c72e6b8aad123cdce523e7e87fe08e3bdde828b513926f004f50681aef46"
+    },
+    {
+      "path": "firmware/esp32/tests/test_audio_monitor.c",
+      "source": "ESP32_robot_dog/tests/test_audio_monitor.c",
+      "size": 14696,
+      "sha256": "3b436a269a7ae336cbcb283e73e0c5684df08e30e6b4d25df28409330ed4ccd3"
+    },
+    {
+      "path": "firmware/esp32/tests/test_audio_recovery.c",
+      "source": "ESP32_robot_dog/tests/test_audio_recovery.c",
+      "size": 13693,
+      "sha256": "c81f5e2d326c806a365f3ec241f344bc74751f4ee6bd324adf2266bc62d752d5"
+    },
+    {
+      "path": "firmware/esp32/tests/test_audio_serial_encoding.py",
+      "source": "ESP32_robot_dog/tests/test_audio_serial_encoding.py",
+      "size": 1019,
+      "sha256": "5b1497f5732fa4530b71c2db064e9af635b05ada4cc2d4ad5793f26090b9fdc1"
+    },
+    {
+      "path": "firmware/esp32/tests/test_audio_tone_control.c",
+      "source": "ESP32_robot_dog/tests/test_audio_tone_control.c",
+      "size": 2647,
+      "sha256": "632db983bae3adf55cbfd0db111542de3d31afba86f4fa3ec881ad0f576edca6"
+    },
+    {
+      "path": "firmware/esp32/tests/test_camera_check.c",
+      "source": "ESP32_robot_dog/tests/test_camera_check.c",
+      "size": 4724,
+      "sha256": "308b4b4aad2142574524d77816764a686501dfacbded3dc7fa1298112e9774e5"
+    },
+    {
+      "path": "firmware/esp32/tests/test_camera_dashboard.js",
+      "source": "ESP32_robot_dog/tests/test_camera_dashboard.js",
+      "size": 12665,
+      "sha256": "c45d03e576b22145b8e4407eae4e10c4a4a907d40b48c7dd23f071de0fc85167"
+    },
+    {
+      "path": "firmware/esp32/tests/test_camera_serial_encoding.c",
+      "source": "ESP32_robot_dog/tests/test_camera_serial_encoding.c",
+      "size": 2425,
+      "sha256": "b67aa744a74dea3574f69032a5869cc4a70e9ad36f2f85c1fe946027058b7a78"
+    },
+    {
+      "path": "firmware/esp32/tests/test_camera_serial_encoding.py",
+      "source": "ESP32_robot_dog/tests/test_camera_serial_encoding.py",
+      "size": 3159,
+      "sha256": "244fd26afed5814dbd5f29c29fe696d89e2081a490fb8a19b972b645d6670aed"
+    },
+    {
+      "path": "firmware/esp32/tests/test_camera_serial_protocol.c",
+      "source": "ESP32_robot_dog/tests/test_camera_serial_protocol.c",
+      "size": 1468,
+      "sha256": "ff9faebbb33c49a670c67eeb01fe7e1fd95ca7308d090f05b08582e100e103a5"
+    },
+    {
+      "path": "firmware/esp32/tests/test_charge_command.c",
+      "source": "ESP32_robot_dog/tests/test_charge_command.c",
+      "size": 1512,
+      "sha256": "83149e6a256118a627e4ec5cb4fcd603f217e2f6beca7df0013eaa433ee04bf9"
+    },
+    {
+      "path": "firmware/esp32/tests/test_dashboard_polling.js",
+      "source": "ESP32_robot_dog/tests/test_dashboard_polling.js",
+      "size": 13652,
+      "sha256": "3276f6050710c4d5c6c559fb05a9543895ca2e783ec9c54d5f092246a03e4e9b"
+    },
+    {
+      "path": "firmware/esp32/tests/test_display_recovery.c",
+      "source": "ESP32_robot_dog/tests/test_display_recovery.c",
+      "size": 1081,
+      "sha256": "bdbe35866120dd5780a8a12f67319255d4547335561eb52e4d95432393b82431"
+    },
+    {
+      "path": "firmware/esp32/tests/test_display_sync.c",
+      "source": "ESP32_robot_dog/tests/test_display_sync.c",
+      "size": 3133,
+      "sha256": "9090d4569238b6514c625f51e25ffb63c4e9ceb168db047092486f4acc34683b"
+    },
+    {
+      "path": "firmware/esp32/tests/test_i2c_diagnostics.c",
+      "source": "ESP32_robot_dog/tests/test_i2c_diagnostics.c",
+      "size": 5297,
+      "sha256": "b59878f6d2298281d20809b592c7ab1b521291fafbf4778d91cf61700a1760d3"
+    },
+    {
+      "path": "firmware/esp32/tests/test_peripheral_math.c",
+      "source": "ESP32_robot_dog/tests/test_peripheral_math.c",
+      "size": 1606,
+      "sha256": "c9c1cb0ae8e77183306f861e4628449a3115ce953a3d2539f09ecfb140c73654"
+    },
+    {
+      "path": "firmware/esp32/tests/test_sound_command.c",
+      "source": "ESP32_robot_dog/tests/test_sound_command.c",
+      "size": 1780,
+      "sha256": "e5c9a862708fbd92bdab2ec98e336842a24346daf1556340bf85190b0d90b668"
+    },
+    {
+      "path": "firmware/esp32/tests/test_telemetry_line.c",
+      "source": "ESP32_robot_dog/tests/test_telemetry_line.c",
+      "size": 3248,
+      "sha256": "6ec7258b9b35f79131fa222b64174552b845252e874700dc87de1e164eb66ba7"
+    },
+    {
+      "path": "firmware/esp32/tests/test_uart_bridge_policy.c",
+      "source": "ESP32_robot_dog/tests/test_uart_bridge_policy.c",
+      "size": 21003,
+      "sha256": "2aa496f217af190089b3bea6ee1b52c1b8c3267de0bd2e7e8244260e87b1375c"
+    },
+    {
+      "path": "firmware/esp32/tests/test_wifi_control.c",
+      "source": "ESP32_robot_dog/tests/test_wifi_control.c",
+      "size": 1341,
+      "sha256": "b712cbffee83c201aee871c561a16ce84a0b543ebe5f8d91664c1a4363106b22"
+    },
+    {
+      "path": "firmware/esp32/tests/test_wifi_pairing.c",
+      "source": "ESP32_robot_dog/tests/test_wifi_pairing.c",
+      "size": 4327,
+      "sha256": "c8342154129f84cc0162e86537832728c4bfbe3a90ce7b98d4749317c5a417de"
+    },
+    {
+      "path": "firmware/esp32/tests/test_wifi_policy.c",
+      "source": "ESP32_robot_dog/tests/test_wifi_policy.c",
+      "size": 1860,
+      "sha256": "13eba841ca937dff4f54fde1b60395d1e4baace566dd8cb90e287aac7b568e0e"
+    },
+    {
+      "path": "firmware/esp32/docs/ESP32外设开发说明.txt",
+      "source": "ESP32_robot_dog/docs/ESP32外设开发说明.txt",
+      "size": 7655,
+      "sha256": "af30642b9fd0b4f0202145df7969abc26c93849b5b346e258e9b6ffb3ae7bba1"
+    },
+    {
+      "path": "firmware/esp32/docs/PUBLIC-USB-PROTOCOL.md",
+      "source": "ESP32_robot_dog/docs/PUBLIC-USB-PROTOCOL.md",
+      "size": 6884,
+      "sha256": "8a95174be313c9411bb48a54c59e37eebb12e6f26be93f5cabad685a6f506a97"
+    },
+    {
+      "path": "firmware/esp32/docs/PUBLIC-USB-README.md",
+      "source": "ESP32_robot_dog/docs/PUBLIC-USB-README.md",
+      "size": 3374,
+      "sha256": "64007fb46f7e7b76e2a744ef6b9cb51494e65a69ccac99d16573bda7828f3bdf"
+    },
+    {
+      "path": "firmware/esp32/docs/SensorLib-LICENSE.txt",
+      "source": "ESP32_robot_dog/docs/SensorLib-LICENSE.txt",
+      "size": 1065,
+      "sha256": "f4238918be82da453e2de754fd9907d7effafe731723be4e6a2374a84cbd9da8"
+    },
+    {
+      "path": "firmware/esp32/docs/USB焊接调试包使用说明.txt",
+      "source": "ESP32_robot_dog/docs/USB焊接调试包使用说明.txt",
+      "size": 3017,
+      "sha256": "38d1b3d5ed8a0d902cf9b785547afd10282883d8ec1eecf407f9411357728740"
+    },
+    {
+      "path": "firmware/esp32/CMakeLists.txt",
+      "source": "ESP32_robot_dog/CMakeLists.txt",
+      "size": 566,
+      "sha256": "94d5d5c76abc80578ac5d39895f08eb80124006fba28717e8b79ea5c06ecb0f3"
+    },
+    {
+      "path": "firmware/esp32/sdkconfig.defaults",
+      "source": "ESP32_robot_dog/sdkconfig.defaults",
+      "size": 1337,
+      "sha256": "53d3b7e50f74f8528db289bd7d9e9c45a540c01c769377a91ff3ed55688cf138"
+    },
+    {
+      "path": "firmware/esp32/sdkconfig.public",
+      "source": "ESP32_robot_dog/sdkconfig.public",
+      "size": 75186,
+      "sha256": "691547881088914356d46f6a098c21b62b7027b506ea3c811d47c77db4435de4"
+    },
+    {
+      "path": "firmware/esp32/USB调试说明.txt",
+      "source": "ESP32_robot_dog/USB调试说明.txt",
+      "size": 5430,
+      "sha256": "f1c26cbea26f9fdb2723af5e4f0cde981365ca694619bda9320726eb7328bccb"
+    },
+    {
+      "path": "firmware/esp32/tools/build_public_usb.ps1",
+      "source": "ESP32_robot_dog/tools/build_public_usb.ps1",
+      "size": 1613,
+      "sha256": "c14db112567c32d6110850fa9ecd0ff64736de3f23589daab6302157e987ebe7"
+    },
+    {
+      "path": "firmware/esp32/tools/package_public_usb.py",
+      "source": "ESP32_robot_dog/tools/package_public_usb.py",
+      "size": 5930,
+      "sha256": "3c3236a03b22b01a00fd1d2a9d2a9eb330bdae0b06e61932233ff3807923c54e"
+    },
+    {
+      "path": "firmware/esp32/tools/configure_wifi.ps1",
+      "source": "ESP32_robot_dog/tools/configure_wifi.ps1",
+      "size": 2526,
+      "sha256": "e7e1e6eb7f62d6400e8c5b5c2476f6276a3882a36d3b2d9c0ed8435e1caa87a9"
+    },
+    {
+      "path": "firmware/stm32/BSP/inc/BSP_Battery.h",
+      "source": "STM32-r13-180deg/BSP/inc/BSP_Battery.h",
+      "size": 2727,
+      "sha256": "c0fedc0ddcd53114603ffcf9538a52845535b61bf32ec62c821ede3ae4fa2e21"
+    },
+    {
+      "path": "firmware/stm32/BSP/inc/BSP_BitBand_F103.h",
+      "source": "STM32-r13-180deg/BSP/inc/BSP_BitBand_F103.h",
+      "size": 2098,
+      "sha256": "b8ba33101e6767d8d07d9744aa9429aa2b68c1b670f06a4267dfc8d194d6af95"
+    },
+    {
+      "path": "firmware/stm32/BSP/inc/BSP_Peripherals.h",
+      "source": "STM32-r13-180deg/BSP/inc/BSP_Peripherals.h",
+      "size": 718,
+      "sha256": "4874eb8bf67ea037f5aa4143eacc8994ba6814f760caadc4bc06556cb70a7c01"
+    },
+    {
+      "path": "firmware/stm32/BSP/inc/BSP_SysTick.h",
+      "source": "STM32-r13-180deg/BSP/inc/BSP_SysTick.h",
+      "size": 389,
+      "sha256": "f6465ffe064a27e5716d53ea088a61d82c83b503a6314c77886cf5bf8b8de053"
+    },
+    {
+      "path": "firmware/stm32/BSP/inc/BSP_UART_1.h",
+      "source": "STM32-r13-180deg/BSP/inc/BSP_UART_1.h",
+      "size": 389,
+      "sha256": "6ba2a3d5d2f35536e9c749e627dfe159b0431f8923de011a56d9bbba0eb5d8de"
+    },
+    {
+      "path": "firmware/stm32/BSP/inc/BSP_UART_3.h",
+      "source": "STM32-r13-180deg/BSP/inc/BSP_UART_3.h",
+      "size": 799,
+      "sha256": "1840630e6e16119aebf9b94007bc8ac3feda8f4cbc50d406ebdf64bb8b4bdb61"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_Battery.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_Battery.c",
+      "size": 17066,
+      "sha256": "df3d27e7989e8b58907ada70404c441f8fbc8269d61aca083a12a4e0d137ed0a"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_BatterySettings.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_BatterySettings.c",
+      "size": 1388,
+      "sha256": "89f4c48e301943e4638e1fcda22931e32a759ef4107389bf52fc0dd0d45f6862"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_BitBand_F103.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_BitBand_F103.c",
+      "size": 54,
+      "sha256": "02619eb4f0b7862c0374ca949cfac8656d7e27b7f36562826d8ec705197ce701"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_Peripherals.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_Peripherals.c",
+      "size": 4554,
+      "sha256": "e8b91633193da51fa55a13645005b840e3d9e60969fa2b723f0966c54f7330ff"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_SysTick.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_SysTick.c",
+      "size": 1662,
+      "sha256": "397d402630d4255651faa76fbafd19ae087aa161e1b936c5448f664d15f913d9"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_TTLServo.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_TTLServo.c",
+      "size": 6422,
+      "sha256": "a42be67a9b3c5805135dbb0489320d6b937c4671e8a59b3ccd9414644a12afd4"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_UART_1.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_UART_1.c",
+      "size": 5566,
+      "sha256": "42d0df2854b7fea0e9126cf71b144b94f6a7b5b9a232efc287b7799a19f44e04"
+    },
+    {
+      "path": "firmware/stm32/BSP/src/BSP_UART_3.c",
+      "source": "STM32-r13-180deg/BSP/src/BSP_UART_3.c",
+      "size": 3335,
+      "sha256": "8aa1c2a036c673c639ce1ce1ed95b8906b8fecae756b249c6ddaa343fd9248bc"
+    },
+    {
+      "path": "firmware/stm32/Code/AHT20.c",
+      "source": "STM32-r13-180deg/Code/AHT20.c",
+      "size": 3944,
+      "sha256": "3aba65951786cb8a55079394b14c352a957e72507bb629f419fb72fd98196587"
+    },
+    {
+      "path": "firmware/stm32/Code/AHT20.h",
+      "source": "STM32-r13-180deg/Code/AHT20.h",
+      "size": 985,
+      "sha256": "7cfc6e90dac8f57527ab47e13479037cd995e21589aeb3c0bb902c0736072186"
+    },
+    {
+      "path": "firmware/stm32/Code/Battery.c",
+      "source": "STM32-r13-180deg/Code/Battery.c",
+      "size": 18809,
+      "sha256": "9459278cf36341d9f298caebca6a15aeae090a4bc4580af850d064e1cb46ebcc"
+    },
+    {
+      "path": "firmware/stm32/Code/Battery.h",
+      "source": "STM32-r13-180deg/Code/Battery.h",
+      "size": 4122,
+      "sha256": "d228026b79bd0732f6b1bfc385dc4e8d567bb792f69aafcb04411d69afca2920"
+    },
+    {
+      "path": "firmware/stm32/Code/Battery_Config.h",
+      "source": "STM32-r13-180deg/Code/Battery_Config.h",
+      "size": 4719,
+      "sha256": "cd351f1f6805f8b30ae3d42c09f65ff684ca1dbfbe0f22b9b12d0b732d048883"
+    },
+    {
+      "path": "firmware/stm32/Code/Battery_Policy.c",
+      "source": "STM32-r13-180deg/Code/Battery_Policy.c",
+      "size": 2627,
+      "sha256": "f2a1f710e4b0fadd6ffd782465009f80e9c3dd9d6345c1ae572b02801aeab235"
+    },
+    {
+      "path": "firmware/stm32/Code/Battery_Policy.h",
+      "source": "STM32-r13-180deg/Code/Battery_Policy.h",
+      "size": 775,
+      "sha256": "04309d2d9f01ad14ade2d3e388cf988b1fb2e8b68ecab8ee3c61a9af628522b1"
+    },
+    {
+      "path": "firmware/stm32/Code/Battery_Settings.c",
+      "source": "STM32-r13-180deg/Code/Battery_Settings.c",
+      "size": 3551,
+      "sha256": "d7fab1b6cdcd47b926737e072b5a4bfe0f4c0cdc783b7ce790db431681329754"
+    },
+    {
+      "path": "firmware/stm32/Code/Battery_Settings.h",
+      "source": "STM32-r13-180deg/Code/Battery_Settings.h",
+      "size": 827,
+      "sha256": "b822cbf6d9403f047d4c7b3374584872c39fa2384713a93fb332f40d9e935d67"
+    },
+    {
+      "path": "firmware/stm32/Code/IP5310.c",
+      "source": "STM32-r13-180deg/Code/IP5310.c",
+      "size": 13000,
+      "sha256": "5f2ab9bddc00055dba02be8bd8e15135fd2015116b7e7050a12d5706f6057f90"
+    },
+    {
+      "path": "firmware/stm32/Code/IP5310.h",
+      "source": "STM32-r13-180deg/Code/IP5310.h",
+      "size": 5557,
+      "sha256": "9bea0ce6a6204ebf6fdf1b85ed0e53759252a48858fe66022292e8785a67b7f4"
+    },
+    {
+      "path": "firmware/stm32/Code/main.c",
+      "source": "STM32-r13-180deg/Code/main.c",
+      "size": 8472,
+      "sha256": "6acbe5d9b06ceee7f326cca6cdedfde403cf4d8551d560e3a57d3cbd7276beb3"
+    },
+    {
+      "path": "firmware/stm32/Code/main.h",
+      "source": "STM32-r13-180deg/Code/main.h",
+      "size": 265,
+      "sha256": "1497c5495c2bfa81d6c50d7005d06a0a928cc0d524d2e7fa73483c02015aaaf5"
+    },
+    {
+      "path": "firmware/stm32/Code/Peripherals.c",
+      "source": "STM32-r13-180deg/Code/Peripherals.c",
+      "size": 22840,
+      "sha256": "c51f5d829edb4b5fcb6422846b5333ac672b7dbf693e7ee76d3a94124f708dff"
+    },
+    {
+      "path": "firmware/stm32/Code/Peripherals.h",
+      "source": "STM32-r13-180deg/Code/Peripherals.h",
+      "size": 1460,
+      "sha256": "76203f9f69c0d539a792d14ec79a94f4ff9aa1a0b946196771c678bf97a233df"
+    },
+    {
+      "path": "firmware/stm32/Code/Servo_Config.h",
+      "source": "STM32-r13-180deg/Code/Servo_Config.h",
+      "size": 184,
+      "sha256": "e71975c9246caa655318bd30538570fcef4f91f00991f2d299823b273cf76558"
+    },
+    {
+      "path": "firmware/stm32/Code/TTLServo.c",
+      "source": "STM32-r13-180deg/Code/TTLServo.c",
+      "size": 5290,
+      "sha256": "1db917a388546f84b409147d585c06a15a2dd4e540535a43d055cb6756a40932"
+    },
+    {
+      "path": "firmware/stm32/Code/TTLServo.h",
+      "source": "STM32-r13-180deg/Code/TTLServo.h",
+      "size": 1384,
+      "sha256": "6657e89c7e58093c06e7877b2f3d7ea00a36d619edf91fe0a2d3fd7c0558aecb"
+    },
+    {
+      "path": "firmware/stm32/Code/TTLServo_Motion.c",
+      "source": "STM32-r13-180deg/Code/TTLServo_Motion.c",
+      "size": 3881,
+      "sha256": "81169ae9d4ff689d2b4be1a1e5e0ff18fa95c6f14e09e7da909720c3f6587daf"
+    },
+    {
+      "path": "firmware/stm32/Code/TTLServo_Motion.h",
+      "source": "STM32-r13-180deg/Code/TTLServo_Motion.h",
+      "size": 501,
+      "sha256": "b4727ff95ddf8ed9a2028e8a92e80042bb25cd398bb64e56934aca074128e5cb"
+    },
+    {
+      "path": "firmware/stm32/Code/TTLServo_Protocol.c",
+      "source": "STM32-r13-180deg/Code/TTLServo_Protocol.c",
+      "size": 2728,
+      "sha256": "ec39ba27430f2b3782adcaaea70995c333a947c8c840caffe00eb62414d8a54d"
+    },
+    {
+      "path": "firmware/stm32/Core/stm32f10x_conf.h",
+      "source": "STM32-r13-180deg/Core/stm32f10x_conf.h",
+      "size": 3308,
+      "sha256": "a8dc87d48f0720883a827da73084741e8d87d58a1c38be395dd824cbd294f5bd"
+    },
+    {
+      "path": "firmware/stm32/Core/stm32f10x_it.c",
+      "source": "STM32-r13-180deg/Core/stm32f10x_it.c",
+      "size": 4467,
+      "sha256": "3bdbaf70818afeb7827d5895dc0b894feb0414c52cdc8143adf93d62faedad2f"
+    },
+    {
+      "path": "firmware/stm32/Core/stm32f10x_it.h",
+      "source": "STM32-r13-180deg/Core/stm32f10x_it.h",
+      "size": 2086,
+      "sha256": "d41e14c819d2df2adca148e514a8d36290afbf94ac8319ac9694dde2a6e0f747"
+    },
+    {
+      "path": "firmware/stm32/Drivers/CMSIS/core_cm3.c",
+      "source": "STM32-r13-180deg/Drivers/CMSIS/core_cm3.c",
+      "size": 17273,
+      "sha256": "e93a7e36349e7810f328276a3fed56701e10536779f7527a8ccd140618a556b0"
+    },
+    {
+      "path": "firmware/stm32/Drivers/CMSIS/core_cm3.h",
+      "source": "STM32-r13-180deg/Drivers/CMSIS/core_cm3.h",
+      "size": 85714,
+      "sha256": "de4668aa9d314d05769dfb29f028e205b50577c6b2150fc6bccb34bd34179bbb"
+    },
+    {
+      "path": "firmware/stm32/Drivers/CMSIS/stm32f10x.h",
+      "source": "STM32-r13-180deg/Drivers/CMSIS/stm32f10x.h",
+      "size": 633941,
+      "sha256": "4ee722d262c1e7d7505d7dc7eeb8ccaaf67158b51ee4bc177397cd64e74e1b3a"
+    },
+    {
+      "path": "firmware/stm32/Drivers/CMSIS/system_stm32f10x.c",
+      "source": "STM32-r13-180deg/Drivers/CMSIS/system_stm32f10x.c",
+      "size": 36559,
+      "sha256": "0e356fd57fc7144f53b903f407177488fcbcf17dfbb8442fec32c792a3e420a3"
+    },
+    {
+      "path": "firmware/stm32/Drivers/CMSIS/system_stm32f10x.h",
+      "source": "STM32-r13-180deg/Drivers/CMSIS/system_stm32f10x.h",
+      "size": 2085,
+      "sha256": "919dc1f5c6bbba74cb712e8ec7cf73f1988eafa9438c706526fb401a2ab4672d"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/misc.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/misc.h",
+      "size": 8982,
+      "sha256": "40c918f726035dfa67a7bfadefac8e922196d7918f915a7f2db1e652625c7e41"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_adc.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_adc.h",
+      "size": 21694,
+      "sha256": "cad4c32402b03f62427324c9235977162f83b41123bc4f2bf98e5b7583284fe4"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_bkp.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_bkp.h",
+      "size": 7555,
+      "sha256": "bd3ae6fe6a6e617216d60a11a7437be97dca2ea02f3ad78afe889850473fdb16"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_can.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_can.h",
+      "size": 27559,
+      "sha256": "df4e1602f2b208b335fa22890908ff518de18c6e27ffb94b92cd498e8212b248"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_cec.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_cec.h",
+      "size": 6573,
+      "sha256": "620485eb06b33c96a5a8de3fb1116db876162a44da15441883f0cc675e890059"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_crc.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_crc.h",
+      "size": 2162,
+      "sha256": "98e5537eb5e8837de2170472b774d9f9559f14b60dfcb09d9f839611bc18cb66"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_dac.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_dac.h",
+      "size": 15233,
+      "sha256": "446107ab9e933ccc284be0cd8f0c32edc3e96ba6f990dea8bd1f1cf080d35ef6"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_dbgmcu.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_dbgmcu.h",
+      "size": 3818,
+      "sha256": "998751256df8a0423dc73be45e489fc04cb2b124a6f04a6ad65e4d53e59f45ba"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_dma.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_dma.h",
+      "size": 20754,
+      "sha256": "2ba038050d07735a42645f2508e62078c217dc750878097f7f113660e0d58ffb"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_exti.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_exti.h",
+      "size": 6824,
+      "sha256": "661b039483459137a58bfdea7522528b9b6e923d61966d4c7c8a5035bd375f5f"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_flash.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_flash.h",
+      "size": 25445,
+      "sha256": "952ca72ee4d01e49d392d55af2b146bd9f15763230660334e78ac2cad8cb8982"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_fsmc.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_fsmc.h",
+      "size": 27016,
+      "sha256": "b2e640d05f6dd11e1fe70bfa0db8aa53cb0a918eef412d6a35630b1357dc5ff6"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_gpio.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_gpio.h",
+      "size": 20335,
+      "sha256": "52862fe6f8e873f1a7fa492b198d74725f6da2672eb37e332899ac5e4b41a30b"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_i2c.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_i2c.h",
+      "size": 30029,
+      "sha256": "08b14d416090815765a02e6fecf78cbdd3de4ad330d3bc04b2133f8f4f3f2daa"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_iwdg.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_iwdg.h",
+      "size": 3828,
+      "sha256": "4a0e65ceebeb69dee10923ab5478938ec7af1357849fbf862d45d19dbb01091a"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_pwr.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_pwr.h",
+      "size": 4383,
+      "sha256": "b7b31d2bfb3d56e763d70e9db4eecfc996664619916ac4bee9d9928430ffac79"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_rcc.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_rcc.h",
+      "size": 30452,
+      "sha256": "894e140a70b0cdc94e4e96c5011def9dca5a103752783c3bb7cab538fc426f9e"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_rtc.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_rtc.h",
+      "size": 3857,
+      "sha256": "4a0ef73054c3f7f7ad325c6ef0268edb3c5e8987978bdac8a695dc548e13b94c"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_sdio.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_sdio.h",
+      "size": 21863,
+      "sha256": "35f5d75421ab3c76d1d76e2c26d0910864161966cc16b74f8327c173ae123deb"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_spi.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_spi.h",
+      "size": 17725,
+      "sha256": "e5dce165ef95fd872a8802cc4f9205b389e4ecdd28a0d74f8aa6c9c3d1ea4225"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_tim.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_tim.h",
+      "size": 52427,
+      "sha256": "dddf89f9b7134a2f15ed9cc2521589ee9a2e18c0553a6017c71b5d5b394524e5"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_usart.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_usart.h",
+      "size": 16548,
+      "sha256": "9d4c2067e54defd64b000076e6561726d758c872d354bed6eea66a6767c08bce"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/inc/stm32f10x_wwdg.h",
+      "source": "STM32-r13-180deg/Drivers/FWlib/inc/stm32f10x_wwdg.h",
+      "size": 2966,
+      "sha256": "eb1a01bbaa33babc416d8ecdb40b5a97a21522eb5c7952ba1bec09924580790e"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/misc.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/misc.c",
+      "size": 7046,
+      "sha256": "152c632e56151b2564121c56ff359d0f041621f0da6ed101d7fd376a139a5c75"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_adc.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_adc.c",
+      "size": 47201,
+      "sha256": "d269b826f617c7b1426155cdfc8a220d05aee74580b80b92f86bf33ea9d8be98"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_bkp.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_bkp.c",
+      "size": 8463,
+      "sha256": "f78d5077029cfec54da52ea4f9d8796dabdf1da5dc6cc29e3395e0f6923645a0"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_can.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_can.c",
+      "size": 45103,
+      "sha256": "bf9d3bec0785b8f28d9eb046bc67181071586e10014d4f595ba0e582257f31ad"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_cec.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_cec.c",
+      "size": 11656,
+      "sha256": "5cf689d7a2ecc3244b18099ae254dc6b0bff023406c898a82dbbd42a29b86e7c"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_crc.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_crc.c",
+      "size": 3347,
+      "sha256": "962aa1381467118ee7e9bea68ad01b3ca3f9fbbd749242211e2d340bf896d0d4"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_dac.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_dac.c",
+      "size": 19087,
+      "sha256": "789a92c1dbb0dc74688fff8e415a93da816956a7a44882488d25af7ac055cbc7"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_dbgmcu.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_dbgmcu.c",
+      "size": 5149,
+      "sha256": "9bfb6f964cd3b06a04c67772e52f31814e5a3d39a951a27bf9f2ef352237e23d"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_dma.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_dma.c",
+      "size": 29607,
+      "sha256": "b0ac759af150deaa84d8a337a8873a2fbc03e36b1db6623175ab2443efa45d6f"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_exti.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_exti.c",
+      "size": 6959,
+      "sha256": "5783d10d46275d8baee9f2861cf434b5c12a4bc8f42ed4af9e503c1818941ebe"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_flash.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_flash.c",
+      "size": 62551,
+      "sha256": "a04fcf26499252a6b02de1cefd33c26b8802d5ff1f9bef920bbddeefdd602f43"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_fsmc.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_fsmc.c",
+      "size": 35484,
+      "sha256": "1b623840bba04095a150fcf051fd2a3df4838799b96ae2e36f28675e92c23e44"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_gpio.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_gpio.c",
+      "size": 23221,
+      "sha256": "8255650b583b2bab2c320e0974309a6ccf26f661e7ad1b54282c0f0e2b9a1acf"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_i2c.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_i2c.c",
+      "size": 45781,
+      "sha256": "5014d8cf824a3f3d4fca09241352e82177752ebf2a5a97a6de2fb8968e6d44c9"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_iwdg.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_iwdg.c",
+      "size": 4916,
+      "sha256": "bdae6086ce189dac8d464d10bb2ab58a957bbd8f89834e1cc7716faf3e34c9ce"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_pwr.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_pwr.c",
+      "size": 8759,
+      "sha256": "3f8c77033caad162a69fe9780d7be2ab973f02be0e736e37c2e633f4a4e2bd28"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_rcc.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_rcc.c",
+      "size": 51271,
+      "sha256": "f23bbc9b83e44e69f5dc34f072867f0087a3eb0452034ab09c363088d2354cd9"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_rtc.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_rtc.c",
+      "size": 8598,
+      "sha256": "59bc07137d60efbbf69703b88e72bb2153c2e97beee16a1d262a7050686fb00b"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_sdio.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_sdio.c",
+      "size": 28933,
+      "sha256": "d042b43fbfd5431719a7310ebe2d38c861a663d07e0c0735e466785e07fc1d97"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_spi.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_spi.c",
+      "size": 30224,
+      "sha256": "0214f213058353f2fd9d3a4036ccabbea0b73b60aae0652acf36df539adbb9c6"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_tim.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_tim.c",
+      "size": 109159,
+      "sha256": "bd12bf18b03b8585ac2ba6bd0e80ec39d8fd0c89307eb54f5a7be38a46894d03"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_usart.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_usart.c",
+      "size": 38308,
+      "sha256": "6d7af47017b01eb260fb7699f5c483e0a8576b4c780069a99975b7c6443030dd"
+    },
+    {
+      "path": "firmware/stm32/Drivers/FWlib/src/stm32f10x_wwdg.c",
+      "source": "STM32-r13-180deg/Drivers/FWlib/src/stm32f10x_wwdg.c",
+      "size": 5735,
+      "sha256": "1d51fbbe3da7731b2303408f00693b51dbf62226590b1264cbbf35be01aa90ea"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_cl.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_cl.s",
+      "size": 15766,
+      "sha256": "fe249e5ec3856feb2596bda8a09eed91a5b7d634abc96fc2981c24c1260e204d"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_hd.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_hd.s",
+      "size": 15503,
+      "sha256": "1ad6e0a965254d4cd1a6cc289011214c8d3f1468d77e9ad1f235d80792cda2fc"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_hd_vl.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_hd_vl.s",
+      "size": 15692,
+      "sha256": "1c20befd815cc2707370a3ff530c0e050db4a90d5d76a270290e3c3495f76f3c"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_ld.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_ld.s",
+      "size": 12376,
+      "sha256": "d36ebab687be79789ac7250e1e70310ae7ea4f7de7a6fddc1deda4a134263977"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_ld_vl.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_ld_vl.s",
+      "size": 13656,
+      "sha256": "ad7afad5352f4ebef018c689d40fda1834805c8a9c3f67a3826f6e8d15d2f41f"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_md.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_md.s",
+      "size": 12765,
+      "sha256": "8bff69adff662663c0fcbee4cfbeb3ed9ff2b7501527f24815789f2736420d23"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_md_vl.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_md_vl.s",
+      "size": 14073,
+      "sha256": "4d453f0a56a416ef6f1f6ff3f3ecdd3e65c1f055b46c0be1fde0bcf47535498b"
+    },
+    {
+      "path": "firmware/stm32/Startup/startup_stm32f10x_xl.s",
+      "source": "STM32-r13-180deg/Startup/startup_stm32f10x_xl.s",
+      "size": 15955,
+      "sha256": "0946ba9c61c7cf85f5669b0ce38cf393177e5e1a735666331587dcf124019a18"
+    },
+    {
+      "path": "firmware/stm32/Project/main.uvprojx",
+      "source": "STM32-r13-180deg/Project/main.uvprojx",
+      "size": 24019,
+      "sha256": "79ab22976bb26a80c71550ff113823ede08431d6a9a098b3b67307288d0b3c0e"
+    },
+    {
+      "path": "firmware/stm32/tests/bsp_stubs/stm32f10x.h",
+      "source": "STM32-r13-180deg/tests/bsp_stubs/stm32f10x.h",
+      "size": 1124,
+      "sha256": "d50740f3cea1ceab99f0fd223e8be71a190db70e36b9d22dafd765ed9b6b6df7"
+    },
+    {
+      "path": "firmware/stm32/tests/peripheral_bsp_stubs/stm32f10x.h",
+      "source": "STM32-r13-180deg/tests/peripheral_bsp_stubs/stm32f10x.h",
+      "size": 2895,
+      "sha256": "6f46ba172bfbc0ed2e0b66bff8e34d7d07e96fa7a98acfa7918048be1a85e970"
+    },
+    {
+      "path": "firmware/stm32/tests/run_charge_persist.ps1",
+      "source": "STM32-r13-180deg/tests/run_charge_persist.ps1",
+      "size": 900,
+      "sha256": "e0ed87da9ca76882aabdbe0dc5740cb93036525dae4236d6d44f0079a6235f62"
+    },
+    {
+      "path": "firmware/stm32/tests/run_tests.ps1",
+      "source": "STM32-r13-180deg/tests/run_tests.ps1",
+      "size": 3609,
+      "sha256": "0757d05822c243df60aed5de8093ea67c90385556190ac012410f5e0284fd036",
+      "sourceSha256": "125d59d4d17e73c10104ac103022b1b669d7918f7bea73e263fbc10f62b9a20d",
+      "adaptation": "Repository packaging: fresh build output directory or host tests aligned with snapshot configuration."
+    },
+    {
+      "path": "firmware/stm32/tests/run_ttl_tests.ps1",
+      "source": "STM32-r13-180deg/tests/run_ttl_tests.ps1",
+      "size": 1495,
+      "sha256": "b2dbc8cd8a5cc581a834c1355942d7509bf433415cc2f9b46e3929bc654da4b1",
+      "sourceSha256": "1bec1eaa1cd4569fca8d17f5c5a9d4e858c026346515730114340592be7c77dd",
+      "adaptation": "Repository packaging: fresh build output directory or host tests aligned with snapshot configuration."
+    },
+    {
+      "path": "firmware/stm32/tests/settings_flash_model.h",
+      "source": "STM32-r13-180deg/tests/settings_flash_model.h",
+      "size": 1350,
+      "sha256": "9492be57249fb65718f8fe8cec5623f02ebcc717f407138e0c8c7d2336f206f8"
+    },
+    {
+      "path": "firmware/stm32/tests/stubs/BSP_Battery.h",
+      "source": "STM32-r13-180deg/tests/stubs/BSP_Battery.h",
+      "size": 991,
+      "sha256": "c596d4d4d0b48a2543c3ccabc03677987b7657bdb27cb371475585117e5ee8ac"
+    },
+    {
+      "path": "firmware/stm32/tests/stubs/BSP_SysTick.h",
+      "source": "STM32-r13-180deg/tests/stubs/BSP_SysTick.h",
+      "size": 108,
+      "sha256": "e89a41d9662b7dd14113bcb09a178dfbd73b82e51d04afbf36f220f4aba59de6"
+    },
+    {
+      "path": "firmware/stm32/tests/test_aht20.c",
+      "source": "STM32-r13-180deg/tests/test_aht20.c",
+      "size": 4029,
+      "sha256": "8885fb9cccbe3d4da59cf21970a4ef3d8077680b05080cb9a2980239ef795b49"
+    },
+    {
+      "path": "firmware/stm32/tests/test_battery.c",
+      "source": "STM32-r13-180deg/tests/test_battery.c",
+      "size": 21504,
+      "sha256": "e1870dd35dbaf51e1efbafcdd82d55b71c9df060e1dc2d7363b685ab876c8f1a"
+    },
+    {
+      "path": "firmware/stm32/tests/test_battery_bsp.c",
+      "source": "STM32-r13-180deg/tests/test_battery_bsp.c",
+      "size": 12238,
+      "sha256": "e8155a7c7ec5fafeb243be9ac16ad1ca0f876b17f6d473913a05949d3fb8b215"
+    },
+    {
+      "path": "firmware/stm32/tests/test_battery_persist.c",
+      "source": "STM32-r13-180deg/tests/test_battery_persist.c",
+      "size": 6512,
+      "sha256": "f8e0fccb7d3bada5b51effab92541c03d8c669be07cd02a7acb2923c17f0b100"
+    },
+    {
+      "path": "firmware/stm32/tests/test_battery_power.c",
+      "source": "STM32-r13-180deg/tests/test_battery_power.c",
+      "size": 10840,
+      "sha256": "b360196358f6332f480e3ee123ddc1030d98ab92835bcd737bdbe0ea268d10c0"
+    },
+    {
+      "path": "firmware/stm32/tests/test_battery_settings.c",
+      "source": "STM32-r13-180deg/tests/test_battery_settings.c",
+      "size": 1961,
+      "sha256": "1113a881b965447fa41ee69b81b9d3e4e2abfbeb6f58773b2840419929ac2183"
+    },
+    {
+      "path": "firmware/stm32/tests/test_battery_vbus.c",
+      "source": "STM32-r13-180deg/tests/test_battery_vbus.c",
+      "size": 18437,
+      "sha256": "72183c96f8d25752edbb7144cfd388a63c49befad5e8bff32c634eccb0fd56ad",
+      "sourceSha256": "ceedd9adc163f6887aeceaa38a3e12ce15fd72c7b4d59c0e6e0a7c9aa770cf30",
+      "adaptation": "Repository packaging: fresh build output directory or host tests aligned with snapshot configuration."
+    },
+    {
+      "path": "firmware/stm32/tests/test_buzzer_command.c",
+      "source": "STM32-r13-180deg/tests/test_buzzer_command.c",
+      "size": 3654,
+      "sha256": "de749dc9af8e60d6b05c885f8335cb32784a1b13ab9256ab095b9c63cebc4e17"
+    },
+    {
+      "path": "firmware/stm32/tests/test_ip5310.c",
+      "source": "STM32-r13-180deg/tests/test_ip5310.c",
+      "size": 20464,
+      "sha256": "7f17051deeb7db1c49c42d7f76eb45f2cbe329e71867199fb255e266aff64854"
+    },
+    {
+      "path": "firmware/stm32/tests/test_peripheral_bsp.c",
+      "source": "STM32-r13-180deg/tests/test_peripheral_bsp.c",
+      "size": 5276,
+      "sha256": "afb81939e9a94b4e0efe1b807f46475e7c9dbb65774d95a4cd02f107c0e19ed4"
+    },
+    {
+      "path": "firmware/stm32/tests/test_peripherals.c",
+      "source": "STM32-r13-180deg/tests/test_peripherals.c",
+      "size": 18281,
+      "sha256": "dec50f686597f35827e6f379a0b1e7f84d3d6f6df8633168328ca5f0a88dcf24"
+    },
+    {
+      "path": "firmware/stm32/tests/test_public_profile.c",
+      "source": "STM32-r13-180deg/tests/test_public_profile.c",
+      "size": 123,
+      "sha256": "3c7e5532ddd575b5b92ed68f3997219ce5a7629b7516a83850b14da00d33cef0"
+    },
+    {
+      "path": "firmware/stm32/tests/test_ttl_bsp.c",
+      "source": "STM32-r13-180deg/tests/test_ttl_bsp.c",
+      "size": 3263,
+      "sha256": "0db534a7773a946fbcd0667ce7a3b10acbdf6df78a6bc9be11cee23a1eafa461"
+    },
+    {
+      "path": "firmware/stm32/tests/test_ttl_motion.c",
+      "source": "STM32-r13-180deg/tests/test_ttl_motion.c",
+      "size": 2565,
+      "sha256": "c9ec480bd6ed516a96c09e57aad58db53138cb1ae957461b8b34f5546463381f"
+    },
+    {
+      "path": "firmware/stm32/tests/test_ttl_servo.c",
+      "source": "STM32-r13-180deg/tests/test_ttl_servo.c",
+      "size": 3991,
+      "sha256": "c805e172b0829fbf6fa498a1952ce8419e67a8ba8f381373008c2100393047ae"
+    },
+    {
+      "path": "firmware/stm32/tests/ttl_bsp_stubs/stm32f10x.h",
+      "source": "STM32-r13-180deg/tests/ttl_bsp_stubs/stm32f10x.h",
+      "size": 1976,
+      "sha256": "3fc4465ef887a63a960c37e8edadf9ad4cbb8f6d6417d09f263e3ce2c37905c4"
+    },
+    {
+      "path": "firmware/stm32/tests/ttl_bsp_stubs/stm32f10x_dma.h",
+      "source": "STM32-r13-180deg/tests/ttl_bsp_stubs/stm32f10x_dma.h",
+      "size": 23,
+      "sha256": "6199db7799824ef21c721ff60b98fc3eb809a62bb0f60555fa53286cd4e1bf1b"
+    },
+    {
+      "path": "firmware/stm32/tests/ttl_bsp_stubs/stm32f10x_tim.h",
+      "source": "STM32-r13-180deg/tests/ttl_bsp_stubs/stm32f10x_tim.h",
+      "size": 23,
+      "sha256": "6199db7799824ef21c721ff60b98fc3eb809a62bb0f60555fa53286cd4e1bf1b"
+    },
+    {
+      "path": "firmware/stm32/tools/build-public-tests.ps1",
+      "source": "STM32-r13-180deg/tools/build-public-tests.ps1",
+      "size": 7466,
+      "sha256": "67741cb55894cead07b634ab4b9f2875d6a467f3fa915c5921d516ca93d0a165"
+    },
+    {
+      "path": "firmware/stm32/tools/build.ps1",
+      "source": "STM32-r13-180deg/tools/build.ps1",
+      "size": 1070,
+      "sha256": "c254c38da1334d7742355b1533b7864476cf666abfabaca94b9989e08b5edcb8",
+      "sourceSha256": "6577fa12c3a03f4865d3495a5f9306111db62f9f20417b2bc1126019e3819ddd",
+      "adaptation": "Repository packaging: fresh build output directory or host tests aligned with snapshot configuration."
+    },
+    {
+      "path": "firmware/stm32/tools/package_charge_persist.py",
+      "source": "STM32-r13-180deg/tools/package_charge_persist.py",
+      "size": 3348,
+      "sha256": "c656cb42d5abda5c06f4f0ae0b747d82b2042c869296b5bc149792164b41fcb1"
+    },
+    {
+      "path": "firmware/stm32/tools/package_public_test.py",
+      "source": "STM32-r13-180deg/tools/package_public_test.py",
+      "size": 5657,
+      "sha256": "f18f98bdb55ea00c9a23e57d8970f63e078104b2c6a15a8eef2daaf8fd90a46c"
+    },
+    {
+      "path": "firmware/stm32/tools/package_ttl_readback.py",
+      "source": "STM32-r13-180deg/tools/package_ttl_readback.py",
+      "size": 3232,
+      "sha256": "6d5e027664b6e27418a2e7218fd98d179115d5eb87e7b3cbc884c6e166bf01f9"
+    },
+    {
+      "path": "firmware/stm32/docs/IP5310充电电流档位.txt",
+      "source": "STM32程序/IP5310充电电流档位.txt",
+      "size": 4977,
+      "sha256": "3398e94b3010e9a7250ce7a939ff40a7d69986f8f53c2411d1a45344ea1c5c70"
+    },
+    {
+      "path": "firmware/stm32/docs/外设开发说明.txt",
+      "source": "STM32程序/外设开发说明.txt",
+      "size": 11326,
+      "sha256": "57058aab8519d20a1f3130df2bae2480c97e1c786a9e96a2123c45d999b9312f"
+    },
+    {
+      "path": "firmware/stm32/docs/电池开发说明.txt",
+      "source": "STM32程序/电池开发说明.txt",
+      "size": 23164,
+      "sha256": "c6c1d01d69c4129eab9a32d354908d17ec5464c99ce1095b2f412fffbcf822b5"
+    },
+    {
+      "path": "firmware/stm32/docs/项目需求.txt",
+      "source": "STM32程序/项目需求.txt",
+      "size": 1141,
+      "sha256": "37730f98bb3d51e8b032ffc493b1440ab6893d25e226159cd6d64422c3756947"
+    },
+    {
+      "path": "hardware/schematics/V0.24/BOM_Schematic1_1_2026-10-19_105726-474.xlsx",
+      "source": "电路设计/原理图核对/V0.24/BOM_Schematic1_1_2026-10-19_105726-474.xlsx",
+      "size": 12239,
+      "sha256": "0a85553e3e0c13aaf26750e92a60b14235e5ae62ccffa84f35c3abd11c9a2761"
+    },
+    {
+      "path": "hardware/schematics/V0.24/Netlist_Schematic1_1_2026-10-19_105726-474.enet",
+      "source": "电路设计/原理图核对/V0.24/Netlist_Schematic1_1_2026-10-19_105726-474.enet",
+      "size": 481123,
+      "sha256": "4092034fc699b576a0ec4cd8b0d5d1969c32c611d2006a7775532eeb193cf9e2"
+    },
+    {
+      "path": "hardware/schematics/V0.24/PDF_Schematic1_1_2026-10-19_105726-474.pdf",
+      "source": "电路设计/原理图核对/V0.24/PDF_Schematic1_1_2026-10-19_105726-474.pdf",
+      "size": 1405891,
+      "sha256": "fe3624bbcb0cae9dcfc9cf34a62e2c8b9e3de03d82afc6a5c113e709cbf4ecce"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_1-ESP32主控电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_1-ESP32主控电路_2026-10-19.svg",
+      "size": 248502,
+      "sha256": "abbf76898f6ad4bf97fc4a80dce562c25d38d11e6ba78a0344450f981f3524a0"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_2-STM32主控电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_2-STM32主控电路_2026-10-19.svg",
+      "size": 267282,
+      "sha256": "78a5c2bbf5ce8b9c84e68c97862ac1983d1997ea584a7671fda3c927d9dbc0f7"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_3-引脚分配_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_3-引脚分配_2026-10-19.svg",
+      "size": 237897,
+      "sha256": "f5082b8ecba6763274a8abad9a898b8f5b7fee7608057c0ea5fda7ad374f9f61"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_4-充电电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_4-充电电路_2026-10-19.svg",
+      "size": 252166,
+      "sha256": "e46d69eb991dd1b9eb1bbd1565046cac67800c6a916033b9a1bec50914a8c5fc"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_5-电源电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_5-电源电路_2026-10-19.svg",
+      "size": 169212,
+      "sha256": "0d0511bd4468acbb36e71e67f6b4b692dbb4a70c1553fc836830acb76d9b4088"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_6-视频电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_6-视频电路_2026-10-19.svg",
+      "size": 509830,
+      "sha256": "112a35d0d1188c2421c3686bc2313937dcdcdddd8dc838f1182608684d3ff8d6"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_7-音频电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_7-音频电路_2026-10-19.svg",
+      "size": 194819,
+      "sha256": "b84011ba6bd355c92c0b53645aada6c115a5dedbac95ce05c26b319e8c1cd0f1"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_8-传感器电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_8-传感器电路_2026-10-19.svg",
+      "size": 99446,
+      "sha256": "c9277362fa25db73f20a908b6a91ee79b6e3d85dd41ee40d7669478e2830f9b0"
+    },
+    {
+      "path": "hardware/schematics/V0.24/svg/SCH_Schematic1_1_9-执行器电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_9-执行器电路_2026-10-19.svg",
+      "size": 151394,
+      "sha256": "c82ce22bed9195cd35befd22f25967bf5c585afdf071f5f6072681b9fbfa8e73"
+    },
+    {
+      "path": "hardware/eda-source/ProPrj_P006_4轴桌面机器狗_2026-10-12.epro2",
+      "source": "电路设计/原理图核对/原理图/ProPrj_P006_4轴桌面机器狗_2026-10-12.epro2",
+      "size": 2399174,
+      "sha256": "a555d054a3ba2f8ad393e651135b08f8e01933b213e1baba50bfa3198afe55df"
+    },
+    {
+      "path": "hardware/datasheets/components/AHT20_Aosong_温湿度传感器.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/AHT20_Aosong_温湿度传感器.pdf",
+      "size": 2100321,
+      "sha256": "999b49dc0fa6987d3c83b4b7003d2a340a4d5f03184b0b09985901270bf06822"
+    },
+    {
+      "path": "hardware/datasheets/components/AI01C_Sam_and_wing_触摸芯片.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/AI01C_Sam_and_wing_触摸芯片.pdf",
+      "size": 709088,
+      "sha256": "297b37b426582dbf60e98e0660d165f1df7a765ddc9ca0d03908c41579c7ac11"
+    },
+    {
+      "path": "hardware/datasheets/components/AO3401_TWGMC_C727156_Datasheet.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/AO3401_TWGMC_C727156_Datasheet.pdf",
+      "size": 970491,
+      "sha256": "516124597c6a06b54c45e6168c266a60d4fb21d4a5342eee9db84f966d3785db"
+    },
+    {
+      "path": "hardware/datasheets/components/B340A-E3-61T_VISHAY_Datasheet.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/B340A-E3-61T_VISHAY_Datasheet.pdf",
+      "size": 114358,
+      "sha256": "970d3cabe68851183079bd6d71fa788bf2781ec03924d49e2ff45c69464fdd70"
+    },
+    {
+      "path": "hardware/datasheets/components/B540C-13-F_DIODES_Datasheet.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/B540C-13-F_DIODES_Datasheet.pdf",
+      "size": 716163,
+      "sha256": "1b1de94df0a7729f4a69a885edd54213594acdce3cd6d4fa072961431ddf71ff"
+    },
+    {
+      "path": "hardware/datasheets/components/CH340C_CH340E_WCH_系列数据手册_EN.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/CH340C_CH340E_WCH_系列数据手册_EN.pdf",
+      "size": 325640,
+      "sha256": "4d7b150edfda88e44eb8f499c22693318666968125ff17f652ca9983d9929e5e"
+    },
+    {
+      "path": "hardware/datasheets/components/ES8388_Everest_音频编解码器.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/ES8388_Everest_音频编解码器.pdf",
+      "size": 843553,
+      "sha256": "db9300f79df430d022b754b29eb1b6b17ca08e3b91d3ba833606dadc65898258"
+    },
+    {
+      "path": "hardware/datasheets/components/ESP32-S3-WROOM-1-N16R8_Espressif_模组数据手册_CN.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/ESP32-S3-WROOM-1-N16R8_Espressif_模组数据手册_CN.pdf",
+      "size": 1720233,
+      "sha256": "9f6fa1d2776611a7e83f983c02e2c538a67a5ec38a1b151b98ea8b46ee44dd39"
+    },
+    {
+      "path": "hardware/datasheets/components/ESP32-S3_Espressif_芯片数据手册_CN.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/ESP32-S3_Espressif_芯片数据手册_CN.pdf",
+      "size": 1635642,
+      "sha256": "adee5f18f1b565cf386f0b3feed7c437bcc1a8e57619e922198da2d47f96b400"
+    },
+    {
+      "path": "hardware/datasheets/components/IP5310_I2C_INJOINIC_Register_Manual_V1.28_ThirdPartyCopy.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/IP5310_I2C_INJOINIC_Register_Manual_V1.28_ThirdPartyCopy.pdf",
+      "size": 760150,
+      "sha256": "c04325d7d0f4764672cc5afd0f7294862cc133cc7d0462d00023e6e3cb080c44"
+    },
+    {
+      "path": "hardware/datasheets/components/IP5310_INJOINIC_Datasheet_CN.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/IP5310_INJOINIC_Datasheet_CN.pdf",
+      "size": 1971324,
+      "sha256": "2fe2ab7efe30613ab3aafa003b9c94be90aeef7e08619147f16d6022fbb859a0"
+    },
+    {
+      "path": "hardware/datasheets/components/IP5310_INJOINIC_Datasheet_EN.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/IP5310_INJOINIC_Datasheet_EN.pdf",
+      "size": 1736729,
+      "sha256": "c601cf5d6e43e823dbe93f8fa45e6b2bacd463f00ed010e02a16f5d23e0d2b37"
+    },
+    {
+      "path": "hardware/datasheets/components/LCA3729T381-OAC03_LinkMems_MEMS麦克风.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/LCA3729T381-OAC03_LinkMems_MEMS麦克风.pdf",
+      "size": 745081,
+      "sha256": "71aa1c1ba40a3493c220ded0fe012dc966782247125ef3d5a1fb74b7231d6c8d"
+    },
+    {
+      "path": "hardware/datasheets/components/MS8002A_MSKSEMI_音频功放.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/MS8002A_MSKSEMI_音频功放.pdf",
+      "size": 1470059,
+      "sha256": "4958c99f9255d986a992f306975cba2b3b564d9886ca24f750f0989c71d62a0c"
+    },
+    {
+      "path": "hardware/datasheets/components/RT9013-15GB_Richtek_Datasheet_U5.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/RT9013-15GB_Richtek_Datasheet_U5.pdf",
+      "size": 420042,
+      "sha256": "15023cfb98e4146eee19ff882133fe6b5aba9a8171a9a40a458189a417dd1ac8"
+    },
+    {
+      "path": "hardware/datasheets/components/RT9013-28GB_Richtek_Datasheet_U4.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/RT9013-28GB_Richtek_Datasheet_U4.pdf",
+      "size": 300562,
+      "sha256": "a1c738277de7f54895a342f0f74675751f7a128143edf04ac42640a22d578d43"
+    },
+    {
+      "path": "hardware/datasheets/components/RT9013-33GB-MS_MSKSEMI_Datasheet_U7.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/RT9013-33GB-MS_MSKSEMI_Datasheet_U7.pdf",
+      "size": 742229,
+      "sha256": "4db96a23f249c60c1346c6cfce0239021b75033a3acb1b13bfd421b81ef7b23c"
+    },
+    {
+      "path": "hardware/datasheets/components/S8050_R-O_C20069125_Datasheet.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/S8050_R-O_C20069125_Datasheet.pdf",
+      "size": 242490,
+      "sha256": "bfad4f9d64283e31b0efbed92b6cfcb059c78225395c8d096a354921577d1b7b"
+    },
+    {
+      "path": "hardware/datasheets/components/SI2302_HOTTECH_C181087_Datasheet.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/SI2302_HOTTECH_C181087_Datasheet.pdf",
+      "size": 1880148,
+      "sha256": "4b3ca24134dd158edabd04a949457b25fc621dcfd7dc5c18d06f9655295b24d0"
+    },
+    {
+      "path": "hardware/datasheets/components/STM32F407VET6_ST_数据手册_EN.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/STM32F407VET6_ST_数据手册_EN.pdf",
+      "size": 2792056,
+      "sha256": "1f41b4fa49a9960215ebb76cd0a75f20241db82eed60d308345a80463caeed22"
+    },
+    {
+      "path": "hardware/datasheets/components/TPS54331DDAR_TI_Datasheet.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/TPS54331DDAR_TI_Datasheet.pdf",
+      "size": 2098305,
+      "sha256": "cf72dfd0ac69eec645b7b493de628dc1c3aa66f5f925a2ea9be6bb5c38260730"
+    },
+    {
+      "path": "hardware/datasheets/components/USBLC6-2SC6_ST_Datasheet.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/USBLC6-2SC6_ST_Datasheet.pdf",
+      "size": 575521,
+      "sha256": "bc30154f310cd631043214ed52571daefe04270587ec55072d49a23bd18b9068"
+    },
+    {
+      "path": "hardware/datasheets/components/XL9555_XINLUDA_数据手册_EN.pdf",
+      "source": "电路设计/output/pdf/芯片数据手册_2026-10-02/XL9555_XINLUDA_数据手册_EN.pdf",
+      "size": 2409300,
+      "sha256": "8d6805fbf1e452d674bc0d3868f5c047065e82317a9f6fc6d5bfd22fb6e58d78"
+    },
+    {
+      "path": "hardware/datasheets/display/CO5300_Datasheet_V0.00_20230328(1).pdf",
+      "source": "电路设计/原理图核对/数据手册/屏幕数据/PY206-W38-V2/CO5300_Datasheet_V0.00_20230328(1).pdf",
+      "size": 9320844,
+      "sha256": "20161057fcb09a02f4abb1573b3fe54387437fe4c79e166bf516440f6357cfc8"
+    },
+    {
+      "path": "hardware/datasheets/display/CST9217_数据手册_V1.3(1).pdf",
+      "source": "电路设计/原理图核对/数据手册/屏幕数据/PY206-W38-V2/CST9217_数据手册_V1.3(1).pdf",
+      "size": 1723039,
+      "sha256": "a608f24f9ae810900b94a9d1926a14d6b48470f3a5b9ad7bc89f724078d2bfe1"
+    },
+    {
+      "path": "hardware/datasheets/display/OCP21351 datasheet ver 0.4.pdf",
+      "source": "电路设计/原理图核对/数据手册/屏幕数据/PY206-W38-V2/OCP21351 datasheet ver 0.4.pdf",
+      "size": 694221,
+      "sha256": "628d449d3979a7450b89950188385965099af26c7cde273748ef5c92e1b1321d"
+    },
+    {
+      "path": "hardware/datasheets/display/PY206-W38-V2(2).pdf",
+      "source": "电路设计/原理图核对/数据手册/屏幕数据/PY206-W38-V2/PY206-W38-V2(2).pdf",
+      "size": 1008081,
+      "sha256": "1123c8cd32b282463bb9e01e897ffccf22f1e6df7274aaab83c3706428bddd5e"
+    },
+    {
+      "path": "hardware/datasheets/display/SCH_浦洋液晶2.06_AMOLED小面板转接板V1.0_2025-10-11.pdf",
+      "source": "电路设计/原理图核对/数据手册/屏幕数据/PY206-W38-V2/SCH_浦洋液晶2.06_AMOLED小面板转接板V1.0_2025-10-11.pdf",
+      "size": 577588,
+      "sha256": "f0cadc4443973b544c546309e2c1c8bac9e2d2d4308c06a27a12a48ca649e27e"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-12-1705/datasheets/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf",
+      "size": 1280501,
+      "sha256": "27d71971da07c280c6068d08c74720d1a25b8f20cf8494dc1765bdd28d40d435"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/an2586.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-12-1705/stm32/datasheets/an2586.pdf",
+      "size": 628109,
+      "sha256": "a83b2fa28161386e6c7a6fc7b4eb2bf234465ab70c75304dbd0b83543ed21360"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/an2867.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-12-1705/stm32/datasheets/an2867.pdf",
+      "size": 3207867,
+      "sha256": "1c92e22e215ca66a159c790589d568830c619d14f31193429787902664eae04e"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/stm32f103rb.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-12-1705/stm32/datasheets/stm32f103rb.pdf",
+      "size": 1965230,
+      "sha256": "1e54ce18e6c34c5b4a78986f26e245e143748c721009fc9af5953795c30686bc"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/X50328MSB2GI-YXC-promelec-mirror.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-12-1705/stm32/datasheets/X50328MSB2GI-YXC-promelec-mirror.pdf",
+      "size": 433586,
+      "sha256": "4a42056dd73d0b5524b4e5df60200a7ed67bf6369dda7249ad04eb22c75692e1"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/YSX530GA-series-official.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-12-1705/stm32/datasheets/YSX530GA-series-official.pdf",
+      "size": 2080961,
+      "sha256": "9540a61bc39206f017e8b511b889c21d58f6f3a5f7d7c98264f89ffed9ef997c"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/ldo-es8388-rev5.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-150511-05-live-power/ldo-es8388-rev5.pdf",
+      "size": 854706,
+      "sha256": "d019a1f1d73777e140656e6de754cc2142085716cafbe44bde195d0e2348613d"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/FXL0420_C167203_datasheet_copy.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-IP5310/bom-check/FXL0420_C167203_datasheet_copy.pdf",
+      "size": 1389592,
+      "sha256": "e4ea8a607c6f3e45390aa6f824fe36722bf6cf31d463913757096ef625a2bf6e"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/AOCA24106E.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-IP5310-compact-protection/datasheets/AOCA24106E.pdf",
+      "size": 643974,
+      "sha256": "c79a1a0d73b9804f624168272fbbfcd36f1951eb6ad7eaf0cd7719245f7f07bd"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/BQ2970_RevI.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-IP5310-compact-protection/datasheets/BQ2970_RevI.pdf",
+      "size": 1500238,
+      "sha256": "33ecbecf2eca2276a7afa6cf41aa6f8016ef4a71572a52d6941dfba8f3def126"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/MLT-8530.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-other-parts/evidence/MLT-8530.pdf",
+      "size": 395950,
+      "sha256": "7b0dc92c5408ae53ba701d8e4709d2e3108c0831b81f2146d5e30d85247f4106"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/SI2302-Hottech.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-other-parts/evidence/SI2302-Hottech.pdf",
+      "size": 271626,
+      "sha256": "bc32f9bcb5ba368cc8437993f4e064dfdd89afb022405418ee5ca798d2bee88e"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/vishay-dcrcwe3.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-other-parts/passives/vishay-dcrcwe3.pdf",
+      "size": 150402,
+      "sha256": "bd0a95f03d36d9dc472e115f00e9c362bd661392aaf09a0af4b3ca9889990d34"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/AHT20_Chinese_V1.4_A5.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-other-parts/sensors/datasheets/AHT20_Chinese_V1.4_A5.pdf",
+      "size": 579996,
+      "sha256": "2d5f78c8ecad2a6dd9321424f367d33cde583970169dc1dcaa2f5d8cbd3fe78f"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/Murata-MLCC-measurement-official.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-other-parts/video/datasheets/Murata-MLCC-measurement-official.pdf",
+      "size": 908286,
+      "sha256": "487b3281b6015f8c865d502c594e12f07cf0bccdeeefcd042cd068c6a0e51027"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/YXC-OT2EL4C4JI-111OLP-24M-mirror.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-other-parts/video/datasheets/YXC-OT2EL4C4JI-111OLP-24M-mirror.pdf",
+      "size": 395446,
+      "sha256": "3ea5b767b8975918c7b0bb1e754eed6d86ac5eec65be68245b805875fae13504"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/XL9555_XINLUDA_official.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-13-xiaozhi-compat/datasheets/XL9555_XINLUDA_official.pdf",
+      "size": 589522,
+      "sha256": "2bc0e972d33d5e0dfee2ef41b4ef257694dae545a103369c92c201d0c01ad114"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/Murata_GRM155R71C104KA88-01A.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-152727-05-保护电路检查/datasheets/Murata_GRM155R71C104KA88-01A.pdf",
+      "size": 1995327,
+      "sha256": "530d3a4bf8e67af48379d3d027c23f87d1433a5c59abc51d313dada0d9e4b031"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/SHOUHAN_2.0-2PLTDK.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-152727-05-保护电路检查/datasheets/SHOUHAN_2.0-2PLTDK.pdf",
+      "size": 2226706,
+      "sha256": "518d57b835c793c0ea35476e0634de3ae7fbdbffc0b7fe915c012dc0a1ce948f"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/Vishay_DCRCW_e3.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-152727-05-保护电路检查/datasheets/Vishay_DCRCW_e3.pdf",
+      "size": 150402,
+      "sha256": "57ecfe2460f916b636b9a189114d64955a6b39ed909479a7fba9239711903ae3"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/boost-FXL0630_official.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/boost-FXL0630_official.pdf",
+      "size": 1256008,
+      "sha256": "74fe62aaaa12c1ccbeec3808a995d373bdc3ae3ad036ba7c1d2a237726e3ca6e"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/boost-TPS61088_RevD_mirror.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/boost-TPS61088_RevD_mirror.pdf",
+      "size": 1882069,
+      "sha256": "dd6d2c2c55b89b563196bb87568d3cf257ded3b6c2e3bf0b15ebabe9093451b5"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/charging-AP5056HSPER-UMW.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/charging-AP5056HSPER-UMW.pdf",
+      "size": 402905,
+      "sha256": "4c70fe07898e9914890a6ab9f6ab5de1d7a28b812ae44b9a9659b6e8ea6e127b"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/charging-ROYALOHM-Thick-Film-Resistors.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/charging-ROYALOHM-Thick-Film-Resistors.pdf",
+      "size": 3958769,
+      "sha256": "6344d3f6a60ea3d3a4c4726f3562df5847a0e5910ce0bd4356328c1363a25f0d"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/charging-TI-TIDA050016-USB-C.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/charging-TI-TIDA050016-USB-C.pdf",
+      "size": 6003834,
+      "sha256": "2918ada8203b05e9c865878ad0663df8bf2fab05ae3f4b161d5cf4efc1a66e4f"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/gauge-BQ27220_TI_SLUSCB7A.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/gauge-BQ27220_TI_SLUSCB7A.pdf",
+      "size": 570379,
+      "sha256": "9fffe0b632cd287c9210aa1d2e71af1816b31764c11f1b62425de3a4a7cfe5f4"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/gauge-BQ27220_TRM_SLUUBD4A.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/gauge-BQ27220_TRM_SLUUBD4A.pdf",
+      "size": 2768446,
+      "sha256": "44779f229423d649e410439d1d1a3a65026d5919cdd43112ee3a3d8d9811ead9"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/protection-CSD16406Q3-RevB.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-14-2210_V0.12_充电保护电量升压审核/datasheets/protection-CSD16406Q3-RevB.pdf",
+      "size": 452762,
+      "sha256": "407594fc1b42316a4a3bc3a110a2e327df8387150fd3a750b87e8c2363d494f9"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/ROQANG_RVT1E221M0607.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-132755-V0.13-03/datasheets/ROQANG_RVT1E221M0607.pdf",
+      "size": 991541,
+      "sha256": "e7738302397988614fcd717cd5ac8c06124a58190f2ff545d241a583317a2d45"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/Yageo_CC0201KRX5R8BB104.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-1328-V0.13-06/sensors/datasheets/Yageo_CC0201KRX5R8BB104.pdf",
+      "size": 289662,
+      "sha256": "6f23a0bb5c0efef18f0b021541d035d53a4f73c7c789d65a2b02053ae108f575"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/S1.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-1328-V0.13-06/video/datasheets/S1.pdf",
+      "size": 1334440,
+      "sha256": "8a1be8d34da1a6440d624d0c878e05bfa049158930fa9a6617e3488d3b844f37"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/S6.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-1328-V0.13-06/video/datasheets/S6.pdf",
+      "size": 221565,
+      "sha256": "bf1746606e81ec9754a6a459feeae931b103f93a3bd74a6969dcc6b1b2bd4315"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/S8.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-1328-V0.13-06/video/datasheets/S8.pdf",
+      "size": 806193,
+      "sha256": "ab73ca677d8cda6650c468a8c8d5f04e5ea3a2a84793098dc591662ea1c00e56"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/BLM18PG121SN1D_Murata_ENFA0003.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-132800-V0.13-04/analog/datasheets/BLM18PG121SN1D_Murata_ENFA0003.pdf",
+      "size": 616543,
+      "sha256": "82694c0ea97fe0d08407dbb680c179e1354f7103a48d03c11ee97ea0a4593876"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/SHOUHAN_1.25-2PLTDK_LCSC.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-132800-V0.13-04/analog/datasheets/SHOUHAN_1.25-2PLTDK_LCSC.pdf",
+      "size": 846412,
+      "sha256": "87f8abbd1c2f08b2f9fd33ac62eb98e83f1ab5b301f9a4481eb3a06ef6cb184d"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/TI_TPA6203A1_BTL_formula_only.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-132800-V0.13-04/analog/datasheets/TI_TPA6203A1_BTL_formula_only.pdf",
+      "size": 1846480,
+      "sha256": "8976ad61b2a9638ae5dc881db57ef6fe502c30187459d4dec370e6a34606f115"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/BLM18_Murata_LCSC.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-15-132800-V0.13-04/bom/BLM18_Murata_LCSC.pdf",
+      "size": 302296,
+      "sha256": "a27b3aa8822c9df2f05298b36226bf8d76e1a7a5eb1af0b0a5476a37a51d6196"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/peripheral-source-AN10441.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-16-0120-V0.17-review/peripheral-source-AN10441.pdf",
+      "size": 53707,
+      "sha256": "b08f815e27dbd4b0a1732d29961205bb946ba36cf9d9888cdb0b32e978e96296"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/peripheral-source-ZX-MX1.25-3PLT.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-16-0120-V0.17-review/peripheral-source-ZX-MX1.25-3PLT.pdf",
+      "size": 238308,
+      "sha256": "4a2b416372a3fa13b0ee783cc8ec5309da2199d35e9bc5d32a831e3eb50218f7"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/power-datasheet-F1-BHFUSE.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-16-V0.16-review/power-datasheet-F1-BHFUSE.pdf",
+      "size": 454202,
+      "sha256": "de94bd9140b4adb417241199056f6a53a9e1c18d6e9322b26fa4d4ee964e1801"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/power-TPS7A91-TI-SBVS282A.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-16-V0.19-review/power-TPS7A91-TI-SBVS282A.pdf",
+      "size": 2960767,
+      "sha256": "1ab38416ceb4a3cd22b9e7665acc4409ac28f7c3a95c71ea195620f7d1ad7924"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/peripheral-D3-1N4148WS.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-19-V0.24-review/peripheral-D3-1N4148WS.pdf",
+      "size": 237443,
+      "sha256": "1a077bbb6de3db618f03f5b19fa80a5471a00e53639a8de8ed0e5dba06d8e316"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/power-BAT-C5359631.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-19-V0.24-review/power-BAT-C5359631.pdf",
+      "size": 103490,
+      "sha256": "b62ab5d82c355b950750febcb91b77bbf6f272f8cec8ea3e70601d0741a079f7"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/connector-exact-C262665.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-23-ffc-cable-check/connector-exact-C262665.pdf",
+      "size": 6664575,
+      "sha256": "f2449df9db385d776cbfd24951706bb442d1b0bf66e8370feee09ff3b1a0bb88"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/connector-netlist-series.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-23-ffc-cable-check/connector-netlist-series.pdf",
+      "size": 1571724,
+      "sha256": "f8ceb81e264b390dcf179230fb416dc310c7a103f983777583ebdd633cabc679"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/source-JMEconn-5014-series.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-23-screen-adapter/source-JMEconn-5014-series.pdf",
+      "size": 1689970,
+      "sha256": "56485d5bdd31f374e32afe95b1e79575775c81eb30198406c9b518246d183e59"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/compat-OCN-14-series.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-23-screen-adapter-confirm/compat-OCN-14-series.pdf",
+      "size": 1029489,
+      "sha256": "f0e1bec28c2b28cbf582512f43a116371cbb8c64403a8f16a97d92abcbecafad"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/jme-exact-product-datasheet.pdf",
+      "source": "电路设计/原理图核对/review-output/2026-10-23-screen-adapter-confirm/jme-exact-product-datasheet.pdf",
+      "size": 3099971,
+      "sha256": "764909ce738553a92475ec73bb5ffa75efbb5f3351ae337992f06265887b65eb"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/AOS_AlphaDFN1.9x1.6_6.pdf",
+      "source": "电路设计/原理图核对/review-output/方案A_IP5310_布局准备/datasheets/AOS_AlphaDFN1.9x1.6_6.pdf",
+      "size": 298698,
+      "sha256": "f0bcb3e1300f1bfa7e61a85e7b5c5997fdc32b63b05efe121e0bf1b5ba26cd6d"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/TPS61088EVM_TI_SLVUAF2.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/boost/datasheets/TPS61088EVM_TI_SLVUAF2.pdf",
+      "size": 701334,
+      "sha256": "a957c5e8842e86d83037f8da9ccfcbebce7c61cfae7981ff1f6e63f3c00bf46a"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/LM393B_TI.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/charger/datasheets/LM393B_TI.pdf",
+      "size": 3289563,
+      "sha256": "f28830c2f4cbd9ef6a1cd6788a840fa2b92caafee366d53385f88d1cf24e9456"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/NTCLE100E3_Vishay.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/charger/datasheets/NTCLE100E3_Vishay.pdf",
+      "size": 243300,
+      "sha256": "f9d6153738198dc705ed681c3b55e70a6571f8fee13a4ed7b2b41e49973cb9c9"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/TLV7042_TI.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/charger/datasheets/TLV7042_TI.pdf",
+      "size": 4353798,
+      "sha256": "8f3dd0bf003112a66a90ac26d7aee94019ab630134c70dfad485dafb1cae43d6"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/TP4056_Toppwr_REV_2.3.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/charger/datasheets/TP4056_Toppwr_REV_2.3.pdf",
+      "size": 1052796,
+      "sha256": "7ad1448a1539a093f534c45321f871d0536eec9619cc45ac4642820a600749d7"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/2N7002_Nexperia.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/datasheets/2N7002_Nexperia.pdf",
+      "size": 871278,
+      "sha256": "cc9c275457670c3cbbf2e56f5a75c800d3b5f0b396fabc798cf18cb639646475"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/CSD25402Q3A.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/datasheets/CSD25402Q3A.pdf",
+      "size": 748811,
+      "sha256": "c012fd83328e7fae2186d13a13d9fe184ba7f00ec98f1061dca7118c39abdcd2"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/SN74LVC1G17.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/datasheets/SN74LVC1G17.pdf",
+      "size": 3015318,
+      "sha256": "c76fa723fac4502423967a1aa087dd669106b52b8de620c024b26e56f5d59309"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/SN74LVC1G74.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/datasheets/SN74LVC1G74.pdf",
+      "size": 1427201,
+      "sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/SN74LVC2G17.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/datasheets/SN74LVC2G17.pdf",
+      "size": 1888823,
+      "sha256": "624dbe55679d2fed4123b0d7708cd0d295efcc78de395e71a0caf5cd13cbc216"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/TPS22965_RevF.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/datasheets/TPS22965_RevF.pdf",
+      "size": 1799236,
+      "sha256": "3300eef743d7871f96c752227ae8f958006a902123ce2df351cf0772ec95a7e1"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/TPS3808.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/datasheets/TPS3808.pdf",
+      "size": 2046179,
+      "sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/print-check.pdf",
+      "source": "电路设计/原理图核对/review-output/方案B_独立充电升压_布局准备/SVG连接图_2026-10-13/qa/print-check.pdf",
+      "size": 344475,
+      "sha256": "40564407f3b2947836eea99f62ef0c810c408a25e0b896f77f0bd13e84ea8f24"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/aht20.pdf",
+      "source": "硬件设计/_schematic_review/peripherals_refs/aht20.pdf",
+      "size": 1520511,
+      "sha256": "1e460b777986e711f301eb468265603ea6242ab44735b2686801d78d9779079e"
+    },
+    {
+      "path": "hardware/datasheets/reference-archive/fs1340.pdf",
+      "source": "硬件设计/_schematic_review/peripherals_refs/fs1340.pdf",
+      "size": 498323,
+      "sha256": "29863988834d05101ff803475ad6203440044008e9b088d45c1ed27b2046a4ff"
+    },
+    {
+      "path": "hardware/datasheets/modules/OV5640.pdf",
+      "source": "module-reference/OV5640.pdf",
+      "size": 1644351,
+      "sha256": "d25d7e9d754388f2a741748ac47882a53f06ff70fa0d4c2b824e828c93fd50d8"
+    },
+    {
+      "path": "hardware/datasheets/modules/外购件_P0090FH.pdf",
+      "source": "module-reference/外购件_P0090FH.pdf",
+      "size": 536751,
+      "sha256": "ed85ea27ad738c1b379b6187d7f06c004d2033e8f921adf67199a3feede38f4c"
+    },
+    {
+      "path": "hardware/datasheets/modules/通用总线舵机协议说明书.pdf",
+      "source": "module-reference/通用总线舵机协议说明书.pdf",
+      "size": 348980,
+      "sha256": "5b483ae937a8c5b5bad68037927cf71fefc0ecd4f9d3427be7f87a873a360308"
+    },
+    {
+      "path": "user-web/.gitattributes",
+      "source": "robot-dog-color-studio/.gitattributes",
+      "size": 150,
+      "sha256": "c9941beffd9b84976b228a6168a4aaae81c42e035722ebaa5a91d28fac6b46dc"
+    },
+    {
+      "path": "user-web/dist/app.js",
+      "source": "robot-dog-color-studio/dist/app.js",
+      "size": 47036,
+      "sha256": "a82652a284426277f98a5a62fdb5cbdb87518023e4944dedf0d7abe786ab8da8"
+    },
+    {
+      "path": "user-web/dist/assembly-motion.js",
+      "source": "robot-dog-color-studio/dist/assembly-motion.js",
+      "size": 2379,
+      "sha256": "4e3f0d2519f7117363662e7c2bd3e2c9410398b4a6fbb7d5805f4f3592cdb97c"
+    },
+    {
+      "path": "user-web/dist/assets/model.bin",
+      "source": "robot-dog-color-studio/dist/assets/model.bin",
+      "size": 22940064,
+      "sha256": "9a15e8ea0d8dcbe0d395ab62b6dbfd473fe11d8e9704e5d257bae62c59c45c7d"
+    },
+    {
+      "path": "user-web/dist/assets/model.json",
+      "source": "robot-dog-color-studio/dist/assets/model.json",
+      "size": 1202783,
+      "sha256": "1ebc4fd2d0ba6e9e138f8dca5b58d7f998b6ad0063562223c27c336c15496bbe"
+    },
+    {
+      "path": "user-web/dist/bambu-profile.js",
+      "source": "robot-dog-color-studio/dist/bambu-profile.js",
+      "size": 60129,
+      "sha256": "539724af4d3a1d1404131a3a4b62f0d6c63a642dfca0008315f521363246307e"
+    },
+    {
+      "path": "user-web/dist/choreography.js",
+      "source": "robot-dog-color-studio/dist/choreography.js",
+      "size": 20590,
+      "sha256": "eaaa20caa512c885844477e213d206deaff61ab8fafdc9902b1f9f2470febcea"
+    },
+    {
+      "path": "user-web/dist/color-selection.css",
+      "source": "robot-dog-color-studio/dist/color-selection.css",
+      "size": 3483,
+      "sha256": "f684d24fe8505d7d6c130c05d1c10bbdc766785f473848a8ba9a9b372e73a6db"
+    },
+    {
+      "path": "user-web/dist/color-selection.js",
+      "source": "robot-dog-color-studio/dist/color-selection.js",
+      "size": 3910,
+      "sha256": "72719ea80b1343a7db990b30a30713597b3302eada505151612b968cadb57ad9"
+    },
+    {
+      "path": "user-web/dist/dance-format.js",
+      "source": "robot-dog-color-studio/dist/dance-format.js",
+      "size": 2649,
+      "sha256": "16dbc82fefd33b867db6cfe244cc30c2388ca065c143d0073d401829ebb64e20"
+    },
+    {
+      "path": "user-web/dist/export-3mf.js",
+      "source": "robot-dog-color-studio/dist/export-3mf.js",
+      "size": 25976,
+      "sha256": "9e6f0a2a0eb7bbf496d7e005767da9869b65c7c64f5b1db00c55372d3d3fdeac"
+    },
+    {
+      "path": "user-web/dist/firmware/catalog.json",
+      "source": "robot-dog-color-studio/dist/firmware/catalog.json",
+      "size": 4958,
+      "sha256": "4875cc09cbf0e8c991a7f5393de362bc9dd53df05f1f6a8a2df1a24e21d3296d"
+    },
+    {
+      "path": "user-web/dist/firmware/esp32/bootloader.bin",
+      "source": "robot-dog-color-studio/dist/firmware/esp32/bootloader.bin",
+      "size": 20928,
+      "sha256": "c2051b6e3cba322f77454115eabf0ab81346fd243a940f2c60151d54b15e5161"
+    },
+    {
+      "path": "user-web/dist/firmware/esp32/esp32-robot-dog-public-usb.bin",
+      "source": "robot-dog-color-studio/dist/firmware/esp32/esp32-robot-dog-public-usb.bin",
+      "size": 1152112,
+      "sha256": "843ac8d0e8b071baefc1c52cca3a91920bbf53492dbe4f16a3ead0f092f42efc"
+    },
+    {
+      "path": "user-web/dist/firmware/esp32/ESP32-S3-USB-Drivers-IDF5.4.4-20261029-v1.zip",
+      "source": "robot-dog-color-studio/dist/firmware/esp32/ESP32-S3-USB-Drivers-IDF5.4.4-20261029-v1.zip",
+      "size": 1446058,
+      "sha256": "2570d7c3ebd8ca1483f94ce8f7deab1c9e756db3a4d7b51b8c8e81d657752d83"
+    },
+    {
+      "path": "user-web/dist/firmware/esp32/partition-table.bin",
+      "source": "robot-dog-color-studio/dist/firmware/esp32/partition-table.bin",
+      "size": 3072,
+      "sha256": "5295e8c42d6fb5f95e4e8a185932c6191d27cfc5078322475347e40e71af815a"
+    },
+    {
+      "path": "user-web/dist/firmware/esp32/README.txt",
+      "source": "robot-dog-color-studio/dist/firmware/esp32/README.txt",
+      "size": 3374,
+      "sha256": "64007fb46f7e7b76e2a744ef6b9cb51494e65a69ccac99d16573bda7828f3bdf"
+    },
+    {
+      "path": "user-web/dist/firmware/esp32/USB-PROTOCOL.txt",
+      "source": "robot-dog-color-studio/dist/firmware/esp32/USB-PROTOCOL.txt",
+      "size": 6884,
+      "sha256": "8a95174be313c9411bb48a54c59e37eebb12e6f26be93f5cabad685a6f506a97"
+    },
+    {
+      "path": "user-web/dist/firmware/README.txt",
+      "source": "robot-dog-color-studio/dist/firmware/README.txt",
+      "size": 3268,
+      "sha256": "51e5f660b7db627dfcf60767195ec0aa2b07e76414d9323c434965fda63ae80b"
+    },
+    {
+      "path": "user-web/dist/firmware/stm32/README.txt",
+      "source": "robot-dog-color-studio/dist/firmware/stm32/README.txt",
+      "size": 642,
+      "sha256": "e03798b688cf38b7bfccf36fd45cac961a23f6a46cc09144a41671daf25e8211"
+    },
+    {
+      "path": "user-web/dist/firmware/stm32/stm32f103rb-public-test-350ma-20261029-r2.bin",
+      "source": "robot-dog-color-studio/dist/firmware/stm32/stm32f103rb-public-test-350ma-20261029-r2.bin",
+      "size": 22196,
+      "sha256": "ed1c0b83704a5afed0d78c2fd99ad856abafdc3b694ad4cd98ca6f22da9a5669"
+    },
+    {
+      "path": "user-web/dist/firmware/stm32/stm32f103rb-public-test-350ma-20261029-r2.hex",
+      "source": "robot-dog-color-studio/dist/firmware/stm32/stm32f103rb-public-test-350ma-20261029-r2.hex",
+      "size": 62487,
+      "sha256": "19c0f65ee671985717254b638bc3967ab5ccbf74e9b3655a6906b436bd2ec957"
+    },
+    {
+      "path": "user-web/dist/firmware-hash.js",
+      "source": "robot-dog-color-studio/dist/firmware-hash.js",
+      "size": 1766,
+      "sha256": "83225a6ecb38854f9b82ab79c911e70f720513b63390c274096bec31800da4f6"
+    },
+    {
+      "path": "user-web/dist/hardware-flash-stm32.js",
+      "source": "robot-dog-color-studio/dist/hardware-flash-stm32.js",
+      "size": 11397,
+      "sha256": "29d505b5c6ae484e80997c312b00675ac6544a8fb28b54fd3ee5e3dd5adebb30"
+    },
+    {
+      "path": "user-web/dist/hardware-flash.js",
+      "source": "robot-dog-color-studio/dist/hardware-flash.js",
+      "size": 6992,
+      "sha256": "09c334d8d6247c1960334801a7f26adfc28578470b8799e6d88cc163a90d777f"
+    },
+    {
+      "path": "user-web/dist/hardware.css",
+      "source": "robot-dog-color-studio/dist/hardware.css",
+      "size": 13914,
+      "sha256": "70a935ec5640353b84874dd2c99964e5ed85b88cd12dd24f1a72e67c9f12270f"
+    },
+    {
+      "path": "user-web/dist/hardware.html",
+      "source": "robot-dog-color-studio/dist/hardware.html",
+      "size": 12462,
+      "sha256": "619b0520a322952f7c00913c62d1d1a6a9428a340822f17be64c3189dfe6e091"
+    },
+    {
+      "path": "user-web/dist/hardware.js",
+      "source": "robot-dog-color-studio/dist/hardware.js",
+      "size": 36165,
+      "sha256": "88ce05497201ea52f4f5d755b085d6c2fda7a9c5c5c7c2ba0824fa0d4cbc2959"
+    },
+    {
+      "path": "user-web/dist/index.html",
+      "source": "robot-dog-color-studio/dist/index.html",
+      "size": 22081,
+      "sha256": "563ace54ed49b191d5e4751a9dc5df220fd56191adce664c07c04aa1d8454b69"
+    },
+    {
+      "path": "user-web/dist/login.css",
+      "source": "robot-dog-color-studio/dist/login.css",
+      "size": 4792,
+      "sha256": "1592117a2c15fd9ef7781f5c6006be558d26d455238eb2160ed2a292c6fe56f9"
+    },
+    {
+      "path": "user-web/dist/login.html",
+      "source": "robot-dog-color-studio/dist/login.html",
+      "size": 3010,
+      "sha256": "dbfdfdb167feca10f76054ff184f33c59c512c46fd91de10b58a47cda6bc66ea"
+    },
+    {
+      "path": "user-web/dist/login.js",
+      "source": "robot-dog-color-studio/dist/login.js",
+      "size": 3534,
+      "sha256": "b2561383396a7bceceafb7d28ace33729b6ec85101dae02e9fc93e3ab9836f24"
+    },
+    {
+      "path": "user-web/dist/serial-session.js",
+      "source": "robot-dog-color-studio/dist/serial-session.js",
+      "size": 27503,
+      "sha256": "3b1856d77205bd11ed8db94eb3f0b41a14eec7c886d0a5fe7c24648724e664c5"
+    },
+    {
+      "path": "user-web/dist/styles.css",
+      "source": "robot-dog-color-studio/dist/styles.css",
+      "size": 45942,
+      "sha256": "2569c48c71286618be8028ca1f2cd8afee371c7f921b1e2a3194f592be234f26"
+    },
+    {
+      "path": "user-web/dist/vendor/esptool/atob-lite-LICENSE.txt",
+      "source": "robot-dog-color-studio/dist/vendor/esptool/atob-lite-LICENSE.txt",
+      "size": 1073,
+      "sha256": "435a6722c786b0a56fbe7387028f1d9d3f3a2d0fb615bb8fee118727c3f59b7b"
+    },
+    {
+      "path": "user-web/dist/vendor/esptool/esptool.js",
+      "source": "robot-dog-color-studio/dist/vendor/esptool/esptool.js",
+      "size": 313171,
+      "sha256": "00ebe6fb0b202976d3e2a3c6b9a6bd438c26a81d2af6739c95ac276a64c1a84e"
+    },
+    {
+      "path": "user-web/dist/vendor/esptool/LICENSE.txt",
+      "source": "robot-dog-color-studio/dist/vendor/esptool/LICENSE.txt",
+      "size": 11365,
+      "sha256": "1c25f29242785d63e9adb0be7fdc137551dfbbc0756b622fcd26d9cd7de3a4f3"
+    },
+    {
+      "path": "user-web/dist/vendor/esptool/pako-LICENSE.txt",
+      "source": "robot-dog-color-studio/dist/vendor/esptool/pako-LICENSE.txt",
+      "size": 1104,
+      "sha256": "a04665b3b2de56c66730c1f720f528175739e4104f79073614aa611da1e85539"
+    },
+    {
+      "path": "user-web/dist/vendor/esptool/SOURCE.txt",
+      "source": "robot-dog-color-studio/dist/vendor/esptool/SOURCE.txt",
+      "size": 348,
+      "sha256": "d999b2371be8b63c6d7338490ca8a21b8b043b736ac282f9be01f249c447c478"
+    },
+    {
+      "path": "user-web/dist/vendor/OrbitControls.js",
+      "source": "robot-dog-color-studio/dist/vendor/OrbitControls.js",
+      "size": 38715,
+      "sha256": "06864a0fcb647730bfbc690b6c25a121199d716a3e299a40158509cbd247c3bf"
+    },
+    {
+      "path": "user-web/dist/vendor/RoomEnvironment.js",
+      "source": "robot-dog-color-studio/dist/vendor/RoomEnvironment.js",
+      "size": 4911,
+      "sha256": "faf5469bea1b9961e4b82d1da6a1671ec16137b6cc5b482a6d75a64a05bdc903"
+    },
+    {
+      "path": "user-web/dist/vendor/THREE-LICENSE.txt",
+      "source": "robot-dog-color-studio/dist/vendor/THREE-LICENSE.txt",
+      "size": 1081,
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "path": "user-web/dist/vendor/three.core.js",
+      "source": "robot-dog-color-studio/dist/vendor/three.core.js",
+      "size": 1403455,
+      "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20"
+    },
+    {
+      "path": "user-web/dist/vendor/three.module.js",
+      "source": "robot-dog-color-studio/dist/vendor/three.module.js",
+      "size": 603113,
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/dbg.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/dbg.js",
+      "size": 3628,
+      "sha256": "ca62fc7396bb40e3d6fd69d16803419aaf70c7531c8dbc48c802375c23e39a18"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/package.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/package.js",
+      "size": 655,
+      "sha256": "f2fbc080cc489c07b2c48f0549abd463324d3a3235260687c8178de4370b72ec"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/semihosting.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/semihosting.js",
+      "size": 620,
+      "sha256": "fed2cdd6a41be0ee5ab3c85502efd9091f248fdafe17248c11dbe931257976b0"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/stlinkex.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/stlinkex.js",
+      "size": 956,
+      "sha256": "012299acc22fc3efd10e35f40b4eeb160063730cd81f9e3ab004c25f60cb45bd"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/stlinkusb.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/stlinkusb.js",
+      "size": 5677,
+      "sha256": "e58bd7052d246bc54b8d33d25947cb79d394f72126c3074028676260d88948be"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/stlinkv2.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/stlinkv2.js",
+      "size": 12091,
+      "sha256": "54285614c091510db53dc75d94c5c63a67485cb0f0f0056d87bc97d787c7ef85"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/stm32.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/stm32.js",
+      "size": 8833,
+      "sha256": "4e3f524dfce1bbd8c9181dce77135565a51eb1f2415fef58de43d4e4b62c7aff"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/stm32devices.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/stm32devices.js",
+      "size": 40457,
+      "sha256": "ea43aa3e4eea24bb33268907456f91b124f3d2960dbf8f687560b84393599de0"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/stm32fp.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/stm32fp.js",
+      "size": 13183,
+      "sha256": "73f013f85ded226e0c1baadce795d087fc1af7b2b7d8b1462ea2b91fa377de13"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/stm32fs.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/stm32fs.js",
+      "size": 12108,
+      "sha256": "64e3a2c1a5823fe404338389848645e83599c13763de53c46849cd7ddbea2d50"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/lib/util.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/lib/util.js",
+      "size": 871,
+      "sha256": "899bb0033fd1be08524858ba07144a52dc22054f16ffdd268a552dddbe0097b9"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/LICENSE.txt",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/LICENSE.txt",
+      "size": 1200,
+      "sha256": "3172671403ce7ae90bc4845e2ceae90ab3885cb654da07a021d73ee0b88eb125"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/mutex.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/mutex.js",
+      "size": 1329,
+      "sha256": "a4d2f5e57dd051e4d330dcf3cb43569ecf73784db422677238c1a3c487e21520"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/README.txt",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/README.txt",
+      "size": 898,
+      "sha256": "d6c78244814dfc9cb53343dbe0d5e56b568d35cd3eb898ed08a34cfb7bfc44b3"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/upstream.json",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/upstream.json",
+      "size": 2486,
+      "sha256": "c9d67a81b2ad00b84d3141eb3010708295f013f07c3db5403bce7403a7f48a9e"
+    },
+    {
+      "path": "user-web/dist/vendor/webstlink/webstlink.js",
+      "source": "robot-dog-color-studio/dist/vendor/webstlink/webstlink.js",
+      "size": 22080,
+      "sha256": "bf83e471304b45bf4e607669740db97a8afdc411e77d9ec75079d28e80757a49"
+    },
+    {
+      "path": "user-web/dist/viewer.js",
+      "source": "robot-dog-color-studio/dist/viewer.js",
+      "size": 43823,
+      "sha256": "da79915b3ab4c246050540f4cd182ce4b7da76759d437670fffd7c74d0c4d280"
+    },
+    {
+      "path": "user-web/dist/workspace.js",
+      "source": "robot-dog-color-studio/dist/workspace.js",
+      "size": 13697,
+      "sha256": "9a7c2771aa17966dfd5e470402c1496132170e77836a9995bd5851a7111bed6b"
+    },
+    {
+      "path": "user-web/package.json",
+      "source": "robot-dog-color-studio/package.json",
+      "size": 1277,
+      "sha256": "6085dee7436d6a088e3b6c8d6d7df68e4a487faf04abff110a62b1896d5b1691"
+    },
+    {
+      "path": "user-web/tools/assembly_path_check.py",
+      "source": "robot-dog-color-studio/tools/assembly_path_check.py",
+      "size": 20403,
+      "sha256": "818998ed03f440ce7de08fe6fd8e94138b26b81a7b38e949fe5d1a135d795d1b"
+    },
+    {
+      "path": "user-web/tools/build_firmware_catalog.py",
+      "source": "robot-dog-color-studio/tools/build_firmware_catalog.py",
+      "size": 5813,
+      "sha256": "45bc92b3e70a3b7081fc770ebe68cbd12301fd5e1dd754f4564990acd2759945"
+    },
+    {
+      "path": "user-web/tools/cad_color_probe.cs",
+      "source": "robot-dog-color-studio/tools/cad_color_probe.cs",
+      "size": 2580,
+      "sha256": "4114ada91ef35acc55a4fc405a1b845e0343fff19d93894ee1ec6f29b05d3676"
+    },
+    {
+      "path": "user-web/tools/cad_color_probe.ps1",
+      "source": "robot-dog-color-studio/tools/cad_color_probe.ps1",
+      "size": 573,
+      "sha256": "f6561b6776c5f960c71dfb766ccf967ada35dcf3309d35ac4d64d63d6e7e0a34"
+    },
+    {
+      "path": "user-web/tools/cad_debug_view.py",
+      "source": "robot-dog-color-studio/tools/cad_debug_view.py",
+      "size": 1603,
+      "sha256": "997f37634a59a20a4ec055037254a60490dfb2bdd984c89ccee6529f9346caa1"
+    },
+    {
+      "path": "user-web/tools/cad_enrich.py",
+      "source": "robot-dog-color-studio/tools/cad_enrich.py",
+      "size": 19954,
+      "sha256": "3d4fb9db0123aa76b4bef2b810f22e36dac0b07e43cf6c8fadcca2de4e2ff6dd"
+    },
+    {
+      "path": "user-web/tools/cad_export.cs",
+      "source": "robot-dog-color-studio/tools/cad_export.cs",
+      "size": 14574,
+      "sha256": "48c5f8ee790126cbbc245982605be5b686c7250d6f88e8e86a5a3135588bd230"
+    },
+    {
+      "path": "user-web/tools/cad_export.ps1",
+      "source": "robot-dog-color-studio/tools/cad_export.ps1",
+      "size": 1035,
+      "sha256": "cf8170bb26bfd1938838330091d8458a620b83fa9920f13ae34969c459ad34fa"
+    },
+    {
+      "path": "user-web/tools/cad_feature_probe.cs",
+      "source": "robot-dog-color-studio/tools/cad_feature_probe.cs",
+      "size": 4797,
+      "sha256": "94eb726cc6b84ba6d677cea745f93b09d6327dee80d34d7179bd9beb46d98f63"
+    },
+    {
+      "path": "user-web/tools/cad_feature_probe.ps1",
+      "source": "robot-dog-color-studio/tools/cad_feature_probe.ps1",
+      "size": 578,
+      "sha256": "043949bafb89a01cac1278be4938a6cfda2aac6a979995a79b27f352bd89a0f5"
+    },
+    {
+      "path": "user-web/tools/cad_inspect.cs",
+      "source": "robot-dog-color-studio/tools/cad_inspect.cs",
+      "size": 2583,
+      "sha256": "cb59c30b7665f2dd72c92c30546ab90c93b585d215d8906a9149396b089d91e4"
+    },
+    {
+      "path": "user-web/tools/cad_inspect.ps1",
+      "source": "robot-dog-color-studio/tools/cad_inspect.ps1",
+      "size": 735,
+      "sha256": "a781385b1b24d72fd3dcf86f2b75d75c9bb04081bc2264ba9ee20c678cb18a94"
+    },
+    {
+      "path": "user-web/tools/cad_internals.cs",
+      "source": "robot-dog-color-studio/tools/cad_internals.cs",
+      "size": 6645,
+      "sha256": "64d6340ce9221b0d75ed79fc276ece643aae35ff65445b55cbeffb449a2aed95"
+    },
+    {
+      "path": "user-web/tools/cad_internals.ps1",
+      "source": "robot-dog-color-studio/tools/cad_internals.ps1",
+      "size": 557,
+      "sha256": "729efe7a951895f62fd0e6c79b4593a41a16f3bafbf120177b8ac93b010a00b7"
+    },
+    {
+      "path": "user-web/tools/cad_posts_probe.ps1",
+      "source": "robot-dog-color-studio/tools/cad_posts_probe.ps1",
+      "size": 556,
+      "sha256": "8e8a1f46a1a5af9dcf8fd7f060df172c94b753b7b13afdbe5e07dde68c116267"
+    },
+    {
+      "path": "user-web/tools/cad_regions.py",
+      "source": "robot-dog-color-studio/tools/cad_regions.py",
+      "size": 26761,
+      "sha256": "20aada36e9625f3855b056f799c491dcf5d2e93fba1827e9479bb913297c99da"
+    },
+    {
+      "path": "user-web/tools/cad_validate.py",
+      "source": "robot-dog-color-studio/tools/cad_validate.py",
+      "size": 8800,
+      "sha256": "3143a26035378e0e5e72959564063847dbf55bbdb685cdeb997a59c2ce713c71"
+    },
+    {
+      "path": "user-web/tools/deploy_public.py",
+      "source": "robot-dog-color-studio/tools/deploy_public.py",
+      "size": 5316,
+      "sha256": "ca40f9201ad39c869106704ab6548a9970f4a907dc6da58119db9b9531ae7bb3"
+    },
+    {
+      "path": "user-web/tools/fixtures/print-geometry-baseline.json",
+      "source": "robot-dog-color-studio/tools/fixtures/print-geometry-baseline.json",
+      "size": 3064,
+      "sha256": "f10968ef885b3adddf6dfd59cc0275facd902d0e609717dce46fc07ef608c824"
+    },
+    {
+      "path": "user-web/tools/install_public_nginx.py",
+      "source": "robot-dog-color-studio/tools/install_public_nginx.py",
+      "size": 14512,
+      "sha256": "d4233923e45d4b3c72ed2cd43d30b4fe3c02b2d842833e28960cccaf4360684d"
+    },
+    {
+      "path": "user-web/tools/robot_studio_auth.py",
+      "source": "robot-dog-color-studio/tools/robot_studio_auth.py",
+      "size": 13304,
+      "sha256": "99ba92de43487def95ebf4ab8fd8b96f4cc40af421af50f8957f3cbea8a74bef"
+    },
+    {
+      "path": "user-web/tools/serve.mjs",
+      "source": "robot-dog-color-studio/tools/serve.mjs",
+      "size": 1338,
+      "sha256": "29b3e40cd97558f11c781e5428ad453fe5e4a68c6a9f241302639d4def611d87"
+    },
+    {
+      "path": "user-web/tools/start-local.ps1",
+      "source": "robot-dog-color-studio/tools/start-local.ps1",
+      "size": 4338,
+      "sha256": "2ccaba3781aca6da55efe2ff6f5cb9aaff463c0f04ef361b59234719317bfa27"
+    },
+    {
+      "path": "user-web/tools/vendor_esptool.py",
+      "source": "robot-dog-color-studio/tools/vendor_esptool.py",
+      "size": 1552,
+      "sha256": "2cc48c3503167b5c96bb39497cd204f23a72096c87f81a3220e47f4ee537173d"
+    },
+    {
+      "path": "user-web/tools/verify-3mf.mjs",
+      "source": "robot-dog-color-studio/tools/verify-3mf.mjs",
+      "size": 2222,
+      "sha256": "c81c6477176f4218435387dbcaeda2ebccca9d274bc84b8f4f49662f2900460b"
+    },
+    {
+      "path": "user-web/tools/verify-3mf.py",
+      "source": "robot-dog-color-studio/tools/verify-3mf.py",
+      "size": 3893,
+      "sha256": "2b797fb191b06951eab12443f07a186d809755ddaa2efaf0a621618e1ec2b210"
+    },
+    {
+      "path": "user-web/tools/verify-assembly-motion.mjs",
+      "source": "robot-dog-color-studio/tools/verify-assembly-motion.mjs",
+      "size": 3417,
+      "sha256": "795f8817c1da8d800c9525bc5cf4441db6d5ca029a4096cf096a70201b56180d"
+    },
+    {
+      "path": "user-web/tools/verify-choreography-controller.mjs",
+      "source": "robot-dog-color-studio/tools/verify-choreography-controller.mjs",
+      "size": 15890,
+      "sha256": "947a3b61ca65e4b07e2650329586ab174195a68c9b01efb934a435511a406be2"
+    },
+    {
+      "path": "user-web/tools/verify-choreography-format.mjs",
+      "source": "robot-dog-color-studio/tools/verify-choreography-format.mjs",
+      "size": 4150,
+      "sha256": "3a9365494398210c02708732e9a8e2e83119ac91f9d59415163c117bb00833bd"
+    },
+    {
+      "path": "user-web/tools/verify-color-scheme.mjs",
+      "source": "robot-dog-color-studio/tools/verify-color-scheme.mjs",
+      "size": 7756,
+      "sha256": "1f6f0b74ec02c01b088b6cc891eeb90d25d264a1a3e7f55b25e6d05c2673186a"
+    },
+    {
+      "path": "user-web/tools/verify-esp32-flasher.mjs",
+      "source": "robot-dog-color-studio/tools/verify-esp32-flasher.mjs",
+      "size": 18961,
+      "sha256": "14a13cc0451ac9c704f2dd5892c992904081f7fa08308ecbb9849784c0cd51a0"
+    },
+    {
+      "path": "user-web/tools/verify-firmware-catalog.py",
+      "source": "robot-dog-color-studio/tools/verify-firmware-catalog.py",
+      "size": 14656,
+      "sha256": "407904043b142395c2d0963fd9dd0654b54ccc401a9206d42e98bc05ae1d0447"
+    },
+    {
+      "path": "user-web/tools/verify-hardware-ui.mjs",
+      "source": "robot-dog-color-studio/tools/verify-hardware-ui.mjs",
+      "size": 11178,
+      "sha256": "8c36cb4e3aadc6944afdc1d36d7341fda449e5a5d96f9c27bb29445f830c3b62"
+    },
+    {
+      "path": "user-web/tools/verify-public-auth.py",
+      "source": "robot-dog-color-studio/tools/verify-public-auth.py",
+      "size": 8835,
+      "sha256": "ac8f7f7df57b84e312ac9b5071eb1e05a520fb78d170f7351426de95681cf6ac"
+    },
+    {
+      "path": "user-web/tools/verify-public-deployment.py",
+      "source": "robot-dog-color-studio/tools/verify-public-deployment.py",
+      "size": 7694,
+      "sha256": "1f9113b830f33b577e2b5438c307f942d1cd3d691f533855c5152d9b71bd9f6f"
+    },
+    {
+      "path": "user-web/tools/verify-public-install.py",
+      "source": "robot-dog-color-studio/tools/verify-public-install.py",
+      "size": 9566,
+      "sha256": "1c5f13f06ef604938aca71ea68ad9269660bf6a6ff016486a61d1e00d8285b3d"
+    },
+    {
+      "path": "user-web/tools/verify-region-export.mjs",
+      "source": "robot-dog-color-studio/tools/verify-region-export.mjs",
+      "size": 3617,
+      "sha256": "a6154c2f6de3ddfe52a84bd03141264b4d102d4ce40118ff43a02cf01014e487"
+    },
+    {
+      "path": "user-web/tools/verify-serial-session.mjs",
+      "source": "robot-dog-color-studio/tools/verify-serial-session.mjs",
+      "size": 21720,
+      "sha256": "64259c95ac43d783333ab8fb87eb554f62d281f7e8ce4e311ffd43f16f68860c"
+    },
+    {
+      "path": "user-web/tools/verify-stm32-flasher.mjs",
+      "source": "robot-dog-color-studio/tools/verify-stm32-flasher.mjs",
+      "size": 10814,
+      "sha256": "7536c5bafcc8c7738a49b43fe09428deb86576e68b8b2e4a93be6057adf45ad3"
+    },
+    {
+      "path": "user-web/使用说明.txt",
+      "source": "robot-dog-color-studio/使用说明.txt",
+      "size": 12609,
+      "sha256": "6ee7be6dbcc771ee7c8a53b8ad297fc2ca36db509245e81626b8d8f18eb6341a"
+    },
+    {
+      "path": "user-web/启动配色工作台.cmd",
+      "source": "robot-dog-color-studio/启动配色工作台.cmd",
+      "size": 120,
+      "sha256": "453ac11723ef98fd2be0f9496aad54b8ecac39080fd285cbb985d480df4d4ca4"
+    }
+  ],
+  "excluded": [
+    "Private *.local.h and server credentials",
+    "Runtime telemetry, logs and Flash backups",
+    "Generated dependency lock with workstation-specific paths",
+    "Legacy debug build helper tied to the old combined project layout",
+    "Large vendor demo archives and duplicate hardware documents"
+  ]
+}

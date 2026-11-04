@@ -1,0 +1,30 @@
+摄像头可用性检查（2026-10-23）
+
+Camera_RequestCheck(id16lowerhex) 异步运行；同最后 ID 幂等，运行中其他 ID 返回 BUSY。
+Camera_GetCheckStatus() 返回按阶段的结果，只有真实帧验证通过才 usable=true。
+Camera_Start 保留一次开机检查，使用内部 ID 0000000000000000；新手动 ID 可以失败后重试。
+
+生命周期/帧互斥锁覆盖旧驱动清理、XL9555控制、0x3C ACK、芯片ID、初始化、获取及归还测试帧。
+已有借出的帧必须由原调用任务归还；检查等待该锁最多2秒，超时保留原驱动状态，不强制释放。
+Acquire 在取得同一把锁后再次检查 ready/running，避免取得已被清理的驱动/帧。
+只有成功初始化的驱动才显式 deinit；SCCB清理和初始化持有 BoardBus 共享互斥锁。
+XL 操作只使用摄像头掩码0x03，保留屏幕/触摸/功放位；屏幕和麦克风仍使用原共享总线。
+
+结果阶段：WAIT_FRAME、CLEANUP、EXPANDER、SCCB_PROBE、SENSOR_ID、SENSOR_INIT、FRAME、DONE。
+未执行阶段的 error=ESP_ERR_INVALID_STATE，不能被当作已检测失败。
+EXPANDER验证输出/方向/引脚输入读回，不是摄像头供电电压测量。
+SENSOR_ID读取0x300A/0x300B，重复起始或STOP/START方法至少一种确认0x5640。
+XCLK保持已有外部24MHz配置，没有测量实际频率或供电电压。
+FRAME必须来自esp_camera_fb_get，检查JPEG SOI/EOI、SOF尺寸、SOS及段长度边界、非空熵数据，
+并且时间戳非未来且距当前不超过1.5秒。该检查不等于完整像素解码或画面质量审核。
+本轮只报告尺寸、长度、时间戳，没有USB JPEG图传，也不生成替代图像。
+
+SDK证据：实际组件components/esp32-camera（2.1.8）：
+driver/esp_camera.c:305..376 初始化失败时清理；379..390 deinit；393..400 fb_get最长4秒。
+driver/sccb-ng.c:147..182 使用已有端口时只移除SCCB自己的设备，不删除BoardBus共享端口。
+driver/cam_hal.c:536..570 早期初始化失败清cam_obj；639..677 清DMA/队列/任务/帧。
+
+验证：test_camera_check.c 三组通过（请求ID/幂等/BUSY/失败重试、全部阶段通过才usable、
+JPEG结构/尺寸/截断/长度边界）。GCC C11 -Wall -Wextra -Werror。
+使用现有ESP-IDF compile_commands执行Bsp_Camera.c的-fsyntax-only，零诊断。
+完整构建、烧录与实板复测由根任务统一执行；软件单测不证明当前实物摄像头已经可用。

@@ -1,0 +1,52 @@
+芯片：STM32F103VET6
+用户代码：
+		延时代码
+			// 初始化
+			void SysTick_Init(void);
+			// 微秒延时
+			void Delay_us(uint32_t us);
+			// 毫秒延时
+			void Delay_ms(uint32_t ms);
+		主函数代码
+			#include "main.h"
+			#include <string.h>
+			void Main_Config(void);
+			int main(void)
+			{
+   				 Main_Config();
+   				 while(1)
+    				{
+   				}
+			}
+			void Main_Config(void)
+			{
+   				 // SysTick 初始化
+    				SysTick_Init();
+			}
+
+硬件条件
+	按钮
+	KEY1   	   	PA0
+	KEY2  	    	PC13
+	LED
+	RGB红		PB5
+	RGB绿		PB0
+	RGB蓝		PB1
+
+要求
+	1、代码直接写在main.c 中  代码可以让我直接复制粘贴替换整个main.c文件
+	2、需要初始化 KEY 1 和 KEY 2
+	3、需要初始化  LED 的RGB 灯，三个灯为共阳极 低电平qudong 
+	4、功能： 需要做一个两路抢答器
+		4.1 初始化时  蓝灯点亮
+		4.2 当KEY1 比 KEY2 先按下 则显示 红灯
+		4.3 当 KEY2 比 KEY1 先按下 则显示 绿灯
+		4.4 要进行锁存，也就是当红灯 或 绿灯已经触发后 需要固定结果  后续通过res 进行复位
+
+
+
+
+
+
+
+

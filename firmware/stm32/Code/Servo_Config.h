@@ -1,0 +1,8 @@
+#ifndef SERVO_CONFIG_H
+#define SERVO_CONFIG_H
+#ifndef SERVO_TTL_ENABLED
+#define SERVO_TTL_ENABLED 1
+#endif
+#define SERVO_TTL_RANGE_DEG 180U
+#define SERVO_TTL_POSITION_MAX 1023U
+#endif

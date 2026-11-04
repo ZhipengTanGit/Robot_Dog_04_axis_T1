@@ -1,0 +1,4 @@
+# Preserve release and pinned upstream bytes on Windows checkouts.
+dist/firmware/** -text
+dist/vendor/esptool/** -text
+dist/vendor/webstlink/** -text

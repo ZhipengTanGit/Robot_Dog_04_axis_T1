@@ -1,0 +1,96 @@
+ESP32 外设驱动交付说明 — V0.24 / 2026-10-23
+
+本次作用
+ESP32 运行硬件驱动、UART 转发与主动数据上传；网页由 Ubuntu 负责。
+摄像头模块不再启动 HTTP 81，帧通过借用/归还 API 交给上传任务。
+本说明中的“已实现”表示软件实现；是否烧录和实物验证以本次根任务的日志为准。
+
+映射依据
+电路设计/原理图核对/V0.24/Netlist_Schematic1_1_2026-10-19_105726-474.enet
+ESP 模块：ESP32-S3-WROOM-1-N16R8；PSRAM 使用现有 8MB Octal 配置。
+I2C0 SDA=GPIO8，SCL=GPIO19，100kHz；原生 USB 功能不能占用这两脚。
+XL9555 0x20：P00 相机 RESET（低有效）、P01 PWDN（高有效）、
+P02 LCD RESET、P03 TP RESET、P04 MS8002A SD（高电平关闭）。INT=GPIO18。
+本次只驱动所需位，保留其它输出与方向位。
+屏幕：PY206-W38-V2 / CO5300，410×502，QSPI CLK20、IO0..3=3/9/10/11、CS12、TE13。
+触摸：CST9217 0x5A，INT14，RESET 为 XL9555 P03。
+音频：ES8388 0x10，MCLK6、BCLK7、LRCK15、ESP DOUT16、ESP DIN17。
+麦克风 U10=LCA3729T381-OAC03 → ES8388 LIN1；LOUT2 → MS8002A → 扬声器。
+相机：沿用 OV5640 现有引脚和外部24MHz XCLK，不修改 FPC 引脚推测。
+AHT20、AI01C、按键、LED、蜂鸣器和舵机均归 STM32；ESP 接收 PERIPH 行。
+
+实现文件
+Bsp_BoardBus.c/.h：唯一 I2C0 所有者、串行访问、XL9555 原子读改写与整字节回读。
+所有本地事务后保留25µs总线间隔；相机第三方 SCCB 初始化持有同一独占锁。
+单次本地事务超时80ms、等待共享锁最多5秒（容纳相机上电初始化）。
+不会在中断禁用区中等待 I2C；网络 JSON 只读取快照，不等待硬件。
+
+Bsp_Display.c/.h：按厂家初始化驱动 CO5300，以20MHz QSPI输出诊断屏。
+屏幕初始清黑，亮度寄存器0x51=0x40；只更新字符行，无需整帧缓冲/LVGL。
+显示电池区间/名义设定、AHT20环境温湿度、触摸坐标、麦克风AC RMS与运行时间。
+AHT温度不是电池温度；电池/环境日志过期或valid=0时显示NA，不保留为实时值。
+QSPI写入成功状态为OUTPUT_SENT；configured仅表示初始化/传输完成。
+visual_verified固定false，不能据此宣称屏幕已经插入、识别或目视亮屏。
+TE上升沿计数是额外硬件证据，仍不替代目视检查画面方向/偏移/颜色。
+触摸按厂家样例读取D000的15字节包并发送D000AB确认，验证AB、点数、事件与坐标范围。
+仅探测I2C地址、解析正常模式数据，不进入bootloader、不更新触摸固件。
+触摸chip_id_verified=false；坐标/样本有效性独立上报。
+
+Bsp_Audio.c/.h：ES8388寄存器初始化与关键项回读，16kHz/16位/双时隙Philips I2S。
+ESP为主机，ES8388为从机，MCLK=256fs=4.096MHz；只采左声道LIN1。
+PGA固定+18dB、ALC关闭；每约100ms统计实际PCM左声道RMS、去直流RMS、峰值、直流与削顶计数。
+统计单位为PCM16数字计数，不是dB SPL；零数据不伪装为声学验证通过。
+默认MS8002A SD拉高、DAC静音，无自动开机提示音、无麦克风到扬声器直通。
+Audio_PlayTone/Peripherals_PlayTone是显式、异步的低音量测试接口：
+100..4000Hz、20..1000ms、1..20%数字幅度，5ms渐入渐出，完成后自动静音关功放。
+初始版本只上传音量统计，不上传原始录音，不提供网络自动播放入口。
+
+Bsp_Peripherals.c/.h：启动独立任务、组合JSON快照、接收STM文本给本机屏。
+Peripherals_UpdateRobot允许在Start前和Wi-Fi断开时调用，只做固定长度复制。
+摄像头、屏幕、触摸、音频各自失败不触发ESP_ERROR_CHECK重启。
+摄像头Camera_AcquireFrame成功后，调用者在所有分支必须Camera_ReleaseFrame。
+互斥借用保证只有一个消费者；归还即使上传失败也返回驱动帧缓冲。
+timeout_ms只约束获取帧互斥锁，官方esp_camera_fb_get另有4秒上限。
+过期或不完整JPEG不上传，失败记capture_failures，发送失败记send_failures。
+
+来源与许可
+1. 用户提供2.06am STM32H7_PY_AMOLED.zip，Core/Src/co5300.c：
+   reset20/100/150ms，初始化命令，410×502窗口、X偏移22和02/32 QSPI传输。
+   ZIP SHA256: 73047FE8204F6C2CE88FF019886C8D61E21DCDC9255B697770975A6E4F2D0057
+2. 用户提供2.06amoled。LVGL_WITH_RAM.zip，main/example_qspi_with_ram.cpp，
+   components/SensorLib/src/TouchDrvCST92xx.cpp、REG/CST9xxConstants.h：
+   CST9217正常坐标协议和0x5A地址。未复制触摸固件数组，也不执行升级流程。
+   协议解析参考SensorLib (c) 2024 Lewis He，MIT许可，见本目录SensorLib-LICENSE.txt。
+3. Everest ES8388 原厂数据手册本地缓存：
+   电路设计/review-output/2026-10-03-0550/evidence/datasheet-text/ES8388_Everest_音频编解码器.txt
+   寄存器0..4、8..18、23..27、38..49；本实现选16kHz，没有套用8kHz特殊参数。
+4. MSKSEMI MS8002A 原厂手册同目录，SD高关机、低工作；上电保持关闭。
+5. ESP-IDF5.5.3本机官方spi_master.h/i2s_std.h/i2c_master.h，以及现有esp32-camera2.1.8。
+
+测试
+gcc -std=c99 -Wall -Wextra -Werror -I Bsp tests/test_peripheral_math.c Bsp/PeripheralMath.c -lm -o build_bridge/test_peripheral_math.exe
+测试验证PCM左声道选择、RMS和DC分离、-32768/削顶、CST包长度、双点边界、释放和非法标记。
+已通过host测试；完整ESP-IDF构建、烧录、实际读数由根任务统一记录。
+
+已知硬件限制
+摄像头FPC触点方向买错，需更换匹配模组/连接方式后再实测，软件不伪造图像。
+当前板电池温度信号未接STM ADC，实际充电电流/电池电压也没有采样路径；本次不改变这些状态。
+屏幕是否已插入/显示需要用户目视或后续设备实测；无LCD读ID保证，传输成功不等同物理显示成功。
+麦克风需要用说话/拍手观察RMS变化完成声学验证；扬声器需显式测试后才能称为实物验证完成。
+
+2026-10-23 实板首轮及音频诊断补充
+根任务已确认：XL9555有效掩码7、output0=FD/config0=E0；屏QSPI发送无错误、TE=0。
+用户随后确认屏幕尚未接入，因此触摸0x5A无ACK属于预期，不推断屏幕电路损坏。
+ES8388首次在0x10的地址probe阶段返回261（ESP_ERR_NOT_FOUND），还没写入任何codec寄存器。
+重新核对原厂§5.2：7位地址001000x，x=CE；V0.24的U9.26 CE接GND，因此0x10正确。
+0x20是0x10左移后的8位写地址；本工程新I2C驱动必须传7位地址，不能写0x20（此地址是XL9555）。
+随后加入有限诊断：先关闭功放，等200ms采baseline0x10；失败时只探测另一个CE地址0x11，
+不向0x11写寄存器。再用LEDC低速timer3/channel7仅向GPIO6提供约4.096MHz MCLK，
+避免在codec默认主模式时驱动BCLK/LRCK。等100ms后最多3次初始化，重试间隔500/1000ms。
+软件快照记录实际LEDC配置频率与MCLK前后probe结果，不代表示波器实测时钟。
+codec寄存器成功配置从模式后关闭诊断LEDC，切换到正常I2S。失败则停诊断时钟并维持功放关闭。
+原厂资料未证明MCLK是地址ACK的必需条件；这个步骤用于排除启动条件，不能预先当作根因。
+JSON新增初始化阶段、attempts、probe_before_mclk/probe_after_mclk/probe_alternate、
+failed_register（255表示未到寄存器操作）。INIT_ERROR不再只能看到通用错误码。
+若3次仍在PROBE_0X10失败且0x11也无ACK，需后续核实U9实物焊接/料号、2/3脚3.3V、
+4/18/EP接地、26脚CE低电平、27/28脚实际SDA/SCL波形；软件资料不能证明这些电气条件成立。

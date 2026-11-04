@@ -1,43 +1,49 @@
-# 四轴机器狗 T1 · 网页工作台
+# 四轴机器狗 T1
 
-机器狗配色、装配指导、爆炸图、动作编舞、彩色 3MF 导出和 USB 硬件测试网站。
+四轴机器狗的用户网页、本地调试终端、ESP32/STM32 固件源码和硬件设计资料。
 
 - 在线工作台：https://110.42.234.162/robot-studio/
 - 硬件测试：https://110.42.234.162/robot-studio/hardware.html
 
-本仓库同步现有公网工作台项目。公网入口沿用现有登录；推送 Gitee 不会自动更新公网服务器。
+公网入口沿用现有登录；推送 Gitee 不会自动更新公网服务器。2026-11-04 按五个模块整理本地已找到的资料。
 
 ## 本地运行
 
-安装 Node.js，在项目根目录运行：
+用户网页：安装 Node.js，在仓库根目录运行：
 
 ```sh
+cd user-web
 npm start
 ```
 
-打开 http://127.0.0.1:8093/ 。Windows 也可双击 `启动配色工作台.cmd`。所有网页依赖均已包含，无需执行 `npm install`；不要直接双击 HTML。
+打开 http://127.0.0.1:8093/ 。Windows 也可双击 `user-web/启动配色工作台.cmd`。所有网页依赖均已包含，无需执行 `npm install`；不要直接双击 HTML。
+
+本地调试终端：安装 Python 3.10+，按 [调试终端说明](debug-terminal/README.md) 安装 pyserial 并启动，默认网页地址为 http://127.0.0.1:8081/ 。调试服务不会随用户网页自动启动。
 
 ## 功能与目录
 
-- `dist/`：网页、13 区域配色模型、25 步装配指导、爆炸图、四轴编舞和 3MF 导出。
-- `dist/firmware/`：公共测试固件、SHA-256 清单和烧录说明。
-- `tools/serve.mjs`：本地静态服务。
-- `tools/verify-*`：网页、串口、烧录器、模型与固件校验。
-- `tools/cad_*`：SolidWorks 模型导出与处理工具。
-- `tools/deploy_public.py`：现有服务器发布工具，服务器配置需另行提供。
-- `使用说明.txt`：详细操作说明。
+| 模块 | 目录 | 内容 |
+| --- | --- | --- |
+| 用户网页 | [user-web](user-web/使用说明.txt) | 公网工作台、配色模型、装配指导、编舞与 3MF 导出 |
+| 调试终端 | [debug-terminal](debug-terminal/README.md) | Python 服务、七个调试页面、USB/Wi-Fi 与板载测试 |
+| ESP32 代码 | [firmware/esp32](firmware/esp32/README.md) | ESP-IDF 5.4.4、驱动、桥接、组件与测试 |
+| STM32 代码 | [firmware/stm32](firmware/stm32/README.md) | Keil 工程、TTL 舵机 180° 控制/回读、充电设置持久化 |
+| 硬件设计 | [hardware](hardware/README.md) | V0.24 原理图、BOM、网表、EDA 工程和芯片手册 |
+
+[来源清单](docs/source-manifest.json) 记录复制文件的相对来源、大小与 SHA-256。
 
 编舞页面仅预览模型，不直接驱动实物。硬件测试和烧录需要桌面 Chrome/Edge、相应 USB 权限及匹配固件；云服务器不连接用户电脑的 COM 口。
 
 ## 固件版本
 
-保留现有公网的 **2026-10-29 公共测试包**，适用于 V0.24 主板的 ESP32-S3 N16R8 和 STM32F103RBT6。STM32 此包仍为 PWM 舵机测试，默认及最高名义充电档 350mA。
+`user-web/dist/firmware/` 保留现有公网的 **2026-10-29 公共测试包**，适用于 V0.24 主板的 ESP32-S3 N16R8 和 STM32F103RBT6。STM32 此包仍为 PWM 舵机测试，默认及最高名义充电档 350mA。
 
-本次同步不包含后续本地 8081 调试平台的 TTL 舵机、180° 回读和 1850mA 充电固件。版本、文件哈希和验证范围以 `dist/firmware/catalog.json` 为准。
+`firmware/` 为后续开发源码：ESP32 公开构建标识为 `public-usb-jpeg-small-20261102-r1`；STM32 使用实板 r13-180deg 源码快照，支持 TTL 控制/回读和最高 1850mA 名义设置持久化，无保存记录时默认 350mA。上传源码不会替换用户网页中的旧固件下载。
 
 ## 校验
 
 ```sh
+cd user-web
 npm run check
 npm run verify:hardware
 npm run verify:assembly
@@ -46,4 +52,6 @@ npm run verify:regions
 python tools/verify-firmware-catalog.py
 ```
 
-服务器凭据、私有配置、运行日志、原始 CAD 工程和本地诊断数据不在本仓库中。保留原有 `LICENSE`；第三方许可见 `dist/vendor/`。
+调试终端及固件测试命令见各模块 README。此次整理不连接硬件、不执行烧录，也不把源码编译或文件校验等同于新的实物联测。
+
+服务器凭据、私有 Wi-Fi 配置、运行日志、原始机械 CAD、大型例程和 Flash 全片备份未上传。保留原有 `LICENSE`；第三方组件和器件手册保留各自的许可与声明。

@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>机器狗监测</title>
+<style>
+:root{--ink:#15344d;--muted:#617a8d;--paper:#f1f6fa;--white:#fff;--line:#d9e5ed;--teal:#087e8b;--teal-soft:#e4f5f5;--amber:#94631b;--amber-soft:#fff4dd;--red:#ad3346;--red-soft:#fff0f2;--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 "Segoe UI","Microsoft YaHei","PingFang SC",sans-serif}button{font:inherit}button:focus-visible,summary:focus-visible{outline:3px solid #42a9bb;outline-offset:4px}button{cursor:pointer}main{max-width:1120px;margin:auto;padding:38px 32px 28px}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:29px}.identity{display:flex;gap:15px;align-items:center}.mark{width:44px;height:44px;display:grid;place-items:center;border:1px solid #bed4e1;background:#fff;border-radius:12px;color:var(--teal);flex-shrink:0}.mark svg{width:27px;height:27px}h1{margin:0;font-size:26px;line-height:1.35;font-weight:650;letter-spacing:-.5px}.subtitle{margin:5px 0 0;color:var(--muted);font-size:13px}.connection{display:flex;align-items:center;gap:9px;font-size:13px;background:var(--white);border:1px solid var(--line);padding:8px 13px;border-radius:25px;white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:#7e8fa0;flex-shrink:0}.connection[data-state="live"] .dot{background:var(--teal)}.connection[data-state="stale"] .dot{background:var(--amber)}.connection[data-state="offline"] .dot{background:var(--red)}.freshness{font-size:13px;min-height:22px;color:var(--muted);margin:0 0 13px;display:flex;gap:10px;align-items:center}.freshness .tag{border:1px solid var(--line);border-radius:5px;padding:0 7px;background:#fff;font-size:11px}.monitor{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 26px #17384e05}.overview{display:grid;grid-template-columns:1.35fr 1fr}.battery{padding:31px 34px 29px}.section-label{margin:0;color:var(--muted);font-size:14px;font-weight:500}.soc-heading{display:flex;align-items:baseline;gap:15px;flex-wrap:wrap;margin:8px 0 20px}.soc{font-size:52px;line-height:1.2;font-weight:650;letter-spacing:-2px;font-variant-numeric:tabular-nums}.soc-note{color:var(--muted);font-size:13px}.gauge-shell{position:relative;margin-right:9px;border:2px solid #bbcedb;border-radius:10px;padding:6px}.gauge-shell:after{content:"";position:absolute;right:-9px;top:29%;height:42%;width:6px;background:#bbcedb;border-radius:0 3px 3px 0}.gauge{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}.cell{min-height:49px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#7c929f;background:#eff4f7;border:1px solid transparent;font-variant-numeric:tabular-nums}.cell.active{background:var(--teal-soft);border-color:var(--teal);color:var(--teal);font-weight:700;box-shadow:inset 0 -3px 0 var(--teal)}.gauge-shell.stale .cell.active{background:#edf1f4;border-color:#99acb9;color:#6d8392;box-shadow:inset 0 -3px 0 #99acb9}.range-explanation{margin:11px 0 0;font-size:12px;color:var(--muted)}.charging{border-left:1px solid var(--line);padding:31px 32px;display:flex;flex-direction:column;justify-content:center}.state-title{font-size:26px;font-weight:600;line-height:1.4;margin:11px 0 10px;letter-spacing:-.5px}.state-title.live{color:var(--teal)}.state-title.stale{color:var(--muted)}.state-title.warning{color:var(--amber)}.state-copy{margin:0;color:var(--muted);font-size:13px;max-width:32em}.source-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:21px}.chip{font-size:12px;border:1px solid var(--line);border-radius:5px;padding:3px 9px;color:var(--muted)}.measurements{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:#fbfdfe}.measurement{padding:22px 26px;border-right:1px solid var(--line)}.measurement:last-child{border-right:0}.measurement dt{color:var(--muted);font-size:13px;margin-bottom:8px}.measurement dd{margin:0;font-size:22px;font-weight:600;line-height:1.4;font-variant-numeric:tabular-nums;white-space:nowrap}.measurement dd small{font-size:13px;font-weight:400;color:var(--muted);margin-left:5px}.measurement .meta{font-size:12px;color:var(--muted);margin-top:5px;min-height:20px}dl{margin:0}.note{display:flex;gap:10px;align-items:flex-start;margin:17px 1px 27px;font-size:13px;color:var(--muted)}.note svg{flex-shrink:0;margin-top:3px}.alert{padding:11px 15px;border:1px solid #efd2a2;border-radius:9px;background:var(--amber-soft);color:var(--amber);font-size:13px;margin-bottom:17px}.alert.error{border-color:#edc7cc;background:var(--red-soft);color:var(--red)}.alert[hidden]{display:none}.network{display:grid;grid-template-columns:1.1fr 1fr .8fr .8fr;gap:20px;padding:0 2px 26px}.network-item dt{font-size:12px;color:var(--muted);margin-bottom:4px}.network-item dd{margin:0;font-size:14px;font-weight:500;overflow-wrap:anywhere}.logs{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}.logs summary{padding:17px 22px;cursor:pointer;display:flex;align-items:center;gap:11px;list-style:none;font-weight:600}.logs summary::-webkit-details-marker{display:none}.chevron{width:8px;height:8px;border-right:1.7px solid var(--muted);border-bottom:1.7px solid var(--muted);transform:rotate(-45deg);transition:transform .15s}.logs[open] .chevron{transform:rotate(45deg)}.log-count{color:var(--muted);font-size:12px;margin-left:auto;font-weight:400}.log-tools{border-top:1px solid var(--line);padding:11px 19px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.small-button{background:#fff;color:var(--ink);border:1px solid #cddde7;border-radius:6px;padding:5px 11px;font-size:12px}.small-button:hover{background:#f1f7fa}.tool-status{font-size:12px;color:var(--muted);margin-left:auto}.log-output{margin:0;background:#f7fafc;border-top:1px solid var(--line);padding:17px 20px;min-height:100px;max-height:300px;overflow:auto;font:12px/1.8 Consolas,"Cascadia Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#34566c}.footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#7b909f;font-size:11px;padding:21px 2px 0}.footer strong{font-weight:500}.paused-note{color:var(--amber)}@media(max-width:760px){main{padding:25px 20px}.top{align-items:flex-start;margin-bottom:23px}.identity{gap:10px}.mark{width:36px;height:36px;border-radius:10px}.mark svg{width:23px;height:23px}h1{font-size:21px}.subtitle{font-size:11px}.connection{padding:6px 9px;font-size:11px;gap:6px}.overview{grid-template-columns:1fr}.battery{padding:25px}.soc{font-size:44px}.charging{border-left:0;border-top:1px solid var(--line);padding:23px 25px}.state-title{font-size:23px;margin:6px 0}.source-row{margin-top:15px}.measurements{grid-template-columns:repeat(2,1fr)}.measurement{padding:18px 23px}.measurement:nth-child(2){border-right:0}.measurement:nth-child(-n+2){border-bottom:1px solid var(--line)}.measurement dd{font-size:21px}.network{grid-template-columns:1fr 1fr;gap:17px 25px}.note{margin-bottom:23px}.logs summary{padding:15px 18px}.log-tools{padding:10px 14px}.log-output{padding:14px}.footer{font-size:10px}}@media(max-width:390px){main{padding:20px 14px}.top{gap:8px}.mark{display:none}h1{font-size:20px}.battery{padding:22px}.cell{font-size:10px}.connection{padding:5px 8px}.measurement{padding:17px 19px}.soc-note{font-size:12px}.soc-heading{gap:10px}.tool-status{width:100%;margin-left:0}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.camera-panel{margin-bottom:28px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.camera-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 23px;border-bottom:1px solid var(--line)}.camera-heading h2{margin:0;font-size:17px;font-weight:600}.camera-actions{display:flex;align-items:center;gap:12px}.camera-status{font-size:12px;color:var(--muted)}.camera-status[data-state="live"]{color:var(--teal)}.camera-status[data-state="error"]{color:var(--amber)}.camera-body{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(220px,1fr)}.camera-view{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eaf0f4;border-right:1px solid var(--line)}.camera-image{position:absolute;inset:0;display:grid;place-items:center}.camera-image img{display:block;width:100%;height:100%;object-fit:contain}.camera-view[data-stale="true"] .camera-image{opacity:.55;filter:saturate(.35)}.camera-empty{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:13px;text-align:center;padding:25px;color:var(--muted);font-size:13px}.camera-empty svg{width:45px;height:45px;color:#7893a6}.camera-overlay{position:absolute;left:15px;right:15px;bottom:15px;padding:9px 12px;border:1px solid #ccdce6;border-radius:7px;background:#ffffffed;color:var(--ink);font-size:12px;line-height:1.5}.camera-empty[hidden],.camera-overlay[hidden]{display:none}.camera-info{padding:27px 25px;display:flex;flex-direction:column;justify-content:center;gap:22px}.camera-info dt{color:var(--muted);font-size:12px;margin-bottom:5px}.camera-info dd{margin:0;font-size:15px;overflow-wrap:anywhere}.camera-help{margin:0;color:var(--muted);font-size:12px;line-height:1.8}.camera-age{font-variant-numeric:tabular-nums}@media(max-width:760px){.camera-heading{padding:15px 18px}.camera-actions{gap:8px}.camera-body{grid-template-columns:1fr}.camera-view{border-right:0;border-bottom:1px solid var(--line)}.camera-info{padding:17px 20px;display:grid;grid-template-columns:1fr 1fr;gap:15px}.camera-help{grid-column:1/-1}.camera-panel{margin-bottom:23px}.camera-status{font-size:11px}}@media(max-width:390px){.camera-heading{gap:8px}.camera-heading h2{font-size:16px}.camera-actions{gap:6px}.camera-actions .small-button{padding:5px 8px}}
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div class="identity"><span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14h15l4-5 3 3-4 7H10L7 14Zm3 5-2 7m13-7 3 7M5 10l2 4"/><path d="M12 14v-3h6v3M12 26h-5m17 0h-4"/></svg></span><div><h1>机器狗监测</h1><p class="subtitle">4 轴机器狗 · 摄像头与电池状态</p></div></div>
+    <div class="connection" id="connection" data-state="waiting" role="status"><span class="dot"></span><span id="connectionText">正在连接</span></div>
+  </header>
+  <section class="camera-panel" aria-labelledby="cameraTitle">
+    <header class="camera-heading"><h2 id="cameraTitle">摄像头预览</h2><div class="camera-actions"><span class="camera-status" id="cameraStatus" data-state="waiting" role="status">等待设备</span><button class="small-button" id="cameraToggle" type="button" aria-pressed="false">暂停预览</button></div></header>
+    <div class="camera-body">
+      <div class="camera-view" id="cameraView" data-stale="true">
+        <div class="camera-image" id="cameraImageHost"></div>
+        <div class="camera-empty" id="cameraEmpty"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 15h9l3-5h10l3 5h9v25H7z"/><circle cx="24" cy="27" r="8"/><path d="M35 20h1"/></svg><span id="cameraEmptyText">正在等待摄像头状态…</span></div>
+        <div class="camera-overlay" id="cameraOverlay" hidden>保留上一帧，等待新的画面。</div>
+      </div>
+      <div class="camera-info"><dl><dt>摄像头</dt><dd id="cameraModel">等待识别</dd></dl><dl><dt>画面分辨率</dt><dd id="cameraResolution">—</dd></dl><dl><dt>最近画面</dt><dd class="camera-age" id="cameraAge">尚未收到</dd></dl><p class="camera-help" id="cameraHelp">连接后自动预览。暂停预览可减少无线传输，电池状态会继续更新。</p></div>
+    </div>
+  </section>
+  <p class="freshness"><span class="tag" id="freshnessTag">等待数据</span><span id="freshness">等待设备返回电池状态…</span></p>
+  <div class="alert" id="alert" role="status" hidden></div>
+  <section class="monitor" aria-label="电池状态">
+    <div class="overview">
+      <section class="battery">
+        <h2 class="section-label">剩余电量</h2>
+        <div class="soc-heading"><span class="soc" id="soc">—</span><span class="soc-note">区间估计</span></div>
+        <div class="gauge-shell" id="gaugeShell"><div class="gauge" id="gauge" role="img" aria-label="尚无电量数据"><span class="cell">≤3%</span><span class="cell">3–25%</span><span class="cell">25–50%</span><span class="cell">50–75%</span><span class="cell">75–100%</span></div></div>
+        <p class="range-explanation" id="rangeNote">芯片提供 5 档电量，不显示伪精确百分比。</p>
+      </section>
+      <section class="charging">
+        <h2 class="section-label">充电状态</h2>
+        <p class="state-title" id="chargeState">等待电池数据</p>
+        <p class="state-copy" id="chargeCopy">连接设备后自动刷新，每秒更新一次。</p>
+        <div class="source-row"><span class="chip" id="usbState">USB 输入：—</span><span class="chip" id="busState">电池通信：—</span></div>
+      </section>
+    </div>
+    <dl class="measurements">
+      <div class="measurement"><dt>充电电流设定</dt><dd id="setCurrent">—</dd><div class="meta" id="setMeta">等待寄存器读回</div></div>
+      <div class="measurement"><dt>实际充电电流</dt><dd id="actualCurrent">暂无采样</dd><div class="meta">当前硬件无法测量</div></div>
+      <div class="measurement"><dt>电池电压</dt><dd id="voltage">暂无采样</dd><div class="meta">当前硬件无法测量</div></div>
+      <div class="measurement"><dt>电池温度</dt><dd id="temperature">未接入</dd><div class="meta" id="tempMeta">温度线尚未连接 MCU</div></div>
+    </dl>
+  </section>
+  <p class="note"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 9v5m0-9v1"/></svg><span>充电开启标志不能证明实际电流；电量档位短时间不变，也不代表没有充电。</span></p>
+  <dl class="network" aria-label="设备连接信息">
+    <div class="network-item"><dt>设备地址</dt><dd id="deviceIp">—</dd></div>
+    <div class="network-item"><dt>无线网络</dt><dd id="ssid">—</dd></div>
+    <div class="network-item"><dt>信号强度</dt><dd id="rssi">—</dd></div>
+    <div class="network-item"><dt>运行时间</dt><dd id="uptime">—</dd></div>
+  </dl>
+  <details class="logs" id="logs">
+    <summary><span class="chevron" aria-hidden="true"></span>实时原始日志<span class="log-count" id="logCount">等待日志</span></summary>
+    <div class="log-tools"><button class="small-button" id="pause" type="button" aria-pressed="false">暂停日志</button><button class="small-button" id="copy" type="button">复制日志</button><span class="tool-status" id="logStatus">保留最近 20 条，状态数据持续更新</span></div>
+    <pre class="log-output" id="logOutput" tabindex="0">等待 STM32 电池日志…</pre>
+  </details>
+  <footer class="footer"><span><strong>1S2P</strong> 并联电池 · 标称 1400 mAh</span><span>只读监测 · ESP32 无线连接</span></footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const cells = Array.from(document.querySelectorAll('.cell'));
+  const startedAt = performance.now();
+  const FRESH_MS = 3000, OFFLINE_MS = 10000, REQUEST_TIMEOUT_MS = 5000;
+  let lastResponseAt = null, lastSampleAgeAtResponse = null, lastResponse = null, lastFields = null, lastGoodFields = null;
+  let networkFailed = false, paused = false, savedLogs = [], copying = false;
+  let statusController = null, statusTimer = null, statusRefreshRequested = false;
+  let logsController = null, logsTimer = null, logsRefreshRequested = false;
+  let displayedSetting;
+  const cameraSupported = typeof Image === 'function' && typeof URL === 'function' && typeof location.href === 'string';
+  const CAMERA_INTERVAL_MS = 500, CAMERA_TIMEOUT_MS = 5000;
+  let cameraSnapshot = null, cameraPaused = false, cameraBlocked = true;
+  let cameraTimer = null, cameraTimeout = null, cameraPending = null, cameraGeneration = 0, cameraRequestSequence = 0;
+  let cameraFrameAt = null, cameraNextAt = 0, cameraFailures = 0, cameraError = '';
+  // Preserve stable nodes: the dashboard can update without repainting unchanged values.
+  const text = (id, value) => {
+    const element = $(id), next = String(value);
+    if (element.textContent === next) return false;
+    element.textContent = next;
+    return true;
+  };
+  const className = (id, value) => { if ($(id).className !== value) $(id).className = value; };
+  const attribute = (id, name, value) => { if ($(id).getAttribute(name) !== value) $(id).setAttribute(name, value); };
+  const toggleClass = (element, name, value) => {
+    if (element.classList.contains(name) !== value) element.classList.toggle(name, value);
+  };
+  const number = value => value !== null && value !== '' && Number.isFinite(Number(value)) ? Number(value) : null;
+  function fields(raw) {
+    const result = Object.create(null);
+    if (typeof raw !== 'string' || !raw.startsWith('BAT t=')) return result;
+    raw.trim().split(/\s+/).forEach(part => { const at = part.indexOf('='); if (at > 0) result[part.slice(0, at)] = part.slice(at + 1); });
+    return result;
+  }
+  function duration(ms) {
+    if (typeof ms !== 'number' || !Number.isFinite(ms)) return '—';
+    const sec = Math.max(0, Math.floor(ms / 1000));
+    if (sec >= 86400) return Math.floor(sec / 86400) + ' 天 ' + Math.floor(sec % 86400 / 3600) + ' 小时';
+    if (sec >= 3600) return Math.floor(sec / 3600) + ' 小时 ' + Math.floor(sec % 3600 / 60) + ' 分';
+    if (sec >= 60) return Math.floor(sec / 60) + ' 分 ' + sec % 60 + ' 秒';
+    return sec + ' 秒';
+  }
+  function setConnection(state, label) {
+    if ($('connection').dataset.state !== state) $('connection').dataset.state = state;
+    text('connectionText', label);
+  }
+  function alert(message, error) {
+    if ($('alert').hidden !== !message) $('alert').hidden = !message;
+    className('alert', 'alert' + (error ? ' error' : ''));
+    text('alert', message);
+  }
+  function logCount(data) {
+    const count = number(data.uart_lines);
+    if (count !== null) text('logCount', '已接收 ' + count + ' 条');
+  }
+  function chargeText(f) {
+    return f.full === '1' ? '已报告充满' : f.chg_en === '0' ? '充电许可已关闭' : f.chg_flag === '1' && f.chg_en === '1' ? '已开启，未充满' : '未报告充电开启';
+  }
+  function batteryWarning(f, valid) {
+    if (!valid) {
+      const why = { STANDBY: '电池芯片处于待机状态，等待唤醒。', BUS_ERROR: '电池通信失败，请检查 I²C 连接。', DATA_ERROR: '电池返回的数据无效，等待恢复。', STALE: '电池数据已过期，等待新的有效读数。' };
+      alert(why[f.link] || '尚未取得有效的 STM32 电池数据，当前状态未确认。', f.link === 'BUS_ERROR' || f.link === 'DATA_ERROR' || f.valid === '0');
+      return;
+    }
+    const other = Number.parseInt(f.faults || '0', 16) & ~4;
+    if (other) {
+      const names = [[1,'总线通信'],[2,'数据无效'],[8,'温度探头'],[16,'芯片温度标志'],[32,'电流配置校验'],[64,'数据过期']].filter(item => other & item[0]).map(item => item[1]);
+      alert('设备报告异常：' + (names.length ? names.join('、') : '未知故障') + '（' + f.faults + '）。请查看原始日志。', true);
+    } else alert('', false);
+  }
+  function validBattery(data, f) {
+    const age = number(data.uart_age_ms);
+    return data.uart_valid === true && age !== null && age >= 0 && f.valid === '1' && f.link === 'READY';
+  }
+  // Camera transport has its own lifecycle. Failed images never invalidate BAT readings.
+  function cameraInitializationFailure() {
+    if (!cameraSnapshot || cameraSnapshot.ready === true) return null;
+    const state = typeof cameraSnapshot.state === 'string' ? cameraSnapshot.state : '';
+    const error = number(cameraSnapshot.error);
+    if (state !== 'ERROR' && !state.endsWith('_ERROR') && (error === null || error === 0)) return null;
+    const messages = {
+      SENSOR_ERROR: ['识别失败', '未能识别摄像头，请检查摄像头连接'],
+      I2C_ERROR: ['初始化失败', '摄像头通信初始化失败'],
+      EXPANDER_ERROR: ['初始化失败', '摄像头复位控制失败，请检查连接'],
+      PSRAM_ERROR: ['初始化失败', '摄像头内存初始化失败'],
+      TASK_ERROR: ['启动失败', '摄像头启动失败']
+    };
+    const message = messages[state] || ['初始化失败', '摄像头初始化失败，请检查摄像头连接'];
+    return {label: message[0], message: message[1] + (error ? '（错误 ' + error + '）' : '')};
+  }
+  function cameraBlockReason() {
+    if (!cameraSupported) return '当前浏览器无法显示摄像头预览';
+    if (cameraPaused) return '预览已暂停';
+    if (document.hidden) return '页面隐藏，预览已暂停';
+    if (lastResponseAt === null) return '正在等待摄像头状态…';
+    if (networkFailed || performance.now() - lastResponseAt >= FRESH_MS) return '设备状态更新延迟，等待恢复';
+    if (!cameraSnapshot) return '设备尚未提供摄像头状态';
+    if (cameraSnapshot.ready !== true) {
+      const failure = cameraInitializationFailure();
+      if (failure) return failure.message;
+      return '摄像头正在初始化…';
+    }
+    return '';
+  }
+  function cancelCameraRequest() {
+    clearTimeout(cameraTimer); cameraTimer = null;
+    clearTimeout(cameraTimeout); cameraTimeout = null;
+    if (cameraPending) {
+      cameraPending.onload = cameraPending.onerror = null;
+      cameraPending.removeAttribute('src');
+      cameraPending = null;
+    }
+    ++cameraGeneration;
+  }
+  function cameraLabel(state, value) {
+    if ($('cameraStatus').dataset.state !== state) $('cameraStatus').dataset.state = state;
+    text('cameraStatus', value);
+  }
+  function refreshCamera() {
+    const now = performance.now(), reason = cameraBlockReason();
+    const hasFrame = cameraFrameAt !== null, age = hasFrame ? Math.max(0, now - cameraFrameAt) : null;
+    text('cameraAge', hasFrame ? (age / 1000).toFixed(1) + ' 秒前收到' : '尚未收到');
+    text('cameraToggle', cameraPaused ? '开始预览' : '暂停预览');
+    attribute('cameraToggle', 'aria-pressed', String(cameraPaused));
+    if (reason) {
+      cancelCameraRequest();
+      cameraBlocked = true;
+      const pausedPreview = cameraPaused || document.hidden;
+      const failure = !pausedPreview && !networkFailed && lastResponseAt !== null &&
+        now - lastResponseAt < FRESH_MS ? cameraInitializationFailure() : null;
+      cameraLabel(failure ? 'error' : 'waiting', pausedPreview ? '已暂停' : failure ? failure.label : '等待画面');
+      text('cameraEmptyText', reason);
+      text('cameraOverlay', reason + ' · 显示的是上一帧');
+      $('cameraOverlay').hidden = !hasFrame;
+      $('cameraEmpty').hidden = hasFrame;
+      $('cameraView').dataset.stale = 'true';
+      return;
+    }
+    if (cameraBlocked) {
+      cameraBlocked = false;
+      cameraNextAt = now;
+      cameraError = '';
+    }
+    const fresh = hasFrame && !cameraError && age <= FRESH_MS;
+    cameraLabel(cameraError ? 'error' : fresh ? 'live' : 'waiting',
+      cameraError ? '更新延迟' : fresh ? '画面已连接' : '正在取图');
+    text('cameraEmptyText', cameraError || '正在获取第一帧…');
+    text('cameraOverlay', cameraError ? cameraError + ' · 显示的是上一帧' : '画面更新延迟 · 显示的是上一帧');
+    $('cameraEmpty').hidden = hasFrame;
+    $('cameraOverlay').hidden = !hasFrame || fresh;
+    $('cameraView').dataset.stale = fresh ? 'false' : 'true';
+    if (!cameraPending && cameraTimer === null) {
+      cameraTimer = setTimeout(requestCameraFrame, Math.max(0, cameraNextAt - now));
+    }
+  }
+  function requestCameraFrame() {
+    cameraTimer = null;
+    if (cameraPending || cameraBlockReason()) { refreshCamera(); return; }
+    const generation = ++cameraGeneration;
+    const image = new Image();
+    cameraPending = image;
+    image.alt = '机器狗摄像头画面';
+    image.decoding = 'async';
+    const finish = success => {
+      if (cameraPending !== image || generation !== cameraGeneration) return;
+      clearTimeout(cameraTimeout); cameraTimeout = null;
+      image.onload = image.onerror = null;
+      cameraPending = null;
+      if (success && image.naturalWidth > 0 && image.naturalHeight > 0) {
+        // The completed image itself replaces the old node: no second download and no blank interval.
+        $('cameraImageHost').replaceChildren(image);
+        cameraFrameAt = performance.now();
+        cameraFailures = 0;
+        cameraError = '';
+        text('cameraResolution', image.naturalWidth + ' × ' + image.naturalHeight);
+        cameraNextAt = cameraFrameAt + CAMERA_INTERVAL_MS;
+      } else {
+        image.removeAttribute('src');
+        ++cameraFailures;
+        cameraError = '暂时无法取得画面，正在重试';
+        cameraNextAt = performance.now() + Math.min(8000, 1000 * Math.pow(2, Math.min(cameraFailures - 1, 3)));
+      }
+      refreshCamera();
+    };
+    image.onload = () => finish(true);
+    image.onerror = () => finish(false);
+    cameraTimeout = setTimeout(() => finish(false), CAMERA_TIMEOUT_MS);
+    try {
+      const url = new URL('/capture.jpg', location.href);
+      url.port = '81';
+      url.username = ''; url.password = ''; url.hash = '';
+      url.searchParams.set('t', String(++cameraRequestSequence) + '-' + Math.floor(performance.now()));
+      image.src = url.href;
+    } catch (_) { finish(false); }
+  }
+  function updateCamera(data) {
+    cameraSnapshot = data.camera && typeof data.camera === 'object' ? data.camera : null;
+    if (!cameraSnapshot) { text('cameraModel', '等待识别'); return; }
+    const pid = number(cameraSnapshot.sensor_pid);
+    text('cameraModel', pid === 0x5640 ? 'OV5640' : pid > 0 ? '传感器 0x' + pid.toString(16).toUpperCase() : cameraInitializationFailure() ? '未识别' : '等待识别');
+    if (cameraFrameAt === null) {
+      const width = number(cameraSnapshot.width), height = number(cameraSnapshot.height);
+      text('cameraResolution', width > 0 && height > 0 ? width + ' × ' + height : '—');
+    }
+  }
+  // This clock advances even while fetch is pending or failing. A retained value is never labelled live forever.
+  function refreshFreshness() {
+    refreshCamera();
+    const now = performance.now();
+    const gap = now - (lastResponseAt === null ? startedAt : lastResponseAt);
+    const baseAge = lastSampleAgeAtResponse;
+    const age = baseAge !== null && baseAge >= 0 ? baseAge + gap : null;
+    const offline = gap >= OFFLINE_MS;
+    const valid = lastResponse !== null && validBattery(lastResponse, lastFields);
+    const live = valid && !offline && !networkFailed && age <= FRESH_MS;
+    toggleClass($('gaugeShell'), 'stale', !live);
+    text('freshnessTag', live ? '实时数据' : lastGoodFields ? '上次读数' : '等待数据');
+    if (live) {
+      const f = lastFields;
+      setConnection('live', '设备已连接');
+      text('freshness', '电池数据 ' + (age / 1000).toFixed(1) + ' 秒前');
+      text('chargeState', chargeText(f));
+      const warning = (Number.parseInt(f.faults || '0', 16) & ~4) !== 0;
+      className('chargeState', 'state-title' + (warning ? ' warning' : f.full === '1' || (f.chg_flag === '1' && f.chg_en === '1') ? ' live' : ''));
+      text('chargeCopy', f.full === '1' ? '芯片已置位充电结束标志。电量仍按区间显示。' : f.chg_en === '0' ? '芯片充电许可当前为关闭状态。' : '来自芯片充电标志，实际流入电池的电流尚不可测量。');
+      text('setMeta', number(f.set_mA) > 0 ? f.verified === '1' ? '名义设定 · 已读回验证' : '名义设定 · 尚未验证' : '未取得有效电流配置');
+      text('usbState', f.usb_sink === '1' ? 'USB 输入：已连接' : 'USB 输入：未检测到');
+      text('busState', '电池通信：正常');
+      return;
+    }
+    setConnection(offline ? 'offline' : 'stale', offline ? '网页连接中断' : !lastResponse && !networkFailed ? '正在连接' : '更新延迟');
+    const ageText = age === null ? '等待有效电池数据' : '电池数据 ' + (age / 1000).toFixed(1) + ' 秒前';
+    text('freshness', offline ? '已 ' + Math.floor(gap / 1000) + ' 秒未收到设备响应，正在重试 · ' + ageText : ageText + ' · 当前状态待确认');
+    // A brief lost response changes the small status indicator, not the whole page headline or layout.
+    text('chargeState', offline ? '连接中断' : lastResponse && !valid ? lastFields.link === 'BUS_ERROR' ? '电池通信异常' : '电池数据无效' : lastGoodFields ? chargeText(lastGoodFields) : '等待电池数据');
+    className('chargeState', 'state-title' + (lastResponse && !valid ? ' warning' : ' stale'));
+    text('chargeCopy', lastGoodFields ? '保留上次读数，等待更新；当前充电状态尚未确认。' : '请确认设备供电与 STM32 串口连接。');
+    text('setMeta', lastGoodFields ? '上次读数 · 当前未确认' : '等待寄存器读回');
+    text('busState', '电池通信：未确认');
+    text('usbState', 'USB 输入：未确认');
+  }
+  function renderBattery(f) {
+    const soc = /^([\[(])(\d+),(\d+)\]%$/.exec(f.soc || '');
+    let selected = -1;
+    if (soc) {
+      const lo = Number(soc[2]), hi = Number(soc[3]);
+      selected = [3, 25, 50, 75, 100].indexOf(hi);
+      text('soc', hi === 3 ? '≤3%' : lo + '–' + hi + '%');
+      text('rangeNote', (soc[1] === '[' ? '不低于 ' : '大于 ') + lo + '%，不超过 ' + hi + '%；高亮格为当前电量档位。');
+      attribute('gauge', 'aria-label', '电量区间 ' + $('soc').textContent + '，区间估计');
+    } else {
+      text('soc', '—'); text('rangeNote', '电量档位不可用。');
+      attribute('gauge', 'aria-label', '电量档位不可用');
+    }
+    cells.forEach((cell, index) => toggleClass(cell, 'active', index === selected));
+    const setting = number(f.set_mA);
+    if (displayedSetting !== setting) {
+      displayedSetting = setting;
+      if (setting !== null && setting > 0) {
+        $('setCurrent').replaceChildren(document.createTextNode(String(setting)), Object.assign(document.createElement('small'), {textContent:'mA'}));
+      } else text('setCurrent', '未确认');
+    }
+    const actual = number(f.actual_mA), voltage = number(f.vbat_mV), temp = number(f.temp_dC);
+    text('actualCurrent', actual === null ? '暂无采样' : actual + ' mA');
+    text('voltage', voltage === null ? '暂无采样' : (voltage / 1000).toFixed(3) + ' V');
+    text('temperature', temp === null ? '未接入' : (temp / 10).toFixed(1) + ' ℃');
+    text('tempMeta', temp === null ? '温度线尚未连接 MCU' : '来自电池温度探头');
+  }
+  function render(data, requestedAt) {
+    lastResponseAt = performance.now();
+    const reportedAge = number(data.uart_age_ms);
+    // Include the full request round trip conservatively: a slow delivery must not rejuvenate an old sample.
+    lastSampleAgeAtResponse = reportedAge !== null && reportedAge >= 0 ? reportedAge + lastResponseAt - requestedAt : null;
+    lastResponse = data;
+    lastFields = fields(data.raw);
+    networkFailed = false;
+    updateCamera(data);
+    text('deviceIp', typeof data.ip === 'string' && data.ip !== '0.0.0.0' ? data.ip : location.hostname);
+    text('ssid', typeof data.ssid === 'string' && data.ssid ? data.ssid : '—');
+    const signal = number(data.rssi);
+    text('rssi', signal !== null && signal < 0 ? signal + ' dBm' + (signal >= -60 ? ' / 良好' : signal >= -75 ? ' / 可用' : ' / 较弱') : '—');
+    text('uptime', duration(data.uptime_ms));
+    logCount(data);
+    const valid = validBattery(data, lastFields);
+    if (valid) {
+      lastGoodFields = lastFields;
+      renderBattery(lastFields);
+    }
+    batteryWarning(lastFields, valid);
+    refreshFreshness();
+  }
+  async function pollStatus() {
+    clearTimeout(statusTimer);
+    if (statusController) { statusRefreshRequested = true; return; }
+    const controller = new AbortController();
+    statusController = controller;
+    statusRefreshRequested = false;
+    const requestedAt = performance.now();
+    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    try {
+      const response = await fetch('/api/status', {cache:'no-store', signal:controller.signal});
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const data = await response.json();
+      if (!data || typeof data !== 'object' || typeof data.raw !== 'string') throw new Error('Invalid status');
+      if (!controller.signal.aborted) render(data, requestedAt);
+    } catch (_) {
+      networkFailed = true;
+      refreshFreshness();
+    } finally {
+      clearTimeout(timeout);
+      statusController = null;
+      statusTimer = setTimeout(pollStatus, statusRefreshRequested ? 0 : document.hidden ? 5000 : 1000);
+    }
+  }
+  const logsWanted = () => $('logs').open && !paused && !document.hidden;
+  async function pollLogs() {
+    clearTimeout(logsTimer);
+    if (!logsWanted()) return;
+    if (logsController) { logsRefreshRequested = true; return; }
+    const controller = new AbortController();
+    logsController = controller;
+    logsRefreshRequested = false;
+    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    try {
+      const response = await fetch('/api/logs', {cache:'no-store', signal:controller.signal});
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const data = await response.json();
+      if (!data || !Array.isArray(data.logs)) throw new Error('Invalid logs');
+      if (controller.signal.aborted || !logsWanted()) return;
+      savedLogs = data.logs.filter(line => typeof line === 'string').slice(-20);
+      logCount(data);
+      if (text('logOutput', savedLogs.length ? savedLogs.join('\n').replace(/\r/g, '') : '等待 STM32 电池日志…')) {
+        $('logOutput').scrollTop = $('logOutput').scrollHeight;
+      }
+      text('logStatus', '保留最近 20 条，状态数据持续更新');
+    } catch (_) {
+      if (logsWanted()) text('logStatus', '日志更新延迟，正在重试；电池状态独立更新');
+    } finally {
+      clearTimeout(timeout);
+      logsController = null;
+      if (logsWanted()) logsTimer = setTimeout(pollLogs, logsRefreshRequested ? 0 : 3000);
+    }
+  }
+  function syncLogs() {
+    clearTimeout(logsTimer);
+    if (logsWanted()) pollLogs();
+    else {
+      logsRefreshRequested = false;
+      if (logsController) logsController.abort();
+    }
+  }
+  $('logs').addEventListener('toggle', syncLogs);
+  $('cameraToggle').addEventListener('click', () => {
+    cameraPaused = !cameraPaused;
+    refreshCamera();
+  });
+  $('pause').addEventListener('click', () => {
+    paused = !paused;
+    text('pause', paused ? '继续日志' : '暂停日志');
+    attribute('pause', 'aria-pressed', String(paused));
+    text('logStatus', paused ? '日志显示已暂停，电池状态仍在更新' : '保留最近 20 条，状态数据持续更新');
+    toggleClass($('logStatus'), 'paused-note', paused);
+    syncLogs();
+  });
+  document.addEventListener('visibilitychange', () => {
+    refreshFreshness();
+    if (!document.hidden) pollStatus();
+    syncLogs();
+  });
+  if (typeof window.addEventListener === 'function') {
+    window.addEventListener('pagehide', () => { cameraPaused = true; cancelCameraRequest(); });
+  }
+  $('copy').addEventListener('click', async () => {
+    if (copying) return;
+    copying = true;
+    const value = $('logOutput').textContent;
+    try {
+      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(value);
+      else {
+        const textarea = document.createElement('textarea');
+        textarea.value = value; textarea.style.cssText = 'position:fixed;left:-9999px;top:0';
+        document.body.appendChild(textarea); textarea.select();
+        const copied = document.execCommand('copy'); textarea.remove();
+        if (!copied) throw new Error('Clipboard unavailable');
+      }
+      text('copy', '已复制');
+    } catch (_) { text('copy', '请选中日志复制'); }
+    setTimeout(() => { text('copy', '复制日志'); copying = false; }, 2000);
+  });
+  setInterval(refreshFreshness, 500);
+  pollStatus();
+})();
+</script>
+</body>
+</html>

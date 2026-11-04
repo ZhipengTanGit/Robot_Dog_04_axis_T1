@@ -1,0 +1,66 @@
+麦克风监听与 ESP I2C 扫描实现记录（2026-10-23）
+
+音频模块：Bsp_Audio.c/.h、Bsp_AudioMonitor.c/.h。
+根集成调用 AudioMonitor_Start(device_id, boot_id)，默认不监听。
+服务器 telemetry 响应 audio_monitor.enabled=true 时调用
+AudioMonitor_SetLease(session_id, expires_in_ms)；false 时 AudioMonitor_Stop()。
+session_id 严格为 16 位十六进制 ASCII；租约 1..15000 ms，非法参数保持原状态。
+相同会话续租保留序号，新会话重置序号并清缓存；租约超时从生产端和消费端共同停止缓存。
+
+音频来源是现有 ES8388/I2S 实际接收的 16 kHz、16-bit stereo 左声道。
+未配置成功或没有近期有效采样，codec_ready=false，不发送 PCM，不生成演示音频。
+仅监听期间存单声道，固定 16000 样本（32000 字节）内存环，无音频文件写入。
+环满丢最旧；每次至多取最新 3200 样本，显式编码 s16le，最旧样本 age 超过 500 ms 则丢弃。
+环由短临界区互斥，HTTP 不持有环锁。采样错误、WiFi 断开、HTTP 失败清积压；不重发失败包。
+HTTP 上传独立优先级 1 任务，每两次尝试至少 200 ms；客户端 timeout_ms=600。
+启动、监听、停止均不自动产生扬声器音调。既有 RMS 与显式低音量诊断音调功能保留。
+
+POST ROBOT_SERVER_URL/api/audio，Authorization 使用本地既有 bearer token（不在本文记录）。
+每次请求显式设置 Content-Type: application/octet-stream。
+头：X-Device-Id、X-Boot-Id、X-Audio-Session、X-Audio-Seq、X-Sample-Rate:16000、
+X-Channels:1、X-Sample-Format:s16le。
+body 为 1..3200 个真实样本（2..6400 字节，偶数），seq 从 0 开始且失败也消耗序号。
+服务端返回 200；ESP 接受 2xx，其余结果均丢包，不跨会话回放。
+停止/会话切换时，已经进入 HTTP 的旧包可能完成，但仍携带旧 session；服务端按当前租约拒绝。
+GetStatus 返回 enabled、codec_ready、state、session_id、lease_remaining_ms、next_seq、
+packets/samples/failed_packets、buffered_samples/dropped_samples/newest_age_ms、
+last_upload_ms/last_packet_age_ms、http_status、error。无 age 时为 UINT32_MAX。
+
+I2C 模块：Bsp_I2cDiagnostics.c/.h。
+I2cDiagnostics_RequestScan(id) 由显式命令触发；id 严格 16 位十六进制 ASCII。
+同最后 id 返回既有结果，不重复扫描；扫描中其他 id 返回 ESP_ERR_INVALID_STATE（BUSY），不排队。
+扫描异步低优先级任务，逐地址 0x08..0x77，仅 i2c_master_probe，不写任何寄存器。
+每个 probe 持有 BoardBus 现有共享互斥锁，20 ms 总线超时；释放后让出调度 10 ms。
+共享锁自身最多等待 5 秒，获取失败即中止本次扫描，不连续重复长等候。
+NACK 计入 nack_count，作为正常无器件，不算 bus error。
+快照含 id/state/running/completed/sequence/started_ms/completed_ms、addresses/count/scanned、
+nack_count/timeout_count/error_count、sda=8/scl=19、error/last_probe_error/last_address、
+codec_ack(0x10)/codec_alternate_ack(0x11)/audio_restart_required。
+ACK 只表示地址应答，不能单凭 ACK 证明器件型号正确。
+当前 Audio_Start 失败后资源状态未设计为可重复初始化，因此扫描不自动重置 ES8388。
+若 0x10 已 ACK 但音频未配置成功，audio_restart_required=true；补焊完成后断电重启再检查。
+
+验证：tests/test_audio_monitor.c，5 组通过：左声道/大小端、环溢出与取最新、age/启停/TTL及毫秒回绕、
+会话参数/续租/序号、会话切换与失败清空。tests/test_i2c_diagnostics.c，4 组通过：
+ACK/NACK、timeout/error、扫描中止、ID/幂等/BUSY/非法参数。
+GCC C11 -Wall -Wextra -Werror，音频定义 AUDIO_PCM_HOST_TEST + AUDIO_MONITOR_HOST_TEST，
+扫描定义 I2C_DIAGNOSTICS_HOST_TEST，包含 tests/audio_stubs 和 Bsp。
+测试仅验证软件逻辑，未据此声称 ES8388 已响应或已有实际可播放声音。
+全 ESP-IDF 构建和实际烧录由根任务统一完成。
+
+USB 监听扩展（同日，用户现采用仅 USB）：
+新增 AudioMonitor_SetSerialLease(id, ttl_ms)、AudioMonitor_StopSerial(id)、
+AudioMonitor_TakeSerialPacket()。根通过 ESP AUDIO_START <id> <ttl_ms> 续租，
+ESP AUDIO_STOP <id> 停止；仅匹配当前 serial session 的 Stop 生效。
+有效串口租约优先，HTTP SetLease/Stop 不能误改该串口会话；串口到期转 OFF。
+OFF/SERIAL 状态的 monitor task 不调用任何 WiFi/netif 状态查询，无需初始化网络。
+PCM 与前述来源/清空规则相同，未就绪绝不伪造。UART0 提升至 921600，STM UART1 仍 115200。
+唯一 UART0 writer 在日志边界调用 TakeSerialPacket，每 200 ms 最多返回一包。
+返回 JSON 字段：session_id、seq、sample_rate=16000、channels=1、format="s16le"、data=base64。
+外层 ESP_AUDIO 前缀和 CRLF 由 UART writer 添加，返回值使用 cJSON_free 释放。
+内存一次分配 15200 字节（8800 JSON + 6400 临时 PCM），不在 6144 字节任务栈放 PCM/base64 大数组。
+STATUS.transport 为 off/http/serial；串口 packets/samples 表示交给 UART writer 的包/样本数，
+不能证明电脑已经收妥。上位机仍需校验 session/seq/实际 PCM 长度；音频不进普通日志/JSONL。
+新增传输优先级、旧 Stop 隔离、续租/到期、JSON/base64 边界测试，C 测试共 7 组通过。
+tests/test_audio_serial_encoding.py 将生产 C 格式化函数生成的全部 3200 种合法包长度
+（2,4,...,6400 字节）交给 Python JSON/base64 独立解码，全部逐字节一致。

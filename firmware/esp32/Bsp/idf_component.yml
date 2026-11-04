@@ -1,0 +1,5 @@
+dependencies:
+  espressif/esp32-camera:
+    path: "../components/esp32-camera"
+  espressif/esp_jpeg:
+    path: "../components/esp_jpeg"
