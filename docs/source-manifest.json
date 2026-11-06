@@ -11464,8 +11464,8 @@
     {
       "path": "README.md",
       "source": "repository-maintained",
-      "size": 7209,
-      "sha256": "b8d1929b7fba9a3a8dc73d56727df44cbd3df7db2acd6ba7a84d687c7c7762a6"
+      "size": 10774,
+      "sha256": "ecada47cd3d140ee115b14c0df0dbd79f64b40154edcd4d6f6fc1cac13595613"
     },
     {
       "path": "STM32-HAL-Debug/README.md",
@@ -12402,6 +12402,252 @@
       "source": "repository-maintained",
       "size": 10662091,
       "sha256": "19226ee5c3fcca83b7ea51d4d4a8779a1b5f6f15dfbf5ae6ecffcb1c78d4036a"
+    },
+    {
+      "path": "docs/images/leg-channel-map.png",
+      "source": "repository-maintained",
+      "size": 91077,
+      "sha256": "964473fd1ea5e22455345a7db46694617e22d40577d932c415153bcab39a1325"
+    },
+    {
+      "path": "docs/images/leg-channel-map.svg",
+      "source": "repository-maintained",
+      "size": 8084,
+      "sha256": "33f9b2a7a0590811b287f9c7af3de43bf92d52fcaa703113d8f281d96c2a44cb"
+    },
+    {
+      "path": "docs/images/media-index.json",
+      "source": "repository-maintained",
+      "size": 11100,
+      "sha256": "c61caa6b124395802849de2f46c553d8618dca5998ef76d4dc9c8f1171c5f6d5"
+    },
+    {
+      "path": "docs/images/README.md",
+      "source": "repository-maintained",
+      "size": 6346,
+      "sha256": "58d72c60cf90a1141b6aa865986a3eeb6b0eab3a86769561e28b7c07e10554f4"
+    },
+    {
+      "path": "docs/images/repository-map.png",
+      "source": "repository-maintained",
+      "size": 265281,
+      "sha256": "5f1dbb700513bfc86af539d603fca24aa4bc5e1b6f464336f5693322f50b5548"
+    },
+    {
+      "path": "docs/images/repository-map.svg",
+      "source": "repository-maintained",
+      "size": 12781,
+      "sha256": "7da9a85fc790dfda4ccaec700494f95e8aa17ac342cb00079e90d9921a10da51"
+    },
+    {
+      "path": "docs/images/robot-front.png",
+      "source": "repository-maintained",
+      "size": 185585,
+      "sha256": "a8a667a423665e19bdb60c2fd40454dc7ed55838b00a9919f9986ab7491d278f"
+    },
+    {
+      "path": "docs/images/robot-isometric.png",
+      "source": "repository-maintained",
+      "size": 346725,
+      "sha256": "fb1a0a5120fc1842f5dd70bab3a13795475f490f064dec62e2d5bdeba6e54a29"
+    },
+    {
+      "path": "docs/images/robot-rear.png",
+      "source": "repository-maintained",
+      "size": 203425,
+      "sha256": "3b6a9e7b79192e51e84d743a30c977eaa1d9778bbb3a7dab03e24d3d76df77b2"
+    },
+    {
+      "path": "docs/images/robot-side.png",
+      "source": "repository-maintained",
+      "size": 278005,
+      "sha256": "7e23adfc6765c37480a6a9c57325a07b015fc5ecb83955c0897d82be7cfa1288"
+    },
+    {
+      "path": "docs/images/robot-top.png",
+      "source": "repository-maintained",
+      "size": 215889,
+      "sha256": "f67112c25290470e1a06d25c7e21649735e1e428ab9a180b3e9dd3a258f2b02b"
+    },
+    {
+      "path": "docs/images/schematic-01-esp32.png",
+      "source": "repository-maintained",
+      "size": 272463,
+      "sha256": "93b67f3ffa4c2fa44d256e8fb522d6b821eb2111962dd5ec219fea48252d4492"
+    },
+    {
+      "path": "docs/images/schematic-02-stm32.png",
+      "source": "repository-maintained",
+      "size": 298330,
+      "sha256": "6b744f7987dbf95e2a3a79260a5b4ebf38d92a4446aa99dccbabdec91ff47a77"
+    },
+    {
+      "path": "docs/images/schematic-03-interfaces.png",
+      "source": "repository-maintained",
+      "size": 287250,
+      "sha256": "6334ee9ef12715186fb3dfad4c1ddefcd965d41935180a1364be4e8b359b9bce"
+    },
+    {
+      "path": "docs/images/schematic-04-charging.png",
+      "source": "repository-maintained",
+      "size": 295014,
+      "sha256": "5e3093a1dcf47aa196d69628d9eedf8354fe8980fe9796486411880e687e0845"
+    },
+    {
+      "path": "docs/images/schematic-05-regulators.png",
+      "source": "repository-maintained",
+      "size": 173245,
+      "sha256": "33d4570cd3220f511244504b21f76cc9439a88e77d18036d093f8c5c56a53cfb"
+    },
+    {
+      "path": "docs/images/schematic-06-camera.png",
+      "source": "repository-maintained",
+      "size": 372836,
+      "sha256": "51c7c9963bf12438b5886c5f7409b699c050b186d79ffa6b5254ab3234b05617"
+    },
+    {
+      "path": "docs/images/schematic-07-audio.png",
+      "source": "repository-maintained",
+      "size": 204907,
+      "sha256": "ff4cb04c4a03977d967f9b2547c8d4efbf58071f70b6a2e41712f385f4009821"
+    },
+    {
+      "path": "docs/images/schematic-08-sensors.png",
+      "source": "repository-maintained",
+      "size": 116152,
+      "sha256": "400a87a9c391690bed13aed7890f4ce0a9bf475f3169f8fc5b62126123126c4a"
+    },
+    {
+      "path": "docs/images/schematic-09-servo-power.png",
+      "source": "repository-maintained",
+      "size": 155633,
+      "sha256": "9cbb71d680b037141bc9d8dd1c61dacf9eadf492f216a9f4f8dae4d54fa98813"
+    },
+    {
+      "path": "docs/images/studio-color-apricot.png",
+      "source": "repository-maintained",
+      "size": 176204,
+      "sha256": "eda38437589aad45c9b94c07e00ed88640c058a96827aa108175e7f316e55bf9"
+    },
+    {
+      "path": "docs/images/studio-color-moss.png",
+      "source": "repository-maintained",
+      "size": 177576,
+      "sha256": "3ac0bd6ee570594ebed2a6b8969b5efbb4252a71eaa0fcf6722c9719b3b05f38"
+    },
+    {
+      "path": "docs/images/studio-exploded.png",
+      "source": "repository-maintained",
+      "size": 245476,
+      "sha256": "984b8343ada2d81397b7a0630a1d36a39e54db05fb454fcf1e1355b287ebbd20"
+    },
+    {
+      "path": "docs/images/studio-original-front.png",
+      "source": "repository-maintained",
+      "size": 146467,
+      "sha256": "019476a6baee13ccb78eaf778ef9ceb4041ce56b8c50ea8bd236438a9dc8cd78"
+    },
+    {
+      "path": "docs/images/studio-original-isometric.png",
+      "source": "repository-maintained",
+      "size": 175471,
+      "sha256": "700914da8b8dd2104a6264056332d54dbcd4cfc95c34cc3dc72b365177948567"
+    },
+    {
+      "path": "docs/images/studio-original-side.png",
+      "source": "repository-maintained",
+      "size": 163942,
+      "sha256": "5e96178d490c671d1a1dff4b0f7ad8c25cef3c399cea1ea09c7310d3d1c37994"
+    },
+    {
+      "path": "docs/images/studio-original-top.png",
+      "source": "repository-maintained",
+      "size": 151452,
+      "sha256": "ebde84df0e6a3db5e2f06621c830738da0d483c624b735b8b3a1a42363bdfc60"
+    },
+    {
+      "path": "docs/images/studio-workbench.png",
+      "source": "repository-maintained",
+      "size": 139151,
+      "sha256": "4b95350ad3aa11c5f202f4478dac160d9fc2829c7bf73277c39c1b1d70aae989"
+    },
+    {
+      "path": "docs/images/system-overview.png",
+      "source": "repository-maintained",
+      "size": 156941,
+      "sha256": "6924f52100d485dbb1061295213dd6203aaf9205ed3f93ecdf3f9b904c9fc53a"
+    },
+    {
+      "path": "docs/images/system-overview.svg",
+      "source": "repository-maintained",
+      "size": 9496,
+      "sha256": "c8f54f4273f9c60fa763885c8bfa2ab139ba06ee2dd1a2b1da781b4139c23c69"
+    },
+    {
+      "path": "docs/images/training-displacement.png",
+      "source": "repository-maintained",
+      "size": 166206,
+      "sha256": "b169fa249835c9da3690d05d11301eead5e16b0cc995a45b259e2a3f418176cd"
+    },
+    {
+      "path": "docs/images/training-displacement.svg",
+      "source": "repository-maintained",
+      "size": 50612,
+      "sha256": "226ef09d28870ead6e056739286399bb68555898b51a1dbaf63e2ac9236d970e"
+    },
+    {
+      "path": "docs/images/training-foot-contact.png",
+      "source": "repository-maintained",
+      "size": 279658,
+      "sha256": "5e7d3cc086800388f730dd13a437b713ced305cdb2ce531922c298aa735aea23"
+    },
+    {
+      "path": "docs/images/training-foot-contact.svg",
+      "source": "repository-maintained",
+      "size": 247227,
+      "sha256": "326bab370ea5cea3418d9927eae5f9d4d6edbc1d25e7729a60e640eb0754bcca"
+    },
+    {
+      "path": "docs/images/training-joint-angles.png",
+      "source": "repository-maintained",
+      "size": 260546,
+      "sha256": "7f731c23721244def3882d0c127241cfb25b17829efd3d64a280e6bed8684a68"
+    },
+    {
+      "path": "docs/images/training-joint-angles.svg",
+      "source": "repository-maintained",
+      "size": 34457,
+      "sha256": "060589fbd9e14b9394cbb2903ff34c88fdd50871f76f8c79c52ef0694fa8616d"
+    },
+    {
+      "path": "docs/images/workbench-actions.png",
+      "source": "repository-maintained",
+      "size": 108447,
+      "sha256": "16dba637b0b477cccbfabfa88ad0b9a0e89197ab18e1904dd53a9d5fea3762d5"
+    },
+    {
+      "path": "docs/images/workbench-servos.png",
+      "source": "repository-maintained",
+      "size": 139086,
+      "sha256": "0b84f1d9846fd3c8b9519cf9633e0abd1bbeee3ff34da3821776e8cf390d8846"
+    },
+    {
+      "path": "docs/images/workbench-teaching.png",
+      "source": "repository-maintained",
+      "size": 109712,
+      "sha256": "937850f57591be75b037a82b184628b80e6a86546df4f695d53b7abc50d42004"
+    },
+    {
+      "path": "docs/images/source-data/gait-evaluation.json",
+      "source": "repository-maintained",
+      "size": 13400,
+      "sha256": "418cbf21fc3e9e1ecdf06e30016004a22ccfa42f7be4d2658b1302d3933063fc"
+    },
+    {
+      "path": "docs/images/source-data/gait-trace.csv",
+      "source": "repository-maintained",
+      "size": 350560,
+      "sha256": "e79d70f13d065a30392cbdbcf631bc230316261b9363942a7debf61913e44006"
     }
   ]
 }

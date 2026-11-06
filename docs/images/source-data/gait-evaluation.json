@@ -1,0 +1,468 @@
+{
+  "active": {
+    "mode": "active",
+    "duration_s": 20.0,
+    "forward_distance_m": 0.7804509434414862,
+    "steady_forward_distance_m": 0.7637440674348287,
+    "mean_speed_m_s": 0.04132814217720979,
+    "side_drift_m": -0.011801237758106266,
+    "max_abs_side_m": 0.014505335962483481,
+    "yaw_end_deg": -3.3493869291714664,
+    "max_tilt_deg": 3.735882111820517,
+    "min_root_height_m": 0.04244565461266938,
+    "fallen": false,
+    "torso_ground_contact_fraction": 0.0,
+    "nonfoot_ground_contact_fraction": 0.0,
+    "all_feet_unloaded_fraction": 0.0,
+    "normal_force_weighted_foot_slip_m_s": 0.010203791141017588,
+    "per_foot_slip_m_s": [
+      0.009663855775195879,
+      0.010443075605230268,
+      0.009367581395745412,
+      0.011561700051622362
+    ],
+    "foot_contact_fraction": [
+      0.667027027027027,
+      0.6767567567567567,
+      0.6,
+      0.5935135135135136
+    ],
+    "sustained_lift_count": [
+      15,
+      15,
+      16,
+      16
+    ],
+    "max_foot_clearance_m": [
+      0.0021017480452668897,
+      0.0021303898299373297,
+      0.0019923769735869087,
+      0.003791900555619991
+    ],
+    "max_actuator_torque_nm": 0.08,
+    "max_joint_speed_deg_s": 178.73106593748074,
+    "absolute_mechanical_work_j": 3.511876359903042,
+    "per_servo_actual_angle_range_deg": [
+      [
+        70.77412842958147,
+        106.27621615836304
+      ],
+      [
+        73.89436302947865,
+        109.12262939609724
+      ],
+      [
+        85.25489547159418,
+        118.7774459388317
+      ],
+      [
+        64.02156299964531,
+        98.2142136748907
+      ]
+    ],
+    "max_target_rate_deg_s": 180.00000000000009,
+    "friction_scale": 1.0,
+    "mass_scale": 1.0,
+    "final_five_seconds_progress_m": 0.2073849886240754
+  },
+  "neutral_baseline": {
+    "mode": "neutral",
+    "duration_s": 20.0,
+    "forward_distance_m": 0.00010568177589395941,
+    "steady_forward_distance_m": -5.1650978557127997e-08,
+    "mean_speed_m_s": -2.7949663721389907e-09,
+    "side_drift_m": -0.00011162853556694039,
+    "max_abs_side_m": 0.00015914886792414495,
+    "yaw_end_deg": 0.03632669323443537,
+    "max_tilt_deg": 0.3280850612341378,
+    "min_root_height_m": 0.04353756144447435,
+    "fallen": false,
+    "torso_ground_contact_fraction": 0.0,
+    "nonfoot_ground_contact_fraction": 0.0,
+    "all_feet_unloaded_fraction": 0.0,
+    "normal_force_weighted_foot_slip_m_s": 2.5572800216196417e-08,
+    "per_foot_slip_m_s": [
+      1.1484557226825589e-08,
+      4.242591294260781e-08,
+      8.768772966720336e-09,
+      4.0012922234832894e-08
+    ],
+    "foot_contact_fraction": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "sustained_lift_count": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "max_foot_clearance_m": [
+      -8.054353051602323e-05,
+      -4.9664127953625604e-05,
+      -4.905941914706835e-05,
+      -7.51593845810675e-05
+    ],
+    "max_actuator_torque_nm": 0.005040919217419963,
+    "max_joint_speed_deg_s": 6.769525430546335,
+    "absolute_mechanical_work_j": 2.345724489089208e-05,
+    "per_servo_actual_angle_range_deg": [
+      [
+        89.92084131672878,
+        90.0518692946554
+      ],
+      [
+        89.97223212898356,
+        90.0298032009297
+      ],
+      [
+        89.96147703690016,
+        90.04904686540542
+      ],
+      [
+        89.97604574063642,
+        90.14136550579248
+      ]
+    ],
+    "max_target_rate_deg_s": 0.0,
+    "friction_scale": 1.0,
+    "mass_scale": 1.0,
+    "final_five_seconds_progress_m": 6.941128884228702e-10
+  },
+  "freeze_at_10s": {
+    "mode": "freeze",
+    "duration_s": 20.0,
+    "forward_distance_m": 0.36604658802883255,
+    "steady_forward_distance_m": 0.34933971202217495,
+    "mean_speed_m_s": 0.018903664070464215,
+    "side_drift_m": 0.0005187381998503013,
+    "max_abs_side_m": 0.004960080517528098,
+    "yaw_end_deg": -0.387164006573251,
+    "max_tilt_deg": 3.7289835818777233,
+    "min_root_height_m": 0.042453305981489095,
+    "fallen": false,
+    "torso_ground_contact_fraction": 0.0,
+    "nonfoot_ground_contact_fraction": 0.0,
+    "all_feet_unloaded_fraction": 0.0,
+    "normal_force_weighted_foot_slip_m_s": 0.004545613786955562,
+    "per_foot_slip_m_s": [
+      0.006736479123016255,
+      0.004028555570252696,
+      0.0024757236809646553,
+      0.00995647030828007
+    ],
+    "foot_contact_fraction": [
+      0.8454054054054054,
+      0.8497297297297297,
+      0.8097297297297297,
+      0.2745945945945946
+    ],
+    "sustained_lift_count": [
+      7,
+      7,
+      7,
+      8
+    ],
+    "max_foot_clearance_m": [
+      0.0019565824418791835,
+      0.002112750149143041,
+      0.0019627194638550125,
+      0.003791900555619991
+    ],
+    "max_actuator_torque_nm": 0.08,
+    "max_joint_speed_deg_s": 178.6306337855584,
+    "absolute_mechanical_work_j": 1.6346569462888028,
+    "per_servo_actual_angle_range_deg": [
+      [
+        70.77412842958147,
+        106.27621615836304
+      ],
+      [
+        73.89436302947865,
+        109.12262939609724
+      ],
+      [
+        85.29871635096228,
+        118.77733917220988
+      ],
+      [
+        64.03468609578405,
+        98.21228256222324
+      ]
+    ],
+    "max_target_rate_deg_s": 180.00000000000009,
+    "friction_scale": 1.0,
+    "mass_scale": 1.0,
+    "final_five_seconds_progress_m": 8.681463325999061e-10,
+    "progress_after_freeze_last5_m": 8.681463325999061e-10
+  },
+  "model_parameters": "ESTIMATED_NOT_MEASURED",
+  "perturbation_trials": [
+    {
+      "mode": "active",
+      "duration_s": 20.0,
+      "forward_distance_m": 0.776357621354938,
+      "steady_forward_distance_m": 0.7599924188518233,
+      "mean_speed_m_s": 0.04112513089025062,
+      "side_drift_m": -0.008575954915150402,
+      "max_abs_side_m": 0.011254556440130306,
+      "yaw_end_deg": -3.42085143293516,
+      "max_tilt_deg": 3.721650566892901,
+      "min_root_height_m": 0.04244907060000451,
+      "fallen": false,
+      "torso_ground_contact_fraction": 0.0,
+      "nonfoot_ground_contact_fraction": 0.0,
+      "all_feet_unloaded_fraction": 0.0,
+      "normal_force_weighted_foot_slip_m_s": 0.010573272710106612,
+      "per_foot_slip_m_s": [
+        0.010874189808541832,
+        0.010538064724551264,
+        0.009448535961195468,
+        0.011309812476700157
+      ],
+      "foot_contact_fraction": [
+        0.6378378378378379,
+        0.654054054054054,
+        0.5967567567567568,
+        0.5881081081081081
+      ],
+      "sustained_lift_count": [
+        15,
+        15,
+        15,
+        16
+      ],
+      "max_foot_clearance_m": [
+        0.00211629955157663,
+        0.0021570773509025937,
+        0.001975483530249373,
+        0.0038688915169692627
+      ],
+      "max_actuator_torque_nm": 0.08,
+      "max_joint_speed_deg_s": 178.64245386820062,
+      "absolute_mechanical_work_j": 3.4680891229686184,
+      "per_servo_actual_angle_range_deg": [
+        [
+          70.84462449931131,
+          106.27860040807343
+        ],
+        [
+          73.89591480855142,
+          109.01420431800338
+        ],
+        [
+          85.38014250488797,
+          118.77752987345265
+        ],
+        [
+          64.02177355402087,
+          98.21197868658962
+        ]
+      ],
+      "max_target_rate_deg_s": 180.00000000000009,
+      "friction_scale": 0.8,
+      "mass_scale": 1,
+      "final_five_seconds_progress_m": 0.20654920427872092
+    },
+    {
+      "mode": "active",
+      "duration_s": 20.0,
+      "forward_distance_m": 0.7799860082965999,
+      "steady_forward_distance_m": 0.7632306072164544,
+      "mean_speed_m_s": 0.04130035753335837,
+      "side_drift_m": -0.015009493783930301,
+      "max_abs_side_m": 0.01768915125804765,
+      "yaw_end_deg": -3.551868396843265,
+      "max_tilt_deg": 3.7488314027305147,
+      "min_root_height_m": 0.04244188486753533,
+      "fallen": false,
+      "torso_ground_contact_fraction": 0.0,
+      "nonfoot_ground_contact_fraction": 0.0,
+      "all_feet_unloaded_fraction": 0.0,
+      "normal_force_weighted_foot_slip_m_s": 0.010007415183129663,
+      "per_foot_slip_m_s": [
+        0.010507956983302476,
+        0.009759586695743465,
+        0.009705487190127714,
+        0.009853096554459971
+      ],
+      "foot_contact_fraction": [
+        0.6972972972972973,
+        0.6756756756756757,
+        0.585945945945946,
+        0.5881081081081081
+      ],
+      "sustained_lift_count": [
+        15,
+        15,
+        15,
+        16
+      ],
+      "max_foot_clearance_m": [
+        0.0019826079389946025,
+        0.002106056919088624,
+        0.002005578872909088,
+        0.003937748633046374
+      ],
+      "max_actuator_torque_nm": 0.08,
+      "max_joint_speed_deg_s": 178.73443577966896,
+      "absolute_mechanical_work_j": 3.5396940299189747,
+      "per_servo_actual_angle_range_deg": [
+        [
+          70.69114125131112,
+          106.27561342624315
+        ],
+        [
+          73.90198345494001,
+          109.21109297526586
+        ],
+        [
+          85.27449690202995,
+          118.77726090440319
+        ],
+        [
+          64.02169376706308,
+          98.21291774408667
+        ]
+      ],
+      "max_target_rate_deg_s": 180.00000000000009,
+      "friction_scale": 1.2,
+      "mass_scale": 1,
+      "final_five_seconds_progress_m": 0.2069391988335625
+    },
+    {
+      "mode": "active",
+      "duration_s": 20.0,
+      "forward_distance_m": 0.7746143933744442,
+      "steady_forward_distance_m": 0.7596000637445469,
+      "mean_speed_m_s": 0.04110389955327679,
+      "side_drift_m": -0.015583070572799168,
+      "max_abs_side_m": 0.018563409093136227,
+      "yaw_end_deg": -3.579668431260089,
+      "max_tilt_deg": 3.760369095305153,
+      "min_root_height_m": 0.042452776767225205,
+      "fallen": false,
+      "torso_ground_contact_fraction": 0.0,
+      "nonfoot_ground_contact_fraction": 0.0,
+      "all_feet_unloaded_fraction": 0.0,
+      "normal_force_weighted_foot_slip_m_s": 0.010708714346873004,
+      "per_foot_slip_m_s": [
+        0.011258949310247898,
+        0.010640012779073168,
+        0.009402246514289506,
+        0.0112309876164908
+      ],
+      "foot_contact_fraction": [
+        0.652972972972973,
+        0.6562162162162162,
+        0.5924324324324325,
+        0.585945945945946
+      ],
+      "sustained_lift_count": [
+        15,
+        15,
+        15,
+        16
+      ],
+      "max_foot_clearance_m": [
+        0.0021889446633108134,
+        0.002154419092031681,
+        0.0019622339770685978,
+        0.00382180708672132
+      ],
+      "max_actuator_torque_nm": 0.08,
+      "max_joint_speed_deg_s": 178.25545084385715,
+      "absolute_mechanical_work_j": 3.482521290188317,
+      "per_servo_actual_angle_range_deg": [
+        [
+          70.83035819162524,
+          106.27252861966426
+        ],
+        [
+          73.89996778692026,
+          109.03788366738125
+        ],
+        [
+          85.33508743469356,
+          118.77482321673764
+        ],
+        [
+          64.0266559510132,
+          98.21746918404483
+        ]
+      ],
+      "max_target_rate_deg_s": 180.00000000000009,
+      "friction_scale": 1,
+      "mass_scale": 0.9,
+      "final_five_seconds_progress_m": 0.2068585825927174
+    },
+    {
+      "mode": "active",
+      "duration_s": 20.0,
+      "forward_distance_m": 0.783694935026403,
+      "steady_forward_distance_m": 0.7671221968603271,
+      "mean_speed_m_s": 0.04151094138854629,
+      "side_drift_m": -0.012626862520747704,
+      "max_abs_side_m": 0.015507103642880658,
+      "yaw_end_deg": -2.9436894103438207,
+      "max_tilt_deg": 3.7648269488252377,
+      "min_root_height_m": 0.04244266967581944,
+      "fallen": false,
+      "torso_ground_contact_fraction": 0.0,
+      "nonfoot_ground_contact_fraction": 0.0,
+      "all_feet_unloaded_fraction": 0.0,
+      "normal_force_weighted_foot_slip_m_s": 0.009009230324434002,
+      "per_foot_slip_m_s": [
+        0.00863953615051923,
+        0.009825039627047588,
+        0.008177916392440551,
+        0.009083290255044313
+      ],
+      "foot_contact_fraction": [
+        0.6432432432432432,
+        0.68,
+        0.6021621621621621,
+        0.5848648648648649
+      ],
+      "sustained_lift_count": [
+        15,
+        15,
+        15,
+        16
+      ],
+      "max_foot_clearance_m": [
+        0.0020029573750937274,
+        0.002111822246752105,
+        0.0019909580221940063,
+        0.003911020976222677
+      ],
+      "max_actuator_torque_nm": 0.08,
+      "max_joint_speed_deg_s": 179.14810173786782,
+      "absolute_mechanical_work_j": 3.5486546894461317,
+      "per_servo_actual_angle_range_deg": [
+        [
+          70.69858834456417,
+          106.28026437578838
+        ],
+        [
+          73.89832917234982,
+          109.16204551726807
+        ],
+        [
+          85.21917640612448,
+          118.78002839650493
+        ],
+        [
+          64.01841404431686,
+          98.20928618045346
+        ]
+      ],
+      "max_target_rate_deg_s": 180.00000000000009,
+      "friction_scale": 1,
+      "mass_scale": 1.1,
+      "final_five_seconds_progress_m": 0.20864604863967717
+    }
+  ]
+}

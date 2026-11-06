@@ -10,9 +10,9 @@ ESP32-S3 × STM32F103RB · TTL 角度反馈 · 网页示教 · MuJoCo 仿真
 
 [快速开始](#快速开始) · [项目导航](#项目导航) · [仿真与训练](#仿真与训练) · [硬件资料](原理图/README.md) · [English](README.en.md)
 
-<img src="docs/images/t1-gait-preview.png" alt="T1 四轴机器狗前进步态的 MuJoCo 仿真连续画面" width="800">
+<img src="docs/images/studio-original-isometric.png" alt="T1 机器狗 Robot Studio 原装配模型立体视图" width="900">
 
-<p><sub>前进步态的物理仿真画面 · <a href="docs/images/t1-gait-preview.gif">查看动态演示</a></sub></p>
+<p><sub>Robot Studio 原装配模型 · <a href="docs/images/README.md">全部图片素材</a> · <a href="docs/images/t1-gait-preview.gif">仿真动态演示</a></sub></p>
 
 </div>
 
@@ -21,6 +21,24 @@ ESP32-S3 × STM32F103RB · TTL 角度反馈 · 网页示教 · MuJoCo 仿真
 T1 是一台四轴桌面机器狗。ESP32-S3 负责联网、摄像头、音频与屏幕交互，STM32F103RB 负责四路 TTL 舵机和电源管理。这个仓库收录固件、网页工作台和硬件资料，并展示基于实际 CAD 几何构建的 MuJoCo 仿真与步态优化进展。仿真源码正在本地开发，待整理后上传。
 
 你可以用网页控制单腿、读取真实角度，释放扭矩后手动摆腿记录动作，也可以在仿真里观察四腿运动、优化步态并回放验证。
+
+## 外观与结构
+
+以下图片由仓库内 Robot Studio 网页的模型和渲染器导出，沿用公网工作台的展示方式。它们是 CAD 模型渲染图，实物外观以实际装配为准。
+
+| 正面 | 侧面 |
+| :---: | :---: |
+| [![正面](docs/images/studio-original-front.png)](docs/images/studio-original-front.png) | [![侧面](docs/images/studio-original-side.png)](docs/images/studio-original-side.png) |
+| **俯视** | **结构爆炸图** |
+| [![俯视](docs/images/studio-original-top.png)](docs/images/studio-original-top.png) | [![爆炸图](docs/images/studio-exploded.png)](docs/images/studio-exploded.png) |
+
+爆炸图用于查看结构层次，展开方向不代表实际拆卸行程。
+
+| 苔原配色 · MOSS | 奶油橘配色 · APRICOT |
+| :---: | :---: |
+| ![苔原配色设计](docs/images/studio-color-moss.png) | ![奶油橘配色设计](docs/images/studio-color-apricot.png) |
+
+配色图展示网页设计方案，不代表已经制作对应颜色的实物。
 
 ## 可以做什么
 
@@ -33,7 +51,13 @@ T1 是一台四轴桌面机器狗。ESP32-S3 负责联网、摄像头、音频�
 | 电源管理 | 充电档位保存、充电呼吸灯与充满指示 |
 | 仿真训练 | 自由机身与地面接触、真实角度只读映射、周期步态优化、物理回放与指标验证 |
 
+![系统功能与通信概览](docs/images/system-overview.png)
+
 ## 项目导航
+
+[![仓库文件框架](docs/images/repository-map.png)](docs/images/repository-map.png)
+
+图中虚线部分为本地开发中的仿真模块，源码待整理上传。各模块文字入口如下：
 
 | 模块 | 入口 | 说明 |
 | :--- | :--- | :--- |
@@ -45,6 +69,18 @@ T1 是一台四轴桌面机器狗。ESP32-S3 负责联网、摄像头、音频�
 | 仿真与训练 | [MuJoCo 开发进展](#仿真与训练) | 已完成本地前进步态仿真，模型、训练源码与复现环境待整理上传 |
 | 器件资料 | [Datasheet](Datasheet/README.md) | 芯片手册、模块资料与舵机协议 |
 | 硬件设计 | [原理图](原理图/README.md) | 原生 EDA 工程、V0.24 原理图导出、BOM 与网表 |
+
+## 网页工作台实览
+
+实际页面截图，包含实时角度回读、模型显示、单腿控制和动作示教。截图反映本地开发状态，可能包含尚未同步到公开源码的新功能。
+
+![动作调试与实时机器狗模型](docs/images/workbench-actions.png)
+
+| 四路 TTL 舵机控制 | 手动示教与动作帧 |
+| :---: | :---: |
+| [![舵机控制页面](docs/images/workbench-servos.png)](docs/images/workbench-servos.png) | [![示教与动作帧页面](docs/images/workbench-teaching.png)](docs/images/workbench-teaching.png) |
+
+[Robot Studio 网页与爆炸图展示](docs/images/studio-workbench.png) · [全部图片与原图索引](docs/images/README.md)
 
 ## 快速开始
 
@@ -96,6 +132,16 @@ npm start
 
 这是低抬脚、短步幅的前进步态，仍有支撑足滑移，**尚未完成实机步态验证**。完整训练记录、对照实验与复现入口将随仿真模块一起整理发布。
 
+![前进步态的物理仿真连续画面](docs/images/t1-gait-preview.png)
+
+![20 秒前进位移与侧偏](docs/images/training-displacement.png)
+
+| 四腿实际仿真角度 | 足地法向支撑力 |
+| :---: | :---: |
+| [![四腿周期角度](docs/images/training-joint-angles.png)](docs/images/training-joint-angles.png) | [![足地接触力](docs/images/training-foot-contact.png)](docs/images/training-foot-contact.png) |
+
+曲线来自已保存的仿真轨迹。[查看绘图数据](docs/images/source-data/gait-trace.csv)；图中的接触力为仿真结果，实物尚未验证对应步态。
+
 后续计划：
 
 - [x] 基于 CAD 的四轴模型与实时角度映射
@@ -105,6 +151,8 @@ npm start
 - [ ] 实机低速验证及动作部署流程
 
 ## 四腿与通道
+
+![四腿通道定位图](docs/images/leg-channel-map.png)
 
 方向以机器狗自身朝向为准。实物目标角度范围为 **0–180°**，回中为 **90°**。
 
@@ -130,6 +178,18 @@ npm start
 - **固件下载版本**：`HTML-WorkBench/User-Web/dist/firmware/` 保留的是 2026-10-29 历史公共包，其中 STM32 为 PWM 测试版，不适用于当前 TTL 舵机。
 - **STM32 设置区**：Flash 最后 2 KiB（`0x0801F800–0x0801FFFF`）保存设备设置，更新应用时需保留。无保存记录时名义充电电流默认 350 mA，板端上限 1850 mA；档位值不等同于实测电流。
 - **设备私有配置**：Wi-Fi 密码、配对密钥、个人动作数据及 Flash / NVS 备份保留在本地，不随源码发布。ESP32 调试版与小智版切换时，按各自分区布局处理，并保留设备有效备份。
+
+## 硬件设计预览
+
+以下预览直接从仓库归档的 V0.24 原理图 PDF 导出，保留原图内容；用于展示现有设计资料。
+
+| ESP32-S3 主控页 | STM32 主控页 |
+| :---: | :---: |
+| [![ESP32 原理图](docs/images/schematic-01-esp32.png)](docs/images/schematic-01-esp32.png) | [![STM32 原理图](docs/images/schematic-02-stm32.png)](docs/images/schematic-02-stm32.png) |
+| **充电与电池管理** | **执行器接口** |
+| [![充电原理图](docs/images/schematic-04-charging.png)](docs/images/schematic-04-charging.png) | [![执行器原理图](docs/images/schematic-09-servo-power.png)](docs/images/schematic-09-servo-power.png) |
+
+其余摄像头、音频、传感器、稳压和接口页面均已导出：[查看全部 9 页原理图预览](docs/images/README.md#原理图预览)。原生工程、PDF、BOM 与网表见 [硬件设计目录](原理图/README.md)。
 
 ## 文档与许可
 

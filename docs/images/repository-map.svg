@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1188pt" height="828pt" viewBox="0 0 1188 828" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-06T22:30:31.446221</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 828
+L 1188 828
+L 1188 0
+L 0 0
+z
+" style="fill: #f5f7fa"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 82.08 457.2
+L 558.72 457.2
+Q 576 457.2 576 439.92
+L 576 193.68
+Q 576 176.4 558.72 176.4
+L 82.08 176.4
+Q 64.8 176.4 64.8 193.68
+L 64.8 439.92
+Q 64.8 457.2 82.08 457.2
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #ffffff; stroke: #d9e2e8; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 90 229.68
+L 108 229.68
+Q 115.2 229.68 115.2 222.48
+L 115.2 209.52
+Q 115.2 202.32 108 202.32
+L 90 202.32
+Q 82.8 202.32 82.8 209.52
+L 82.8 222.48
+Q 82.8 229.68 90 229.68
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #147d82"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 629.28 457.2
+L 1105.92 457.2
+Q 1123.2 457.2 1123.2 439.92
+L 1123.2 193.68
+Q 1123.2 176.4 1105.92 176.4
+L 629.28 176.4
+Q 612 176.4 612 193.68
+L 612 439.92
+Q 612 457.2 629.28 457.2
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #ffffff; stroke: #d9e2e8; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 637.2 229.68
+L 655.2 229.68
+Q 662.4 229.68 662.4 222.48
+L 662.4 209.52
+Q 662.4 202.32 655.2 202.32
+L 637.2 202.32
+Q 630 202.32 630 209.52
+L 630 222.48
+Q 630 229.68 637.2 229.68
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #d06a43"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 82.08 712.8
+L 558.72 712.8
+Q 576 712.8 576 695.52
+L 576 503.28
+Q 576 486 558.72 486
+L 82.08 486
+Q 64.8 486 64.8 503.28
+L 64.8 695.52
+Q 64.8 712.8 82.08 712.8
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #ffffff; stroke: #d9e2e8; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 90 539.28
+L 108 539.28
+Q 115.2 539.28 115.2 532.08
+L 115.2 519.12
+Q 115.2 511.92 108 511.92
+L 90 511.92
+Q 82.8 511.92 82.8 519.12
+L 82.8 532.08
+Q 82.8 539.28 90 539.28
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #5c64b5"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 629.28 712.8
+L 1105.92 712.8
+Q 1123.2 712.8 1123.2 695.52
+L 1123.2 503.28
+Q 1123.2 486 1105.92 486
+L 629.28 486
+Q 612 486 612 503.28
+L 612 695.52
+Q 612 712.8 629.28 712.8
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #ffffff; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #d9e2e8; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 637.2 539.28
+L 655.2 539.28
+Q 662.4 539.28 662.4 532.08
+L 662.4 519.12
+Q 662.4 511.92 655.2 511.92
+L 637.2 511.92
+Q 630 511.92 630 519.12
+L 630 532.08
+Q 630 539.28 637.2 539.28
+z
+" clip-path="url(#p59db6f5dff)" style="fill: #ad852c"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 31px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="64.8" y="82.8" transform="rotate(-0 64.8 82.8)">T1 · 仓库文件框架</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="64.8" y="122.4" transform="rotate(-0 64.8 122.4)">4-axis-robot-dog--t1 / 从固件、网页与硬件资料，到仿真和动作训练。</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="98.64" y="219.630859" transform="rotate(-0 98.64 219.630859)">01</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="129.6" y="210.96" transform="rotate(-0 129.6 210.96)">固件</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #70808c" x="129.6" y="232.56" transform="rotate(-0 129.6 232.56)">FIRMWARE · 两颗主控，各司其职</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #147d82" x="86.4" y="266.4" transform="rotate(-0 86.4 266.4)">ESP32-IDF-Debug/</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="86.4" y="284.4" transform="rotate(-0 86.4 284.4)">ESP32 联网、摄像头、音频、屏幕和调试桥接</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #147d82" x="86.4" y="308.88" transform="rotate(-0 86.4 308.88)">ESP32-IDF-Xiaozhi/</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="86.4" y="326.88" transform="rotate(-0 86.4 326.88)">小智语音应用与板卡适配</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #147d82" x="86.4" y="351.36" transform="rotate(-0 86.4 351.36)">STM32-LSP-Debug/</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="86.4" y="369.36" transform="rotate(-0 86.4 369.36)">STM32 SPL：TTL 舵机、角度反馈、示教和电源管理</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #147d82" x="86.4" y="393.84" transform="rotate(-0 86.4 393.84)">STM32-HAL-Debug/</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="86.4" y="411.84" transform="rotate(-0 86.4 411.84)">HAL 工程预留目录，尚无有效实现</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="645.84" y="219.630859" transform="rotate(-0 645.84 219.630859)">02</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="676.8" y="210.96" transform="rotate(-0 676.8 210.96)">网页工作台</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #70808c" x="676.8" y="232.56" transform="rotate(-0 676.8 232.56)">WEB · 展示、设计与实物调试</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #d06a43" x="633.6" y="266.4" transform="rotate(-0 633.6 266.4)">HTML-WorkBench/</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="633.6" y="284.4" transform="rotate(-0 633.6 284.4)">网页模块统一入口</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #d06a43" x="633.6" y="308.88" transform="rotate(-0 633.6 308.88)">  Debug-Terminal/</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="633.6" y="326.88" transform="rotate(-0 633.6 326.88)">本地 8081：设备调试、舵机控制和动作示教</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #d06a43" x="633.6" y="351.36" transform="rotate(-0 633.6 351.36)">  User-Web/</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="633.6" y="369.36" transform="rotate(-0 633.6 369.36)">用户网页：配色、装配、爆炸图与动作编舞</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="98.64" y="529.230859" transform="rotate(-0 98.64 529.230859)">03</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="129.6" y="520.56" transform="rotate(-0 129.6 520.56)">硬件与资料</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #70808c" x="129.6" y="542.16" transform="rotate(-0 129.6 542.16)">HARDWARE · 从电路到器件说明</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #5c64b5" x="86.4" y="576" transform="rotate(-0 86.4 576)">原理图/</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="86.4" y="594" transform="rotate(-0 86.4 594)">原生 EDA 工程、V0.24 导出、BOM 与网表</text>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #5c64b5" x="86.4" y="618.48" transform="rotate(-0 86.4 618.48)">Datasheet/</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="86.4" y="636.48" transform="rotate(-0 86.4 636.48)">芯片、屏幕、摄像头与舵机通信协议</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #ffffff" x="645.84" y="529.230859" transform="rotate(-0 645.84 529.230859)">04</text>
+   </g>
+   <g id="text_31">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="676.8" y="520.56" transform="rotate(-0 676.8 520.56)">仿真与训练</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #70808c" x="676.8" y="542.16" transform="rotate(-0 676.8 542.16)">SIMULATION · 本地开发中，源码待整理发布</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ad852c" x="633.6" y="576" transform="rotate(-0 633.6 576)">Simulation/MuJoCo/   [待发布]</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="633.6" y="594" transform="rotate(-0 633.6 594)">CAD 几何、MJCF/XML、物理参数与环境配置</text>
+   </g>
+   <g id="text_35">
+    <text style="font-weight: 700; font-size: 13.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #ad852c" x="633.6" y="618.48" transform="rotate(-0 633.6 618.48)">  训练 · 验收 · 回放</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 11.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="633.6" y="636.48" transform="rotate(-0 633.6 636.48)">已完成本地前进步态；后退和转向列为后续任务</text>
+   </g>
+   <g id="text_37">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="64.8" y="763.2" transform="rotate(-0 64.8 763.2)">项目首页：README.md</text>
+   </g>
+   <g id="text_38">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="334.8" y="763.2" transform="rotate(-0 334.8 763.2)">文档与图片：docs/</text>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="637.2" y="763.2" transform="rotate(-0 637.2 763.2)">许可与第三方声明：LICENSE + 各模块声明</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p59db6f5dff">
+   <rect x="18" y="18" width="1152" height="792"/>
+  </clipPath>
+ </defs>
+</svg>

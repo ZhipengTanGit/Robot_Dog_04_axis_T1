@@ -1,0 +1,344 @@
+{
+  "date": "2026-11-06",
+  "notes": [
+    "No physical commands issued during documentation capture.",
+    "Robot Studio renders exported from the repository local copy; remote login was not performed.",
+    "Simulation dynamics parameters are estimates; images and metrics do not establish hardware walking performance.",
+    "Schematic PNGs rendered directly from the archived PDF at scale 2.6."
+  ],
+  "sources": [
+    {
+      "path": "HTML-WorkBench/User-Web/dist/assets/model.json",
+      "sha256": "1ebc4fd2d0ba6e9e138f8dca5b58d7f998b6ad0063562223c27c336c15496bbe"
+    },
+    {
+      "path": "HTML-WorkBench/User-Web/dist/assets/model.bin",
+      "sha256": "9a15e8ea0d8dcbe0d395ab62b6dbfd473fe11d8e9704e5d257bae62c59c45c7d"
+    },
+    {
+      "path": "HTML-WorkBench/User-Web/dist/viewer.js",
+      "sha256": "da79915b3ab4c246050540f4cd182ce4b7da76759d437670fffd7c74d0c4d280"
+    },
+    {
+      "path": "Simulation/MuJoCo/robot_fixed.xml",
+      "sha256": "5ad93739a3784b4c0dc3053cb34a7dbc7ef1a43a72265205cad886583de8eff4"
+    },
+    {
+      "path": "Simulation/MuJoCo/training/final/trace.csv",
+      "sha256": "e79d70f13d065a30392cbdbcf631bc230316261b9363942a7debf61913e44006"
+    },
+    {
+      "path": "Simulation/MuJoCo/training/final/evaluation.json",
+      "sha256": "418cbf21fc3e9e1ecdf06e30016004a22ccfa42f7be4d2658b1302d3933063fc"
+    },
+    {
+      "path": "原理图/Exports/V0.24/PDF_Schematic1_1_2026-10-19_105726-474.pdf",
+      "sha256": "fe3624bbcb0cae9dcfc9cf34a62e2c8b9e3de03d82afc6a5c113e709cbf4ecce"
+    }
+  ],
+  "images": [
+    {
+      "file": "studio-original-isometric.png",
+      "category": "Robot Studio 网页模型",
+      "label": "原色立体主视觉",
+      "width": 2098,
+      "height": 936,
+      "size": 175471,
+      "sha256": "700914da8b8dd2104a6264056332d54dbcd4cfc95c34cc3dc72b365177948567"
+    },
+    {
+      "file": "studio-original-front.png",
+      "category": "Robot Studio 网页模型",
+      "label": "原色正面",
+      "width": 2098,
+      "height": 936,
+      "size": 146467,
+      "sha256": "019476a6baee13ccb78eaf778ef9ceb4041ce56b8c50ea8bd236438a9dc8cd78"
+    },
+    {
+      "file": "studio-original-side.png",
+      "category": "Robot Studio 网页模型",
+      "label": "原色侧面",
+      "width": 2098,
+      "height": 936,
+      "size": 163942,
+      "sha256": "5e96178d490c671d1a1dff4b0f7ad8c25cef3c399cea1ea09c7310d3d1c37994"
+    },
+    {
+      "file": "studio-original-top.png",
+      "category": "Robot Studio 网页模型",
+      "label": "原色俯视",
+      "width": 2098,
+      "height": 936,
+      "size": 151452,
+      "sha256": "ebde84df0e6a3db5e2f06621c830738da0d483c624b735b8b3a1a42363bdfc60"
+    },
+    {
+      "file": "studio-exploded.png",
+      "category": "Robot Studio 网页模型",
+      "label": "原装配结构爆炸图",
+      "width": 2098,
+      "height": 936,
+      "size": 245476,
+      "sha256": "984b8343ada2d81397b7a0630a1d36a39e54db05fb454fcf1e1355b287ebbd20"
+    },
+    {
+      "file": "studio-color-moss.png",
+      "category": "Robot Studio 网页模型",
+      "label": "苔原配色概念",
+      "width": 2098,
+      "height": 936,
+      "size": 177576,
+      "sha256": "3ac0bd6ee570594ebed2a6b8969b5efbb4252a71eaa0fcf6722c9719b3b05f38"
+    },
+    {
+      "file": "studio-color-apricot.png",
+      "category": "Robot Studio 网页模型",
+      "label": "奶油橘配色概念",
+      "width": 2098,
+      "height": 936,
+      "size": 176204,
+      "sha256": "eda38437589aad45c9b94c07e00ed88640c058a96827aa108175e7f316e55bf9"
+    },
+    {
+      "file": "studio-workbench.png",
+      "category": "Robot Studio 网页模型",
+      "label": "Robot Studio 网页实览",
+      "width": 2552,
+      "height": 1227,
+      "size": 139151,
+      "sha256": "4b95350ad3aa11c5f202f4478dac160d9fc2829c7bf73277c39c1b1d70aae989"
+    },
+    {
+      "file": "repository-map.png",
+      "category": "文件框架与功能示意",
+      "label": "仓库文件框架",
+      "width": 2310,
+      "height": 1610,
+      "size": 265281,
+      "sha256": "5f1dbb700513bfc86af539d603fca24aa4bc5e1b6f464336f5693322f50b5548",
+      "vector": "repository-map.svg"
+    },
+    {
+      "file": "system-overview.png",
+      "category": "文件框架与功能示意",
+      "label": "系统职责与通信概览",
+      "width": 2310,
+      "height": 1190,
+      "size": 156941,
+      "sha256": "6924f52100d485dbb1061295213dd6203aaf9205ed3f93ecdf3f9b904c9fc53a",
+      "vector": "system-overview.svg"
+    },
+    {
+      "file": "leg-channel-map.png",
+      "category": "文件框架与功能示意",
+      "label": "四腿通道定位",
+      "width": 2310,
+      "height": 1190,
+      "size": 91077,
+      "sha256": "964473fd1ea5e22455345a7db46694617e22d40577d932c415153bcab39a1325",
+      "vector": "leg-channel-map.svg"
+    },
+    {
+      "file": "workbench-actions.png",
+      "category": "本地调试网页",
+      "label": "动作调试与实时模型",
+      "width": 2537,
+      "height": 1267,
+      "size": 108447,
+      "sha256": "16dba637b0b477cccbfabfa88ad0b9a0e89197ab18e1904dd53a9d5fea3762d5"
+    },
+    {
+      "file": "workbench-servos.png",
+      "category": "本地调试网页",
+      "label": "四路 TTL 控制",
+      "width": 2537,
+      "height": 1267,
+      "size": 139086,
+      "sha256": "0b84f1d9846fd3c8b9519cf9633e0abd1bbeee3ff34da3821776e8cf390d8846"
+    },
+    {
+      "file": "workbench-teaching.png",
+      "category": "本地调试网页",
+      "label": "手动示教与动作帧",
+      "width": 2537,
+      "height": 1267,
+      "size": 109712,
+      "sha256": "937850f57591be75b037a82b184628b80e6a86546df4f695d53b7abc50d42004"
+    },
+    {
+      "file": "robot-isometric.png",
+      "category": "MuJoCo 模型视图",
+      "label": "MuJoCo 立体视图",
+      "width": 1440,
+      "height": 1000,
+      "size": 346725,
+      "sha256": "fb1a0a5120fc1842f5dd70bab3a13795475f490f064dec62e2d5bdeba6e54a29"
+    },
+    {
+      "file": "robot-front.png",
+      "category": "MuJoCo 模型视图",
+      "label": "MuJoCo 正面",
+      "width": 1440,
+      "height": 1000,
+      "size": 185585,
+      "sha256": "a8a667a423665e19bdb60c2fd40454dc7ed55838b00a9919f9986ab7491d278f"
+    },
+    {
+      "file": "robot-side.png",
+      "category": "MuJoCo 模型视图",
+      "label": "MuJoCo 侧面",
+      "width": 1440,
+      "height": 1000,
+      "size": 278005,
+      "sha256": "7e23adfc6765c37480a6a9c57325a07b015fc5ecb83955c0897d82be7cfa1288"
+    },
+    {
+      "file": "robot-rear.png",
+      "category": "MuJoCo 模型视图",
+      "label": "MuJoCo 背面",
+      "width": 1440,
+      "height": 1000,
+      "size": 203425,
+      "sha256": "3b6a9e7b79192e51e84d743a30c977eaa1d9778bbb3a7dab03e24d3d76df77b2"
+    },
+    {
+      "file": "robot-top.png",
+      "category": "MuJoCo 模型视图",
+      "label": "MuJoCo 俯视",
+      "width": 1440,
+      "height": 1000,
+      "size": 215889,
+      "sha256": "f67112c25290470e1a06d25c7e21649735e1e428ab9a180b3e9dd3a258f2b02b"
+    },
+    {
+      "file": "t1-gait-preview.png",
+      "category": "仿真与训练结果",
+      "label": "前进步态连续画面",
+      "width": 1440,
+      "height": 960,
+      "size": 322869,
+      "sha256": "9c1805c96a08b4bc38afd620a378da19a23f0a5524e805653650c56cdd84116d"
+    },
+    {
+      "file": "t1-gait-preview.gif",
+      "category": "仿真与训练结果",
+      "label": "前进步态动态演示",
+      "width": 720,
+      "height": 480,
+      "size": 10662091,
+      "sha256": "19226ee5c3fcca83b7ea51d4d4a8779a1b5f6f15dfbf5ae6ecffcb1c78d4036a"
+    },
+    {
+      "file": "training-displacement.png",
+      "category": "仿真与训练结果",
+      "label": "前进位移与侧偏",
+      "width": 2158,
+      "height": 900,
+      "size": 166206,
+      "sha256": "b169fa249835c9da3690d05d11301eead5e16b0cc995a45b259e2a3f418176cd",
+      "vector": "training-displacement.svg"
+    },
+    {
+      "file": "training-joint-angles.png",
+      "category": "仿真与训练结果",
+      "label": "四腿实际仿真角度",
+      "width": 2158,
+      "height": 922,
+      "size": 260546,
+      "sha256": "7f731c23721244def3882d0c127241cfb25b17829efd3d64a280e6bed8684a68",
+      "vector": "training-joint-angles.svg"
+    },
+    {
+      "file": "training-foot-contact.png",
+      "category": "仿真与训练结果",
+      "label": "仿真足地接触力",
+      "width": 2158,
+      "height": 1239,
+      "size": 279658,
+      "sha256": "5e7d3cc086800388f730dd13a437b713ced305cdb2ce531922c298aa735aea23",
+      "vector": "training-foot-contact.svg"
+    },
+    {
+      "file": "schematic-01-esp32.png",
+      "category": "原理图预览",
+      "label": "第 1 页 · ESP32",
+      "width": 2208,
+      "height": 1562,
+      "size": 272463,
+      "sha256": "93b67f3ffa4c2fa44d256e8fb522d6b821eb2111962dd5ec219fea48252d4492"
+    },
+    {
+      "file": "schematic-02-stm32.png",
+      "category": "原理图预览",
+      "label": "第 2 页 · STM32",
+      "width": 2208,
+      "height": 1562,
+      "size": 298330,
+      "sha256": "6b744f7987dbf95e2a3a79260a5b4ebf38d92a4446aa99dccbabdec91ff47a77"
+    },
+    {
+      "file": "schematic-03-interfaces.png",
+      "category": "原理图预览",
+      "label": "第 3 页 · 接口",
+      "width": 2208,
+      "height": 1562,
+      "size": 287250,
+      "sha256": "6334ee9ef12715186fb3dfad4c1ddefcd965d41935180a1364be4e8b359b9bce"
+    },
+    {
+      "file": "schematic-04-charging.png",
+      "category": "原理图预览",
+      "label": "第 4 页 · 充电与电池",
+      "width": 2208,
+      "height": 1562,
+      "size": 295014,
+      "sha256": "5e3093a1dcf47aa196d69628d9eedf8354fe8980fe9796486411880e687e0845"
+    },
+    {
+      "file": "schematic-05-regulators.png",
+      "category": "原理图预览",
+      "label": "第 5 页 · 稳压供电",
+      "width": 2208,
+      "height": 1562,
+      "size": 173245,
+      "sha256": "33d4570cd3220f511244504b21f76cc9439a88e77d18036d093f8c5c56a53cfb"
+    },
+    {
+      "file": "schematic-06-camera.png",
+      "category": "原理图预览",
+      "label": "第 6 页 · 摄像头",
+      "width": 2208,
+      "height": 1562,
+      "size": 372836,
+      "sha256": "51c7c9963bf12438b5886c5f7409b699c050b186d79ffa6b5254ab3234b05617"
+    },
+    {
+      "file": "schematic-07-audio.png",
+      "category": "原理图预览",
+      "label": "第 7 页 · 音频",
+      "width": 2208,
+      "height": 1562,
+      "size": 204907,
+      "sha256": "ff4cb04c4a03977d967f9b2547c8d4efbf58071f70b6a2e41712f385f4009821"
+    },
+    {
+      "file": "schematic-08-sensors.png",
+      "category": "原理图预览",
+      "label": "第 8 页 · 传感器",
+      "width": 2208,
+      "height": 1562,
+      "size": 116152,
+      "sha256": "400a87a9c391690bed13aed7890f4ce0a9bf475f3169f8fc5b62126123126c4a"
+    },
+    {
+      "file": "schematic-09-servo-power.png",
+      "category": "原理图预览",
+      "label": "第 9 页 · 执行器接口",
+      "width": 2208,
+      "height": 1562,
+      "size": 155633,
+      "sha256": "9cbb71d680b037141bc9d8dd1c61dacf9eadf492f216a9f4f8dae4d54fa98813"
+    }
+  ]
+}

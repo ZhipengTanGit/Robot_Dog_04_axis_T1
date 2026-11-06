@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1188pt" height="612pt" viewBox="0 0 1188 612" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-06T22:16:19.133682</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 612
+L 1188 612
+L 1188 0
+L 0 0
+z
+" style="fill: #f5f7fa"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 74.16 392.4
+L 246.24 392.4
+Q 259.2 392.4 259.2 379.44
+L 259.2 210.96
+Q 259.2 198 246.24 198
+L 74.16 198
+Q 61.2 198 61.2 210.96
+L 61.2 379.44
+Q 61.2 392.4 74.16 392.4
+z
+" clip-path="url(#p8551f323ed)" style="fill: #ffffff; stroke: #dce4e9; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 354.96 392.4
+L 545.04 392.4
+Q 558 392.4 558 379.44
+L 558 210.96
+Q 558 198 545.04 198
+L 354.96 198
+Q 342 198 342 210.96
+L 342 379.44
+Q 342 392.4 354.96 392.4
+z
+" clip-path="url(#p8551f323ed)" style="fill: #ffffff; stroke: #dce4e9; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 664.56 392.4
+L 854.64 392.4
+Q 867.6 392.4 867.6 379.44
+L 867.6 210.96
+Q 867.6 198 854.64 198
+L 664.56 198
+Q 651.6 198 651.6 210.96
+L 651.6 379.44
+Q 651.6 392.4 664.56 392.4
+z
+" clip-path="url(#p8551f323ed)" style="fill: #ffffff; stroke: #dce4e9; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 966.96 392.4
+L 1113.84 392.4
+Q 1126.8 392.4 1126.8 379.44
+L 1126.8 210.96
+Q 1126.8 198 1113.84 198
+L 966.96 198
+Q 954 198 954 210.96
+L 954 379.44
+Q 954 392.4 966.96 392.4
+z
+" clip-path="url(#p8551f323ed)" style="fill: #ffffff; stroke: #dce4e9; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 266.475025 302.4
+Q 300.599448 302.4 334.723871 302.4
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 272.875025 305.6
+L 266.475025 302.4
+L 272.875025 299.2
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 328.323871 299.2
+L 334.723871 302.4
+L 328.323871 305.6
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 565.278321 302.4
+Q 604.799997 302.4 644.321673 302.4
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 571.678321 305.6
+L 565.278321 302.4
+L 571.678321 299.2
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 637.921673 299.2
+L 644.321673 302.4
+L 637.921673 305.6
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 874.873487 302.4
+Q 910.79689 302.4 946.720293 302.4
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 881.273487 305.6
+L 874.873487 302.4
+L 881.273487 299.2
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 940.320293 299.2
+L 946.720293 302.4
+L 940.320293 305.6
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #6d8796; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 77.04 213.84
+L 243.36 213.84
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #147d82; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 357.84 213.84
+L 542.16 213.84
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #147d82; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 667.44 213.84
+L 851.76 213.84
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #147d82; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 969.84 213.84
+L 1110.96 213.84
+" clip-path="url(#p8551f323ed)" style="fill: none; stroke: #d06a43; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 28px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="68.4" y="79.2" transform="rotate(-0 68.4 79.2)">T1 · 从网页到四条腿</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #647583" x="68.4" y="115.2" transform="rotate(-0 68.4 115.2)">功能与通信概览 / 软件职责示意；实际电路与接线以原理图、固件配置为准。</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="78.48" y="243.36" transform="rotate(-0 78.48 243.36)">网页工作台</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(78.48 289.189746)">角度控制与回读</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(78.48 314.07002)">动作示教与帧编辑</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(78.48 339.014277)">摄像头、音频与电源页</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="359.28" y="243.36" transform="rotate(-0 359.28 243.36)">ESP32-S3</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(359.28 289.201934)">USB / Wi-Fi 接入</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(359.28 314.083223)">摄像头、音频、屏幕</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(359.28 338.993965)">触摸交互与指令桥接</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="668.88" y="243.36" transform="rotate(-0 668.88 243.36)">STM32F103RB</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(668.88 289.189746)">四路 TTL 舵机通信</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(668.88 314.120801)">角度反馈与动作执行</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(668.88 339.064043)">电源管理与充电指示</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 18px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #173344" x="971.28" y="243.36" transform="rotate(-0 971.28 243.36)">四路 TTL 舵机</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(971.28 289.189746)">0–180° 目标角度</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(971.28 314.134004)">位置回读 / 速度设置</text>
+    <text style="font-size: 13px; font-family: 'Microsoft YaHei'; fill: #526575" transform="translate(971.28 339.020371)">保持 / 释放扭矩</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526575" x="300.6" y="290.16" transform="rotate(-0 300.6 290.16)">USB / Wi-Fi</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526575" x="604.8" y="290.16" transform="rotate(-0 604.8 290.16)">串口桥接</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #526575" x="910.8" y="290.16" transform="rotate(-0 910.8 290.16)">PB6–PB9</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #147d82" x="68.4" y="482.4" transform="rotate(-0 68.4 482.4)">MuJoCo 仿真</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #526575" x="68.4" y="518.4" transform="rotate(-0 68.4 518.4)">CAD 几何 → 接触动力学 → 周期步态优化 → 回放与验收；当前公开展示结果，源码待整理上传。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8551f323ed">
+   <rect x="18" y="18" width="1152" height="576"/>
+  </clipPath>
+ </defs>
+</svg>
