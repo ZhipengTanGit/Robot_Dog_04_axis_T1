@@ -1,12 +1,15 @@
 # Four-axis Robot Dog T1
 
-Repository for the user workbench, local debug terminal, ESP32/STM32 source code, and hardware design references.
+The repository is organized into seven modules:
 
-- Workbench: https://110.42.234.162/robot-studio/
-- Hardware tests: https://110.42.234.162/robot-studio/hardware.html
+- `ESP32-IDF-Debug`: ESP-IDF debug firmware, public build r17.
+- `ESP32-IDF-Xiaozhi`: Xiaozhi v2.1.0 voice firmware and the V0.24 board port.
+- `STM32-LSP-Debug`: STM32F103RB standard peripheral library (SPL), deployed r18 source.
+- `STM32-HAL-Debug`: reserved; no valid robot-dog HAL project was found locally.
+- `HTML-WorkBench`: local debug terminal and user-facing web workbench.
+- `Datasheet`: component and module documentation.
+- `原理图`: editable EDA projects and schematic/BOM/netlist exports.
 
-Install Node.js, run `cd user-web` then `npm start`, and open http://127.0.0.1:8093/ . Browser dependencies are included. See [README.md](README.md) for the five modules and their setup instructions.
+See [README.md](README.md) for build commands, module documentation and migration details. Local debug: `HTML-WorkBench/Debug-Terminal`, Python 3.10+, port 8081. User web: `HTML-WorkBench/User-Web`, `npm start`, port 8093.
 
-`user-web/` retains the existing October 29 public firmware downloads. `debug-terminal/` contains the local 8081 platform. `firmware/esp32/` includes current ESP-IDF source, while `firmware/stm32/` uses the tested r13-180deg source snapshot with TTL servo control/readback and persistent nominal charge settings. `hardware/` contains V0.24 schematic exports, BOM, netlist, an EDA source archive, and deduplicated manuals. See `docs/source-manifest.json` for provenance and hashes.
-
-Pushing to Gitee does not deploy the live server or flash hardware. Server credentials, private configuration, runtime logs, mechanical CAD originals, and full Flash backups are excluded. The existing repository license and third-party notices are retained.
+The voice and debug ESP32 applications use different partition layouts. Keep personal credentials and device backups local. Preserve the STM32 settings area 0x0801F800–0x0801FFFF when flashing. The web firmware downloads dated 2026-10-29 are historical PWM builds and are not the current TTL servo firmware. A Gitee push does not deploy the public website.

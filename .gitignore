@@ -25,3 +25,19 @@ known_hosts
 *.uvguix.*
 sdkconfig.old
 firmware/esp32/sdkconfig
+
+# Seven-module layout: local-only configuration and generated outputs
+**/sdkconfig
+**/managed_components/
+**/.metadata/
+**/CMakeFiles/
+**/compile_commands.json
+*.axf
+*.crf
+*.lst
+*.obj
+*.bak
+*.tmp
+
+# Bundled local components generate machine-specific lock paths.
+/ESP32-IDF-Debug/dependencies.lock

@@ -1,0 +1,23 @@
+{
+  "sourceWebsite": "https://110.42.234.162/robot-studio/",
+  "localSource": "E:\\Project\\robot-dog-color-studio\\dist",
+  "sha256": {
+    "viewer.js": "da79915b3ab4c246050540f4cd182ce4b7da76759d437670fffd7c74d0c4d280",
+    "assembly-motion.js": "4e3f0d2519f7117363662e7c2bd3e2c9410398b4a6fbb7d5805f4f3592cdb97c",
+    "dance-format.js": "16dbc82fefd33b867db6cfe244cc30c2388ca065c143d0073d401829ebb64e20",
+    "assets/model.json": "1ebc4fd2d0ba6e9e138f8dca5b58d7f998b6ad0063562223c27c336c15496bbe",
+    "assets/model.bin": "9a15e8ea0d8dcbe0d395ab62b6dbfd473fe11d8e9704e5d257bae62c59c45c7d",
+    "vendor/three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+    "vendor/three.core.js": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+    "vendor/OrbitControls.js": "06864a0fcb647730bfbc690b6c25a121199d716a3e299a40158509cbd247c3bf",
+    "vendor/RoomEnvironment.js": "faf5469bea1b9961e4b82d1da6a1671ec16137b6cc5b482a6d75a64a05bdc903",
+    "vendor/THREE-LICENSE.txt": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+  },
+  "geometryUnchanged": true,
+  "viewerChanges": [
+    "Use module-relative asset URLs",
+    "Disable idle rendering off page",
+    "Feedback validity tint",
+    "Bound repaint frames"
+  ]
+}
