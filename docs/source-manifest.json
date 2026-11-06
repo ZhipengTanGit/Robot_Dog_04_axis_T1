@@ -11464,8 +11464,8 @@
     {
       "path": "README.md",
       "source": "repository-maintained",
-      "size": 3236,
-      "sha256": "4019975ae877c33df975c98fec9326622f8b2523f1b7d76b66c035ca165b8fec"
+      "size": 7209,
+      "sha256": "b8d1929b7fba9a3a8dc73d56727df44cbd3df7db2acd6ba7a84d687c7c7762a6"
     },
     {
       "path": "STM32-HAL-Debug/README.md",
@@ -12390,6 +12390,18 @@
       "source": "repository-maintained",
       "size": 689,
       "sha256": "9d6fbf37a1adeddb0af9fec6af75dfcccebff5e064197bf8b00965c154277a14"
+    },
+    {
+      "path": "docs/images/t1-gait-preview.png",
+      "source": "repository-maintained",
+      "size": 322869,
+      "sha256": "9c1805c96a08b4bc38afd620a378da19a23f0a5524e805653650c56cdd84116d"
+    },
+    {
+      "path": "docs/images/t1-gait-preview.gif",
+      "source": "repository-maintained",
+      "size": 10662091,
+      "sha256": "19226ee5c3fcca83b7ea51d4d4a8779a1b5f6f15dfbf5ae6ecffcb1c78d4036a"
     }
   ]
 }
