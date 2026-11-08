@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-08",
+  "board": "RobotDog V0.24",
+  "voice_upstream": "2.1.0",
+  "esp_idf": "5.4.4",
+  "voice_peripheral_revision": "r2",
+  "stm32_version": "stm32f103rb-action-teach-20261107-r23",
+  "hardware_results": {
+    "es8388_50khz_register_readback": true,
+    "account_binding_and_conversation": true,
+    "local_aht20_mcp_read": true,
+    "screen_and_head_touch": true,
+    "voice_actions_user_confirmed": true
+  },
+  "host_tests": [
+    "telemetry parsing/freshness/range/wrap",
+    "STM32 accepted/refused/missing ACK/stop/lease/reset",
+    "face/navigation/pet/five renderers",
+    "display rotation/touch inverse/pixel/DMA bounds",
+    "TE timing/wrap/retry fairness",
+    "display init/recovery caps and bus health"
+  ],
+  "provenance": "Peripheral board/component files match the SHA-256 list saved before the verified r2 app flash. Wi-Fi seed and device state are excluded from this repository. Public builds use hotspot provisioning.",
+  "stm32_verified_application_sha256": "90080c4c8549e89557a7f76ae7b3d9b95f7ee73164cd575344f7c7dddfb048e1",
+  "limitations": [
+    "Camera and the old debug web protocol are not integrated in the Xiaozhi application.",
+    "Handshake trajectory is not installed in this STM32 release.",
+    "Initial integration run encountered an audio timeout; the final r2 captured session had no audio input/playback failures and user confirmed operation.",
+    "Display TE window overruns were observed; zero write errors and user confirmed display operation."
+  ],
+  "user_confirmation": "User confirmed voice, local temperature/humidity, screen changes and the supported short voice action test, then authorized Gitee upload.",
+  "publication_tests": {
+    "xiaozhi_native_suites": 6,
+    "stm32_ttl_protocol_motion_teaching_dma_pwm_exclusion": "passed",
+    "stm32_uart3_async": "passed",
+    "stm32_build": "passed; 37328-byte application matches the verified hardware SHA-256",
+    "xiaozhi_clean_build": "passed with ESP-IDF 5.4.4; no personal Wi-Fi seed",
+    "xiaozhi_public_app_bytes": 2290096,
+    "xiaozhi_public_app_sha256": "f135d5364de37e30f7893b1a9e5182eb00faa18556e939d229b40765ca4fb30e",
+    "component_packaging": "peripheral CMakeLists.txt included and layout-checked; upstream main automatic SDK dependency behavior retained"
+  },
+  "source_formatting": "Two compact STM32 if statements were split onto separate lines for modern GCC -Werror checks; firmware behavior is unchanged, binary identity is checked in publication build."
+}

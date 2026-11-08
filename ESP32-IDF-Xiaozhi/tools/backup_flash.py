@@ -32,7 +32,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--length',type=lambda text:int(text,0),default=0x1000000)
     args = parser.parse_args()
+    if args.length<=0 or args.length>0x1000000 or args.length%0x10000:
+        parser.error('length must be a positive 64 KiB multiple up to 16 MiB')
     if args.output.exists():
         raise SystemExit('Refusing to overwrite an existing backup')
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -53,10 +56,10 @@ def main():
         chip = connect()
         start = time.monotonic()
         offset_start = partial.stat().st_size if partial.exists() else 0
-        if offset_start % 0x10000 or offset_start > 0x1000000:
+        if offset_start % 0x10000 or offset_start > args.length:
             raise RuntimeError('Partial file is not a complete verified chunk')
         with partial.open('ab') as output:
-            for offset in range(offset_start, 0x1000000, 0x10000):
+            for offset in range(offset_start, args.length, 0x10000):
                 for attempt in range(5):
                     try:
                         data = read_bounded(chip, offset, 0x10000)
@@ -71,7 +74,7 @@ def main():
                 output.write(data)
                 output.flush()
                 if (offset + len(data)) % 0x100000 == 0:
-                    print(f'Verified backup {(offset + len(data)) // 0x100000}/16 MiB', flush=True)
+                    print(f'Verified backup {(offset + len(data)) // 0x100000}/{args.length/0x100000:g} MiB', flush=True)
         partial.rename(args.output)
         digest = hashlib.sha256(args.output.read_bytes()).hexdigest()
         result = {'bytes': args.output.stat().st_size, 'sha256': digest,

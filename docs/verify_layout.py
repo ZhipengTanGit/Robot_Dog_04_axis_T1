@@ -13,6 +13,8 @@ def verify():
     for module in MODULES:
         assert (ROOT/module).is_dir(), module
         assert any((ROOT/module).iterdir()), module+' is empty'
+    assert (ROOT/'ESP32-IDF-Xiaozhi/components/robot_peripherals/CMakeLists.txt').is_file(), 'Missing peripheral component build entry'
+    assert 'idf_component_register' in (ROOT/'ESP32-IDF-Xiaozhi/components/robot_peripherals/CMakeLists.txt').read_text(encoding='utf-8'), 'Invalid peripheral component build entry'
     manifest = json.loads((ROOT/'docs/source-manifest.json').read_text(encoding='utf-8'))
     tracked = set(subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0'))-{''}
     expected = tracked-{'docs/source-manifest.json'}

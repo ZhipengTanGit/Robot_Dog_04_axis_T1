@@ -33,6 +33,11 @@ $env:IDF_PYTHON_ENV_PATH = $pythonRoot
 $env:IDF_TARGET = 'esp32s3'
 $env:PYTHONIOENCODING = 'utf-8'
 $env:PATH = (Join-Path $pythonRoot 'Scripts') + ';' + $env:PATH
+$gitBin = Join-Path $env:USERPROFILE 'scoop\apps\git\current\bin'
+if (Test-Path -LiteralPath (Join-Path $gitBin 'git.exe')) {
+    $env:PATH = $gitBin + ';' + $env:PATH
+}
+
 # The local proxy interrupts TLS for Espressif's component downloads.
 # Keep certificate verification enabled and bypass that proxy for these hosts.
 $directHosts = @('components-file.espressif.com', 'components.espressif.com', 'dl.espressif.com')
@@ -42,6 +47,10 @@ $env:NO_PROXY = ((@($env:NO_PROXY -split ',') + $directHosts) |
 . (Join-Path $sdkRoot 'export.ps1')
 if ($LASTEXITCODE -ne 0) {
     throw 'ESP-IDF environment activation failed.'
+}
+$preferredCompiler = Join-Path $toolsRoot 'tools\xtensa-esp-elf\esp-14.2.0_20260121\xtensa-esp-elf\bin'
+if (Test-Path -LiteralPath (Join-Path $preferredCompiler 'xtensa-esp32s3-elf-gcc.exe')) {
+    $env:PATH = $preferredCompiler + ';' + $env:PATH
 }
 
 $defaults = 'sdkconfig.defaults;sdkconfig.defaults.esp32s3;sdkconfig.robot'

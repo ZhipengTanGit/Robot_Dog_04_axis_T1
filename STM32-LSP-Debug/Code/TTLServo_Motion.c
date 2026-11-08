@@ -5,7 +5,7 @@ enum { IDLE,GOAL,GOAL_CHECK,ENABLE,ON_CHECK,OFF,OFF_CHECK };
 typedef struct {
     uint16_t goal,sent_goal,speed,sent_speed;
     uint32_t generation,sent_generation,retry_at;
-    uint8_t want,touched,on,stage,id,off_verified;
+    uint8_t want,touched,on,stage,id,off_verified,stream;
 } Control;
 static Control controls[4];
 static uint8_t teaching;
@@ -32,7 +32,7 @@ void TTLServo_EndTeach(void){unsigned i;teaching=0;for(i=0;i<4;++i)if(controls[i
 void TTLServo_BeginTeach(void)
 {
     unsigned i;teaching=1;
-    for(i=0;i<4;++i){Control *c=&controls[i];c->want=0;c->touched=1;
+    for(i=0;i<4;++i){Control *c=&controls[i];c->stream=0;c->want=0;c->touched=1;
         c->off_verified=0;c->stage=OFF;c->retry_at=0;++c->generation;}
 }
 int TTLServo_SetTarget(uint8_t ch,uint16_t pulse,uint32_t now)
@@ -44,22 +44,37 @@ int TTLServo_SetTargetSpeed(uint8_t ch,uint16_t pulse,uint16_t speed,uint32_t no
     TTLServo_Status s;Control *c;
     if(teaching||ch>=4||pulse<500||pulse>2500||speed<1U||speed>1023U)return -1;
     TTLServo_GetStatus(ch,now,&s);
-    if(!s.valid||s.status||s.baud!=115200UL)return -1;
+    if(!TTLServo_ControlReady(&s))return -1;
     c=&controls[ch];
+    c->stream=0;
     {uint16_t goal=(uint16_t)(((uint32_t)(pulse-500U)*SERVO_TTL_POSITION_MAX+1000UL)/2000UL);
-    if(c->want&&c->goal==goal&&c->speed==speed)return 0;c->goal=goal;c->speed=speed;}
+    if(c->want&&c->goal==goal&&c->speed==speed)return 0;
+    c->goal=goal;c->speed=speed;}
     c->want=c->touched=1;c->stage=GOAL;++c->generation;return 0;
 }
 uint8_t TTLServo_TorqueState(uint8_t ch)
 {
     Control *c=&controls[ch];
-    return c->touched ? (!c->want?3U:c->stage==IDLE&&c->on?2U:1U) : c->off_verified?4U:0U;
+    return c->touched ? (!c->want?3U:(c->stage==IDLE||c->stream)&&c->on?2U:1U) : c->off_verified?4U:0U;
+}
+uint8_t TTLServo_IsStreaming(void)
+{unsigned i;for(i=0;i<4;++i)if(controls[i].stream)return 1;return 0;}
+int TTLServo_SetStreamPose(const uint16_t pulses[4],uint16_t speed,uint32_t now)
+{
+    unsigned i;TTLServo_Status s;
+    if(teaching||speed<1U||speed>1023U)return -1;
+    for(i=0;i<4;++i){TTLServo_GetStatus((uint8_t)i,now,&s);
+        if(!TTLServo_ControlReady(&s)||!controls[i].on||!controls[i].want||
+           pulses[i]<500U||pulses[i]>2500U)return -1;}
+    for(i=0;i<4;++i){Control *c=&controls[i];c->stream=1;c->speed=speed;
+        c->goal=(uint16_t)(((uint32_t)(pulses[i]-500U)*SERVO_TTL_POSITION_MAX+1000UL)/2000UL);}
+    return 0;
 }
 int TTLServo_SetPose(const uint16_t pulses[4],uint32_t now)
 {
     unsigned i;TTLServo_Status s;
     for(i=0;i<4;++i){TTLServo_GetStatus((uint8_t)i,now,&s);
-        if(pulses[i]<500U||pulses[i]>2500U||!s.valid||s.status||s.baud!=115200UL)return -1;}
+        if(pulses[i]<500U||pulses[i]>2500U||!TTLServo_ControlReady(&s))return -1;}
     TTLServo_EndTeach();
     /* All calls use the same snapshot time, with no task or interrupt writer
      * to the cached feedback between validation and committing the targets. */
@@ -68,7 +83,7 @@ int TTLServo_SetPose(const uint16_t pulses[4],uint32_t now)
 }
 void TTLServo_StopAll(void)
 {
-    unsigned i;for(i=0;i<4;++i){Control *c=&controls[i];c->want=0;++c->generation;if(c->touched)c->stage=OFF;}
+    unsigned i;for(i=0;i<4;++i){Control *c=&controls[i];c->stream=0;c->want=0;++c->generation;if(c->touched)c->stage=OFF;}
 }
 uint8_t TTLServo_ActiveMask(void)
 {
@@ -77,9 +92,11 @@ uint8_t TTLServo_ActiveMask(void)
 int TTLServo_MotionNext(uint8_t ch,uint8_t id,uint8_t *p,size_t *size,uint32_t now)
 {
     Control *c=&controls[ch];uint8_t data[4];int op=c->stage;
+    if(c->stream&&c->want&&op==IDLE&&(c->goal!=c->sent_goal||c->speed!=c->sent_speed)){c->stage=GOAL;op=GOAL;}
     if(teaching&&op==IDLE&&c->off_verified&&(int32_t)(now-c->retry_at)>=0){c->stage=OFF_CHECK;op=OFF_CHECK;}
     if(!op||(int32_t)(now-c->retry_at)<0)return 0;
-    c->sent_generation=c->generation;c->sent_goal=c->goal;c->sent_speed=c->speed;c->id=id;
+    c->sent_generation=c->generation;c->id=id;
+    if(op==GOAL){c->sent_goal=c->goal;c->sent_speed=c->speed;}
     if(op==GOAL){data[0]=(uint8_t)c->goal;data[1]=(uint8_t)(c->goal>>8);data[2]=(uint8_t)c->speed;data[3]=(uint8_t)(c->speed>>8);*size=packet(id,3,0x1E,data,4,p);}
     else if(op==ENABLE||op==OFF){data[0]=(uint8_t)(op==ENABLE);*size=packet(id,3,0x18,data,1,p);}
     else {p[0]=p[1]=255;p[2]=id;p[3]=4;p[4]=2;p[5]=(uint8_t)(op==GOAL_CHECK?0x1E:0x18);p[6]=(uint8_t)(op==GOAL_CHECK?4:1);p[7]=(uint8_t)(255U-(uint8_t)(id+4U+2U+p[5]+p[6]));*size=8;}
@@ -92,13 +109,16 @@ void TTLServo_MotionComplete(uint8_t ch,int op,const uint8_t *reply,size_t size,
     if(c->generation!=c->sent_generation){c->stage=c->want?GOAL:OFF;return;}
     if(!result&&(op==GOAL||op==ENABLE||op==OFF)&&size&&TTLServo_ParsePing(reply,size,c->id,&ack)==0&&ack.status)result=-1;
     if(result){c->want=0;c->touched=1;c->off_verified=0;c->stage=OFF;c->retry_at=now+500U;return;}
-    if(op==GOAL){c->stage=GOAL_CHECK;return;}
+    if(op==GOAL){
+        /* A validated write ACK suffices for streaming after torque ON was
+         * independently read back. Missing ACKs retain register verification. */
+        c->stage=c->stream&&c->on&&size&&TTLServo_ParsePing(reply,size,c->id,&ack)==0&&!ack.status?IDLE:GOAL_CHECK;return;}
     if(op==ENABLE){c->stage=ON_CHECK;return;}
     if(op==OFF){c->stage=OFF_CHECK;return;}
     expected[0]=(uint8_t)(op==ON_CHECK);
     if(op==GOAL_CHECK){expected[0]=(uint8_t)c->sent_goal;expected[1]=(uint8_t)(c->sent_goal>>8);expected[2]=(uint8_t)c->sent_speed;expected[3]=(uint8_t)(c->sent_speed>>8);}
     if(size<3U||reply[2]!=c->id||!readback(reply,size,expected,op==GOAL_CHECK?4U:1U)){c->want=0;c->touched=1;c->off_verified=0;c->stage=OFF;c->retry_at=now+500U;return;}
-    if(op==GOAL_CHECK)c->stage=c->want?ENABLE:OFF;
+    if(op==GOAL_CHECK)c->stage=c->want?(c->stream&&c->on?IDLE:ENABLE):OFF;
     else if(op==ON_CHECK){c->on=1;c->stage=IDLE;}
     else {c->on=c->touched=0;c->stage=IDLE;c->off_verified=1;c->retry_at=teaching?now+200U:0;}
 }

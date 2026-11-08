@@ -9,6 +9,7 @@
 #if SERVO_TTL_ENABLED
 #include "TTLServo.h"
 #include "TTLServo_Motion.h"
+#include "Walk_Profile.h"
 #endif
 #include <stdio.h>
 #include <string.h>
@@ -30,6 +31,18 @@ static char command[COMMAND_CAPACITY];
 static uint8_t command_length, discarding;
 static uint8_t manual_led0;
 static uint32_t charge_led_started;
+#if SERVO_TTL_ENABLED
+enum { WALK_IDLE,WALK_PREPARE,WALK_RUN,WALK_DONE,WALK_STOPPED,WALK_FAILED };
+static uint8_t walk_active,walk_state,walk_tempo;
+static uint8_t walk_kind,walk_local,pet_armed;
+static uint32_t walk_id,walk_started,walk_updated;
+static uint32_t pet_seen,pet_events,pet_cooldown,pet_released_at;
+static uint16_t walk_duration,walk_targets[4];
+static const char *walk_reason="NONE";
+static const char *pet_reason="NONE";
+static const char *const walk_kind_names[]={"FORWARD","BACKWARD","LEFT","RIGHT","PET"};
+static uint32_t walk_gap_max,walk_late;
+#endif
 static struct {
     char id[33];
     uint16_t target_ma, applied_ma;
@@ -96,6 +109,7 @@ static void stop_outputs(void)
         status.servo_us[channel] = 0U;
     }
 #if SERVO_TTL_ENABLED
+    if(walk_active){walk_active=0;walk_local=0;walk_state=WALK_STOPPED;walk_reason="STOP";}
     TTLServo_StopAll();
 #endif
     status.servo_mask = 0U;
@@ -175,6 +189,10 @@ static void motion_task(uint32_t now)
 void Peripherals_Init(void)
 {
     memset(&status, 0, sizeof(status));
+#if SERVO_TTL_ENABLED
+    walk_active=walk_state=0;walk_id=0;walk_reason="NONE";
+    walk_kind=walk_local=pet_armed=0;pet_seen=pet_events=pet_cooldown=pet_released_at=0;pet_reason="NONE";
+#endif
     memset(&key, 0, sizeof(key));
     memset(&touch, 0, sizeof(touch));
     boot_at = BSP_Millis();
@@ -297,10 +315,11 @@ static void execute_motion(char **tokens, uint8_t count, uint32_t now)
      * old retry must not start motion after the interlock later recovers. */
     status.last_id = id;
 #if SERVO_TTL_ENABLED
+    if(walk_active&&!keep){motion_reply(name,id,0U,"BUSY");return;}
     if(!live&&!keep){motion_reply(name,id,0U,"UNSUPPORTED");return;}
     if(TTLServo_IsTeaching()){motion_reply(name,id,0U,"TEACH_LOCK");return;}
     if(live){TTLServo_Status feedback;TTLServo_GetStatus((uint8_t)channel,now,&feedback);
-        if(!feedback.valid||feedback.status||feedback.baud!=115200UL){motion_reply(name,id,0U,"TTL_NOT_READY");return;}}
+        if(!TTLServo_ControlReady(&feedback)){motion_reply(name,id,0U,"TTL_NOT_READY");return;}}
 #endif
     if (test_active()) { motion_reply(name, id, 0U, "BUSY"); return; }
     if (!status.servo_allowed) { motion_reply(name, id, 0U, "BATTERY"); return; }
@@ -355,9 +374,10 @@ static void execute_teaching(char **tokens, uint8_t count, uint32_t now)
     if((uint32_t)(now-stamp)>PERIPHERALS_SERVO_STAMP_MAX_AGE_MS){motion_reply(name,id,0U,"STALE");return;}
     status.last_id=id;
 #if SERVO_TTL_ENABLED
+    if(walk_active){motion_reply(name,id,0U,"BUSY");return;}
     if(!pose){
         if(!strcmp(name,"TEACH")){for(i=0;i<4U;++i){TTLServo_Status s;TTLServo_GetStatus(i,now,&s);
-            if(!s.valid||s.status||s.baud!=115200UL){motion_reply(name,id,0U,"TTL_NOT_READY");return;}}}
+            if(!TTLServo_ControlReady(&s)){motion_reply(name,id,0U,"TTL_NOT_READY");return;}}}
         stop_outputs();
         if(!strcmp(name,"TEACH"))TTLServo_BeginTeach();else TTLServo_EndTeach();
         motion_reply(name,id,1U,"OK");return;
@@ -365,7 +385,7 @@ static void execute_teaching(char **tokens, uint8_t count, uint32_t now)
     if(test_active()){motion_reply(name,id,0U,"BUSY");return;}
     if(!status.servo_allowed){motion_reply(name,id,0U,"BATTERY");return;}
     for(i=0;i<4U;++i){TTLServo_Status s;TTLServo_GetStatus(i,now,&s);
-        if(!s.valid||s.status||s.baud!=115200UL){motion_reply(name,id,0U,"TTL_NOT_READY");return;}}
+        if(!TTLServo_ControlReady(&s)){motion_reply(name,id,0U,"TTL_NOT_READY");return;}}
     {uint16_t targets[4];for(i=0;i<4U;++i)targets[i]=(uint16_t)pulse[i];
         if(TTLServo_SetPose(targets,now)!=0){motion_reply(name,id,0U,"TTL_NOT_READY");return;}}
     for(i=0;i<4U;++i)status.servo_us[i]=(uint16_t)pulse[i];
@@ -376,6 +396,114 @@ static void execute_teaching(char **tokens, uint8_t count, uint32_t now)
     motion_reply(name,id,1U,"OK");
 #else
     motion_reply(name,id,0U,"UNSUPPORTED");
+#endif
+}
+
+#if SERVO_TTL_ENABLED
+static void walk_task(uint32_t now)
+{
+    uint8_t i,ready=1U;
+    uint32_t elapsed,virtual_ms,phase,index,frac,ramp,period;
+    uint16_t target[4];
+    if(!walk_active)return;
+    if(!status.servo_allowed){stop_outputs();walk_state=WALK_FAILED;walk_reason="BATTERY";return;}
+    if(walk_local){live_until=now+PERIPHERALS_SERVO_LEASE_MS;status.live_left_ms=PERIPHERALS_SERVO_LEASE_MS;}
+    for(i=0;i<4U;++i){TTLServo_Status s;TTLServo_GetStatus(i,now,&s);
+        if(!TTLServo_ControlReady(&s)){stop_outputs();walk_state=WALK_FAILED;walk_reason="FEEDBACK";return;}
+        if(TTLServo_TorqueState(i)!=2U||s.position<483U||s.position>540U)ready=0U;
+    }
+    if(walk_state==WALK_PREPARE){
+        if(ready){walk_state=WALK_RUN;walk_started=now;walk_updated=now-20U;for(i=0;i<4U;++i)walk_targets[i]=1500U;}
+        else if((uint32_t)(now-walk_started)>5000UL){stop_outputs();walk_state=WALK_FAILED;walk_reason="CENTER_TIMEOUT";}
+        return;
+    }
+    elapsed=(uint32_t)(now-walk_started);
+    if(elapsed>=walk_duration){stop_outputs();walk_state=WALK_DONE;walk_reason="DONE";return;}
+    if((uint32_t)(now-walk_updated)<20U)return;
+    {uint32_t gap=(uint32_t)(now-walk_updated);if(gap>walk_gap_max)walk_gap_max=gap;if(gap>30U)++walk_late;}
+    walk_updated=now;
+    for(i=0;i<4U;++i)if(TTLServo_TorqueState(i)!=2U){stop_outputs();walk_state=WALK_FAILED;walk_reason="TORQUE";return;}
+    virtual_ms=elapsed*(uint32_t)walk_tempo/100UL;
+    if(walk_kind==4U){
+        index=virtual_ms/20UL;frac=virtual_ms%20UL;
+        if(index>=PET_PROFILE_POINTS-1U){index=PET_PROFILE_POINTS-1U;frac=0U;}
+        period=20UL;ramp=1000UL;
+    }else{
+        virtual_ms=virtual_ms>500UL?virtual_ms-500UL:0UL;
+        period=walk_period_ms[walk_kind];
+        phase=(virtual_ms%period)*WALK_PROFILE_POINTS;
+        index=phase/period;frac=phase%period;
+        ramp=virtual_ms>=800UL?1000UL:virtual_ms*1000UL/800UL;
+    }
+    ramp=ramp*ramp*(3000UL-2UL*ramp)/1000000UL;
+    for(i=0;i<4U;++i){
+        uint16_t first,second;
+        int32_t value;
+        int32_t delta;
+        int32_t step=walk_kind==4U?7L:27L;
+        if(walk_kind==4U){first=pet_profile[index][i];second=pet_profile[index<PET_PROFILE_POINTS-1U?index+1U:index][i];}
+        else {first=walk_profiles[walk_kind][index][i];second=walk_profiles[walk_kind][(index+1U)%WALK_PROFILE_POINTS][i];}
+        value=(int32_t)first+((int32_t)second-(int32_t)first)*(int32_t)frac/(int32_t)period;
+        value=1500L+(value-1500L)*(int32_t)ramp/1000L;
+        delta=value-(int32_t)walk_targets[i];
+        if(delta>step)delta=step;
+        if(delta< -step)delta= -step;
+        target[i]=(uint16_t)((int32_t)walk_targets[i]+delta);
+    }
+    if(TTLServo_SetStreamPose(target,150U,now)!=0){stop_outputs();walk_state=WALK_FAILED;walk_reason="TTL_NOT_READY";return;}
+    for(i=0;i<4U;++i){walk_targets[i]=target[i];status.servo_us[i]=target[i];}
+}
+
+static const char *begin_walk(uint8_t kind,uint16_t duration,uint8_t tempo,uint32_t id,uint8_t local,uint32_t now)
+{
+    uint16_t targets[4]={1500U,1500U,1500U,1500U};uint8_t i;
+    if(walk_active||TTLServo_IsTeaching()||test_active()||status.servo_mode!=SERVO_MODE_IDLE||TTLServo_ActiveMask())return "BUSY";
+    if(!status.servo_allowed)return "BATTERY";
+    if(TTLServo_SetPose(targets,now)!=0)return "TTL_NOT_READY";
+    for(i=0;i<4U;++i)status.servo_us[i]=1500U;
+    walk_kind=kind;walk_local=local;walk_active=1;walk_state=WALK_PREPARE;walk_started=now;walk_id=id;
+    walk_gap_max=walk_late=0U;TTLServo_ResetTiming();
+    walk_duration=duration;walk_tempo=tempo;walk_reason="NONE";
+    status.servo_mask=15U;status.servo_mode=SERVO_MODE_LIVE;
+    live_until=now+PERIPHERALS_SERVO_LEASE_MS;status.live_left_ms=PERIPHERALS_SERVO_LEASE_MS;
+    return 0;
+}
+
+static void pet_touch_task(uint32_t now)
+{
+    /* A released, stable sensor must be seen after boot and between gestures.
+     * Consume touches while busy; never queue an automatic action for later. */
+    if(!touch.stable){
+        if(!pet_released_at)pet_released_at=now;
+        if((uint32_t)(now-boot_at)>=1500UL&&(uint32_t)(now-pet_released_at)>=300UL&&
+            (int32_t)(now-pet_cooldown)>=0)pet_armed=1U;
+    }else pet_released_at=0U;
+    if(pet_seen==touch.presses)return;
+    pet_seen=touch.presses;
+    if(!pet_armed)return;
+    pet_armed=0U;pet_cooldown=now+8000UL;
+    {const char *reason=begin_walk(4U,6000U,100U,0U,1U,now);
+    pet_reason=reason?reason:"STARTED";if(!reason)++pet_events;}
+}
+#endif
+
+static void execute_walk(char **tokens,uint8_t count,uint32_t now)
+{
+    uint32_t id=0U,stamp=0U,duration=0U,tempo=0U,kind=0U;
+    if((count!=6U&&count!=7U)||!number32(tokens[2],&id)||!id||!number32(tokens[3],&stamp)||
+       !number(tokens[4],&duration)||duration<1000U||duration>10000U||
+       !number(tokens[5],&tempo)||tempo<50U||tempo>100U||
+       (count==7U&&(!number(tokens[6],&kind)||kind>4U))||
+       (kind==4U&&(duration!=6000U||tempo!=100U))){motion_reply("WALK",id,0U,"SYNTAX");return;}
+    if(id<=status.last_id){motion_reply("WALK",id,0U,"OLD_ID");return;}
+    if((uint32_t)(now-stamp)>PERIPHERALS_SERVO_STAMP_MAX_AGE_MS){motion_reply("WALK",id,0U,"STALE");return;}
+    status.last_id=id;
+#if SERVO_TTL_ENABLED
+    {const char *reason=begin_walk((uint8_t)kind,(uint16_t)duration,(uint8_t)tempo,id,0U,now);
+    if(reason){motion_reply("WALK",id,0U,reason);return;}}
+    motion_reply("WALK",id,1U,"OK");
+#else
+    motion_reply("WALK",id,0U,"UNSUPPORTED");
 #endif
 }
 
@@ -476,7 +604,8 @@ static void execute(uint32_t now)
         return;
     }
     if (count < 2U || strcmp(tokens[0], "PERIPH")) { reply("INVALID", 0U, "SYNTAX"); return; }
-    if (!strcmp(tokens[1],"TEACH") || !strcmp(tokens[1],"UNTEACH") || !strcmp(tokens[1],"POSE")) {
+    if(!strcmp(tokens[1],"WALK")){execute_walk(tokens,count,now);
+    } else if (!strcmp(tokens[1],"TEACH") || !strcmp(tokens[1],"UNTEACH") || !strcmp(tokens[1],"POSE")) {
         execute_teaching(tokens,count,now);
     } else if (!strcmp(tokens[1], "LIVE") || !strcmp(tokens[1], "KEEP") || !strcmp(tokens[1], "TEST")) {
         execute_motion(tokens, count, now);
@@ -511,6 +640,7 @@ static void execute(uint32_t now)
                number(tokens[2], &index) && number(tokens[3], &value) &&
                index < 4U && value >= BSP_SERVO_MIN_PULSE_US && value <= BSP_SERVO_MAX_PULSE_US) {
 #if SERVO_TTL_ENABLED
+        if(walk_active){reply("SERVO",0U,"BUSY");return;}
         if(TTLServo_IsTeaching()){reply("SERVO",0U,"TEACH_LOCK");return;}
 #endif
         if (test_active()) { reply("SERVO", 0U, "BUSY"); return; }
@@ -574,6 +704,7 @@ void Peripherals_Task(void)
 #endif
     motion_task(now);
 #if SERVO_TTL_ENABLED
+    walk_task(now);
     TTLServo_Task(now);
 #endif
     if (status.buzzer && (int32_t)(now - buzzer_until) >= 0) {
@@ -591,6 +722,9 @@ void Peripherals_Task(void)
     status.touch = touch.stable;
     status.touch_press = touch.presses;
     status.touch_release = touch.releases;
+#if SERVO_TTL_ENABLED
+    pet_touch_task(now);
+#endif
     bus_allowed = battery.link == BATTERY_LINK_READY && battery.snapshot_valid && battery.awake;
     AHT20_Task(now, bus_allowed);
     receive(now);
@@ -639,6 +773,13 @@ void Peripherals_PrintStatus(void)
         (unsigned)PERIPHERALS_SERVO_TEST_HOLD_MS);
 #if SERVO_TTL_ENABLED
     printf(" teach_proto=1 pose_proto=1 teach=%u",(unsigned)TTLServo_IsTeaching());
+    {static const char *const walk_names[]={"IDLE","PREPARE","RUN","DONE","STOPPED","FAILED"};
+    uint32_t elapsed=(uint32_t)(BSP_Millis()-walk_started);
+    printf(" walk_proto=2 walk_profile=" WALK_PROFILE_ID " walk_state=%s walk_id=%lu walk_left_ms=%u walk_reason=%s",
+        walk_names[walk_state],(unsigned long)walk_id,(unsigned)(walk_state==WALK_RUN&&elapsed<walk_duration?walk_duration-elapsed:0),walk_reason);}
+    printf(" walk_kind=%s walk_local=%u pet_proto=1 pet_events=%lu pet_reason=%s",walk_kind_names[walk_kind],
+        (unsigned)walk_local,(unsigned long)pet_events,pet_reason);
+    printf(" wgap=%lu wlate=%lu",(unsigned long)walk_gap_max,(unsigned long)walk_late);
     TTLServo_PrintStatus(BSP_Millis());
 #endif
     printf(" cmd_ok=%lu cmd_err=%lu rx_drop=%lu\r\n",

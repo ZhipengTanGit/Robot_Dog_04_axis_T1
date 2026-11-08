@@ -1,5 +1,6 @@
 #include "robot_audio_codec.h"
 #include "settings.h"
+#include "Bsp_BoardBus.h"
 
 #include <algorithm>
 #include <array>
@@ -23,7 +24,6 @@ constexpr int kDefaultVolume = 30;
 // LOUT2 is also unity gain; software volume remains user-adjustable.
 constexpr uint8_t kLeftDacVolume = 0x00;
 constexpr uint8_t kLeftOutputVolume = 0x1e; // ES8388 Rev10: -45 + 1.5 * 30 = 0 dB.
-constexpr int kIoTimeoutMs = 80;
 constexpr int kDmaDrainMs = 110; // Six 15 ms DMA descriptors plus margin.
 }
 
@@ -70,17 +70,13 @@ void RobotDogAudioCodec::ReportError(const char* operation, esp_err_t error) {
 
 esp_err_t RobotDogAudioCodec::ReadRegister(i2c_master_dev_handle_t device, uint8_t reg, uint8_t& value) {
     if (!device) return ESP_ERR_INVALID_STATE;
-    const auto error = i2c_master_transmit_receive(device, &reg, 1, &value, 1, kIoTimeoutMs);
-    esp_rom_delay_us(25); // Preserve CST9217 minimum bus-free time for later sharing.
-    return error;
+    return BoardBus_Read(device, &reg, 1, &value, 1);
 }
 
 esp_err_t RobotDogAudioCodec::WriteRegister(i2c_master_dev_handle_t device, uint8_t reg, uint8_t value) {
     if (!device) return ESP_ERR_INVALID_STATE;
     const uint8_t bytes[] = {reg, value};
-    const auto error = i2c_master_transmit(device, bytes, sizeof(bytes), kIoTimeoutMs);
-    esp_rom_delay_us(25);
-    return error;
+    return BoardBus_Write(device, bytes, sizeof(bytes));
 }
 
 esp_err_t RobotDogAudioCodec::CheckRegister(uint8_t reg, uint8_t expected, uint8_t mask) {
@@ -95,14 +91,7 @@ esp_err_t RobotDogAudioCodec::CheckRegister(uint8_t reg, uint8_t expected, uint8
 }
 
 esp_err_t RobotDogAudioCodec::UpdateExpander(uint8_t reg, uint8_t mask, uint8_t value) {
-    uint8_t before = 0, after = 0;
-    auto error = ReadRegister(expander_, reg, before);
-    if (error != ESP_OK) return error;
-    const uint8_t next = (before & ~mask) | (value & mask);
-    if (next != before) error = WriteRegister(expander_, reg, next);
-    if (error == ESP_OK) error = ReadRegister(expander_, reg, after);
-    if (error == ESP_OK && after != next) error = ESP_ERR_INVALID_RESPONSE;
-    return error;
+    return BoardBus_XlUpdate(reg, mask, value);
 }
 
 esp_err_t RobotDogAudioCodec::SetMute(bool mute) {
@@ -132,8 +121,13 @@ esp_err_t RobotDogAudioCodec::Initialize(i2c_master_bus_handle_t bus) {
     auto error = i2c_master_bus_add_device(bus, &device, &expander_);
     if (error != ESP_OK) return error;
     // Preload P04 high before making it output. Preserve camera/display bits.
-    error = UpdateExpander(2, kAmpShutdown, kAmpShutdown);
-    if (error == ESP_OK) error = UpdateExpander(6, kAmpShutdown, 0);
+    for (unsigned attempt=0;attempt<4;++attempt) {
+        error = UpdateExpander(2, kAmpShutdown, kAmpShutdown);
+        if (error == ESP_OK) error = UpdateExpander(6, kAmpShutdown, 0);
+        if (error == ESP_OK) break;
+        ESP_LOGW(kTag,"Amplifier preload/config readback retry %u: %s",attempt+1,esp_err_to_name(error));
+        if (attempt<3) vTaskDelay(pdMS_TO_TICKS(100U*(attempt+1U)));
+    }
     if (error != ESP_OK) return error;
 
     device.device_address = 0x10;

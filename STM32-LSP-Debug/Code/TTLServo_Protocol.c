@@ -1,5 +1,11 @@
 #include "TTLServo.h"
 
+int TTLServo_ControlReady(const TTLServo_Status *s)
+{
+    return s && s->valid && !s->status &&
+        (s->baud == 115200UL || s->baud == 117647UL);
+}
+
 void TTLServo_PingPacket(uint8_t id, uint8_t p[6])
 {
     p[0] = p[1] = 255U; p[2] = id; p[3] = 2U; p[4] = 1U;

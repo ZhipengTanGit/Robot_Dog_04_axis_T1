@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-11-06",
+  "snapshotDate": "2026-11-08",
   "files": [
     {
       "path": ".gitattributes",
@@ -10,14 +10,14 @@
     {
       "path": ".gitee/ISSUE_TEMPLATE.zh-CN.md",
       "source": "repository-maintained",
-      "size": 79,
-      "sha256": "8961036397465316d54cbe74f84188c0c434173f7cc2c53c0c5d5622a18e757f"
+      "size": 92,
+      "sha256": "345f2b97d00dd94ca9bea4b2a87d4270a4489cacfb9e91d0d2e5a4918d291a74"
     },
     {
       "path": ".gitee/PULL_REQUEST_TEMPLATE.zh-CN.md",
       "source": "repository-maintained",
-      "size": 180,
-      "sha256": "83edb6c23a421c99f1d9fe7d4cb12d919eda149ce4da4d9c940b9c1f65ad3aa2"
+      "size": 192,
+      "sha256": "cac05187b1f3f23e4033e9c195f7f5f050c6c1c4e5db9c748e14a62bfbcf969e"
     },
     {
       "path": ".gitignore",
@@ -2206,8 +2206,8 @@
     {
       "path": "ESP32-IDF-Xiaozhi/.gitignore",
       "source": "ESP32_robot_dog_xiaozhi/.gitignore",
-      "size": 358,
-      "sha256": "cc152b4a54895317bb98a36283efd3c1bf5ffb428fb8dab75cfba42e08b81173"
+      "size": 421,
+      "sha256": "a29444edaa82670930269075256384f81390d46a21de1ed0e561e2536129f690"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/CMakeLists.txt",
@@ -2223,15 +2223,15 @@
     },
     {
       "path": "ESP32-IDF-Xiaozhi/PORTING.txt",
-      "source": "ESP32_robot_dog_xiaozhi/PORTING.txt",
-      "size": 3317,
-      "sha256": "9187afd87aa5b19e13881b3682e0b66adfce311aff0d43e5ded806472a8a5820"
+      "source": "repository-maintained",
+      "size": 2072,
+      "sha256": "f9f2c54ab6b982ded4dc7e687298ad689cb3907898e0f13c22010a79395d1857"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/README-ROBOT.md",
       "source": "repository-maintained",
-      "size": 1222,
-      "sha256": "b5f39ad6d969bdee6321d37bb007204dfb2aebc5f785e723392ac87d91500b93"
+      "size": 4258,
+      "sha256": "d3ff4d2e5071cc08ec836c1a687cf24b9939e3ce61c44ce7ee5f487463a95fcf"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/README.md",
@@ -2250,6 +2250,108 @@
       "source": "ESP32_robot_dog_xiaozhi/README_zh.md",
       "size": 9149,
       "sha256": "40399c2e157e014443dba8a84100bd405a1b31401587e18a1eb5564798e86fbe"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/Bsp_BoardBus.c",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/Bsp_BoardBus.c",
+      "size": 16602,
+      "sha256": "2fa724927e5030403bc9dffd30f5dfae5ce2a8f818644a4162392a055bcbd389"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/Bsp_BoardBus.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/Bsp_BoardBus.h",
+      "size": 3530,
+      "sha256": "cb858a60cf3404fa4cd08a57530aa1baa426c28da71d5e47a4c69280e05ad813"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/Bsp_Display.c",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/Bsp_Display.c",
+      "size": 38781,
+      "sha256": "2d3eeaa6a6e6741f49c8d0f202338a3065b01876d42ddd2d58284f4f2f18fafc"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/Bsp_Display.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/Bsp_Display.h",
+      "size": 1771,
+      "sha256": "2bf429b3bf5a6f85a0ec7c38fd0596b2134ea2e5e71b9a49856777bd49dabe95"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/CMakeLists.txt",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/CMakeLists.txt",
+      "size": 285,
+      "sha256": "01c447ab0608d34e1503a1d4a98fe8bfee65dcec38fd152b5cd16745275c7070"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/DisplayLayout.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/DisplayLayout.h",
+      "size": 1801,
+      "sha256": "5e5d4a87fd8e567343fc8ae2e33c9adc325183c8ce0dd4bd011772c25d6e6c72"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/DisplayRecoveryLogic.c",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/DisplayRecoveryLogic.c",
+      "size": 480,
+      "sha256": "2d9914a645c3833089fb7b79e714fc38a76155b83af3a9a21b4c67754fa97f0d"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/DisplayRecoveryLogic.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/DisplayRecoveryLogic.h",
+      "size": 345,
+      "sha256": "913c35e9e79a7b7c9857fe8fc773da771b47782da879545b1efbb4636eb7f896"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/DisplaySyncLogic.c",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/DisplaySyncLogic.c",
+      "size": 2354,
+      "sha256": "217d00334b819930a003141aec3d5cfca0d0326513ed6aa005f6bf34088b8ed3"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/DisplaySyncLogic.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/DisplaySyncLogic.h",
+      "size": 1417,
+      "sha256": "9c36c89ad18b1f51012836f71c66eb4a545f6cf41b0a3edfdd9bda2525f18a7f"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/FaceLogic.c",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/FaceLogic.c",
+      "size": 2222,
+      "sha256": "8b07a72628c8b36076eaa9d8b12b9fc479b630068e11226ceb74b4a557d680af"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/FaceLogic.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/FaceLogic.h",
+      "size": 772,
+      "sha256": "3d75e69712c39425eaa72f7e27999b3ad14d7c64e2b7209796a2b46c1b324c98"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/FaceRender.c",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/FaceRender.c",
+      "size": 4654,
+      "sha256": "d010edf63cc3aaadb6b584bc7d0cd7ba4f5c4fc464ae48a2a1b08b79ccf09c32"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/FaceRender.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/FaceRender.h",
+      "size": 377,
+      "sha256": "64932c922118c408b18e4c50a90c8da76d106d3fa1ef36343ccca643b0d666d1"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/PORTING.md",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/PORTING.md",
+      "size": 539,
+      "sha256": "f2779da5393d28e6a5075be89149090594e4a2c2756052b81287912099f71829"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/PeripheralMath.c",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/PeripheralMath.c",
+      "size": 1737,
+      "sha256": "463e09e537ae7a03fe5b2976532b69e17461e6caaed32eed3ffa0b06c0d0ad51"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/components/robot_peripherals/PeripheralMath.h",
+      "source": "ESP32_robot_dog_xiaozhi/components/robot_peripherals/PeripheralMath.h",
+      "size": 530,
+      "sha256": "afec2d4fb41def65bc9f024325c1a3b2200374d3accda7e0dc112cb0bb4e9250"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/dependencies.lock",
@@ -8770,8 +8872,8 @@
     {
       "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_audio_codec.cc",
       "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_audio_codec.cc",
-      "size": 20604,
-      "sha256": "d0a925da8328815da3f29772794cc3e52de537ffb3a245803a371b1d795e31d6"
+      "size": 20750,
+      "sha256": "240cad996d33d4c9e869b9b0b32b933a17164a865744d20dd67922bc6b9855e1"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_audio_codec.h",
@@ -8780,10 +8882,46 @@
       "sha256": "9a380e592cbac16a333e44d2b63b529fdff4911b964ef425cf5e91b69e3672b5"
     },
     {
+      "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_display.cc",
+      "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_display.cc",
+      "size": 2938,
+      "sha256": "ae495840c11ea3b43efe6a26f9ac2d198ac5c53c71540381c8eb0aa2d2b495db"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_display.h",
+      "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_display.h",
+      "size": 519,
+      "sha256": "962409da7428b8ac41f75fbc8a593c74066bb9c89fc579e240aab422d90aac00"
+    },
+    {
       "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_dog_board.cc",
       "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_dog_board.cc",
-      "size": 5223,
-      "sha256": "7bf15149be1d7f7c489239032069b114720516b6d3a81e250ebb189d0153b301"
+      "size": 9816,
+      "sha256": "604aee271ff2ccc88c3005cc6063b20fd2de5109fcaab2f382f2e23180d340a1"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_stm32.cc",
+      "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_stm32.cc",
+      "size": 10564,
+      "sha256": "378460c5e1440430fa6ecad4e9acf1040de77c85607ad2bf668fd6416ab32874"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_stm32.h",
+      "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_stm32.h",
+      "size": 869,
+      "sha256": "448d404640b72f10f3135ac16d5f7309684bea40be24046c1936429162991279"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_telemetry.cc",
+      "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_telemetry.cc",
+      "size": 3190,
+      "sha256": "1001ea46dc3f1f6a006efaa45ca7a780056d0787c8a211dc461ff15fcfab4ada"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/main/boards/robot-dog-v024/robot_telemetry.h",
+      "source": "ESP32_robot_dog_xiaozhi/main/boards/robot-dog-v024/robot_telemetry.h",
+      "size": 877,
+      "sha256": "89487e56c82d9718f41a9a46f224f2327e4b8288e35f846256a6d59684ae7035"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/main/boards/sensecap-watcher/README.md",
@@ -10466,22 +10604,112 @@
       "sha256": "ff0b71155941d857cc8aa5765c2cf1899e9d1c28de4986cdf29ec01f9b08b3c9"
     },
     {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_fakes/Bsp_BoardBus.h",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_fakes/Bsp_BoardBus.h",
+      "size": 46,
+      "sha256": "7046ac37e04f8d46612a14e6a16b4fe4c63123a5df9d55a1f6d86bc4d90d10ea"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_fakes/Bsp_Display.h",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_fakes/Bsp_Display.h",
+      "size": 66,
+      "sha256": "dea42e08775161d92b2287c2d7fb0d2ce04d99718bc77579d0e8af4bdbc490e0"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_fakes/driver/uart.h",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_fakes/driver/uart.h",
+      "size": 575,
+      "sha256": "26f1ddb80a4c3629ba42c2520c1a4a1d42b5c5606d2090e99ee3e609e5f662e1"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_fakes/esp_err.h",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_fakes/esp_err.h",
+      "size": 83,
+      "sha256": "8420f9b236a3ffd6ae84d8ced3af3f569a16ff32b0dec17de5bdbd8bdc1e4119"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_fakes/esp_log.h",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_fakes/esp_log.h",
+      "size": 47,
+      "sha256": "5c52388e06b90ddb7594afc9862b94dab82e483940260480fa38b535afad86b2"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_fakes/esp_timer.h",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_fakes/esp_timer.h",
+      "size": 65,
+      "sha256": "795b8a2fae3a0fa59a7730507e47f817e8a4907a0c4d7b187e72cf41dde3cc2d"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_fakes/freertos/task.h",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_fakes/freertos/task.h",
+      "size": 191,
+      "sha256": "1c92d2c3f9ae4afb94ef4b96ac391f664953366c923d9ba826c299fde7ee57f9"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_stm32_test.cc",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_stm32_test.cc",
+      "size": 4754,
+      "sha256": "d11d887158beab2af2de0ec8bfc4d2ca23e4bc46d8a95660e13d40f9e8b3c62a"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/robot_telemetry_test.cc",
+      "source": "ESP32_robot_dog_xiaozhi/tests/robot_telemetry_test.cc",
+      "size": 2444,
+      "sha256": "d95165e54a87db113fc3c49800af893a7257b724a4eba505a32b09e087811f00"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/run_host_tests.py",
+      "source": "repository-maintained",
+      "size": 2801,
+      "sha256": "63fee73df2c49d0bd50b2d5fb2a55b5b94be4ff8a24fa9f4d93b65904ce5ca54"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/test_display_layout.c",
+      "source": "ESP32_robot_dog_xiaozhi/tests/test_display_layout.c",
+      "size": 3092,
+      "sha256": "30d29f0d2f776fe2410b7676f3bb1df9e72d88d94fb1f60db17db0a84b9d522b"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/test_display_recovery.c",
+      "source": "ESP32_robot_dog_xiaozhi/tests/test_display_recovery.c",
+      "size": 1081,
+      "sha256": "bdbe35866120dd5780a8a12f67319255d4547335561eb52e4d95432393b82431"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/test_display_sync.c",
+      "source": "ESP32_robot_dog_xiaozhi/tests/test_display_sync.c",
+      "size": 3133,
+      "sha256": "9090d4569238b6514c625f51e25ffb63c4e9ceb168db047092486f4acc34683b"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tests/test_face.c",
+      "source": "ESP32_robot_dog_xiaozhi/tests/test_face.c",
+      "size": 2993,
+      "sha256": "148c63cbd68188ca46e6bfabc484dc92dacea8c215ff95acfe78e698f3ea9f47"
+    },
+    {
       "path": "ESP32-IDF-Xiaozhi/tools/backup_flash.py",
       "source": "ESP32_robot_dog_xiaozhi/tools/backup_flash.py",
-      "size": 3531,
-      "sha256": "c59690e1fed09e21c4d495ff4cd111e26175232819fa37a6e9f79e15046fefd7"
+      "size": 3790,
+      "sha256": "a5727523dab3f6ade2739137a45e7fb8144105ce5574d940b8a1aeeec949f93c"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/tools/build_voice.ps1",
-      "source": "ESP32_robot_dog_xiaozhi/tools/build_voice.ps1",
-      "size": 2330,
-      "sha256": "214d7b1963a0b15db66fd9f541fa82cd9e022f58c4bc68d24ec7d7d106233116"
+      "source": "repository-maintained (SDK compiler preference and portable user path)",
+      "size": 2700,
+      "sha256": "2fb02dff670d7c9ef3ae37cd034114dab8a86e5d2e056d55eb3c11b5d5963b4b"
     },
     {
       "path": "ESP32-IDF-Xiaozhi/tools/monitor_voice.py",
       "source": "ESP32_robot_dog_xiaozhi/tools/monitor_voice.py",
-      "size": 2375,
-      "sha256": "b10014b11655c35d833456c1233a7e1c309aaa6cfc4c0a70e69395fba88aa6a5"
+      "size": 2424,
+      "sha256": "429076953033f7b9b578bd9a44603dfcd01f28453a9776ec31b8d465e533504e"
+    },
+    {
+      "path": "ESP32-IDF-Xiaozhi/tools/peripheral_smoke.py",
+      "source": "ESP32_robot_dog_xiaozhi/tools/peripheral_smoke.py",
+      "size": 1658,
+      "sha256": "feaf02f0c51f19d8204bda49787465c9fa103842c0b1d0570c44f429b893ecda"
     },
     {
       "path": "HTML-WorkBench/Debug-Terminal/README.md",
@@ -11452,8 +11680,8 @@
     {
       "path": "LICENSE",
       "source": "repository-maintained",
-      "size": 18092,
-      "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+      "size": 18431,
+      "sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b"
     },
     {
       "path": "README.en.md",
@@ -11464,8 +11692,8 @@
     {
       "path": "README.md",
       "source": "repository-maintained",
-      "size": 10774,
-      "sha256": "ecada47cd3d140ee115b14c0df0dbd79f64b40154edcd4d6f6fc1cac13595613"
+      "size": 11126,
+      "sha256": "3d3d6f6041b811f9232a466e2d60852f4bfb49d9c2c90cd4119e5c9063f1b606"
     },
     {
       "path": "STM32-HAL-Debug/README.md",
@@ -11505,9 +11733,9 @@
     },
     {
       "path": "STM32-LSP-Debug/BSP/inc/BSP_UART_3.h",
-      "source": "STM32-r18/BSP/inc/BSP_UART_3.h",
-      "size": 799,
-      "sha256": "1840630e6e16119aebf9b94007bc8ac3feda8f4cbc50d406ebdf64bb8b4bdb61"
+      "source": "STM32-r23-verified-snapshot/BSP/inc/BSP_UART_3.h",
+      "size": 868,
+      "sha256": "83965fd1e2b548cd02d3749f85f74b705e095105d79e96daa9851b67e4b28b15"
     },
     {
       "path": "STM32-LSP-Debug/BSP/src/BSP_Battery.c",
@@ -11553,9 +11781,9 @@
     },
     {
       "path": "STM32-LSP-Debug/BSP/src/BSP_UART_3.c",
-      "source": "STM32-r18/BSP/src/BSP_UART_3.c",
-      "size": 3335,
-      "sha256": "8aa1c2a036c673c639ce1ce1ed95b8906b8fecae756b249c6ddaa343fd9248bc"
+      "source": "STM32-r23-verified-snapshot/BSP/src/BSP_UART_3.c",
+      "size": 4188,
+      "sha256": "534bb4fc08592dd91c0e7058ed7fd4fa64d55363e819492c8642f51a00b7594e"
     },
     {
       "path": "STM32-LSP-Debug/Code/AHT20.c",
@@ -11625,9 +11853,9 @@
     },
     {
       "path": "STM32-LSP-Debug/Code/Peripherals.c",
-      "source": "STM32-r18/Code/Peripherals.c",
-      "size": 28161,
-      "sha256": "1628b5a129739f0af0c36eb445def61240f56c5b8913b95c1cfe49b5764f1545"
+      "source": "STM32-r23-verified-snapshot/Code/Peripherals.c (format-only line split)",
+      "size": 35629,
+      "sha256": "86cb2d462f6ecc93a1378fe46e7f8b0f0149091913e0760c5a9035cef52dd7ea"
     },
     {
       "path": "STM32-LSP-Debug/Code/Peripherals.h",
@@ -11643,39 +11871,45 @@
     },
     {
       "path": "STM32-LSP-Debug/Code/TTLServo.c",
-      "source": "STM32-r18/Code/TTLServo.c",
-      "size": 5498,
-      "sha256": "2eeca80cfd70a4efae5c23f4ea90b6cc84cd493e5b090d570125e56686488858"
+      "source": "STM32-r23-verified-snapshot/Code/TTLServo.c",
+      "size": 6886,
+      "sha256": "00dab244f5955d3174821340524f152acc83a08115e5c42c74530b1a10957c6d"
     },
     {
       "path": "STM32-LSP-Debug/Code/TTLServo.h",
-      "source": "STM32-r18/Code/TTLServo.h",
-      "size": 1384,
-      "sha256": "6657e89c7e58093c06e7877b2f3d7ea00a36d619edf91fe0a2d3fd7c0558aecb"
+      "source": "STM32-r23-verified-snapshot/Code/TTLServo.h",
+      "size": 1575,
+      "sha256": "506e73fe12dd921b4cd37b5a5d537dee7c8ffccfdaadac8c53079eb2513ca06b"
     },
     {
       "path": "STM32-LSP-Debug/Code/TTLServo_Motion.c",
-      "source": "STM32-r18/Code/TTLServo_Motion.c",
-      "size": 5366,
-      "sha256": "8588330c7c270e79d25fffbedf33b5e583a7a293681f9d5b42dc9bb90dc7cc90"
+      "source": "STM32-r23-verified-snapshot/Code/TTLServo_Motion.c (format-only line split)",
+      "size": 6488,
+      "sha256": "2c71a79b6bd7671fe0df0f21032c06c121f5b274e4f12f7d47aee365c919cbea"
     },
     {
       "path": "STM32-LSP-Debug/Code/TTLServo_Motion.h",
-      "source": "STM32-r18/Code/TTLServo_Motion.h",
-      "size": 748,
-      "sha256": "6416932573a99e349b8c392d3f0639f85a35c88f246a316ca201886b7d701624"
+      "source": "STM32-r23-verified-snapshot/Code/TTLServo_Motion.h",
+      "size": 866,
+      "sha256": "1f5d7fb35928ed0063745a29e9a4885442b5ffe246fe09ddfcc42160e5aaabdf"
     },
     {
       "path": "STM32-LSP-Debug/Code/TTLServo_Protocol.c",
-      "source": "STM32-r18/Code/TTLServo_Protocol.c",
-      "size": 2728,
-      "sha256": "ec39ba27430f2b3782adcaaea70995c333a947c8c840caffe00eb62414d8a54d"
+      "source": "STM32-r23-verified-snapshot/Code/TTLServo_Protocol.c",
+      "size": 2881,
+      "sha256": "096dedcdeb953212a2ae977083f4023f73928e8cbe2bd4ccd178910b094c9b03"
+    },
+    {
+      "path": "STM32-LSP-Debug/Code/Walk_Profile.h",
+      "source": "STM32-r23-verified-snapshot/Code/Walk_Profile.h",
+      "size": 14612,
+      "sha256": "2fb2f1884c890df5dbb05335ddc176543006f3651671f0c940397025e5f6faf9"
     },
     {
       "path": "STM32-LSP-Debug/Code/main.c",
-      "source": "STM32-r18/Code/main.c",
-      "size": 8733,
-      "sha256": "cedd250cb01ab5ff60208b9c9e2c28b0a50f27da5a6284e504aeacd1b820361c"
+      "source": "STM32-r23-verified-snapshot/Code/main.c",
+      "size": 8791,
+      "sha256": "de7d18b2652609282103633df9ea5c0a3b82e5e7fee936eb0242dba562b1547f"
     },
     {
       "path": "STM32-LSP-Debug/Code/main.h",
@@ -12016,8 +12250,8 @@
     {
       "path": "STM32-LSP-Debug/README.md",
       "source": "repository-maintained",
-      "size": 1539,
-      "sha256": "f66d820c178408707aede0e367890b486cb16048c4b57cbfec0f924e02e4b197"
+      "size": 1888,
+      "sha256": "129b55b397eb0eac80282f7fdf23b20cd8f4bdd8a2b83850c53d53056ba2c256"
     },
     {
       "path": "STM32-LSP-Debug/Startup/startup_stm32f10x_cl.s",
@@ -12122,6 +12356,12 @@
       "sha256": "b1edb12b24a90ff69becfb34f0497c0dc2ea0882636f9a642a2ce20fdc3e2ddf"
     },
     {
+      "path": "STM32-LSP-Debug/tests/run_uart3_async.ps1",
+      "source": "STM32-r23-verified-snapshot/tests/run_uart3_async.ps1",
+      "size": 409,
+      "sha256": "0147f8d9400d202b56133189478c08d10b9937b26ebc5c8df288c07df2700189"
+    },
+    {
       "path": "STM32-LSP-Debug/tests/settings_flash_model.h",
       "source": "STM32/tests/settings_flash_model.h",
       "size": 1350,
@@ -12213,9 +12453,9 @@
     },
     {
       "path": "STM32-LSP-Debug/tests/test_teaching_commands.c",
-      "source": "STM32/tests/test_teaching_commands.c",
-      "size": 2455,
-      "sha256": "30653c6a8a60417a171748a2f40ee83210f9ee1d968d10f9ff78dbecbc9f6c84"
+      "source": "STM32-r23-verified-snapshot/tests/test_teaching_commands.c",
+      "size": 7072,
+      "sha256": "9969cf586228a3747bb4618eee687cd411ad3990042b09e373b87d810b46f745"
     },
     {
       "path": "STM32-LSP-Debug/tests/test_ttl_bsp.c",
@@ -12225,15 +12465,21 @@
     },
     {
       "path": "STM32-LSP-Debug/tests/test_ttl_motion.c",
-      "source": "STM32/tests/test_ttl_motion.c",
-      "size": 3775,
-      "sha256": "108f7f679d4849d07bf08cd936ecd3f54a99afd8369ac9c9e5839e5b53ee9508"
+      "source": "STM32-r23-verified-snapshot/tests/test_ttl_motion.c",
+      "size": 5831,
+      "sha256": "1d61728c4a94049f57cbba89e7547311d4dce17d17b0d986acd2ef91871d0d92"
     },
     {
       "path": "STM32-LSP-Debug/tests/test_ttl_servo.c",
       "source": "STM32/tests/test_ttl_servo.c",
       "size": 4183,
       "sha256": "b681f52c1ccf4895e8eef822e597cade1e645761cf0012d43b727f472c1413f3"
+    },
+    {
+      "path": "STM32-LSP-Debug/tests/test_uart3_async.c",
+      "source": "STM32-r23-verified-snapshot/tests/test_uart3_async.c",
+      "size": 1700,
+      "sha256": "cb8660ed92a535a525bd611c4390d9c52d4595f3a41d51a410abf26e196edd22"
     },
     {
       "path": "STM32-LSP-Debug/tests/ttl_bsp_stubs/stm32f10x.h",
@@ -12254,6 +12500,12 @@
       "sha256": "6199db7799824ef21c721ff60b98fc3eb809a62bb0f60555fa53286cd4e1bf1b"
     },
     {
+      "path": "STM32-LSP-Debug/tests/uart3_stubs/BSP_UART_3.h",
+      "source": "STM32-r23-verified-snapshot/tests/uart3_stubs/BSP_UART_3.h",
+      "size": 2721,
+      "sha256": "381685c01884e014c7c7ae140d1951c91eb078347713b892151f79262b0270ca"
+    },
+    {
       "path": "STM32-LSP-Debug/tools/build.ps1",
       "source": "repository-maintained",
       "size": 1302,
@@ -12272,136 +12524,10 @@
       "sha256": "f18f98bdb55ea00c9a23e57d8970f63e078104b2c6a15a8eef2daaf8fd90a46c"
     },
     {
-      "path": "docs/layout-provenance.json",
+      "path": "docs/images/README.md",
       "source": "repository-maintained",
-      "size": 229309,
-      "sha256": "b26e230b7a91ca85546a5b931ff0c4c65c586df273d514242ec31d6a7fbb81d0"
-    },
-    {
-      "path": "docs/layout.md",
-      "source": "repository-maintained",
-      "size": 1132,
-      "sha256": "7ae01bad4672d57f18169e6eeab7b12a6a97ad65e73e8c9ea97b84596452673d"
-    },
-    {
-      "path": "docs/validation-20261104.md",
-      "source": "repository-maintained",
-      "size": 1804,
-      "sha256": "8e6c63ee57b4bc10fa9461a3ad50376eb4a76b9f279c2ee46f8c8f0f122a9b49"
-    },
-    {
-      "path": "docs/validation-20261106.md",
-      "source": "repository-maintained",
-      "size": 1505,
-      "sha256": "9530c42fe6c5f13b014064d36c680436bb180dae2de6c91ccfd302480424f370"
-    },
-    {
-      "path": "docs/verify_layout.py",
-      "source": "repository-maintained",
-      "size": 1672,
-      "sha256": "b39f0486b0091de51b9e5f7ddd946bca8ed1d1740008aefa547170341ab9d8f6"
-    },
-    {
-      "path": "原理图/EDA/4轴机器狗主控板_ProDoc_Board1_2026-10-02.epro",
-      "source": "电路设计/4轴机器狗主控板_ProDoc_Board1_2026-10-02.epro",
-      "size": 593324,
-      "sha256": "15f8c374730895410013251cbed711c02bb64dc6ecfd0d5c7c295f007d6e1d71"
-    },
-    {
-      "path": "原理图/EDA/ProPrj_P006_4轴桌面机器狗_2026-10-12.epro2",
-      "source": "电路设计/原理图核对/原理图/ProPrj_P006_4轴桌面机器狗_2026-10-12.epro2",
-      "size": 2399174,
-      "sha256": "a555d054a3ba2f8ad393e651135b08f8e01933b213e1baba50bfa3198afe55df"
-    },
-    {
-      "path": "原理图/Exports/V0.24/BOM_Schematic1_1_2026-10-19_105726-474.xlsx",
-      "source": "电路设计/原理图核对/V0.24/BOM_Schematic1_1_2026-10-19_105726-474.xlsx",
-      "size": 12239,
-      "sha256": "0a85553e3e0c13aaf26750e92a60b14235e5ae62ccffa84f35c3abd11c9a2761"
-    },
-    {
-      "path": "原理图/Exports/V0.24/Netlist_Schematic1_1_2026-10-19_105726-474.enet",
-      "source": "电路设计/原理图核对/V0.24/Netlist_Schematic1_1_2026-10-19_105726-474.enet",
-      "size": 481123,
-      "sha256": "4092034fc699b576a0ec4cd8b0d5d1969c32c611d2006a7775532eeb193cf9e2"
-    },
-    {
-      "path": "原理图/Exports/V0.24/PDF_Schematic1_1_2026-10-19_105726-474.pdf",
-      "source": "电路设计/原理图核对/V0.24/PDF_Schematic1_1_2026-10-19_105726-474.pdf",
-      "size": 1405891,
-      "sha256": "fe3624bbcb0cae9dcfc9cf34a62e2c8b9e3de03d82afc6a5c113e709cbf4ecce"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_1-ESP32主控电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_1-ESP32主控电路_2026-10-19.svg",
-      "size": 248502,
-      "sha256": "abbf76898f6ad4bf97fc4a80dce562c25d38d11e6ba78a0344450f981f3524a0"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_2-STM32主控电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_2-STM32主控电路_2026-10-19.svg",
-      "size": 267282,
-      "sha256": "78a5c2bbf5ce8b9c84e68c97862ac1983d1997ea584a7671fda3c927d9dbc0f7"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_3-引脚分配_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_3-引脚分配_2026-10-19.svg",
-      "size": 237897,
-      "sha256": "f5082b8ecba6763274a8abad9a898b8f5b7fee7608057c0ea5fda7ad374f9f61"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_4-充电电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_4-充电电路_2026-10-19.svg",
-      "size": 252166,
-      "sha256": "e46d69eb991dd1b9eb1bbd1565046cac67800c6a916033b9a1bec50914a8c5fc"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_5-电源电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_5-电源电路_2026-10-19.svg",
-      "size": 169212,
-      "sha256": "0d0511bd4468acbb36e71e67f6b4b692dbb4a70c1553fc836830acb76d9b4088"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_6-视频电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_6-视频电路_2026-10-19.svg",
-      "size": 509830,
-      "sha256": "112a35d0d1188c2421c3686bc2313937dcdcdddd8dc838f1182608684d3ff8d6"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_7-音频电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_7-音频电路_2026-10-19.svg",
-      "size": 194819,
-      "sha256": "b84011ba6bd355c92c0b53645aada6c115a5dedbac95ce05c26b319e8c1cd0f1"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_8-传感器电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_8-传感器电路_2026-10-19.svg",
-      "size": 99446,
-      "sha256": "c9277362fa25db73f20a908b6a91ee79b6e3d85dd41ee40d7669478e2830f9b0"
-    },
-    {
-      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_9-执行器电路_2026-10-19.svg",
-      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_9-执行器电路_2026-10-19.svg",
-      "size": 151394,
-      "sha256": "c82ce22bed9195cd35befd22f25967bf5c585afdf071f5f6072681b9fbfa8e73"
-    },
-    {
-      "path": "原理图/README.md",
-      "source": "repository-maintained",
-      "size": 689,
-      "sha256": "9d6fbf37a1adeddb0af9fec6af75dfcccebff5e064197bf8b00965c154277a14"
-    },
-    {
-      "path": "docs/images/t1-gait-preview.png",
-      "source": "repository-maintained",
-      "size": 322869,
-      "sha256": "9c1805c96a08b4bc38afd620a378da19a23f0a5524e805653650c56cdd84116d"
-    },
-    {
-      "path": "docs/images/t1-gait-preview.gif",
-      "source": "repository-maintained",
-      "size": 10662091,
-      "sha256": "19226ee5c3fcca83b7ea51d4d4a8779a1b5f6f15dfbf5ae6ecffcb1c78d4036a"
+      "size": 6346,
+      "sha256": "58d72c60cf90a1141b6aa865986a3eeb6b0eab3a86769561e28b7c07e10554f4"
     },
     {
       "path": "docs/images/leg-channel-map.png",
@@ -12420,12 +12546,6 @@
       "source": "repository-maintained",
       "size": 11100,
       "sha256": "c61caa6b124395802849de2f46c553d8618dca5998ef76d4dc9c8f1171c5f6d5"
-    },
-    {
-      "path": "docs/images/README.md",
-      "source": "repository-maintained",
-      "size": 6346,
-      "sha256": "58d72c60cf90a1141b6aa865986a3eeb6b0eab3a86769561e28b7c07e10554f4"
     },
     {
       "path": "docs/images/repository-map.png",
@@ -12524,6 +12644,18 @@
       "sha256": "9cbb71d680b037141bc9d8dd1c61dacf9eadf492f216a9f4f8dae4d54fa98813"
     },
     {
+      "path": "docs/images/source-data/gait-evaluation.json",
+      "source": "repository-maintained",
+      "size": 13400,
+      "sha256": "418cbf21fc3e9e1ecdf06e30016004a22ccfa42f7be4d2658b1302d3933063fc"
+    },
+    {
+      "path": "docs/images/source-data/gait-trace.csv",
+      "source": "repository-maintained",
+      "size": 350560,
+      "sha256": "e79d70f13d065a30392cbdbcf631bc230316261b9363942a7debf61913e44006"
+    },
+    {
       "path": "docs/images/studio-color-apricot.png",
       "source": "repository-maintained",
       "size": 176204,
@@ -12584,6 +12716,18 @@
       "sha256": "c8f54f4273f9c60fa763885c8bfa2ab139ba06ee2dd1a2b1da781b4139c23c69"
     },
     {
+      "path": "docs/images/t1-gait-preview.gif",
+      "source": "repository-maintained",
+      "size": 10662091,
+      "sha256": "19226ee5c3fcca83b7ea51d4d4a8779a1b5f6f15dfbf5ae6ecffcb1c78d4036a"
+    },
+    {
+      "path": "docs/images/t1-gait-preview.png",
+      "source": "repository-maintained",
+      "size": 322869,
+      "sha256": "9c1805c96a08b4bc38afd620a378da19a23f0a5524e805653650c56cdd84116d"
+    },
+    {
       "path": "docs/images/training-displacement.png",
       "source": "repository-maintained",
       "size": 166206,
@@ -12638,16 +12782,136 @@
       "sha256": "937850f57591be75b037a82b184628b80e6a86546df4f695d53b7abc50d42004"
     },
     {
-      "path": "docs/images/source-data/gait-evaluation.json",
+      "path": "docs/layout-provenance.json",
       "source": "repository-maintained",
-      "size": 13400,
-      "sha256": "418cbf21fc3e9e1ecdf06e30016004a22ccfa42f7be4d2658b1302d3933063fc"
+      "size": 234951,
+      "sha256": "d702a067901e367549659338a98f0a4e53683baf6ad6ce6755b1f8ab1fe0ffa6"
     },
     {
-      "path": "docs/images/source-data/gait-trace.csv",
+      "path": "docs/layout.md",
       "source": "repository-maintained",
-      "size": 350560,
-      "sha256": "e79d70f13d065a30392cbdbcf631bc230316261b9363942a7debf61913e44006"
+      "size": 1132,
+      "sha256": "7ae01bad4672d57f18169e6eeab7b12a6a97ad65e73e8c9ea97b84596452673d"
+    },
+    {
+      "path": "docs/validation-20261104.md",
+      "source": "repository-maintained",
+      "size": 1804,
+      "sha256": "8e6c63ee57b4bc10fa9461a3ad50376eb4a76b9f279c2ee46f8c8f0f122a9b49"
+    },
+    {
+      "path": "docs/validation-20261106.md",
+      "source": "repository-maintained",
+      "size": 1505,
+      "sha256": "9530c42fe6c5f13b014064d36c680436bb180dae2de6c91ccfd302480424f370"
+    },
+    {
+      "path": "docs/validation-20261108.json",
+      "source": "repository-maintained",
+      "size": 2543,
+      "sha256": "9f8b66cde4a7b1b32293fa9af5416b308632c5aa4d20e966efb8d11e3e7c53fa"
+    },
+    {
+      "path": "docs/validation-20261108.md",
+      "source": "repository-maintained",
+      "size": 3349,
+      "sha256": "52d6f2ce7bc11b63a1f34ba7fd6445ec580a2b7aca18a8bb34699c9dbe43fca3"
+    },
+    {
+      "path": "docs/verify_layout.py",
+      "source": "repository-maintained",
+      "size": 1990,
+      "sha256": "cbdae9982cce9a8be33d4db5bedfa06cc84fe1089848e5034ca976175f070f0e"
+    },
+    {
+      "path": "原理图/EDA/4轴机器狗主控板_ProDoc_Board1_2026-10-02.epro",
+      "source": "电路设计/4轴机器狗主控板_ProDoc_Board1_2026-10-02.epro",
+      "size": 593324,
+      "sha256": "15f8c374730895410013251cbed711c02bb64dc6ecfd0d5c7c295f007d6e1d71"
+    },
+    {
+      "path": "原理图/EDA/ProPrj_P006_4轴桌面机器狗_2026-10-12.epro2",
+      "source": "电路设计/原理图核对/原理图/ProPrj_P006_4轴桌面机器狗_2026-10-12.epro2",
+      "size": 2399174,
+      "sha256": "a555d054a3ba2f8ad393e651135b08f8e01933b213e1baba50bfa3198afe55df"
+    },
+    {
+      "path": "原理图/Exports/V0.24/BOM_Schematic1_1_2026-10-19_105726-474.xlsx",
+      "source": "电路设计/原理图核对/V0.24/BOM_Schematic1_1_2026-10-19_105726-474.xlsx",
+      "size": 12239,
+      "sha256": "0a85553e3e0c13aaf26750e92a60b14235e5ae62ccffa84f35c3abd11c9a2761"
+    },
+    {
+      "path": "原理图/Exports/V0.24/Netlist_Schematic1_1_2026-10-19_105726-474.enet",
+      "source": "电路设计/原理图核对/V0.24/Netlist_Schematic1_1_2026-10-19_105726-474.enet",
+      "size": 481123,
+      "sha256": "4092034fc699b576a0ec4cd8b0d5d1969c32c611d2006a7775532eeb193cf9e2"
+    },
+    {
+      "path": "原理图/Exports/V0.24/PDF_Schematic1_1_2026-10-19_105726-474.pdf",
+      "source": "电路设计/原理图核对/V0.24/PDF_Schematic1_1_2026-10-19_105726-474.pdf",
+      "size": 1405891,
+      "sha256": "fe3624bbcb0cae9dcfc9cf34a62e2c8b9e3de03d82afc6a5c113e709cbf4ecce"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_1-ESP32主控电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_1-ESP32主控电路_2026-10-19.svg",
+      "size": 248502,
+      "sha256": "abbf76898f6ad4bf97fc4a80dce562c25d38d11e6ba78a0344450f981f3524a0"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_2-STM32主控电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_2-STM32主控电路_2026-10-19.svg",
+      "size": 267282,
+      "sha256": "78a5c2bbf5ce8b9c84e68c97862ac1983d1997ea584a7671fda3c927d9dbc0f7"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_3-引脚分配_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_3-引脚分配_2026-10-19.svg",
+      "size": 237897,
+      "sha256": "f5082b8ecba6763274a8abad9a898b8f5b7fee7608057c0ea5fda7ad374f9f61"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_4-充电电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_4-充电电路_2026-10-19.svg",
+      "size": 252166,
+      "sha256": "e46d69eb991dd1b9eb1bbd1565046cac67800c6a916033b9a1bec50914a8c5fc"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_5-电源电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_5-电源电路_2026-10-19.svg",
+      "size": 169212,
+      "sha256": "0d0511bd4468acbb36e71e67f6b4b692dbb4a70c1553fc836830acb76d9b4088"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_6-视频电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_6-视频电路_2026-10-19.svg",
+      "size": 509830,
+      "sha256": "112a35d0d1188c2421c3686bc2313937dcdcdddd8dc838f1182608684d3ff8d6"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_7-音频电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_7-音频电路_2026-10-19.svg",
+      "size": 194819,
+      "sha256": "b84011ba6bd355c92c0b53645aada6c115a5dedbac95ce05c26b319e8c1cd0f1"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_8-传感器电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_8-传感器电路_2026-10-19.svg",
+      "size": 99446,
+      "sha256": "c9277362fa25db73f20a908b6a91ee79b6e3d85dd41ee40d7669478e2830f9b0"
+    },
+    {
+      "path": "原理图/Exports/V0.24/svg/SCH_Schematic1_1_9-执行器电路_2026-10-19.svg",
+      "source": "电路设计/原理图核对/V0.24/SVG/SCH_Schematic1_1_9-执行器电路_2026-10-19.svg",
+      "size": 151394,
+      "sha256": "c82ce22bed9195cd35befd22f25967bf5c585afdf071f5f6072681b9fbfa8e73"
+    },
+    {
+      "path": "原理图/README.md",
+      "source": "repository-maintained",
+      "size": 689,
+      "sha256": "9d6fbf37a1adeddb0af9fec6af75dfcccebff5e064197bf8b00965c154277a14"
     }
   ]
 }

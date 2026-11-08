@@ -147,7 +147,7 @@ int main(void)
 #if BATTERY_UART_DIAGNOSTICS
     last_log = BSP_Millis() - 1000U;
     last_peripheral = BSP_Millis() - 200U;
-    printf("\r\nRobot battery V0.24 STM32F103RB 1S2P 1400mAh fw=ACTION_TEACH_stm32f103rb-action-teach-20261106-r18\r\n");
+    printf("\r\nRobot battery V0.24 STM32F103RB 1S2P 1400mAh fw=ACTION_TEACH_stm32f103rb-action-teach-20261107-r23\r\n");
     printf("Diagnostics USART%u 115200 8N1\r\n", (unsigned)BATTERY_DIAGNOSTIC_UART);
     printf("I2C PB10/PB11 addr=0x75; L3 PA15; temp_connected=%u; control=%u; vbus_setup=%u; map_confirmed=%u\r\n",
         (unsigned)BATTERY_TEMP_ADC_CONNECTED, (unsigned)BATTERY_CONTROL_ENABLED,
@@ -158,12 +158,12 @@ int main(void)
         Battery_Task();
         Peripherals_Task();
 #if BATTERY_UART_DIAGNOSTICS
-        if ((uint32_t)(BSP_Millis() - last_log) >= 1000U) {
+        if ((uint32_t)(BSP_Millis() - last_log) >= 1000U && UART_3_Tx_Free() >= 2048U) {
             last_log = BSP_Millis();
             Battery_PrintStatus();
         }
         /* Fresh cached position telemetry; battery and sensor poll rates unchanged. */
-        if ((uint32_t)(BSP_Millis() - last_peripheral) >= 200U) {
+        if ((uint32_t)(BSP_Millis() - last_peripheral) >= 200U && UART_3_Tx_Free() >= 2048U) {
             last_peripheral = BSP_Millis();
             Peripherals_PrintStatus();
         }

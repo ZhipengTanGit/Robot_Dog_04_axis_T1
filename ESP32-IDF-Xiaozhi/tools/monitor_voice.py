@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--port', default='COM23')
     parser.add_argument('--seconds', type=float, default=60)
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--command', choices=['status', 'chat'],
+    parser.add_argument('--command', choices=['status', 'chat', 'environment', 'robot-status', 'display-status'],
                         help='console command before capture; cannot combine with --reset')
     parser.add_argument('--volume', type=volume_argument, metavar='0..100',
                         help='set saved volume before --command; 0 mutes; cannot combine with --reset')

@@ -1,54 +1,28 @@
-机器狗 V0.24 小智语音工程
+机器狗 V0.24 小智外设适配（2026-11-08 r2）
+上游：78/xiaozhi-esp32 v2.1.0，213117ded24f4a41ae6b90cf146f92a4f014d2c0。
+SDK：ESP-IDF 5.4.4；依赖由 dependencies.lock 固定。
+使用与测试入口见 README-ROBOT.md，验证结果见 ../docs/validation-20261108.md。
 
-源码：78/xiaozhi-esp32 v2.1.0
-上游提交：213117ded24f4a41ae6b90cf146f92a4f014d2c0
-SDK：ESP-IDF v5.4.4
-SDK 提交：296b6eab9445fd720e71aecab961e2d3fbca9944
-依赖解析结果：dependencies.lock（应与源码一起保存）
+硬件
+I2C0 SDA8 / SCL19，由 robot_peripherals/BoardBus 统一管理。
+ES8388 0x10：50 kHz 实际寄存器读写验证；XL9555 0x20：100 kHz，P04 高关闭功放、低开启。
+I2S0 MCLK6 / BCLK7 / WS15 / DOUT16 / DIN17；16 kHz、16 bit、Philips 双槽，麦克风左槽与扬声器左槽。
+LIN1 +18 dB；DAC/LOUT2 为 0 dB，软件音量 0..100，首次 30%，恢复用户保存值。
+未配置 AEC 参考输入。设备与服务器 AEC 默认关闭；保留激活但关闭自动固件 OTA。
+CO5300：SPI2 QSPI，CLK20 / D0=3 / D1=9 / D2=10 / D3=11 / CS12 / TE13。
+原生 410x502，软件旋转 270 度为 502x410；窗口双像素对齐，保留 TE 时序与 DMA 排空。
+XL9555 P02 屏幕复位，P03 触摸复位，CST9217 0x5A，IRQ14。
+UART0 TX43/RX44，115200，CH340 小智控制台。
+UART1 TX4/RX5，115200，STM32 PC11/PC10；STM32 R23 负责 AHT20、触摸、电源和 TTL 舵机。
 
-范围
-本轮仅实现官方服务的语音对话。原调试工程见仓库 ESP32-IDF-Debug。
-本工程不启动摄像头、屏幕或旧网页/串口调试服务，不向 STM32 发舵机等动作命令。
-屏幕不亮不会阻塞语音。官方固件 OTA 默认禁用，保留激活、连接参数和时间获取。
+运行范围
+语音、板载温湿度、屏幕表情与已有 STM32 身体动作；不启动摄像头或旧网页调试服务。
+STM32 保留时间戳、编号、租约、反馈、电源与示教联锁。执行失败不当作成功报告。
+共享总线锁包含音频寄存器访问，XL9555 原子读改写不会覆盖其他外设引脚。
+不从对话推断实际测量值；AHT20 有效标志和总样本年龄通过后才返回读数。
+同名 Wi-Fi 扫描按信号选择实际 BSSID/信道。Wi-Fi 只存用户自己的 NVS。
 
-音频硬件
-I2C0 SDA8 / SCL19；ES8388 0x10，50 kHz 实际寄存器读写。
-XL9555 0x20 的 P04 控制功放：高关闭、低开启；读改写保留其他引脚。
-I2S0：MCLK6 / BCLK7 / WS15 / DOUT16 / DIN17。
-总线 16 kHz、16 bit、Philips 双槽；麦克风抽取左槽，扬声器输出左槽，右槽零。
-上层均为 16 kHz 单声道；来自服务端的不同采样率由小智 AudioService 重采样。
-麦克风 LIN1 +18 dB，扬声器 LOUT2；无 AEC 参考输入，设备/服务端 AEC 默认关闭。
-首次默认音量 30%；当前设备已通过串口调至 80% 并保存，重启会恢复保存值。
-语音版左 DAC 数字音量为 0 dB（0x1A=0x00），LOUT2 模拟音量为 0 dB（0x30=0x1E）。
-两级恢复正常无衰减输出，以软件 0..100 音量控制响度；初始化读回检查两个寄存器。
-相比原短音测试配置，共移除了 DAC -12 dB 与 LOUT2 -9 dB 的衰减。
-
-构建
-在本目录使用 PowerShell 执行：
-  powershell -NoProfile -ExecutionPolicy Bypass -File tools\build_voice.ps1
-构建输出：build_robot\xiaozhi.bin 及生成的 flasher_args.json。
-构建需要 16 MB Flash / 8 MB Octal PSRAM 的 ESP32-S3。
-默认配置：sdkconfig.defaults、sdkconfig.defaults.esp32s3、sdkconfig.robot。
-
-首次联网
-本地可选 wifi_seed.local.h 只在小智没有 Wi-Fi 配置时写入初始网络。
-该文件及包含凭据的 Flash 备份不会纳入 Git。
-未预置网络时使用官方 Xiaozhi 热点配网流程。
-同名热点按扫描的信号排序选择，并按选中的 BSSID/信道连接；重新扫描仍可选择新热点。
-连接官方服务后，按扬声器或串口播报的激活码在 https://xiaozhi.me 绑定设备。
-激活之后喊“你好小智”开始对话；当前按无 AEC 的自动监听模式运行。
-
-串口诊断
-CH340：115200 / 8N1，ESP UART0 TX43 / RX44。
-命令末尾加换行：
-  status          显示状态、音量、codec 状态、剩余堆及已送入 I2S 的播放 PCM 峰值/RMS/样本数
-  chat            切换开始/结束对话
-  volume 30       调节音量并保存，控制台与语音控制均允许 0..100
-  wifi-config     进入官方热点配网
-日志包含激活提示、识别文字、回复文字和音频/网络错误。
-旧监控工具的 921600 波特率及 ESP 控制协议不适用于本语音版。
-
-回退与备份
-语音版与调试版分区布局不同，应使用各自完整构建输出。
-请先备份自己设备的有效分区及配置；备份可能包含 Wi-Fi 与设备配对信息，应仅在本地保管。
-历史开发机回退镜像及现场日志未公开。恢复操作需使用自己保存且校验过的镜像。
+公开发布
+不附带 wifi_seed.local.h、设备 NVS、Flash 备份、账户绑定信息、对话日志或含个人配置的镜像。
+从调试版首次切换需要对应 bootloader、分区表、app 与 assets；切换前自行备份。
+构建、烧录、串口诊断和主机测试步骤见 README-ROBOT.md。

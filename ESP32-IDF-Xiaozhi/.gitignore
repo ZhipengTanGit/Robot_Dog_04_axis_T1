@@ -1,5 +1,8 @@
 tmp/
 components/
+!/components/
+/components/*
+!/components/robot_peripherals/
 managed_components/
 build/
 .vscode/

@@ -5,6 +5,8 @@ void TTLServo_MotionInit(void);
 int TTLServo_SetTarget(uint8_t channel,uint16_t pulse,uint32_t now);
 int TTLServo_SetTargetSpeed(uint8_t channel,uint16_t pulse,uint16_t speed,uint32_t now);
 int TTLServo_SetPose(const uint16_t pulses[4],uint32_t now);
+int TTLServo_SetStreamPose(const uint16_t pulses[4],uint16_t speed,uint32_t now);
+uint8_t TTLServo_IsStreaming(void);
 void TTLServo_StopAll(void);
 void TTLServo_BeginTeach(void);
 void TTLServo_EndTeach(void);

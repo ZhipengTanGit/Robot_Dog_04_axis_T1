@@ -10,6 +10,8 @@
 void UART_3_Config(void);
 /* Bounded wait; returns 0 after enqueueing one byte, -1 if unavailable. */
 int UART_3_Send_Byte(uint8_t data);
+uint16_t UART_3_Tx_Free(void);
+uint32_t UART_3_Get_Tx_Dropped(void);
 /* Main-loop consumer, nonblocking. The RX ring holds up to 255 bytes.
  * Receiving bytes does not execute a command or produce an echo.
  */

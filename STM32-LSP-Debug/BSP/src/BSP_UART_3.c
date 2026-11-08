@@ -2,7 +2,8 @@
 
 #define UART_3_RX_SIZE       256U
 #define UART_3_RX_MASK       (UART_3_RX_SIZE - 1U)
-#define UART_3_TX_WAIT_LIMIT 100000UL
+#define UART_3_TX_SIZE 4096U
+#define UART_3_TX_MASK (UART_3_TX_SIZE - 1U)
 
 /* Single ISR producer / main-loop consumer. Volatile accesses preserve the
  * store-data-before-head and load-data-before-tail publication order.
@@ -12,6 +13,9 @@ static volatile uint16_t rx_head;
 static volatile uint16_t rx_tail;
 static volatile uint32_t rx_dropped;
 static volatile uint32_t rx_errors;
+static volatile uint8_t tx_buffer[UART_3_TX_SIZE];
+static volatile uint16_t tx_head,tx_tail;
+static volatile uint32_t tx_dropped;
 
 void UART_3_Config(void)
 {
@@ -42,6 +46,7 @@ void UART_3_Config(void)
     rx_tail = 0U;
     rx_dropped = 0UL;
     rx_errors = 0UL;
+    tx_head=tx_tail=0U;tx_dropped=0U;
     /* SR then DR clears any stale RX/error state before enabling the IRQ. */
     (void)USART3->SR;
     (void)USART3->DR;
@@ -57,19 +62,24 @@ void UART_3_Config(void)
 
 int UART_3_Send_Byte(uint8_t data)
 {
-    uint32_t remaining = UART_3_TX_WAIT_LIMIT;
+    uint32_t saved_irq;
+    uint16_t next;
     if ((USART3->CR1 & (USART_CR1_UE | USART_CR1_TE)) !=
         (USART_CR1_UE | USART_CR1_TE)) {
         return -1;
     }
-    while ((USART3->SR & USART_SR_TXE) == 0U) {
-        if (remaining-- == 0UL) {
-            return -1;
-        }
-    }
-    USART3->DR = data;
+    /* Main-loop producer / IRQ consumer. No serial wire-time wait in printf.
+     * The short publication critical section also fences TXE disable/enable. */
+    saved_irq=__get_PRIMASK();__disable_irq();
+    next=(uint16_t)((tx_head+1U)&UART_3_TX_MASK);
+    if(next==tx_tail){++tx_dropped;__set_PRIMASK(saved_irq);return -1;}
+    tx_buffer[tx_head]=data;tx_head=next;USART3->CR1|=USART_CR1_TXEIE;
+    __set_PRIMASK(saved_irq);
     return 0;
 }
+uint16_t UART_3_Tx_Free(void)
+{return (uint16_t)(UART_3_TX_MASK-((tx_head-tx_tail)&UART_3_TX_MASK));}
+uint32_t UART_3_Get_Tx_Dropped(void){return tx_dropped;}
 
 uint16_t UART_3_Read(uint8_t *data, uint16_t capacity)
 {
@@ -107,19 +117,17 @@ void USART3_IRQHandler(void)
     uint16_t next;
     uint8_t data;
     if ((flags & (USART_SR_RXNE | USART_SR_ORE | USART_SR_NE |
-                  USART_SR_FE | USART_SR_PE)) == 0U) {
-        return;
+                  USART_SR_FE | USART_SR_PE)) != 0U) {
+        data = (uint8_t)USART3->DR;
+        if ((flags & (USART_SR_ORE | USART_SR_NE | USART_SR_FE | USART_SR_PE)) != 0U) {++rx_errors;}
+        else {
+            next = (uint16_t)((rx_head + 1U) & UART_3_RX_MASK);
+            if(next==rx_tail){++rx_dropped;}
+            else{rx_buffer[rx_head]=data;rx_head=next;}
+        }
     }
-    data = (uint8_t)USART3->DR;
-    if ((flags & (USART_SR_ORE | USART_SR_NE | USART_SR_FE | USART_SR_PE)) != 0U) {
-        ++rx_errors;
-        return;
+    if((flags&USART_SR_TXE)&&(USART3->CR1&USART_CR1_TXEIE)){
+        if(tx_tail!=tx_head){USART3->DR=tx_buffer[tx_tail];tx_tail=(uint16_t)((tx_tail+1U)&UART_3_TX_MASK);}
+        if(tx_tail==tx_head)USART3->CR1&=~USART_CR1_TXEIE;
     }
-    next = (uint16_t)((rx_head + 1U) & UART_3_RX_MASK);
-    if (next == rx_tail) {
-        ++rx_dropped;
-        return;
-    }
-    rx_buffer[rx_head] = data;
-    rx_head = next;
 }
